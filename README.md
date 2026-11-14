@@ -28,6 +28,18 @@ Bu depo şu aşamada projenin araştırma belgelerini, kaynak listesini ve veri 
 - [Kaynak bağlantıları](arastirma/kaynaklar.json)
 - [Teknik veri kataloğu](arastirma/veri_katalogu.json)
 
+## Web sitesi
+
+Projenin tanıtım sitesi depo kökündeki [index.html](index.html) dosyasıdır; stil, veri ve etkileşim kodu [site/](site/) klasöründedir. Site Türkçe ve İngilizce olarak görüntülenebilir. İçerik bu depodaki araştırma belgelerinden derlenmiştir; atlastaki uygunluk notları niteliksel ön değerlendirmedir, hesaplanmış skor değildir.
+
+Yerelde açmak için depo kökünde bir statik sunucu çalıştırın ve `http://localhost:5173` adresine gidin:
+
+```bash
+python -m http.server 5173
+```
+
+Harita için D3, TopoJSON ve kıta çizgileri, yazı tipleri için Google Fonts ağ üzerinden yüklenir. Site derleme adımı gerektirmez; GitHub Pages gibi bir statik barındırmaya depo kökünden doğrudan yayımlanabilir.
+
 ## Araştırma yaklaşımı
 
 TerraTwin, belirli bir Ay veya Mars hedefinin topografya, yüzey malzemesi, çevre veya operasyon koşullarını Dünya'daki seçilmiş alanlarla karşılaştırmayı amaçlar. Benzerlik, deney amacına ve incelenen ölçeğe göre değerlendirilir.

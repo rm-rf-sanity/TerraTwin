@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TerraTwin — Ay üssünün ve Mars'ın Dünya'daki ikizleri</title>
+<meta name="description" content="TerraTwin, NASA Space Apps Challenge 2026 için kalıcı Ay üssü konumuna ve Mars hedeflerine benzeyen Dünya arazilerini NASA'nın açık verileriyle araştırır.">
+<meta name="theme-color" content="#121517">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23121517'/%3E%3Ccircle cx='12' cy='16' r='7' fill='none' stroke='%239dbdd2' stroke-width='2'/%3E%3Ccircle cx='20' cy='16' r='7' fill='none' stroke='%23e07a4f' stroke-width='2'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site/styles.css">
+</head>
+<body>
+<a class="skip" href="#gorev">İçeriğe geç</a>
+
+<header class="nav">
+  <a class="brand" href="#top" aria-label="TerraTwin">
+    <svg class="brand-mark" viewBox="0 0 34 20" aria-hidden="true"><circle cx="11" cy="10" r="8"/><circle cx="23" cy="10" r="8"/></svg>
+    <span>TerraTwin</span>
+  </a>
+  <nav class="nav-links" aria-label="Bölümler">
+    <a href="#gorev" data-i18n="nav.mission">Görev</a>
+    <a href="#hedefler" data-i18n="nav.targets">Hedefler</a>
+    <a href="#atlas" data-i18n="nav.atlas">Atlas</a>
+    <a href="#yontem" data-i18n="nav.method">Yöntem</a>
+    <a href="#veri" data-i18n="nav.data">Veri</a>
+    <a href="#sinirlar" data-i18n="nav.limits">Sınırlar</a>
+  </nav>
+  <div class="lang" role="group" aria-label="Dil / Language">
+    <button type="button" data-lang="tr" aria-pressed="true">TR</button>
+    <button type="button" data-lang="en" aria-pressed="false">EN</button>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero dark">
+  <canvas id="contours" aria-hidden="true"></canvas>
+  <div class="hero-seam" aria-hidden="true"></div>
+  <p class="hero-tag hero-tag-l mono" data-i18n="hero.left">Hedef — Ay Güney Kutbu · Mars</p>
+  <p class="hero-tag hero-tag-r mono" data-i18n="hero.right">Analog — Dünya</p>
+
+  <div class="wrap hero-body">
+    <p class="kicker mono" data-i18n="hero.kicker">NASA Space Apps Challenge 2026 · Dünya analogları</p>
+    <h1 data-i18n="hero.title">Ay üssünün ve Mars'ın <em>Dünya'daki ikizleri.</em></h1>
+    <p class="hero-lead" data-i18n="hero.lead">TerraTwin, Dünya'da hangi arazilerin kalıcı Ay üssü konumunun ve Mars hedeflerinin yerini tutabileceğini NASA'nın açık verileriyle araştırır; her benzetmenin nerede bozulduğunu da açıkça söyler.</p>
+    <div class="hero-actions">
+      <a class="btn btn-solid" href="#atlas" data-i18n="hero.cta1">Atlası aç</a>
+      <a class="btn btn-ghost" href="#yontem" data-i18n="hero.cta2">Yöntemi gör</a>
+      <span class="status mono"><i></i><span data-i18n="hero.status">Araştırma aşaması · henüz hesaplanmış skor yok</span></span>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <dl class="stats">
+      <div><dt id="st-profiles">3</dt><dd data-i18n="stat.profiles">hedef profili</dd></div>
+      <div><dt id="st-sites">21</dt><dd data-i18n="stat.sites">atlasta saha</dd></div>
+      <div><dt id="st-datasets">24</dt><dd data-i18n="stat.datasets">NASA veri ürünü</dd></div>
+      <div><dt>72</dt><dd data-i18n="stat.sources">kaynakçada bağlantı</dd></div>
+    </dl>
+    <p class="hero-caption mono" data-i18n="hero.caption">Şematik kontur · ölçülmüş topografya değildir</p>
+  </div>
+</section>
+
+<!-- 01 GÖREV -->
+<section id="gorev" class="sec">
+  <div class="wrap">
+    <p class="idx mono" data-i18n="s1.idx">01 — Görev</p>
+    <h2 class="statement reveal" data-i18n="s1.title">Görev, Ay'da üs yeri seçmemizi istemiyor. <em>Dünya'da</em>, o yere benzeyen yerleri bulmamızı istiyor.</h2>
+    <div class="two">
+      <div class="prose reveal">
+        <p data-i18n="s1.p1">İniş yerlerinin ve üs konumlarının seçimi topografyaya, jeolojiye, çevre koşullarına ve kaynaklara bağlı. Dünya'da Ay'a veya Mars'a benzeyen yerler, görev ekiplerinin ekipmanlarını ve yöntemlerini uçuştan önce denemesini sağlıyor. Ancak görev metni bu yerlerin henüz iyi tanımlanmadığını vurguluyor.</p>
+        <p data-i18n="s1.p2">Bu yüzden ürünümüz Ay'a dair bir harita değil, Dünya'ya dair bir benzerlik haritası. Ay ve Mars verileri yalnızca <strong>hedef profillerini</strong> tanımlamak için kullanılıyor.</p>
+      </div>
+      <div class="reveal">
+        <h3 class="label mono" data-i18n="s1.req.t">Görev metninden çıkan gereksinimler</h3>
+        <ol class="reqs">
+          <li data-i18n="s1.r1"><b>Hedef tanımı.</b> En az bir Ay üssü konumu ve bir Mars konumu açıkça tanımlanmalı.</li>
+          <li data-i18n="s1.r2"><b>Ölçülebilir ölçütler.</b> Topografya, jeoloji, çevre ve kaynaklar değişkenlere çevrilmeli.</li>
+          <li data-i18n="s1.r3"><b>Açık veri.</b> Ölçütler NASA'nın açık verileriyle hesaplanmalı.</li>
+          <li data-i18n="s1.r4"><b>Yeni adaylar.</b> Yalnızca bilinen analogların listesi yetmez.</li>
+          <li data-i18n="s1.r5"><b>Tanımlama.</b> Neden benzer, nerede farklı, hangi testlere uygun.</li>
+          <li data-i18n="s1.r6"><b>Kısmi analog bilinci.</b> Hiçbir yer hedefi birebir kopyalamaz.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 AYRIM -->
+<section class="sec sec-tint">
+  <div class="wrap">
+    <p class="idx mono" data-i18n="s2.idx">02 — Kilit ayrım</p>
+    <h2 class="reveal" data-i18n="s2.title">Ay'a benzeyen bir yer, Ay üssü gibi çalışan bir yer değildir.</h2>
+    <div class="versus reveal">
+      <div class="vs-head vs-a"><span class="mono">A</span><h3 data-i18n="s2.a.t">Ay'a benzeyen yer</h3></div>
+      <div class="vs-mid" aria-hidden="true">≠</div>
+      <div class="vs-head vs-b"><span class="mono">B</span><h3 data-i18n="s2.b.t">Ay üssüne benzeyen yer</h3></div>
+
+      <p class="vs-row mono" data-i18n="s2.row1">Aranan özellik</p>
+      <p class="vs-a" data-i18n="s2.a1">Çorak, volkanik veya kraterli görünüm</p>
+      <p class="vs-b" data-i18n="s2.b1">Kutup aydınlanması, buz, engebeli sırt–krater ilişkisi, yalıtılmışlık</p>
+
+      <p class="vs-row mono" data-i18n="s2.row2">Tipik örnekler</p>
+      <p class="vs-a" data-i18n="s2.a2">İzlanda yaylaları, Hawaii lav sahaları</p>
+      <p class="vs-b" data-i18n="s2.b2">Haughton Krateri, kutup çölleri</p>
+
+      <p class="vs-row mono" data-i18n="s2.row3">Kullanım amacı</p>
+      <p class="vs-a" data-i18n="s2.a3">Jeoloji eğitimi, örnek toplama</p>
+      <p class="vs-b" data-i18n="s2.b3">Üs operasyonları, kaynak arama, gezgin konvoyu, enerji planlama</p>
+
+      <p class="vs-row mono" data-i18n="s2.row4">Ekibin ilk altı yerlik listesinde</p>
+      <p class="vs-a" data-i18n="s2.a4">Askja, Mauna Kea, Kapadokya, Bardenas</p>
+      <p class="vs-b vs-none" data-i18n="s2.b4">Yok</p>
+    </div>
+    <p class="aside reveal" data-i18n="s2.note">Ekibin başlangıç listesinin tamamı birinci sütuna düşüyordu. Görev ise ikinci sütunu istiyor. Araştırmanın yönünü bu boşluk belirledi.</p>
+  </div>
+</section>
+
+<!-- 03 HEDEFLER -->
+<section id="hedefler" class="sec">
+  <div class="wrap">
+    <p class="idx mono" data-i18n="s3.idx">03 — Hedefler</p>
+    <div class="head">
+      <h2 class="reveal" data-i18n="s3.title">Neyi taklit etmeye çalışıyoruz?</h2>
+      <p class="lead reveal" data-i18n="s3.lead">NASA 2026'da Ay üssünün yerini somutlaştırdı. Her analog arayışı, adı konmuş bir hedeften ve bir deney amacından başlar.</p>
+    </div>
+
+    <div class="targets">
+      <article class="target t-moon reveal">
+        <p class="t-body mono" data-i18n="t1.body">Ay · üs hedefi</p>
+        <h3 data-i18n="t1.name">Shackleton Connecting Ridge</h3>
+        <ul>
+          <li data-i18n="t1.l1">Moon Base I'in (Blue Moon Mark 1) iniş hedefi; NASA Mayıs 2026'da açıkladı.</li>
+          <li data-i18n="t1.l2">Neredeyse sürekli güneş alan sırtlar, hemen yanında kalıcı gölgeli bölgeler.</li>
+          <li data-i18n="t1.l3">Gölgeli kraterlerde yaklaşık 33 K (Diviner'ın ilk ölçümleri): buz için soğuk tuzak.</li>
+          <li data-i18n="t1.l4">LOLA'ya göre keşfi zorlaştıracak kadar engebeli arazi.</li>
+        </ul>
+        <p class="chips"><span>LOLA</span><span>Diviner</span><span>LEND</span><span>LAMP</span><span>Mini-RF</span><span>LROC</span></p>
+      </article>
+      <article class="target t-mars reveal">
+        <p class="t-body mono" data-i18n="t2.body">Mars · bilim hedefi</p>
+        <h3 data-i18n="t2.name">Jezero Krateri</h3>
+        <ul>
+          <li data-i18n="t2.l1">Perseverance'ın incelediği, yaklaşık 3,5 milyar yıllık eski göl ve delta.</li>
+          <li data-i18n="t2.l2">Batı kenarında karbonat izleri; demir-magnezyum smektit killeri.</li>
+          <li data-i18n="t2.l3">Uçlar 20 °C'nin üstünden −110 °C'nin altına; mevsimsel değişim ve toz fırtınaları.</li>
+          <li data-i18n="t2.l4">Dünya'daki, NASA'nın belgelediği karşılığı: Salda Gölü.</li>
+        </ul>
+        <p class="chips"><span>CRISM</span><span>CTX</span><span>HiRISE</span><span>MOLA</span><span>THEMIS</span></p>
+      </article>
+      <article class="target t-mars reveal">
+        <p class="t-body mono" data-i18n="t3.body">Mars · insanlı üs (buz) · isteğe bağlı</p>
+        <h3 data-i18n="t3.name">Arcadia Planitia</h3>
+        <ul>
+          <li data-i18n="t3.l1">NASA'nın “Treasure Map” çalışması: yüzeyden 30 cm'den sığ su buzu.</li>
+          <li data-i18n="t3.l2">Keşif Bölgesi ölçütleri: ~100 km yarıçap, ±50° enlem içinde, 2 km'den alçak.</li>
+          <li data-i18n="t3.l3">Buz bölgesinin güney kenarı: buz var, sıcaklık daha yüksek, atmosfer daha kalın.</li>
+          <li data-i18n="t3.l4">Ay üssü hedefiyle aynı mantık: buz ve üs.</li>
+        </ul>
+        <p class="chips"><span>SWIM</span><span>SHARAD</span><span>THEMIS</span><span>MOLA</span></p>
+      </article>
+    </div>
+
+    <h3 class="label mono reveal" data-i18n="s3.tbl.t">Moon Base ihtiyacından Dünya'da aranacak özelliğe</h3>
+    <div class="tbl-scroll reveal">
+      <table class="tbl needs">
+        <thead><tr><th data-i18n="s3.th1">Moon Base ihtiyacı</th><th data-i18n="s3.th2">NASA programındaki karşılığı</th><th data-i18n="s3.th3">Dünya analoğunda aranacak özellik</th></tr></thead>
+        <tbody>
+          <tr><td data-i18n="n1a">Güneş enerjisi</td><td data-i18n="n1b">miniCAST güneş kulesi</td><td data-i18n="n1c">Uzun süreli, ufka yakın açılı güneş ışığı; yüksek enlem</td></tr>
+          <tr><td data-i18n="n2a">Su buzu ve kaynak</td><td data-i18n="n2b">VIPER, PROMISE, MoonFall</td><td data-i18n="n2c">Kalıcı donmuş zemin, gömülü buz, soğuk tuzak benzeri gölgeli alanlar</td></tr>
+          <tr><td data-i18n="n3a">Hassas iniş</td><td data-i18n="n3b">Blue Moon MK1, SCALPSS</td><td data-i18n="n3c">Düz sırtlar, düşük eğimli iniş alanları</td></tr>
+          <tr><td data-i18n="n4a">Arazi araçları</td><td data-i18n="n4b">LTV, basınçlı gezgin</td><td data-i18n="n4c">Kayalık, engebeli, bitkisiz arazi; krater kenarı ve sırt topoğrafyası</td></tr>
+          <tr><td data-i18n="n5a">İletişim ve navigasyon</td><td data-i18n="n5b">Altus-1, CAPSTONE 02</td><td data-i18n="n5c">Yalıtılmış, altyapısız bölgeler</td></tr>
+          <tr><td data-i18n="n6a">Yalıtılmışlık ve lojistik</td><td data-i18n="n6b">Kalıcı karakol</td><td data-i18n="n6c">Ulaşımı zor, yerleşimden uzak bölgeler</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 04 ATLAS -->
+<section id="atlas" class="sec sec-tint">
+  <div class="wrap">
+    <p class="idx mono" data-i18n="s4.idx">04 — Atlas</p>
+    <div class="head">
+      <h2 class="reveal" data-i18n="s4.title">Yirmi bir saha, dört kanıt düzeyi.</h2>
+      <p class="lead reveal" data-i18n="s4.lead">Her saha, neye dayandığıyla birlikte gösterilir. NASA'nın gerçekten kullandığı bir analog ile henüz sınamadığımız bir hipotez asla aynı işaretle çizilmez.</p>
+    </div>
+
+    <div class="atlas-controls">
+      <div class="ctl">
+        <span class="ctl-label mono" data-i18n="s4.f.profile">İşaret boyutu</span>
+        <div class="seg" id="profile-seg" role="group">
+          <button type="button" data-p="all" aria-pressed="true" data-i18n="s4.f.all">Eşit</button>
+          <button type="button" data-p="base" aria-pressed="false" data-i18n="s4.f.base">Ay üssü</button>
+          <button type="button" data-p="mars" aria-pressed="false" data-i18n="s4.f.mars">Mars</button>
+        </div>
+      </div>
+      <div class="ctl">
+        <span class="ctl-label mono" data-i18n="s4.f.cat">Kanıt düzeyi</span>
+        <div class="legend" id="cat-legend"></div>
+      </div>
+    </div>
+
+    <div class="atlas">
+      <div class="atlas-left">
+        <div class="map-sheet">
+          <svg id="map" viewBox="0 0 960 500" role="img" aria-label="Dünya haritası üzerinde analog sahalar"></svg>
+          <p class="map-hint mono" id="map-hint" hidden data-i18n="s4.maphint">İşaret boyutu, ekibin niteliksel notunu izler (● ile ●●● arası). İçi boş kesikli işaretler değerlendirilmedi.</p>
+          <p class="map-hint mono" id="map-offline" hidden></p>
+        </div>
+        <div class="site-list" id="site-list"></div>
+        <p class="fine mono" data-i18n="s4.coordnote">Koordinatlar yaklaşıktır ve analiz sırasında doğrulanacaktır.</p>
+      </div>
+      <aside class="site-card" id="site-card" aria-live="polite"></aside>
+    </div>
+  </div>
+</section>
+
+<!-- 05 YÖNTEM -->
+<section id="yontem" class="sec dark">
+  <div class="wrap">
+    <p class="idx mono" data-i18n="s5.idx">05 — Yöntem</p>
+    <div class="head">
+      <h2 class="reveal" data-i18n="s5.title">Aynı yer, her görev için farklı bir cevap.</h2>
+      <p class="lead reveal" data-i18n="s5.lead">Model her kara hücresini bir hedef profile göre puanlar. Ağırlıklar görev türüne göre değişir; bir saha yaşam algılama için güçlü, gezgin testi için zayıf olabilir. Bir görev seçin ve neyin önem kazandığını izleyin.</p>
+    </div>
+
+    <div class="weights reveal">
+      <div class="w-controls">
+        <div class="ctl">
+          <span class="ctl-label mono" data-i18n="s5.profile">Profil</span>
+          <div class="seg seg-dark" id="m-profile" role="group"></div>
+        </div>
+        <div class="ctl">
+          <span class="ctl-label mono" data-i18n="s5.mission">Görev türü</span>
+          <div class="pills" id="m-missions" role="group"></div>
+        </div>
+      </div>
+      <div class="w-rows" id="w-rows"></div>
+      <p class="w-warn mono" data-i18n="s5.warn">Bu ağırlıklar doğrulamayla ayarlanacak bir başlangıç önerisidir. Ekibin tasarım tercihidir, NASA standardı değildir.</p>
+    </div>
+
+    <div class="principles">
+      <div class="reveal"><h3 data-i18n="s5.p1.t">Açıklanabilir</h3><p data-i18n="s5.p1.d">Her skor bileşenlerine ayrılabilir. Kullanıcı bir yerin neden yüksek puan aldığını görebilir.</p></div>
+      <div class="reveal"><h3 data-i18n="s5.p2.t">Kaynağı şeffaf</h3><p data-i18n="s5.p2.d">Her bileşen, hangi NASA verisinden geldiğiyle birlikte gösterilir.</p></div>
+      <div class="reveal"><h3 data-i18n="s5.p3.t">Eksikler konusunda dürüst</h3><p data-i18n="s5.p3.d">Eksik veri sıfır olarak değil, eksik olarak gösterilir. Bir eşik kuralı, orman ve tarım alanlarının üst sıralara çıkmasını önler.</p></div>
+    </div>
+
+    <div class="two method-foot">
+      <div class="formula reveal">
+        <h3 class="label mono" data-i18n="s5.f.t">Ölçüt skoru</h3>
+        <p class="eq">s = exp<span>(</span> −(x − x<sub>h</sub>)² / 2σ² <span>)</span></p>
+        <p data-i18n="s5.f.d">Doğrudan karşılaştırılabilir ölçütlerde, hedef değere uzaklığa göre bir benzerlik fonksiyonu; σ ölçütün ne kadar hoşgörülü olacağını belirler. Yön belirten ölçütlerde (ne kadar kuru o kadar iyi) normalleştirilmiş değer doğrudan kullanılır.</p>
+      </div>
+      <div class="reveal">
+        <h3 class="label mono" data-i18n="s5.v.t">İşe yaradığını nasıl anlayacağız</h3>
+        <ul class="checks">
+          <li data-i18n="s5.v1">NASA'nın zaten kullandığı analoglar (Haughton, McMurdo, Atacama, Salda…) rastgele seçilmiş kara hücrelerinden üst sırada çıkmalı.</li>
+          <li data-i18n="s5.v2">Negatif kontroller — yoğun orman, tarım alanı, büyük kentler — en üst %10'luk dilime girmemeli.</li>
+          <li data-i18n="s5.v3">Salda Gölü'nün Mars skoru, Ay üssü skorundan belirgin biçimde yüksek olmalı.</li>
+          <li data-i18n="s5.v4">Doğrulama zayıf çıkarsa gizlenmeyecek, raporlanacak.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 VERİ -->
+<section id="veri" class="sec">
+  <div class="wrap">
+    <p class="idx mono" data-i18n="s6.idx">06 — Veri</p>
+    <div class="head">
+      <h2 class="reveal" data-i18n="s6.title">Üç dünya, tek kaynak politikası: NASA.</h2>
+      <p class="lead reveal" data-i18n="s6.lead">14 Kasım 2026'da kontrol edilmiş ürünlerin keşif kataloğu. İndirilmiş bilim verisi veya analiz sonucu değildir. Her satır, göz ardı edilirse bizi yanıltacak uyarıyı da taşır.</p>
+    </div>
+    <div class="seg" id="body-seg" role="group"></div>
+    <div class="tbl-scroll">
+      <table class="tbl catalog" id="catalog"></table>
+    </div>
+  </div>
+</section>
+
+<!-- 07 SINIRLAR -->
+<section id="sinirlar" class="sec sec-tint">
+  <div class="wrap">
+    <p class="idx mono" data-i18n="s7.idx">07 — Sınırlar</p>
+    <div class="head">
+      <h2 class="reveal" data-i18n="s7.title">Dünya'da hiçbir yerin taklit edemediği beş şey.</h2>
+      <p class="lead reveal" data-i18n="s7.lead">Bütün analoglar kısmidir. Modelimiz yalnızca Dünya'da ölçülebilen ve yörüngeden gözlenebilen özellikleri karşılaştırır.</p>
+    </div>
+    <ol class="limits reveal">
+      <li data-i18n="l1">Ay'ın neredeyse sıfır atmosferi ve vakumu</li>
+      <li data-i18n="l2">Kalıcı gölgeli bölgelerdeki yaklaşık 33 Kelvin</li>
+      <li data-i18n="l3">Ay ve Mars yüzeyindeki uzay radyasyonu</li>
+      <li data-i18n="l4">Ay'ın düşük yer çekimi</li>
+      <li data-i18n="l5">Mars'ın ince karbondioksit atmosferi</li>
+    </ol>
+
+    <div class="two">
+      <div class="reveal">
+        <h3 class="label mono" data-i18n="s7.say.t">Nasıl ifade ediyoruz</h3>
+        <div class="say">
+          <p class="say-h mono" data-i18n="s7.say.h1">Kaçındığımız</p><p class="say-h mono" data-i18n="s7.say.h2">Kanıtın desteklediği</p>
+          <p class="no" data-i18n="p1a">“Nemrut Ay'ın yüzde 94 aynısı.”</p><p data-i18n="p1b">“Bu alan, bu çözünürlükte, seçilen arazi özellikleri açısından şu sonuçları veriyor.”</p>
+          <p class="no" data-i18n="p2a">“Salda'yı Mars analoğu olarak keşfettik.”</p><p data-i18n="p2b">“NASA'nın bilinen Salda–Jezero ilişkisini karşılaştırma örneği olarak kullandık.”</p>
+          <p class="no" data-i18n="p3a">“Tuz Gölü'nde Mars'taki aynı mineraller var.”</p><p data-i18n="p3b">“Bu mineral sınıflarına ilişkin uzaktan algılama göstergelerini araştırıyoruz; eşleşme doğrulama gerektiriyor.”</p>
+          <p class="no" data-i18n="p4a">“Tüm NASA verileri 2026'da çekildi.”</p><p data-i18n="p4b">“Erişim ve sürüm durumu 14 Kasım 2026'da kontrol edildi; ölçüm tarihleri ürün bazında belirtiliyor.”</p>
+        </div>
+      </div>
+      <div class="reveal">
+        <h3 class="label mono" data-i18n="s7.ev.t">Kanıt düzeyi etiketleri</h3>
+        <dl class="evidence">
+          <div><dt data-i18n="e1a">Görev gözlemi</dt><dd data-i18n="e1b">NASA görevinin kalibre verisi</dd></div>
+          <div><dt data-i18n="e2a">NASA türetilmiş ürün</dt><dd data-i18n="e2b">Belirli algoritmadan geçmiş bilim katmanı</dd></div>
+          <div><dt data-i18n="e3a">NASA bilim açıklaması</dt><dd data-i18n="e3b">Resmî yazıda aktarılan ilişki</dd></div>
+          <div><dt data-i18n="e4a">Bizim türettiğimiz özellik</dt><dd data-i18n="e4b">Ekibin koduyla hesaplanan değer</dd></div>
+          <div><dt data-i18n="e5a">Hipotez</dt><dd data-i18n="e5b">Henüz sınanmamış eşleştirme</dd></div>
+          <div><dt data-i18n="e6a">Eksik / doğrulanmadı</dt><dd data-i18n="e6b">Gerekli veri yok veya kontrol edilmedi</dd></div>
+        </dl>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 DURUM -->
+<section id="durum" class="sec dark">
+  <div class="wrap">
+    <p class="idx mono" data-i18n="s8.idx">08 — Durum</p>
+    <div class="head">
+      <h2 class="reveal" data-i18n="s8.title">Nerede olduğumuzu açıkça söyleyelim.</h2>
+      <p class="lead reveal" data-i18n="s8.lead">Bu depo şu aşamada araştırma belgelerini, kaynak listesini ve veri kataloğunu içeriyor. Çalıştırılabilir analiz kodu veya indirilmiş ham uydu verisi henüz eklenmedi. Aday sahalar ve önerilen puanlama, hesaplanmış veya NASA tarafından onaylanmış sonuçlar değildir.</p>
+    </div>
+
+    <ol class="road">
+      <li class="done reveal"><span class="mono" data-i18n="r1.s">Tamamlandı</span><h3 data-i18n="r1.t">Araştırma ve kaynak derleme</h3><p data-i18n="r1.d">Birleşik rapor, NASA veri ürünleri, bölgesel notlar. 14 Kasım 2026'da hazırlandı.</p></li>
+      <li class="next reveal"><span class="mono" data-i18n="r2.s">Sırada</span><h3 data-i18n="r2.t">Hedef ve deney seçimi</h3><p data-i18n="r2.d">Adı konmuş analiz poligonları ve her karşılaştırmanın amacı.</p></li>
+      <li class="reveal"><span class="mono" data-i18n="r3.s">Planlandı</span><h3 data-i18n="r3.t">NASA veri kapsamının doğrulanması</h3><p data-i18n="r3.d">Ürün bazında sürüm, ölçüm tarihi ve alan kapsamı; öncelikle EMIT V2.</p></li>
+      <li class="reveal"><span class="mono" data-i18n="r4.s">Planlandı</span><h3 data-i18n="r4.t">Tekrarlanabilir özellik hesapları</h3><p data-i18n="r4.d">Küçük analiz alanlarında eğim, rölyef ve yüzey durumu özellikleri.</p></li>
+      <li class="reveal"><span class="mono" data-i18n="r5.s">Planlandı</span><h3 data-i18n="r5.t">Doğrulama</h3><p data-i18n="r5.d">Bilinen pozitifler, negatif kontroller, duyarlılık analizi.</p></li>
+      <li class="reveal"><span class="mono" data-i18n="r6.s">Planlandı</span><h3 data-i18n="r6.t">Açıklanabilir benzerlik haritası</h3><p data-i18n="r6.d">Aday kartları: neden eşleşti, hangi veriyle, nerede benzemiyor.</p></li>
+    </ol>
+
+    <div class="docs reveal">
+      <h3 class="label mono" data-i18n="s8.docs.t">Araştırma belgeleri</h3>
+      <ul>
+        <li><a href="arastirma/ay-mars-analog-birlesik-rapor.md"><span data-i18n="d1">Birleşik araştırma raporu</span><i class="mono">.md</i></a></li>
+        <li><a href="arastirma/NASA_Space_Apps_2026_Arastirma_TR.html"><span data-i18n="d2">NASA veri ürünleri, yöntem ve proje önerileri</span><i class="mono">.html</i></a></li>
+        <li><a href="arastirma/ay-mars-analog-yerler-detayli-arastirma.md"><span data-i18n="d3">Ayrıntılı Ay–Mars analog yerler araştırması</span><i class="mono">.md</i></a></li>
+        <li><a href="arastirma/kaynaklar.json"><span data-i18n="d4">Kaynakça · 72 bağlantı</span><i class="mono">.json</i></a></li>
+        <li><a href="arastirma/veri_katalogu.json"><span data-i18n="d5">Teknik veri kataloğu</span><i class="mono">.json</i></a></li>
+      </ul>
+      <p class="fine mono" id="docs-note" hidden data-i18n="s8.docs.note">Belgeler Türkçedir.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot dark">
+  <div class="wrap">
+    <div class="foot-top">
+      <a class="brand" href="#top"><svg class="brand-mark" viewBox="0 0 34 20" aria-hidden="true"><circle cx="11" cy="10" r="8"/><circle cx="23" cy="10" r="8"/></svg><span>TerraTwin</span></a>
+      <a class="foot-link" href="https://www.spaceappschallenge.org/2026/challenges/permanent-moon-base-locations-and-mars/" target="_blank" rel="noopener"><span data-i18n="foot.challenge">Resmî görev sayfası</span> ↗</a>
+    </div>
+    <p class="foot-disc" data-i18n="foot.disc">TerraTwin, NASA Space Apps Challenge 2026 için hazırlanmış bağımsız bir takım projesidir. NASA'nın açık verilerini ve yayınlarını kullanır; NASA tarafından desteklenmiş, onaylanmış veya finanse edilmiş değildir.</p>
+    <p class="fine mono" data-i18n="foot.cut">Araştırma kesim tarihi: 14 Kasım 2026</p>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js" defer></script>
+<script src="site/data.js" defer></script>
+<script src="site/app.js" defer></script>
+</body>
+</html>
