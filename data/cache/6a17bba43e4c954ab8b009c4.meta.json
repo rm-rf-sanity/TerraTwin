@@ -1,0 +1,16 @@
+{
+  "id": "dem-wadirum",
+  "url": "https://worldwind26.arc.nasa.gov/elev?service=WMS&version=1.1.1&request=GetMap&layers=aster_v2&styles=&srs=EPSG%3A4326&bbox=35.345699144%2C29.552785681%2C35.454300856%2C29.647214319&width=21&height=21&format=application%2Fbil16",
+  "method": "GET",
+  "requestBody": null,
+  "provider": "NASA",
+  "product": "NASA WorldWind ASTER GDEM v2 elevation cache",
+  "version": "ASTER GDEM v2; WorldWind cache layer aster_v2",
+  "measurementPeriod": "Historical ASTER GDEM v2 observations; not 2025 terrain measurements",
+  "retrievedAt": "2026-11-14T11:09:27+00:00",
+  "sha256": "5503a2e5a0f8135f56ded92c10460cd7687cbd0e4309c78b0a159ef4ac436271",
+  "bytes": 882,
+  "cachePath": "data/cache/6a17bba43e4c954ab8b009c4.bin",
+  "status": "available",
+  "contentType": "application/bil16"
+}

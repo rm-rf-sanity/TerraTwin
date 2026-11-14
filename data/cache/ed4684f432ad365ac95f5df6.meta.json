@@ -1,0 +1,16 @@
+{
+  "id": "dem-control-konya-fields",
+  "url": "https://worldwind26.arc.nasa.gov/elev?service=WMS&version=1.1.1&request=GetMap&layers=aster_v2&styles=&srs=EPSG%3A4326&bbox=32.740287161%2C37.702785681%2C32.859712839%2C37.797214319&width=21&height=21&format=application%2Fbil16",
+  "method": "GET",
+  "requestBody": null,
+  "provider": "NASA",
+  "product": "NASA WorldWind ASTER GDEM v2 elevation cache",
+  "version": "ASTER GDEM v2; WorldWind cache layer aster_v2",
+  "measurementPeriod": "Historical ASTER GDEM v2 observations; not 2025 terrain measurements",
+  "retrievedAt": "2026-11-14T11:28:57+00:00",
+  "sha256": "6e5de0f92d3fa4884c0e4bf4b8be7c076fca4dadb16e51a6d91be81947d38b2f",
+  "bytes": 882,
+  "cachePath": "data/cache/ed4684f432ad365ac95f5df6.bin",
+  "status": "available",
+  "contentType": "application/bil16"
+}

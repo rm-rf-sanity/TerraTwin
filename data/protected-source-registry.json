@@ -1,0 +1,313 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-11-14T12:02:00+00:00",
+  "policy": "NASA science products and official NASA documentation only. Public metadata discovery is not proof of full file download or successful scientific processing.",
+  "products": [
+    {
+      "short_name": "MOD13Q1",
+      "collection_query": "https://cmr.earthdata.nasa.gov/search/collections.json?short_name=MOD13Q1&page_size=20",
+      "collection_response_sha256": "a6ec51adb0db1b1646bf056d2476907f25746f31799a15e99966a52f57198808",
+      "collections": [
+        {
+          "concept_id": "C1748066515-LPCLOUD",
+          "version": "061",
+          "title": "MODIS/Terra Vegetation Indices 16-Day L3 Global 250m SIN Grid V061"
+        }
+      ]
+    },
+    {
+      "short_name": "VNP46A2",
+      "collection_query": "https://cmr.earthdata.nasa.gov/search/collections.json?short_name=VNP46A2&page_size=20",
+      "collection_response_sha256": "dac9945efb9ad8e28dca47cce170a29a255d39fd1697bf2c75f6efe726463bb8",
+      "collections": [
+        {
+          "concept_id": "C3365931269-LAADS",
+          "version": "2",
+          "title": "VIIRS/NPP Gap-Filled Lunar BRDF-Adjusted Nighttime Lights Daily L3 Global 15 arc-second Linear Lat Lon Grid V2"
+        }
+      ]
+    },
+    {
+      "short_name": "EMITL2BMIN",
+      "collection_query": "https://cmr.earthdata.nasa.gov/search/collections.json?short_name=EMITL2BMIN&page_size=20",
+      "collection_response_sha256": "d58a565ba18eed125890386eaa4c8aac2d40d0e06855560ac0d43312df7f1ef6",
+      "collections": [
+        {
+          "concept_id": "C2408034484-LPCLOUD",
+          "version": "001",
+          "title": "EMIT L2B Estimated Mineral Identification and Band Depth and Uncertainty 60 m V001"
+        },
+        {
+          "concept_id": "C4079846859-LPCLOUD",
+          "version": "002",
+          "title": "EMIT L2B Estimated Mineral Identification and Band Depth and Uncertainty 60 m V002"
+        }
+      ]
+    },
+    {
+      "short_name": "ASTGTM",
+      "collection_query": "https://cmr.earthdata.nasa.gov/search/collections.json?short_name=ASTGTM&page_size=20",
+      "collection_response_sha256": "dd56442488a5d79db3a665596f6a034cb413ebf184f9d107a0136b4b6acfa4b7",
+      "collections": [
+        {
+          "concept_id": "C1711961296-LPCLOUD",
+          "version": "003",
+          "title": "ASTER Global Digital Elevation Model V003"
+        }
+      ]
+    },
+    {
+      "short_name": "NASADEM_HGT",
+      "collection_query": "https://cmr.earthdata.nasa.gov/search/collections.json?short_name=NASADEM_HGT&page_size=20",
+      "collection_response_sha256": "932ad072f7272ca134c9b53781d906deab31e5fa872cc1b5848268a938bbaea9",
+      "collections": [
+        {
+          "concept_id": "C2763264762-LPCLOUD",
+          "version": "001",
+          "title": "NASADEM Merged DEM Global 1 arc second V001"
+        }
+      ]
+    }
+  ],
+  "processing_rules": {
+    "MOD13Q1": {
+      "version": "061",
+      "native_grid": "MODIS sinusoidal",
+      "raw_type": "int16 HDF4",
+      "ndvi_valid_range": [
+        -2000,
+        10000
+      ],
+      "ndvi_fill": -3000,
+      "ndvi_to_physical_multiplier": 0.0001,
+      "hdf_scale_convention": "physical=(file_value-add_offset)/scale_factor; filespec divisor10000",
+      "pixel_reliability_codes": {
+        "-1": "fill",
+        "0": "good",
+        "1": "marginal",
+        "2": "snow_ice",
+        "3": "cloud"
+      },
+      "conservative_reliability": [
+        0
+      ],
+      "qa_bits": {
+        "modland": [
+          0,
+          1
+        ],
+        "usefulness": [
+          2,
+          5
+        ],
+        "aerosol": [
+          6,
+          7
+        ],
+        "adjacent_cloud": 8,
+        "mixed_cloud": 10,
+        "land_water": [
+          11,
+          13
+        ],
+        "snow_ice": 14,
+        "shadow": 15
+      },
+      "science_note": "NDVI is not fractional vegetation cover or proof of present land use."
+    },
+    "VNP46A2": {
+      "version": "2",
+      "filespec_version": "2.0.4;2025-02-14",
+      "shape": [
+        2400,
+        2400
+      ],
+      "spacing_arc_seconds": 15,
+      "native_grid": "latitude/longitude",
+      "radiance_dataset": "DNB_BRDF-Corrected_NTL",
+      "radiance_type": "float",
+      "radiance_fill": -999.9,
+      "radiance_valid_min": 0,
+      "radiance_units": "nW cm^-2 sr^-1",
+      "radiance_default_multiplier": 1,
+      "mandatory_quality_high": [
+        0
+      ],
+      "mandatory_quality_poor": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "qf_bits": {
+        "day_night": 0,
+        "land_water": [
+          1,
+          3
+        ],
+        "cloud_mask_quality": [
+          4,
+          5
+        ],
+        "cloud_detection": [
+          6,
+          7
+        ],
+        "shadow": 8,
+        "cirrus": 9,
+        "snow_ice": 10,
+        "VI_used": 11,
+        "aurora": 12,
+        "lunar_eclipse": 13
+      },
+      "conservative_qf": {
+        "night": 0,
+        "cloud_mask_quality": 3,
+        "cloud_detection": 0,
+        "shadow": 0,
+        "cirrus": 0,
+        "snow_ice": 0,
+        "aurora": 0,
+        "lunar_eclipse": 0
+      },
+      "warning": "V1 radiance scale0.1 must not be applied to V2 float radiance. File attributes take precedence."
+    },
+    "EMITL2BMIN": {
+      "version": "002",
+      "version2_release": "2026-10-19; historical reprocessing ongoing in NASA notice",
+      "reference_layout": [
+        "root:group_1_mineral_id",
+        "root:group_1_band_depth",
+        "root:group_2_mineral_id",
+        "root:group_2_band_depth",
+        "mineral_metadata",
+        "location:lat",
+        "location:lon",
+        "location:glt_x",
+        "location:glt_y"
+      ],
+      "layout_status": "NASA tutorial/reference implementation; verify actualV002file schema",
+      "no_match_id": 0,
+      "reference_fill": -9999,
+      "glt_no_data": 0,
+      "glt_index_base": 1,
+      "raw_index_order": "raw[glt_y-1,glt_x-1]",
+      "companions": [
+        "MINUNCERT matching acquisition/orbit/scene",
+        "L2A_MASK matching acquisition/orbit/scene; band names rather than V1 positions"
+      ],
+      "science_note": "Mineral detections and spectral band depth are not mass abundance or Mars mineral similarity. Compatible target taxonomy and quality-controlled Mars observations are required."
+    },
+    "ASTGTM": {
+      "version": "003",
+      "shape": [
+        3601,
+        3601
+      ],
+      "spacing_arc_seconds": 1,
+      "horizontal_reference": "WGS84 geographic",
+      "vertical_reference": "EGM96 geoid",
+      "dem_type": "signed int16 GeoTIFF",
+      "dem_metres_per_dn": 1,
+      "dem_void": -9999,
+      "sea_level_water": 0,
+      "num_type": "uint8",
+      "num_classes": {
+        "0-50": "GDEMV3scene count;0unspecified,50capped",
+        "60-110": "GDEMV2scene count=value-60",
+        "131-184": "PRISMscene count=value-130",
+        "201-223": "SRTMswath count=value-200",
+        "231": "SRTMv3 initialGDEMV3fill",
+        "232": "SRTMv2 initialGDEMV3fill",
+        "233": "SRTMv2 GDEMV2fill",
+        "234": "SRTM NGAfill GDEMV2",
+        "241": "NED GDEMV2fill",
+        "242": "NED initialGDEMV3fill",
+        "243": "CDED GDEMV2fill",
+        "244": "CDED initialGDEMV3fill",
+        "245": "AlaskaDEM GDEMV2fill",
+        "246": "AlaskaDEM initialGDEMV3fill",
+        "250": "interpolation"
+      },
+      "warning": "NUM is encoded source plus count, not a universally increasing quality score."
+    }
+  },
+  "sources": [
+    {
+      "product": "MOD13Q1",
+      "url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/MODIS/61/MOD13Q1",
+      "role": "official file specification"
+    },
+    {
+      "product": "MOD13Q1",
+      "url": "https://modis-land.gsfc.nasa.gov/pdf/MOD13_User_Guide_V61.pdf",
+      "role": "C6.1 userguide; webopen timeout, indexedextractavailable"
+    },
+    {
+      "product": "VNP46A2",
+      "url": "https://ladsweb.modaps.eosdis.nasa.gov/filespec/VIIRS/2/VNP46A2_v2.0.fs",
+      "role": "official V2file specification"
+    },
+    {
+      "product": "EMITL2BMIN",
+      "url": "https://nasa.github.io/LPDAAC-Data-Resources/external/Working_with_EMIT_L2B_Mineralogy.html",
+      "role": "officialNASA tutorial; published example usesreferenceV1layout"
+    },
+    {
+      "product": "EMITL2BMIN",
+      "url": "https://raw.githubusercontent.com/nasa/EMIT-Data-Resources/main/python/modules/emit_tools.py",
+      "role": "officialNASA GLTimplementation"
+    },
+    {
+      "product": "EMITL2BMIN",
+      "url": "https://forum.earthdata.nasa.gov/viewtopic.php?t=8322",
+      "role": "October2026 V2release/reprocessingnotice"
+    },
+    {
+      "product": "ASTGTM",
+      "url": "https://www.earthdata.nasa.gov/s3fs-public/2025-04/ASTGTM_User_Guide_V3.pdf",
+      "role": "V3guide; live403, officialNASAindexedtextverified"
+    },
+    {
+      "product": "ASTGTM",
+      "url": "https://data.nasa.gov/dataset/aster-global-digital-elevation-model-netcdf-v003-90e58",
+      "role": "NASA archive description and limitations"
+    }
+  ],
+  "salda_dem_discovery": [
+    {
+      "product": "ASTGTM003",
+      "query": "https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C1711961296-LPCLOUD&bounding_box=29.63%2C37.50%2C29.73%2C37.60&page_size=3&sort_key=-start_date",
+      "response_sha256": "643161a084f8c01da628dc56ff17033f05c976dc5e96aaece6b43a9f2bbf4071",
+      "granules": [
+        {
+          "id": "G1726450968-LPCLOUD",
+          "title": "ASTGTMV003_N37E029",
+          "time_start": "2000-03-01T00:00:00.000Z",
+          "size_mb": "24.3101",
+          "data_urls": [
+            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/ASTGTM.003/ASTGTMV003_N37E029_dem.tif",
+            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/ASTGTM.003/ASTGTMV003_N37E029_num.tif"
+          ]
+        }
+      ]
+    },
+    {
+      "product": "NASADEM001",
+      "query": "https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C2763264762-LPCLOUD&bounding_box=29.63%2C37.50%2C29.73%2C37.60&page_size=3&sort_key=-start_date",
+      "response_sha256": "e86196b928fa88ba04a1f09805b17c28fa81f3e4c5cf32cb92e6ec75af4e9c42",
+      "granules": [
+        {
+          "id": "G2816842486-LPCLOUD",
+          "title": "NASADEM_HGT_n37e029",
+          "time_start": "2000-02-11T00:00:00.000Z",
+          "size_mb": "12.178",
+          "data_urls": [
+            "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/NASADEM_HGT.001/NASADEM_HGT_n37e029/NASADEM_HGT_n37e029.zip"
+          ]
+        }
+      ]
+    }
+  ]
+}

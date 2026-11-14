@@ -1,0 +1,19 @@
+{
+  "id": "power-deathvalley",
+  "url": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CPRECTOTCORR&community=AG&longitude=-117&latitude=36.5&start=20250101&end=20251231&format=JSON&time-standard=UTC",
+  "method": "GET",
+  "requestBody": null,
+  "provider": "NASA",
+  "product": "NASA POWER daily meteorological data",
+  "version": null,
+  "measurementPeriod": {
+    "start": "2025-01-01",
+    "end": "2025-12-31"
+  },
+  "retrievedAt": "2026-11-14T11:09:22+00:00",
+  "sha256": "49cc92c956c40f5bf4d759b9bf5ff1f7a0010342c3d62bf0aa47ad7fb36bf1a0",
+  "bytes": 24627,
+  "cachePath": "data/cache/92a3dd78671a5699c4608a42.json",
+  "status": "available",
+  "contentType": "application/json"
+}

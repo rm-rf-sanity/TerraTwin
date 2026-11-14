@@ -1,0 +1,19 @@
+{
+  "id": "power-wadirum",
+  "url": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CPRECTOTCORR&community=AG&longitude=35.4&latitude=29.6&start=20250101&end=20251231&format=JSON&time-standard=UTC",
+  "method": "GET",
+  "requestBody": null,
+  "provider": "NASA",
+  "product": "NASA POWER daily meteorological data",
+  "version": null,
+  "measurementPeriod": {
+    "start": "2025-01-01",
+    "end": "2025-12-31"
+  },
+  "retrievedAt": "2026-11-14T11:09:26+00:00",
+  "sha256": "83a1bb255dc29a957200c1de283d4224328fd95a67a3de4543e03a40c8454795",
+  "bytes": 24533,
+  "cachePath": "data/cache/61b11e32bd48c851cf11f901.json",
+  "status": "available",
+  "contentType": "application/json"
+}

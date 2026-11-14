@@ -1,0 +1,16 @@
+{
+  "id": "dem-pilot",
+  "url": "https://worldwind26.arc.nasa.gov/elev?service=WMS&version=1.1.1&request=GetMap&layers=aster_v2&styles=&srs=EPSG%3A4326&bbox=-113.962654741%2C41.052785681%2C-113.837345259%2C41.147214319&width=21&height=21&format=application%2Fbil16",
+  "method": "GET",
+  "requestBody": null,
+  "provider": "NASA",
+  "product": "NASA WorldWind ASTER GDEM v2 elevation cache",
+  "version": "ASTER GDEM v2; WorldWind cache layer aster_v2",
+  "measurementPeriod": "Historical ASTER GDEM v2 observations; not 2025 terrain measurements",
+  "retrievedAt": "2026-11-14T11:09:25+00:00",
+  "sha256": "28a0cda0326b8417c7179d39807759487b465bb3d81cb2162685a1945d60372d",
+  "bytes": 882,
+  "cachePath": "data/cache/58954a326655faa60a00e667.bin",
+  "status": "available",
+  "contentType": "application/bil16"
+}

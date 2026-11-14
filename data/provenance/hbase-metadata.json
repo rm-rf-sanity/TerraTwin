@@ -1,0 +1,132 @@
+{
+ "extent": {
+  "ymin": -59.48468202108927,
+  "xmin": -179.99999999999886,
+  "ymax": 83.627710686386422,
+  "xmax": 179.99999999999756,
+  "spatialReference": {
+   "latestWkid": 4326,
+   "wkid": 4326
+  }
+ },
+ "blockWidth": 256,
+ "mosaicOperator": "First",
+ "serviceSourceType": "esriImageServiceSourceTypeDataset",
+ "hasMultidimensions": true,
+ "maxImageWidth": 15000,
+ "maxRecordCount": 1000,
+ "meanValues": [7.5605297010702879],
+ "hasColormap": false,
+ "compressionType": "LERC2D",
+ "defaultCompressionQuality": 75,
+ "maxValues": [255],
+ "hasHistograms": true,
+ "datasetFormat": "Cache/LERC2D",
+ "maxImageHeight": 4100,
+ "sortField": "",
+ "bandNames": ["Band_1"],
+ "spatialReference": {
+  "latestWkid": 4326,
+  "wkid": 4326
+ },
+ "fullExtent": {
+  "ymin": -59.48468202108927,
+  "xmin": -179.99999999999886,
+  "ymax": 83.627710686386422,
+  "xmax": 179.99999999999756,
+  "spatialReference": {
+   "latestWkid": 4326,
+   "wkid": 4326
+  }
+ },
+ "bandCount": 1,
+ "rasterFunctionInfos": [{
+  "help": "",
+  "name": "None",
+  "description": ""
+ }],
+ "supportsStatistics": false,
+ "sortableFields": "",
+ "minValues": [0],
+ "allowRasterFunction": true,
+ "allowComputeTiePoints": false,
+ "serviceDataType": "esriImageServiceDataTypeGeneric",
+ "supportsAdvancedQueries": false,
+ "maxDownloadSizeLimit": 2097196,
+ "currentVersion": 12,
+ "sortValue": null,
+ "transposeInfo": {
+  "rows": 128,
+  "cols": 128
+ },
+ "timeInfo": {
+  "startTimeField": "StdTime",
+  "endTimeField": "StdTime",
+  "timeExtent": [
+   1277956800000,
+   1277956800000
+  ],
+  "timeReference": null
+ },
+ "objectIdField": "",
+ "blockHeight": 256,
+ "initialExtent": {
+  "ymin": -59.48468202108927,
+  "xmin": -179.99999999999886,
+  "ymax": 83.627710686386422,
+  "xmax": 179.99999999999756,
+  "spatialReference": {
+   "latestWkid": 4326,
+   "wkid": 4326
+  }
+ },
+ "pixelSizeX": 0.00026949456294718985,
+ "pixelSizeY": 0.00026949456294718985,
+ "defaultMosaicMethod": "Center",
+ "name": "ulandsat/ulandsat_hbase_v1",
+ "allowedMosaicMethods": "",
+ "fields": [],
+ "defaultVariable": "",
+ "allowAnalysis": true,
+ "hasRasterAttributeTable": false,
+ "useStandardizedQueries": false,
+ "description": "",
+ "pixelType": "F32",
+ "meanPixelSize": 29.999997518836985,
+ "exportTilesAllowed": false,
+ "editFieldsInfo": null,
+ "rasterTypeInfos": [{
+  "help": "",
+  "name": "Raster Dataset",
+  "description": "Supports all ArcGIS Raster Datasets"
+ }],
+ "defaultResamplingMethod": "Bilinear",
+ "itemAccess": false,
+ "minScale": 0,
+ "serviceProperties": "<ImageServer><ImageServiceProperties><MosaicMethod>Center<\/MosaicMethod><MosaicOperator>First<\/MosaicOperator><SortAscending>true<\/SortAscending><LockImageID><\/LockImageID><TileOrderField><\/TileOrderField><TileOrderBase>0<\/TileOrderBase><AvgImageSpacingX>0.000000<\/AvgImageSpacingX><AvgImageSpacingY>0.000000<\/AvgImageSpacingY><ViewPointX>0.0<\/ViewPointX><ViewPointY>0.0<\/ViewPointY><ViewPointDefShiftX>0.0<\/ViewPointDefShiftX><ViewPointDefShiftY>0.0<\/ViewPointDefShiftY><CompressionMethod>None<\/CompressionMethod><CompressionQuality>75<\/CompressionQuality><CompressionTolerance>0.010000<\/CompressionTolerance><SamplingMethod>Bilinear<\/SamplingMethod><\/ImageServiceProperties><\/ImageServer>",
+ "advancedQueryCapabilities": {
+  "supportsStatistics": false,
+  "supportsSqlExpression": false,
+  "supportsOrderBy": false,
+  "useStandardizedQueries": false,
+  "supportsPagination": false,
+  "supportsDistinct": false
+ },
+ "serviceItemId": "771a3adbe22f48eaafacf18ec8ba8127",
+ "capabilities": "Mensuration,Image,Metadata",
+ "maxScale": 0,
+ "stdvValues": [32.880527516587279],
+ "allowedFields": "",
+ "minPixelSize": 0,
+ "noDataValues": [3.3999999521443642E+38],
+ "sortAscending": true,
+ "inspectionCapabilities": "",
+ "maxPixelSize": 0,
+ "noDataValue": 3.3999999521443642E+38,
+ "uncompressedSize": 2837525149440,
+ "serviceDescription": "ulandsat/ulandsat_hbase_v1",
+ "allowCopy": true,
+ "copyrightText": "",
+ "mensurationCapabilities": "Basic",
+ "ownershipBasedAccessControlForRasters": null
+}

@@ -1,0 +1,16 @@
+{
+  "id": "dem-control-amazon",
+  "url": "https://worldwind26.arc.nasa.gov/elev?service=WMS&version=1.1.1&request=GetMap&layers=aster_v2&styles=&srs=EPSG%3A4326&bbox=-60.047283510%2C-3.147214319%2C-59.952716490%2C-3.052785681&width=21&height=21&format=application%2Fbil16",
+  "method": "GET",
+  "requestBody": null,
+  "provider": "NASA",
+  "product": "NASA WorldWind ASTER GDEM v2 elevation cache",
+  "version": "ASTER GDEM v2; WorldWind cache layer aster_v2",
+  "measurementPeriod": "Historical ASTER GDEM v2 observations; not 2025 terrain measurements",
+  "retrievedAt": "2026-11-14T11:09:35+00:00",
+  "sha256": "3504eab9419ff2fe16a17ae2171c302d27831a7a64fa93eecfc5feb5317acd2f",
+  "bytes": 882,
+  "cachePath": "data/cache/b33e621d367d53a41edcc976.bin",
+  "status": "available",
+  "contentType": "application/bil16"
+}

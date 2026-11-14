@@ -1,0 +1,913 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-11-14T11:08:36.287165+00:00",
+  "policy": {
+    "science_data": "Only official NASA services or NASA mission archives; named NASA/METI and NASA/ISRO joint products are explicitly attributed. No other Space Apps team data or results are used.",
+    "research_notes": "Original regional reports remain historical documents. The current site is curated separately and its source registry is explicit.",
+    "not_latest_claim": "A currently accessible endpoint does not mean the latest processing version. WorldWind aster_v2 is historical ASTER GDEM V2, while NASA CMR lists ASTGTM003; the pilot must label this difference.",
+    "visual_dependencies": "D3, TopoJSON, fonts and world-atlas are software/cartographic presentation dependencies; their land geometry is not scientific evidence for the scoring."
+  },
+  "pilot_sources": [
+    {
+      "id": "earth-worldwind-aster-v2",
+      "body": "earth",
+      "product": "ASTER GDEM V2 cached via NASA WorldWind",
+      "provider": "NASA/METI joint mission product; NASA Ames WorldWind distribution",
+      "version": "aster_v2 (legacy service layer)",
+      "endpoint": "https://worldwind26.arc.nasa.gov/elev",
+      "protocol": "OGC WMS 1.1.1 GetMap application/bil16",
+      "byte_order": "little-endian signed 16-bit",
+      "native_crs": "EPSG:4326",
+      "acquisition_period": null,
+      "current_collection_version": "ASTGTM003 is available in NASA CMR; this service is not ASTGTM003",
+      "checked_at": "2026-11-14T11:08:36.287165+00:00",
+      "verified_status": "HTTP 200 application/bil16. A 20 × 20 grid request returned 800 bytes; initial decoded sample heights were 1491, 1487 and 1468 metres.",
+      "limitations": [
+        "Historical optical-stereo DEM, not a 2026 terrain survey.",
+        "Service capabilities give no per-pixel observation dates or NUM-quality layer.",
+        "Resampling and cache-level selection do not create independent measurements.",
+        "Mask missing/extreme values, including ASTER void sentinel -9999. All-zero tiles require investigation rather than automatic acceptance.",
+        "Cannot certify landing safety, rock hazards or current accessibility."
+      ],
+      "evidence_snapshot": "data/provenance/worldwind-capabilities.xml",
+      "documentation_url": "https://www.earthdata.nasa.gov/data/catalog/lpcloud-astgtm-003"
+    },
+    {
+      "id": "moon-lola-trek-v06",
+      "body": "moon",
+      "product": "LRO LOLA global DEM",
+      "provider": "NASA LRO / NASA JPL Solar System Treks",
+      "version": "LRO_LOLA_DEM_Global_256ppd_v06",
+      "endpoint": "https://trek.nasa.gov/moon/trekarcgis/rest/services/LRO_LOLA_DEM_Global_256ppd_v06/ImageServer",
+      "protocol": "ArcGIS ImageServer getSamples",
+      "native_grid_degrees": 0.00390625,
+      "native_crs": "GCS_MOON, sphere radius 1737400 m",
+      "acquisition_period": null,
+      "checked_at": "2026-11-14T11:08:36.287165+00:00",
+      "verified_status": "HTTP 200 live service metadata; numerical getSamples requests supported.",
+      "limitations": [
+        "Near-pole longitude spacing differs from north-south spacing.",
+        "Use body radius and local distance when deriving slopes.",
+        "Global grid is not the newest local polar DEM; service does not expose uniform effective resolution.",
+        "Different vertical datum than Earth; compare terrain shape rather than absolute elevation."
+      ],
+      "evidence_snapshot": "data/provenance/moon-trek-dem.json",
+      "documentation_url": "https://trek.nasa.gov/moon/"
+    },
+    {
+      "id": "mars-mola-trek",
+      "body": "mars",
+      "product": "MGS MOLA128/MOLA64 merged DEM",
+      "provider": "NASA MGS / NASA JPL Solar System Treks",
+      "version": "mola128_mola64_merge_90Nto90S_SimpleC_clon0",
+      "endpoint": "https://trek.nasa.gov/mars/trekarcgis/rest/services/mola128_mola64_merge_90Nto90S_SimpleC_clon0/ImageServer",
+      "protocol": "ArcGIS ImageServer getSamples",
+      "native_grid_degrees": 0.00781224569558698,
+      "native_crs_wkid": 104905,
+      "acquisition_period": null,
+      "checked_at": "2026-11-14T11:08:36.287165+00:00",
+      "verified_status": "HTTP 200 getSamples. An initial probe at Jezero (77.45° E, 18.38° N) returned -2594 m.",
+      "limitations": [
+        "Regional MOLA grid, not a HiRISE-scale terrain or landing-hazard map.",
+        "Mission observations are historical; the current query date is not the acquisition date.",
+        "Use the Mars radius for derivatives; do not interchange Earth, Moon and Mars coordinate systems."
+      ],
+      "evidence_snapshot": "data/provenance/mars-trek-dem.json",
+      "documentation_url": "https://trek.nasa.gov/mars/"
+    },
+    {
+      "id": "earth-power",
+      "body": "earth",
+      "product": "NASA POWER meteorology",
+      "provider": "NASA Langley POWER; MERRA-2 reanalysis",
+      "version": "Climatology API v2.10.1 observed in probe; the daily pipeline records its response API version separately.",
+      "endpoint": "https://power.larc.nasa.gov/api/temporal/",
+      "protocol": "JSON REST API",
+      "nominal_grid": "Regional meteorology; parameter-specific resolution",
+      "acquisition_period": null,
+      "checked_at": "2026-11-14T11:08:36.287165+00:00",
+      "verified_status": "HTTP 200 probe for Salda T2M and PRECTOTCORR climatology, 2001–2020. The pipeline records its own requested daily period.",
+      "limitations": [
+        "Regional reanalysis air temperature is not local land-surface temperature.",
+        "The elevation coordinate in POWER JSON is not a dense DEM.",
+        "Precipitation in mm/day must be integrated over days; it is not annual mm."
+      ],
+      "documentation_url": "https://power.larc.nasa.gov/docs/services/api/temporal/daily/"
+    },
+    {
+      "id": "earth-pace-ndvi",
+      "body": "earth",
+      "product": "PACE OCI L3M LANDVI NDVI",
+      "provider": "NASA PACE / NASA Earthdata GIS",
+      "version": "Files in service catalog show V3_1, 2 km, 8-day mapped LANDVI",
+      "endpoint": "https://gis.earthdata.nasa.gov/portal/rest/services/GESDISC/PACE_OCI_L3M_LANDVI/ImageServer",
+      "protocol": "ArcGIS ImageServer getSamples with renderingRule None; query catalog variable ndvi",
+      "native_grid_degrees": 0.020833333333333332,
+      "checked_at": "2026-11-14T11:23:49.018117+00:00",
+      "acquisition_period": null,
+      "verified_status": "A default getSamples probe returned real NDVI values: Salda 0.207548469, Istanbul 0.139735565, forest (-62.5,-3.5) 0.607282102, rasterId118. Exact temporal selection must be checked against returned rasterId in each pipeline run.",
+      "units": "Dimensionless NDVI; floating physical values, not RGB and no extra0.0001 scaling applied.",
+      "limitations": [
+        "Coarse approximately2km grid, not a30m vegetation fraction or a land-use classification.",
+        "A single8day composite is not annual vegetation coverage; observations can be missing from clouds or polar conditions.",
+        "Underlying per-pixel QA flags are not exposed by this sample interface; missing/out-of-range values must remain missing.",
+        "Time-filtered and lockRasterId60 probes timed out20–30s during this audit; the default raster must not be mislabeled asJune2025."
+      ],
+      "documentation_url": "https://nasa.github.io/oceandata-notebooks/notebooks/oci/oci_terrestrial_data.html",
+      "nasa_gis_item": "https://gis.earthdata.nasa.gov/portal/home/item.html?id=f875b6ff98f84927a37bb239e4739862"
+    },
+    {
+      "id": "earth-hbase-2010",
+      "body": "earth",
+      "product": "Global Human Built-up And Settlement Extent (HBASE) Dataset From Landsat",
+      "provider": "NASA SEDAC / NASA Earthdata GIS",
+      "version": "1.00",
+      "endpoint": "https://gis.earthdata.nasa.gov/portal/rest/services/ulandsat/ulandsat_hbase_v1/ImageServer",
+      "protocol": "ArcGIS ImageServer getSamples; nearest-neighbour categorical sampling",
+      "nominal_grid_m": 30,
+      "acquisition_period": {
+        "target_year": 2010
+      },
+      "checked_at": "2026-11-14T11:23:49.018117+00:00",
+      "verified_status": "Real samples: Salda200, Istanbul201, Amazon forest200; official NASA portal legend confirmed.",
+      "class_values": {
+        "200": "Not HBASE",
+        "201": "Human built-up / settlement",
+        "202": "Road",
+        "255": "NoData / clouds / shadow"
+      },
+      "doi": "10.7927/H4DN434S",
+      "documentation_url": "https://gis.earthdata.nasa.gov/portal/home/item.html?id=771a3adbe22f48eaafacf18ec8ba8127",
+      "limitations": [
+        "Historical2010 product; not current2025/2026 urban extent.",
+        "Not HBASE does not mean vegetation-free, dry, safe, accessible or not water.",
+        "Globally excludes Antarctica and some small islands.",
+        "A finite set of sampled nodes estimates the sampled built-up share; it is not an exhaustive30m pixel area fraction."
+      ]
+    }
+  ],
+  "cmr_collection_checks": [
+    {
+      "short_name": "ASTGTM",
+      "query_url": "https://cmr.earthdata.nasa.gov/search/collections.json?short_name=ASTGTM&page_size=20",
+      "checked_at": "2026-11-14T11:08:36.287165+00:00",
+      "collections": [
+        {
+          "concept_id": "C1711961296-LPCLOUD",
+          "version": "003",
+          "acquisition_period": {
+            "start": "2000-03-01T00:00:00.000Z",
+            "end": "2013-11-30T23:59:59.999Z"
+          },
+          "title": "ASTER Global Digital Elevation Model V003"
+        }
+      ]
+    },
+    {
+      "short_name": "NASADEM_HGT",
+      "query_url": "https://cmr.earthdata.nasa.gov/search/collections.json?short_name=NASADEM_HGT&page_size=20",
+      "checked_at": "2026-11-14T11:08:36.287165+00:00",
+      "collections": [
+        {
+          "concept_id": "C2763264762-LPCLOUD",
+          "version": "001",
+          "acquisition_period": {
+            "start": "2000-02-11T00:00:00.000Z",
+            "end": "2000-02-21T23:59:59.000Z"
+          },
+          "title": "NASADEM Merged DEM Global 1 arc second V001"
+        }
+      ]
+    },
+    {
+      "short_name": "EMITL2BMIN",
+      "query_url": "https://cmr.earthdata.nasa.gov/search/collections.json?short_name=EMITL2BMIN&page_size=20",
+      "checked_at": "2026-11-14T11:08:36.287165+00:00",
+      "collections": [
+        {
+          "concept_id": "C2408034484-LPCLOUD",
+          "version": "001",
+          "acquisition_period": {
+            "start": "2022-08-09T00:00:00.000Z",
+            "end": "2026-08-31T01:26:00.000Z"
+          },
+          "title": "EMIT L2B Estimated Mineral Identification and Band Depth and Uncertainty 60 m V001"
+        },
+        {
+          "concept_id": "C4079846859-LPCLOUD",
+          "version": "002",
+          "acquisition_period": {
+            "start": "2022-08-09T00:00:00.000Z",
+            "end": null
+          },
+          "title": "EMIT L2B Estimated Mineral Identification and Band Depth and Uncertainty 60 m V002"
+        }
+      ]
+    },
+    {
+      "short_name": "EMITL3ASA",
+      "query_url": "https://cmr.earthdata.nasa.gov/search/collections.json?short_name=EMITL3ASA&page_size=20",
+      "checked_at": "2026-11-14T11:08:36.287165+00:00",
+      "collections": [
+        {
+          "concept_id": "C3147269019-LPCLOUD",
+          "version": "002",
+          "acquisition_period": {
+            "start": "2022-08-10T00:00:00.000Z",
+            "end": "2024-01-20T00:00:00.000Z"
+          },
+          "title": "EMIT L3 Aggregated Mineral Spectral Abundance and Uncertainty 0.5 Deg V002"
+        },
+        {
+          "concept_id": "C2408752948-LPCLOUD",
+          "version": "001",
+          "acquisition_period": {
+            "start": "2022-08-10T00:00:00.000Z",
+            "end": "2023-07-30T23:59:59.000Z"
+          },
+          "title": "EMIT L3 Aggregated Mineral Spectral Abundance and Uncertainty 0.5 Deg V001"
+        }
+      ]
+    },
+    {
+      "short_name": "MOD11A1",
+      "query_url": "https://cmr.earthdata.nasa.gov/search/collections.json?short_name=MOD11A1&page_size=20",
+      "checked_at": "2026-11-14T11:08:36.287165+00:00",
+      "collections": [
+        {
+          "concept_id": "C1748058432-LPCLOUD",
+          "version": "061",
+          "acquisition_period": {
+            "start": "2000-02-24T00:00:00.000Z",
+            "end": null
+          },
+          "title": "MODIS/Terra Land Surface Temperature/Emissivity Daily L3 Global 1km SIN Grid V061"
+        }
+      ]
+    },
+    {
+      "short_name": "HLSL30",
+      "query_url": "https://cmr.earthdata.nasa.gov/search/collections.json?short_name=HLSL30&page_size=20",
+      "checked_at": "2026-11-14T11:08:36.287165+00:00",
+      "collections": [
+        {
+          "concept_id": "C2021957657-LPCLOUD",
+          "version": "2.0",
+          "acquisition_period": {
+            "start": "2013-04-11T00:00:00.000Z",
+            "end": null
+          },
+          "title": "HLS Landsat Operational Land Imager Surface Reflectance and TOA Brightness Daily Global 30m v2.0"
+        }
+      ]
+    },
+    {
+      "short_name": "HLSS30",
+      "query_url": "https://cmr.earthdata.nasa.gov/search/collections.json?short_name=HLSS30&page_size=20",
+      "checked_at": "2026-11-14T11:08:36.287165+00:00",
+      "collections": [
+        {
+          "concept_id": "C2021957295-LPCLOUD",
+          "version": "2.0",
+          "acquisition_period": {
+            "start": "2015-11-28T00:00:00.000Z",
+            "end": null
+          },
+          "title": "HLS Sentinel-2 Multi-spectral Instrument Surface Reflectance Daily Global 30m v2.0"
+        }
+      ]
+    },
+    {
+      "short_name": "VNP46A2",
+      "query_url": "https://cmr.earthdata.nasa.gov/search/collections.json?short_name=VNP46A2&page_size=20",
+      "checked_at": "2026-11-14T11:08:36.287165+00:00",
+      "collections": [
+        {
+          "concept_id": "C3365931269-LAADS",
+          "version": "2",
+          "acquisition_period": {
+            "start": "2012-01-19T00:00:00.000Z",
+            "end": null
+          },
+          "title": "VIIRS/NPP Gap-Filled Lunar BRDF-Adjusted Nighttime Lights Daily L3 Global 15 arc-second Linear Lat Lon Grid V2"
+        }
+      ]
+    }
+  ],
+  "catalog_records": [
+    {
+      "id": "catalog-1",
+      "body": "earth",
+      "name": "NASADEM Merged DEM",
+      "declared_version_or_series": "NASADEM_HGT v001",
+      "nominal_grid": "~30 m · 60°K–56°G",
+      "source_url": "https://data.nasa.gov/dataset/nasadem-merged-dem-global-1-arc-second-v001",
+      "acquisition_period": null,
+      "status": "discovery_only_not_downloaded_by_this_audit",
+      "caveat": "Ağırlıkla Şubat 2000 SRTM ölçümü; 2026 arazi ölçümü değildir."
+    },
+    {
+      "id": "catalog-2",
+      "body": "earth",
+      "name": "ASTER GDEM",
+      "declared_version_or_series": "ASTGTM v003",
+      "nominal_grid": "~30 m · 83°K–83°G",
+      "source_url": "https://asterweb.jpl.nasa.gov/gdem.asp",
+      "acquisition_period": null,
+      "status": "discovery_only_not_downloaded_by_this_audit",
+      "caveat": "NASA/METI ortak ürünü; artefaktlar ve kalite sayıları denetlenmeli."
+    },
+    {
+      "id": "catalog-3",
+      "body": "earth",
+      "name": "Harmonized Landsat Sentinel-2",
+      "declared_version_or_series": "HLSL30 · HLSS30 v2.0",
+      "nominal_grid": "30 m",
+      "source_url": "https://hls.gsfc.nasa.gov/data-access-and-tools/",
+      "acquisition_period": null,
+      "status": "discovery_only_not_downloaded_by_this_audit",
+      "caveat": "Landsat ve ESA Sentinel-2 girdili NASA ürünü; Fmask kullanılmalı."
+    },
+    {
+      "id": "catalog-4",
+      "body": "earth",
+      "name": "MODIS Terra LST",
+      "declared_version_or_series": "MOD11A1 v061",
+      "nominal_grid": "1 km · günlük",
+      "source_url": "https://search.earthdata.nasa.gov/portal/idn/search?fi=MODIS",
+      "acquisition_period": null,
+      "status": "discovery_only_not_downloaded_by_this_audit",
+      "caveat": "Açık gökyüzü yüzey sıcaklığı; 2 m hava sıcaklığı değildir."
+    },
+    {
+      "id": "catalog-5",
+      "body": "earth",
+      "name": "ECOSTRESS LST & Emissivity",
+      "declared_version_or_series": "ECO_L2T_LSTE v002",
+      "nominal_grid": "70 m",
+      "source_url": "https://search.earthdata.nasa.gov/search?q=ECOSTRESS+V002",
+      "acquisition_period": null,
+      "status": "discovery_only_not_downloaded_by_this_audit",
+      "caveat": "ISS örneklemesi; bulut, gözlem saati ve belirsizlik kontrol edilmeli."
+    },
+    {
+      "id": "catalog-6",
+      "body": "earth",
+      "name": "EMIT L2B mineral",
+      "declared_version_or_series": "EMITL2BMIN V2",
+      "nominal_grid": "60 m",
+      "source_url": "https://forum.earthdata.nasa.gov/viewtopic.php?sid=dae91c5ef96f336491803c0490ce9060&t=8322",
+      "acquisition_period": null,
+      "status": "discovery_only_not_downloaded_by_this_audit",
+      "caveat": "Hedefli kapsam; yeniden işleme sürüyor. AOI indirmesi bu araştırmada doğrulanmadı."
+    },
+    {
+      "id": "catalog-7",
+      "body": "earth",
+      "name": "EMIT L3 mineral abundance",
+      "declared_version_or_series": "EMITL3ASA v002",
+      "nominal_grid": "0,5°",
+      "source_url": "https://data.nasa.gov/dataset/emit-l3-aggregated-mineral-spectral-abundance-and-uncertainty-0-5-deg-v002",
+      "acquisition_period": null,
+      "status": "discovery_only_not_downloaded_by_this_audit",
+      "caveat": "Tarihsel gözlemlerin statik toplamı; mikro-sahada 60 m L2B’nin yerini tutmaz."
+    },
+    {
+      "id": "catalog-8",
+      "body": "earth",
+      "name": "NASA POWER",
+      "declared_version_or_series": "—",
+      "nominal_grid": "0,5° × 0,625°",
+      "source_url": "https://power.larc.nasa.gov/docs/services/",
+      "acquisition_period": null,
+      "status": "discovery_only_not_downloaded_by_this_audit",
+      "caveat": "Kaba model alanları; krater ölçeğinde mikroiklim değildir."
+    },
+    {
+      "id": "catalog-9",
+      "body": "earth",
+      "name": "GPM IMERG",
+      "declared_version_or_series": "V07",
+      "nominal_grid": "0,1° · 30 dk",
+      "source_url": "https://gpm.nasa.gov/data/directory",
+      "acquisition_period": null,
+      "status": "discovery_only_not_downloaded_by_this_audit",
+      "caveat": "Final koşusu ~3,5 ay gecikmeli; Early/Late/Final ayrı etiketlenmeli."
+    },
+    {
+      "id": "catalog-10",
+      "body": "earth",
+      "name": "MERRA-2 aerosol",
+      "declared_version_or_series": "M2T1NXAER 5.12.4",
+      "nominal_grid": "0,5° × 0,625° · saatlik",
+      "source_url": "https://cmr.earthdata.nasa.gov/search/site/collections/directory/GES_DISC/gov.nasa.eosdis",
+      "acquisition_period": null,
+      "status": "discovery_only_not_downloaded_by_this_audit",
+      "caveat": "Yüzey tane boyutunun doğrudan ölçümü değildir."
+    },
+    {
+      "id": "catalog-11",
+      "body": "earth",
+      "name": "NISAR L-band",
+      "declared_version_or_series": "ürüne bağlı",
+      "nominal_grid": "—",
+      "source_url": "https://forum.earthdata.nasa.gov/viewtopic.php?p=26359&sid=c3064093e30bd71b2c255f9a1900719c&t=8068",
+      "acquisition_period": null,
+      "status": "discovery_only_not_downloaded_by_this_audit",
+      "caveat": "NASA–ISRO ortak görevi; ilk açık yayın 20 Temmuz 2026. Kapsam doğrulanmalı."
+    },
+    {
+      "id": "catalog-12",
+      "body": "moon",
+      "name": "LOLA South Pole DEM Mosaic",
+      "declared_version_or_series": "PGDA",
+      "nominal_grid": "5 m · 87–90°G",
+      "source_url": "https://pgda.gsfc.nasa.gov/products/81",
+      "acquisition_period": null,
+      "status": "discovery_only_not_downloaded_by_this_audit",
+      "caveat": "Piksel aralığı, tekdüze etkin çözünürlük demek değildir."
+    },
+    {
+      "id": "catalog-13",
+      "body": "moon",
+      "name": "LOLA adjusted polar topography",
+      "declared_version_or_series": "LDEM_80S_20MPP_ADJ",
+      "nominal_grid": "20 m · 80–90°G",
+      "source_url": "https://pgda.gsfc.nasa.gov/products/90",
+      "acquisition_period": null,
+      "status": "discovery_only_not_downloaded_by_this_audit",
+      "caveat": "ERR ve EFFRES yardımcı katmanları dâhil edilmeli."
+    },
+    {
+      "id": "catalog-14",
+      "body": "moon",
+      "name": "Shape-from-shading topography",
+      "declared_version_or_series": "PGDA SDEM",
+      "nominal_grid": "5 m · 13 aday bölge",
+      "source_url": "https://pgda.gsfc.nasa.gov/products/104",
+      "acquisition_period": null,
+      "status": "discovery_only_not_downloaded_by_this_audit",
+      "caveat": "LOLA ile kısıtlanmış fotometrik yeniden kurulum; yeni lazer ölçümü değildir."
+    },
+    {
+      "id": "catalog-15",
+      "body": "moon",
+      "name": "LROC NAC & WAC",
+      "declared_version_or_series": "PDS",
+      "nominal_grid": "NAC ~0,5 m · WAC ~100 m",
+      "source_url": "https://pds.nasa.gov/ds-view/pds/viewProfile.jsp?dsid=LRO-L-LROC-5-RDR-V1.0",
+      "acquisition_period": null,
+      "status": "discovery_only_not_downloaded_by_this_audit",
+      "caveat": "Gerçek ölçek ve geometri gözleme bağlıdır."
+    },
+    {
+      "id": "catalog-16",
+      "body": "moon",
+      "name": "Diviner",
+      "declared_version_or_series": "EDR · RDR · PCP · GCP",
+      "nominal_grid": "Release 67",
+      "source_url": "https://pds-geosciences.wustl.edu/missions/lro/diviner.htm",
+      "acquisition_period": null,
+      "status": "discovery_only_not_downloaded_by_this_audit",
+      "caveat": "Türev haritaların gözlem dönemleri ayrıdır; eksik değerler maskelenmeli."
+    },
+    {
+      "id": "catalog-17",
+      "body": "moon",
+      "name": "LEND & Mini-RF",
+      "declared_version_or_series": "PDS",
+      "nominal_grid": "—",
+      "source_url": "https://pds-geosciences.wustl.edu/missions/lro/",
+      "acquisition_period": null,
+      "status": "discovery_only_not_downloaded_by_this_audit",
+      "caveat": "Tek başına çıkarılabilir su rezervi kanıtı değildir."
+    },
+    {
+      "id": "catalog-18",
+      "body": "mars",
+      "name": "MOLA MEGDR",
+      "declared_version_or_series": "MGS · PDS4",
+      "nominal_grid": "128 px/derece (~463 m)",
+      "source_url": "https://pds-geosciences.wustl.edu/missions/mgs/megdr.html",
+      "acquisition_period": null,
+      "status": "discovery_only_not_downloaded_by_this_audit",
+      "caveat": "Tarihsel altimetri; yükseklik, yarıçap ve areoid ayrılmalı."
+    },
+    {
+      "id": "catalog-19",
+      "body": "mars",
+      "name": "MRO CTX",
+      "declared_version_or_series": "CTX",
+      "nominal_grid": "6 m",
+      "source_url": "https://science.nasa.gov/resource/a-decade-of-compiling-the-sharpest-mars-map/",
+      "acquisition_period": null,
+      "status": "discovery_only_not_downloaded_by_this_audit",
+      "caveat": "Görüntü çözünürlüğü, DEM çözünürlüğü demek değildir."
+    },
+    {
+      "id": "catalog-20",
+      "body": "mars",
+      "name": "MRO HiRISE",
+      "declared_version_or_series": "HiRISE",
+      "nominal_grid": "~25–32 cm",
+      "source_url": "https://pds-imaging.jpl.nasa.gov/documentation/HiRISE_RDR_v12_DTM_11_25_2009.pdf",
+      "acquisition_period": null,
+      "status": "discovery_only_not_downloaded_by_this_audit",
+      "caveat": "Sınırlı mekânsal kapsam."
+    },
+    {
+      "id": "catalog-21",
+      "body": "mars",
+      "name": "MRO CRISM",
+      "declared_version_or_series": "CRISM",
+      "nominal_grid": "~18 / 36 m",
+      "source_url": "https://pds-geosciences.wustl.edu/mro/mro-m-crism-3-rdr-targeted-v1/mrocr_2110/document/crism_dpsis.htm",
+      "acquisition_period": null,
+      "status": "discovery_only_not_downloaded_by_this_audit",
+      "caveat": "Alet 3 Nisan 2023’ten beri kapalı; arşiv ürünleri kullanılır."
+    },
+    {
+      "id": "catalog-22",
+      "body": "mars",
+      "name": "THEMIS & TES",
+      "declared_version_or_series": "Mars Odyssey · MGS",
+      "nominal_grid": "ürüne bağlı",
+      "source_url": "https://trek.nasa.gov/tiles/apidoc/trekAPI.html?body=mars",
+      "acquisition_period": null,
+      "status": "discovery_only_not_downloaded_by_this_audit",
+      "caveat": "IR mozaik, sıcaklık ve termal atalet ayrı ürünlerdir."
+    },
+    {
+      "id": "catalog-23",
+      "body": "mars",
+      "name": "MRO SHARAD",
+      "declared_version_or_series": "Release 78",
+      "nominal_grid": "—",
+      "source_url": "https://pds-geosciences.wustl.edu/missions/mro/sharad.htm",
+      "acquisition_period": null,
+      "status": "discovery_only_not_downloaded_by_this_audit",
+      "caveat": "Clutter simülasyonları ve tespit sınırları denetlenmeli."
+    },
+    {
+      "id": "catalog-24",
+      "body": "mars",
+      "name": "SWIM",
+      "declared_version_or_series": "Subsurface Water Ice Mapping",
+      "nominal_grid": "—",
+      "source_url": "https://science.nasa.gov/resource/swim-map-shows-subsurface-water-ice-on-mars/",
+      "acquisition_period": null,
+      "status": "discovery_only_not_downloaded_by_this_audit",
+      "caveat": "Tutarlılık haritasıdır; rezerv hacmi veya üretim verimi değildir."
+    }
+  ],
+  "evidence_snapshots": [
+    {
+      "url": "https://worldwind26.arc.nasa.gov/elev?service=WMS&request=GetCapabilities",
+      "snapshot": "data/provenance/worldwind-capabilities.xml",
+      "sha256": "80703a3bd90256b6137231fc9e7fe6e2b03b0a4459826e1a88fa96b9809332db",
+      "checked_at": "2026-11-14T11:08:36.287165+00:00",
+      "response_headers": {
+        "Content-Type": "text/xml; charset=UTF-8"
+      }
+    },
+    {
+      "url": "https://trek.nasa.gov/moon/trekarcgis/rest/services/LRO_LOLA_DEM_Global_256ppd_v06/ImageServer?f=pjson",
+      "snapshot": "data/provenance/moon-trek-dem.json",
+      "sha256": "d54103d028a103660eaf640509ce89718a098de4b2d211b8336cd3057a50ef30",
+      "checked_at": "2026-11-14T11:08:36.287165+00:00",
+      "response_headers": {
+        "ETag": "c1ee350",
+        "Content-Type": "text/plain;charset=UTF-8"
+      }
+    },
+    {
+      "url": "https://trek.nasa.gov/mars/trekarcgis/rest/services/mola128_mola64_merge_90Nto90S_SimpleC_clon0/ImageServer?f=pjson",
+      "snapshot": "data/provenance/mars-trek-dem.json",
+      "sha256": "68f4e35cc0612ecb5017f2ac6877d06b1d742c6f84efa28cb3325b819da09322",
+      "checked_at": "2026-11-14T11:08:36.287165+00:00",
+      "response_headers": {
+        "ETag": "1967ef17",
+        "Content-Type": "text/plain;charset=UTF-8"
+      }
+    },
+    {
+      "url": "https://cmr.earthdata.nasa.gov/search/collections.json?short_name=ASTGTM&page_size=20",
+      "snapshot": "data/provenance/cmr-astgtm.json",
+      "sha256": "f21f2619950627659846977757a0dc0a330744774704a2f748e86244eb0cac4f",
+      "checked_at": "2026-11-14T11:08:36.287165+00:00",
+      "response_headers": {
+        "Content-Type": "application/json;charset=utf-8"
+      }
+    },
+    {
+      "url": "https://cmr.earthdata.nasa.gov/search/collections.json?short_name=NASADEM_HGT&page_size=20",
+      "snapshot": "data/provenance/cmr-nasadem_hgt.json",
+      "sha256": "fedca78e43826bbfade8bda9fada6e614c784e260ec183bfdfd210e9d0505589",
+      "checked_at": "2026-11-14T11:08:36.287165+00:00",
+      "response_headers": {
+        "Content-Type": "application/json;charset=utf-8"
+      }
+    },
+    {
+      "url": "https://cmr.earthdata.nasa.gov/search/collections.json?short_name=EMITL2BMIN&page_size=20",
+      "snapshot": "data/provenance/cmr-emitl2bmin.json",
+      "sha256": "3ccfb699231fdc671c810d282b0a6be02720e018c79b23948acb99db0beeba24",
+      "checked_at": "2026-11-14T11:08:36.287165+00:00",
+      "response_headers": {
+        "Content-Type": "application/json;charset=utf-8"
+      }
+    },
+    {
+      "url": "https://cmr.earthdata.nasa.gov/search/collections.json?short_name=EMITL3ASA&page_size=20",
+      "snapshot": "data/provenance/cmr-emitl3asa.json",
+      "sha256": "9ba90b35f71e98049f492216798ca75cb1c4ffb4afa1d14df07aafed8ca23a86",
+      "checked_at": "2026-11-14T11:08:36.287165+00:00",
+      "response_headers": {
+        "Content-Type": "application/json;charset=utf-8"
+      }
+    },
+    {
+      "url": "https://cmr.earthdata.nasa.gov/search/collections.json?short_name=MOD11A1&page_size=20",
+      "snapshot": "data/provenance/cmr-mod11a1.json",
+      "sha256": "26e46b729274d803b3429a480ef7f01cda2a42a7e1e096b3555140d00fdb6f5f",
+      "checked_at": "2026-11-14T11:08:36.287165+00:00",
+      "response_headers": {
+        "Content-Type": "application/json;charset=utf-8"
+      }
+    },
+    {
+      "url": "https://cmr.earthdata.nasa.gov/search/collections.json?short_name=HLSL30&page_size=20",
+      "snapshot": "data/provenance/cmr-hlsl30.json",
+      "sha256": "2f365bc74b23173fb6db237f7252b403d48fc0a2ae24ee2b1bba78a1d517b182",
+      "checked_at": "2026-11-14T11:08:36.287165+00:00",
+      "response_headers": {
+        "Content-Type": "application/json;charset=utf-8"
+      }
+    },
+    {
+      "url": "https://cmr.earthdata.nasa.gov/search/collections.json?short_name=HLSS30&page_size=20",
+      "snapshot": "data/provenance/cmr-hlss30.json",
+      "sha256": "99a6e98a1cea945cc2c925b40fe79d3139595444ddc681cfa45f671fab167819",
+      "checked_at": "2026-11-14T11:08:36.287165+00:00",
+      "response_headers": {
+        "Content-Type": "application/json;charset=utf-8"
+      }
+    },
+    {
+      "url": "https://cmr.earthdata.nasa.gov/search/collections.json?short_name=VNP46A2&page_size=20",
+      "snapshot": "data/provenance/cmr-vnp46a2.json",
+      "sha256": "060f53c407ad13770f948d5197003d21f1e5c55a6e474a29868e4633074e46b1",
+      "checked_at": "2026-11-14T11:08:36.287165+00:00",
+      "response_headers": {
+        "Content-Type": "application/json;charset=utf-8"
+      }
+    },
+    {
+      "url": "https://gis.earthdata.nasa.gov/portal/rest/services/GESDISC/PACE_OCI_L3M_LANDVI/ImageServer?f=pjson",
+      "snapshot": "data/provenance/pace-ndvi-metadata.json",
+      "sha256": "20edb0a7c1b5527f097ebf62e809e6c210c2035ba8c2d197da7ca699683327e5",
+      "checked_at": "2026-11-14T11:23:49.018117+00:00"
+    },
+    {
+      "url": "https://gis.earthdata.nasa.gov/portal/rest/services/ulandsat/ulandsat_hbase_v1/ImageServer?f=pjson",
+      "snapshot": "data/provenance/hbase-metadata.json",
+      "sha256": "a512c2c8ca4a04a507f728f605636651ffa04fcf97aec9bcd48c45651a999022",
+      "checked_at": "2026-11-14T11:23:49.018117+00:00"
+    },
+    {
+      "url": "https://gis.earthdata.nasa.gov/portal/sharing/rest/content/items/771a3adbe22f48eaafacf18ec8ba8127?f=json",
+      "snapshot": "data/provenance/hbase-legend-item.json",
+      "sha256": "44f05031d33803fee1936e032ab19c4fcb3e810f037b926e984afc9a92ffd56b",
+      "checked_at": "2026-11-14T11:23:49.018117+00:00"
+    }
+  ],
+  "site_source_corrections": [
+    {
+      "site_id": "hanksville",
+      "source_url": "https://ntrs.nasa.gov/citations/20110014304",
+      "publication_date": "2011-03-07",
+      "field_campaign": "DOMEX, November 2009",
+      "checked_at": "2026-11-14T11:08:36.287165+00:00",
+      "finding": "NASA-MMAMA funded subsurface sampling and robotics at MDRS near Hanksville. Previously unsourced local climate figures were removed from the site card."
+    },
+    {
+      "site_id": "pilbara",
+      "source_url": "https://astrobiology.nasa.gov/research-locations/",
+      "checked_at": "2026-11-14T11:08:36.287165+00:00",
+      "finding": "NASA Astrobiology catalogues Pilbara Craton as an ancient-Earth field site. The broad regional marker is not an exact fossil-site coordinate."
+    },
+    {
+      "claim": "Moon Base I landing target",
+      "source_url": "https://www.nasa.gov/news-release/nasa-provides-update-on-moon-base-rovers-landers-missions/",
+      "publication_date": "2026-05-26",
+      "checked_at": "2026-11-14T11:08:36.287165+00:00",
+      "finding": "NASA names Shackleton Connecting Ridge as the mission target. This does not define a final surveyed footprint for a permanent base."
+    }
+  ],
+  "challenge_page_check": {
+    "url": "https://www.spaceappschallenge.org/2026/challenges/permanent-moon-base-locations-and-mars/",
+    "checked_at": "2026-11-14T11:08:36.287165+00:00",
+    "status": "Web fetch returned HTTP 502 twice. The user-provided reference is preserved; requirements were not revalidated from the live page during this audit."
+  },
+  "target_coordinate_evidence": [
+    {
+      "target": "Connecting Ridge (R01 / Site01)",
+      "latitude": -89.4632,
+      "longitude_east": -137.49,
+      "coordinate_convention": "Degrees; east-positive longitude in [-180,180].",
+      "source_url": "https://ntrs.nasa.gov/api/citations/20230007818/downloads/ACD-50044%20Lunar%20Surface%20Data%20Book%20Rev%20A.pdf?attachment=true",
+      "source_location": "Lunar Surface Data Book, Rev A, 2023-05-19, Table A2-2, page 58 of 70",
+      "interpretation": "Named feature centre from NASA reference table. Any 10 km analysis window is an analyst-defined region, not the certified Moon Base I landing footprint."
+    },
+    {
+      "target": "Shackleton Connecting Ridge tower-study point",
+      "latitude": -89.46752,
+      "longitude_east": -138.012788,
+      "source_url": "https://ntrs.nasa.gov/api/citations/20240009936/downloads/TDEA%20TSPD%20Tall%20Tower%20Lunar%20Thermal%20Analysis%20v3.pdf",
+      "interpretation": "Independent nearby location used for a NASA thermal-analysis case study; not a new landing selection."
+    }
+  ],
+  "granule_access_checks": [
+    {
+      "short_name": "MOD13Q1",
+      "version": "061",
+      "collection_concept_id": "C1748066515-LPCLOUD",
+      "query_url": "https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C1748066515-LPCLOUD&bounding_box=29.58%2C37.45%2C29.78%2C37.65&page_size=1&sort_key=-start_date",
+      "checked_at": "2026-11-14T11:17:33.371632+00:00",
+      "aoi_bbox": [
+        29.58,
+        37.45,
+        29.78,
+        37.65
+      ],
+      "snapshot": "data/provenance/granule-mod13q1.json",
+      "sha256": "25a29c946e61922ea2f160a0cb18105029537ff8d0670761f3dc49c94df9979f",
+      "granule_found": true,
+      "granule_id": "G4399704710-LPCLOUD",
+      "granule_ur": "MOD13Q1.A2026289.h20v05.061.2026307130820",
+      "time_start": "2026-10-16T00:00:00.000Z",
+      "time_end": "2026-10-31T23:59:59.000Z",
+      "data_links": [
+        {
+          "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+          "title": "Download MOD13Q1.A2026289.h20v05.061.2026307130820.hdf",
+          "hreflang": "en-US",
+          "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD13Q1.061/MOD13Q1.A2026289.h20v05.061.2026307130820/MOD13Q1.A2026289.h20v05.061.2026307130820.hdf"
+        },
+        {
+          "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+          "title": "Download MOD13Q1.A2026289.h20v05.061.2026307130820.cmr.xml (EXTENDED METADATA)",
+          "hreflang": "en-US",
+          "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD13Q1.061/MOD13Q1.A2026289.h20v05.061.2026307130820/MOD13Q1.A2026289.h20v05.061.2026307130820.cmr.xml"
+        },
+        {
+          "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+          "title": "api endpoint to retrieve temporary credentials valid for same-region direct s3 access (VIEW RELATED INFORMATION)",
+          "hreflang": "en-US",
+          "href": "https://data.lpdaac.earthdatacloud.nasa.gov/s3credentials"
+        }
+      ],
+      "access_probe": {
+        "status": 401,
+        "final_host": "urs.earthdata.nasa.gov",
+        "note": "No credentials supplied; no response body saved."
+      }
+    },
+    {
+      "short_name": "EMITL2BMIN",
+      "version": "002",
+      "collection_concept_id": "C4079846859-LPCLOUD",
+      "query_url": "https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C4079846859-LPCLOUD&bounding_box=29.58%2C37.45%2C29.78%2C37.65&page_size=1&sort_key=-start_date",
+      "checked_at": "2026-11-14T11:17:33.371632+00:00",
+      "aoi_bbox": [
+        29.58,
+        37.45,
+        29.78,
+        37.65
+      ],
+      "snapshot": "data/provenance/granule-emitl2bmin.json",
+      "sha256": "9d3b007ffb0473cc63973c2a4291495d21e0c0c7f13518ab6770d83ffc76caed",
+      "granule_found": true,
+      "granule_id": "G4401105051-LPCLOUD",
+      "granule_ur": "EMIT_L2B_MIN_002_20240823T081439",
+      "time_start": "2024-08-23T08:14:39.000Z",
+      "time_end": "2024-08-23T08:14:51.000Z",
+      "data_links": [
+        {
+          "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+          "title": "Download EMIT_L2B_MIN_002_20240823T081439.nc",
+          "hreflang": "en-US",
+          "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/EMITL2BMIN.002/EMIT_L2B_MIN_002_20240823T081439/EMIT_L2B_MIN_002_20240823T081439.nc"
+        },
+        {
+          "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+          "title": "Download EMIT_L2B_MINUNCERT_002_20240823T081439.nc",
+          "hreflang": "en-US",
+          "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/EMITL2BMIN.002/EMIT_L2B_MIN_002_20240823T081439/EMIT_L2B_MINUNCERT_002_20240823T081439.nc"
+        },
+        {
+          "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+          "title": "Download EMIT_L2B_MIN_002_20240823T081439.cmr.json",
+          "hreflang": "en-US",
+          "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/EMITL2BMIN.002/EMIT_L2B_MIN_002_20240823T081439/EMIT_L2B_MIN_002_20240823T081439.cmr.json"
+        },
+        {
+          "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+          "title": "api endpoint to retrieve temporary credentials valid for same-region direct s3 access",
+          "hreflang": "en-US",
+          "href": "https://data.lpdaac.earthdatacloud.nasa.gov/s3credentials"
+        }
+      ],
+      "access_probe": {
+        "status": 401,
+        "final_host": "urs.earthdata.nasa.gov",
+        "note": "No credentials supplied; no response body saved."
+      }
+    },
+    {
+      "short_name": "VNP46A2",
+      "version": "2",
+      "collection_concept_id": "C3365931269-LAADS",
+      "query_url": "https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C3365931269-LAADS&bounding_box=29.58%2C37.45%2C29.78%2C37.65&page_size=1&sort_key=-start_date",
+      "checked_at": "2026-11-14T11:17:33.371632+00:00",
+      "aoi_bbox": [
+        29.58,
+        37.45,
+        29.78,
+        37.65
+      ],
+      "snapshot": "data/provenance/granule-vnp46a2.json",
+      "sha256": "895223eba57e3bf318d103d09f4396ada595509665cdd503692c8aadb1289fdf",
+      "granule_found": true,
+      "granule_id": "G4408579566-LAADS",
+      "granule_ur": "VNP46A2.A2026306.h20v05.002.2026315142812.h5",
+      "time_start": "2026-11-02T00:00:00.000Z",
+      "time_end": "2026-11-03T00:00:00.000Z",
+      "data_links": [
+        {
+          "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+          "type": "application/x-hdf5",
+          "hreflang": "en-US",
+          "href": "https://data.laadsdaac.earthdatacloud.nasa.gov/prod-lads/VNP46A2/VNP46A2.A2026306.h20v05.002.2026315142812.h5"
+        }
+      ],
+      "access_probe": {
+        "status": 401,
+        "final_host": "urs.earthdata.nasa.gov",
+        "note": "No credentials supplied; no response body saved."
+      }
+    }
+  ],
+  "additional_service_checks": [
+    {
+      "service": "NASA ORNL DAAC TESViS Global Subsets",
+      "endpoint": "https://modis.ornl.gov/rst/api/v1",
+      "checked_at": "2026-11-14T11:17:33.371632+00:00",
+      "status": "unavailable_from_current_environment",
+      "observed_failures": [
+        "Python certificate verification failed: self-signed certificate in certificate chain.",
+        "Windows Invoke-WebRequest timed out after25seconds.",
+        "Windows curl timed out after20seconds withHTTP000.",
+        "Web fetch of bands and subset endpoints unavailable."
+      ],
+      "documentation_url": "https://modis.ornl.gov/data/modis_webservice.html",
+      "nasa_attribution_url": "https://forum.earthdata.nasa.gov/viewtopic.php?t=3534",
+      "notes": "Documentation accessible. No TLS verification bypass, credentials, email-order submission or fabricated data used. Maximum10composite dates per synchronous subset request."
+    },
+    {
+      "service": "NASA Earth Observations (NEO)",
+      "endpoint": "https://neo.gsfc.nasa.gov/view.php?datasetId=MOD_NDVI_M",
+      "checked_at": "2026-11-14T11:17:33.371632+00:00",
+      "status": "decommissioned",
+      "redirect_url": "https://science.nasa.gov/earth/nasa-earth-observations-neo/",
+      "notes": "Official NASA page states decommissionedSeptember2026. Legacy CSV/floating-pointGeoTIFF values are simplified educational imagery, not original science data.",
+      "limitations_url": "https://neo.gsfc.nasa.gov/blog/2020/12/23/raster-and-floating-point-geotiffs-what-is-the-difference/"
+    }
+  ],
+  "surface_probe_snapshot_status": [
+    {
+      "url": "https://gis.earthdata.nasa.gov/portal/rest/services/GESDISC/PACE_OCI_L3M_LANDVI/ImageServer?f=pjson",
+      "snapshot": "data/provenance/pace-ndvi-metadata.json",
+      "sha256": "20edb0a7c1b5527f097ebf62e809e6c210c2035ba8c2d197da7ca699683327e5",
+      "checked_at": "2026-11-14T11:23:49.018117+00:00"
+    },
+    {
+      "url": "https://gis.earthdata.nasa.gov/portal/rest/services/GESDISC/PACE_OCI_L3M_LANDVI/ImageServer/getSamples?f=json&geometry=%7B%22points%22%3A+%5B%5B29.68%2C+37.55%5D%2C+%5B28.9784%2C+41.0082%5D%2C+%5B-62.5%2C+-3.5%5D%5D%2C+%22spatialReference%22%3A+%7B%22wkid%22%3A+4326%7D%7D&geometryType=esriGeometryMultipoint&returnFirstValueOnly=true&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D",
+      "snapshot": null,
+      "checked_at": "2026-11-14T11:23:49.018117+00:00",
+      "error": "The read operation timed out"
+    },
+    {
+      "url": "https://gis.earthdata.nasa.gov/portal/rest/services/ulandsat/ulandsat_hbase_v1/ImageServer?f=pjson",
+      "snapshot": "data/provenance/hbase-metadata.json",
+      "sha256": "a512c2c8ca4a04a507f728f605636651ffa04fcf97aec9bcd48c45651a999022",
+      "checked_at": "2026-11-14T11:23:49.018117+00:00"
+    },
+    {
+      "url": "https://gis.earthdata.nasa.gov/portal/sharing/rest/content/items/771a3adbe22f48eaafacf18ec8ba8127?f=json",
+      "snapshot": "data/provenance/hbase-legend-item.json",
+      "sha256": "44f05031d33803fee1936e032ab19c4fcb3e810f037b926e984afc9a92ffd56b",
+      "checked_at": "2026-11-14T11:23:49.018117+00:00"
+    }
+  ]
+}

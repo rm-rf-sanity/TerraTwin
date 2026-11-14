@@ -50,7 +50,7 @@
     <div class="hero-actions">
       <a class="btn btn-solid" href="#atlas" data-i18n="hero.cta1">Atlası aç</a>
       <a class="btn btn-ghost" href="#yontem" data-i18n="hero.cta2">Yöntemi gör</a>
-      <span class="status mono"><i></i><span data-i18n="hero.status">Araştırma aşaması · henüz hesaplanmış skor yok</span></span>
+      <span class="status mono"><i></i><span data-i18n="hero.status">NASA verisiyle pilot · kapsam ve sınırlar açık</span></span>
     </div>
   </div>
 
@@ -136,7 +136,7 @@
         <ul>
           <li data-i18n="t1.l1">Moon Base I'in (Blue Moon Mark 1) iniş hedefi; NASA Mayıs 2026'da açıkladı.</li>
           <li data-i18n="t1.l2">Neredeyse sürekli güneş alan sırtlar, hemen yanında kalıcı gölgeli bölgeler.</li>
-          <li data-i18n="t1.l3">Gölgeli kraterlerde yaklaşık 33 K (Diviner'ın ilk ölçümleri): buz için soğuk tuzak.</li>
+          <li data-i18n="t1.l3">Bazı kalıcı gölgeli kutup bölgelerinde yaklaşık 33 K ölçüldü; bu değer hedef alanın tamamının sıcaklığı değildir.</li>
           <li data-i18n="t1.l4">LOLA'ya göre keşfi zorlaştıracak kadar engebeli arazi.</li>
         </ul>
         <p class="chips"><span>LOLA</span><span>Diviner</span><span>LEND</span><span>LAMP</span><span>Mini-RF</span><span>LROC</span></p>
@@ -147,7 +147,7 @@
         <ul>
           <li data-i18n="t2.l1">Perseverance'ın incelediği, yaklaşık 3,5 milyar yıllık eski göl ve delta.</li>
           <li data-i18n="t2.l2">Batı kenarında karbonat izleri; demir-magnezyum smektit killeri.</li>
-          <li data-i18n="t2.l3">Uçlar 20 °C'nin üstünden −110 °C'nin altına; mevsimsel değişim ve toz fırtınaları.</li>
+          <li data-i18n="t2.l3">Mars genelinde geniş sıcaklık aralığı ve toz fırtınaları; bu açıklama Jezero'ya ait yerel ölçüm serisi değildir.</li>
           <li data-i18n="t2.l4">Dünya'daki, NASA'nın belgelediği karşılığı: Salda Gölü.</li>
         </ul>
         <p class="chips"><span>CRISM</span><span>CTX</span><span>HiRISE</span><span>MOLA</span><span>THEMIS</span></p>
@@ -187,7 +187,7 @@
   <div class="wrap">
     <p class="idx mono" data-i18n="s4.idx">04 — Atlas</p>
     <div class="head">
-      <h2 class="reveal" data-i18n="s4.title">Yirmi bir saha, dört kanıt düzeyi.</h2>
+      <h2 class="reveal" data-i18n="s4.title">Yirmi bir araştırma sahası, açık kanıt ve analiz alanları.</h2>
       <p class="lead reveal" data-i18n="s4.lead">Her saha, neye dayandığıyla birlikte gösterilir. NASA'nın gerçekten kullandığı bir analog ile henüz sınamadığımız bir hipotez asla aynı işaretle çizilmez.</p>
     </div>
 
@@ -214,10 +214,35 @@
           <p class="map-hint mono" id="map-offline" hidden></p>
         </div>
         <div class="site-list" id="site-list"></div>
-        <p class="fine mono" data-i18n="s4.coordnote">Koordinatlar yaklaşıktır ve analiz sırasında doğrulanacaktır.</p>
+        <p class="fine mono" data-i18n="s4.coordnote">Araştırma noktaları yaklaşık konumları gösterir; pilot analizin kesin çalışma sınırları alan katmanında ve GeoJSON dışa aktarımında bulunur.</p>
       </div>
       <aside class="site-card" id="site-card" aria-live="polite"></aside>
     </div>
+    <div id="analysis-panel" class="analysis-panel" aria-labelledby="analysis-title">
+      <p class="label mono" id="analysis-eyebrow">Tekrarlanabilir pilot analiz</p>
+      <h3 id="analysis-title">Ölçümden karşılaştırmaya</h3>
+      <p id="analysis-summary" class="analysis-summary" role="status">NASA veri çıktısı yükleniyor…</p>
+      <div class="analysis-toolbar" id="analysis-controls" hidden>
+        <label><span id="analysis-target-label">Hedef</span><select id="analysis-target"></select></label>
+        <label><span id="analysis-mode-label">Karşılaştırma</span><select id="analysis-mode"></select></label>
+        <label><span id="analysis-layer-label">Harita katmanı</span><select id="analysis-layer"></select></label>
+        <div class="analysis-exports"><button type="button" id="analysis-json">JSON</button><button type="button" id="analysis-csv">CSV</button><button type="button" id="analysis-geojson">GeoJSON</button></div>
+      </div>
+      <p class="analysis-context" id="analysis-context"></p>
+      <p class="analysis-map-legend" id="analysis-map-legend"></p>
+      <div class="analysis-grid" id="analysis-content" hidden>
+        <div><h4 id="analysis-ranking-label">Karşılaştırılan alanlar</h4><div id="analysis-ranking" class="analysis-ranking"></div></div>
+        <div id="analysis-detail" class="analysis-detail" aria-live="polite"></div>
+      </div>
+      <details class="analysis-audit" id="analysis-audit" hidden>
+        <summary id="analysis-audit-title">Kaynaklar, veri kalitesi ve doğrulama</summary>
+        <div id="analysis-validation"></div>
+        <div class="tbl-scroll"><table class="tbl" id="analysis-sources"></table></div>
+        <ul id="analysis-limitations"></ul>
+      </details>
+      <noscript>Pilot sonuçlarını görmek için JavaScript gereklidir. Ham sonuçlar: <a href="site/analysis-results.json">analysis-results.json</a>.</noscript>
+    </div>
+
   </div>
 </section>
 
@@ -227,7 +252,7 @@
     <p class="idx mono" data-i18n="s5.idx">05 — Yöntem</p>
     <div class="head">
       <h2 class="reveal" data-i18n="s5.title">Aynı yer, her görev için farklı bir cevap.</h2>
-      <p class="lead reveal" data-i18n="s5.lead">Model her kara hücresini bir hedef profile göre puanlar. Ağırlıklar görev türüne göre değişir; bir saha yaşam algılama için güçlü, gezgin testi için zayıf olabilir. Bir görev seçin ve neyin önem kazandığını izleyin.</p>
+      <p class="lead reveal" data-i18n="s5.lead">Pilot analiz, sınırları tanımlanmış sahalarda NASA verilerinden ölçülebilen özellikleri karşılaştırır. Görev seçimi aşağıdaki ağırlıkları ve Atlas bölümündeki hesaplanan sonuçları birlikte değiştirir. Eksik veri varsa tam benzerlik skoru üretilmez.</p>
     </div>
 
     <div class="weights reveal">
@@ -248,7 +273,7 @@
     <div class="principles">
       <div class="reveal"><h3 data-i18n="s5.p1.t">Açıklanabilir</h3><p data-i18n="s5.p1.d">Her skor bileşenlerine ayrılabilir. Kullanıcı bir yerin neden yüksek puan aldığını görebilir.</p></div>
       <div class="reveal"><h3 data-i18n="s5.p2.t">Kaynağı şeffaf</h3><p data-i18n="s5.p2.d">Her bileşen, hangi NASA verisinden geldiğiyle birlikte gösterilir.</p></div>
-      <div class="reveal"><h3 data-i18n="s5.p3.t">Eksikler konusunda dürüst</h3><p data-i18n="s5.p3.d">Eksik veri sıfır olarak değil, eksik olarak gösterilir. Bir eşik kuralı, orman ve tarım alanlarının üst sıralara çıkmasını önler.</p></div>
+      <div class="reveal"><h3 data-i18n="s5.p3.t">Eksikler konusunda dürüst</h3><p data-i18n="s5.p3.d">Eksik veri sıfır sayılmaz. Ağırlıklı veri kapsamı yeterli değilse skor açıklanmaz; bitki örtüsü veya mineral verisi yoksa bu özelliklerin doğrulandığı iddia edilmez.</p></div>
     </div>
 
     <div class="two method-foot">
@@ -276,7 +301,7 @@
     <p class="idx mono" data-i18n="s6.idx">06 — Veri</p>
     <div class="head">
       <h2 class="reveal" data-i18n="s6.title">Üç dünya, tek kaynak politikası: NASA.</h2>
-      <p class="lead reveal" data-i18n="s6.lead">14 Kasım 2026'da kontrol edilmiş ürünlerin keşif kataloğu. İndirilmiş bilim verisi veya analiz sonucu değildir. Her satır, göz ardı edilirse bizi yanıltacak uyarıyı da taşır.</p>
+      <p class="lead reveal" data-i18n="s6.lead">Araştırmada kullanılabilecek ürünlerin kataloğu. Bu listedeki her ürün indirilmiş değildir. Pilot analizde gerçekten kullanılan ürünler, ölçüm dönemi ve erişim bilgileriyle Atlas bölümünde ayrıca gösterilir.</p>
     </div>
     <div class="seg" id="body-seg" role="group"></div>
     <div class="tbl-scroll">
@@ -344,5 +369,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/3.0.2/topojson.min.js" defer></script>
 <script src="site/data.js" defer></script>
 <script src="site/app.js" defer></script>
+<script src="site/analysis-ui.js" defer></script>
 </body>
 </html>

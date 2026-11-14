@@ -1,0 +1,19 @@
+{
+  "id": "power-nemrut",
+  "url": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CPRECTOTCORR&community=AG&longitude=42.23&latitude=38.62&start=20250101&end=20251231&format=JSON&time-standard=UTC",
+  "method": "GET",
+  "requestBody": null,
+  "provider": "NASA",
+  "product": "NASA POWER daily meteorological data",
+  "version": null,
+  "measurementPeriod": {
+    "start": "2025-01-01",
+    "end": "2025-12-31"
+  },
+  "retrievedAt": "2026-11-14T11:09:28+00:00",
+  "sha256": "b7ba9e8a5bcfab0eb27ddb89d38a908c43a995b8efb49bc76b10725dbe76a257",
+  "bytes": 24602,
+  "cachePath": "data/cache/977b86709ed14da4748c33c3.json",
+  "status": "available",
+  "contentType": "application/json"
+}

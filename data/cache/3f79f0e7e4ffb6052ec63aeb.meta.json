@@ -1,0 +1,19 @@
+{
+  "id": "power-askja",
+  "url": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CPRECTOTCORR&community=AG&longitude=-16.75&latitude=65.03&start=20250101&end=20251231&format=JSON&time-standard=UTC",
+  "method": "GET",
+  "requestBody": null,
+  "provider": "NASA",
+  "product": "NASA POWER daily meteorological data",
+  "version": null,
+  "measurementPeriod": {
+    "start": "2025-01-01",
+    "end": "2025-12-31"
+  },
+  "retrievedAt": "2026-11-14T11:09:19+00:00",
+  "sha256": "6e76ba7704b5ef45283ab576adbf3342e8f2e9d4f56a454f587c3d92587659b1",
+  "bytes": 24635,
+  "cachePath": "data/cache/3f79f0e7e4ffb6052ec63aeb.json",
+  "status": "available",
+  "contentType": "application/json"
+}

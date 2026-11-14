@@ -1,0 +1,777 @@
+{
+  "schemaVersion": 1,
+  "experiment": {
+    "id": "pilot-2025-v1",
+    "title": {
+      "tr": "NASA verisiyle saha karşılaştırma pilotu",
+      "en": "NASA-data site comparison pilot"
+    },
+    "description": {
+      "tr": "Analist tarafından seçilmiş 10 km alanlarda 500 m aralıklı arazi örneklemesi; NASA POWER 2025 bölgesel iklim bağlamı.",
+      "en": "Analyst-selected 10 km areas sampled at 500 m terrain spacing; NASA POWER 2025 regional climate context."
+    },
+    "period": {
+      "start": "2025-01-01",
+      "end": "2025-12-31"
+    },
+    "minimumCoverage": 0.6,
+    "minimumValidFraction": 0.95,
+    "spacingM": 500,
+    "gridSize": 21,
+    "aoiSizeM": 10000,
+    "controlRevision": "v2: corrected Manaus/Konya urban labels while preserving their locations; added separate intended forest/agriculture windows. Diagnostic, not held-out validation."
+  },
+  "targets": [
+    {
+      "id": "shackleton",
+      "name": {
+        "tr": "Shackleton Connecting Ridge çalışma alanı",
+        "en": "Shackleton Connecting Ridge study area"
+      },
+      "body": "moon",
+      "lat": -89.4632,
+      "lon": -137.49,
+      "profile": "base",
+      "coordinateStatus": "NASA Lunar Surface Data Book Rev A table A2-2 named-site coordinate; analyst-defined study window, not certified landing footprint",
+      "radiusM": 1737400,
+      "coordinateSource": "https://ntrs.nasa.gov/api/citations/20230007818/downloads/ACD-50044%20Lunar%20Surface%20Data%20Book%20Rev%20A.pdf"
+    },
+    {
+      "id": "jezero",
+      "name": {
+        "tr": "Jezero batı krateri çalışma alanı",
+        "en": "Jezero western crater study area"
+      },
+      "body": "mars",
+      "lat": 18.44,
+      "lon": 77.45,
+      "profile": "mars",
+      "coordinateStatus": "analyst-selected study window; not a certified landing site",
+      "radiusM": 3396190
+    }
+  ],
+  "sites": [
+    {
+      "id": "haughton",
+      "name": {
+        "tr": "Haughton Krateri",
+        "en": "Haughton Crater"
+      },
+      "lat": 75.38,
+      "lon": -89.67,
+      "body": "earth",
+      "role": "reference",
+      "sourceCategory": "nasa",
+      "referenceSource": "https://ntrs.nasa.gov/api/citations/20110011887/downloads/20110011887.pdf",
+      "eligible": true
+    },
+    {
+      "id": "salda",
+      "name": {
+        "tr": "Salda Gölü",
+        "en": "Lake Salda"
+      },
+      "lat": 37.55,
+      "lon": 29.68,
+      "body": "earth",
+      "role": "reference",
+      "sourceCategory": "nasa",
+      "referenceSource": "https://science.nasa.gov/blogs/earth-matters/2021/02/17/what-a-lake-in-turkey-can-tell-us-about-mars/",
+      "eligible": true
+    },
+    {
+      "id": "mcmurdo",
+      "name": {
+        "tr": "McMurdo Kuru Vadileri",
+        "en": "McMurdo Dry Valleys"
+      },
+      "lat": -77.5,
+      "lon": 162,
+      "body": "earth",
+      "role": "reference",
+      "sourceCategory": "nasa",
+      "referenceSource": "https://astrobiology.nasa.gov/research-locations/",
+      "eligible": true
+    },
+    {
+      "id": "atacama",
+      "name": {
+        "tr": "Atacama Çölü",
+        "en": "Atacama Desert"
+      },
+      "lat": -24.07,
+      "lon": -69.9,
+      "body": "earth",
+      "role": "reference",
+      "sourceCategory": "nasa",
+      "referenceSource": "https://astrobiology.nasa.gov/news/nasa-tests-life-detection-drill-in-the-atacama-desert/",
+      "eligible": true
+    },
+    {
+      "id": "askja",
+      "name": {
+        "tr": "Askja ve İzlanda Yaylaları",
+        "en": "Askja & the Icelandic Highlands"
+      },
+      "lat": 65.03,
+      "lon": -16.75,
+      "body": "earth",
+      "role": "reference",
+      "sourceCategory": "nasa",
+      "referenceSource": "https://science.nasa.gov/missions/artemis/nasas-artemis-ii-crew-uses-iceland-terrain-for-lunar-training/",
+      "eligible": true
+    },
+    {
+      "id": "maunakea",
+      "name": {
+        "tr": "Mauna Kea",
+        "en": "Mauna Kea"
+      },
+      "lat": 19.82,
+      "lon": -155.47,
+      "body": "earth",
+      "role": "reference",
+      "sourceCategory": "nasa",
+      "referenceSource": "https://ntrs.nasa.gov/citations/20140008708",
+      "eligible": true
+    },
+    {
+      "id": "deathvalley",
+      "name": {
+        "tr": "Death Valley",
+        "en": "Death Valley"
+      },
+      "lat": 36.5,
+      "lon": -117,
+      "body": "earth",
+      "role": "reference",
+      "sourceCategory": "nasa",
+      "referenceSource": "https://science.nasa.gov/solar-system/analog-explorer/",
+      "eligible": true
+    },
+    {
+      "id": "kilauea",
+      "name": {
+        "tr": "Kīlauea",
+        "en": "Kīlauea"
+      },
+      "lat": 19.41,
+      "lon": -155.28,
+      "body": "earth",
+      "role": "reference",
+      "sourceCategory": "nasa",
+      "referenceSource": "https://science.nasa.gov/solar-system/analog-explorer/",
+      "eligible": true
+    },
+    {
+      "id": "medicine",
+      "name": {
+        "tr": "Medicine Lake lav mağaraları",
+        "en": "Medicine Lake lava caves"
+      },
+      "lat": 41.6,
+      "lon": -121.55,
+      "body": "earth",
+      "role": "reference",
+      "sourceCategory": "nasa",
+      "referenceSource": "https://science.nasa.gov/solar-system/analog-explorer/",
+      "eligible": true
+    },
+    {
+      "id": "pilot",
+      "name": {
+        "tr": "Pilot Valley",
+        "en": "Pilot Valley"
+      },
+      "lat": 41.1,
+      "lon": -113.9,
+      "body": "earth",
+      "role": "reference",
+      "sourceCategory": "nasa",
+      "referenceSource": "https://science.nasa.gov/solar-system/analog-explorer/",
+      "eligible": true
+    },
+    {
+      "id": "katmai",
+      "name": {
+        "tr": "Katmai · On Bin Duman Vadisi",
+        "en": "Katmai · Valley of Ten Thousand Smokes"
+      },
+      "lat": 58.4,
+      "lon": -155.3,
+      "body": "earth",
+      "role": "reference",
+      "sourceCategory": "nasa",
+      "referenceSource": "https://science.nasa.gov/earth/earth-observatory/playing-the-moon-game/",
+      "eligible": true
+    },
+    {
+      "id": "kapadokya",
+      "name": {
+        "tr": "Kapadokya",
+        "en": "Cappadocia"
+      },
+      "lat": 38.6,
+      "lon": 34.8,
+      "body": "earth",
+      "role": "candidate",
+      "sourceCategory": "test",
+      "referenceSource": "https://science.nasa.gov/earth/earth-observatory/goreme-national-park-turkey-38876/",
+      "eligible": true
+    },
+    {
+      "id": "wadirum",
+      "name": {
+        "tr": "Wadi Rum",
+        "en": "Wadi Rum"
+      },
+      "lat": 29.6,
+      "lon": 35.4,
+      "body": "earth",
+      "role": "candidate",
+      "sourceCategory": "test",
+      "referenceSource": "https://science.nasa.gov/earth/earth-observatory/movie-mars-on-earth-148764/",
+      "eligible": true
+    },
+    {
+      "id": "bardenas",
+      "name": {
+        "tr": "Bardenas Reales",
+        "en": "Bardenas Reales"
+      },
+      "lat": 42.2,
+      "lon": -1.5,
+      "body": "earth",
+      "role": "candidate",
+      "sourceCategory": "test",
+      "referenceSource": "https://science.nasa.gov/image-article/apod-2013-september-2-milky-way-over-spains-bardenas-reales/",
+      "eligible": true
+    },
+    {
+      "id": "nemrut",
+      "name": {
+        "tr": "Nemrut Kalderası",
+        "en": "Nemrut Caldera"
+      },
+      "lat": 38.62,
+      "lon": 42.23,
+      "body": "earth",
+      "role": "candidate",
+      "sourceCategory": "hypo",
+      "referenceSource": "https://eol.jsc.nasa.gov/Collections/EarthObservatory/articles/MountNemrutTurkey.htm",
+      "eligible": true
+    },
+    {
+      "id": "tuz",
+      "name": {
+        "tr": "Tuz Gölü",
+        "en": "Lake Tuz"
+      },
+      "lat": 38.75,
+      "lon": 33.35,
+      "body": "earth",
+      "role": "candidate",
+      "sourceCategory": "hypo",
+      "referenceSource": "https://science.nasa.gov/earth/earth-observatory/disappearing-lake-tuz-149211/",
+      "eligible": true
+    },
+    {
+      "id": "harrat",
+      "name": {
+        "tr": "Harrat Khaybar",
+        "en": "Harrat Khaybar"
+      },
+      "lat": 25.7,
+      "lon": 39.9,
+      "body": "earth",
+      "role": "candidate",
+      "sourceCategory": "hypo",
+      "referenceSource": "https://science.nasa.gov/earth/earth-observatory/white-and-black-volcanoes-of-saudi-arabia-152839/",
+      "eligible": true
+    },
+    {
+      "id": "pinacate",
+      "name": {
+        "tr": "El Pinacate",
+        "en": "El Pinacate"
+      },
+      "lat": 31.77,
+      "lon": -113.5,
+      "body": "earth",
+      "role": "candidate",
+      "sourceCategory": "hypo",
+      "referenceSource": "https://science.nasa.gov/earth/earth-observatory/pinacate-biosphere-reserve-3923/",
+      "eligible": true
+    },
+    {
+      "id": "makgadikgadi",
+      "name": {
+        "tr": "Makgadikgadi",
+        "en": "Makgadikgadi"
+      },
+      "lat": -20.7,
+      "lon": 25.5,
+      "body": "earth",
+      "role": "candidate",
+      "sourceCategory": "hypo",
+      "referenceSource": "https://science.nasa.gov/earth/earth-observatory/makgadikgadi-salt-pans-92394/",
+      "eligible": true
+    },
+    {
+      "id": "hanksville",
+      "name": {
+        "tr": "Hanksville",
+        "en": "Hanksville"
+      },
+      "lat": 38.37,
+      "lon": -110.71,
+      "body": "earth",
+      "role": "candidate",
+      "sourceCategory": "nasa",
+      "referenceSource": "https://ntrs.nasa.gov/citations/20110014304",
+      "eligible": true
+    },
+    {
+      "id": "pilbara",
+      "name": {
+        "tr": "Pilbara",
+        "en": "Pilbara"
+      },
+      "lat": -21.5,
+      "lon": 118.9,
+      "body": "earth",
+      "role": "candidate",
+      "sourceCategory": "nasa",
+      "referenceSource": "https://astrobiology.nasa.gov/research-locations/",
+      "eligible": true
+    },
+    {
+      "id": "control-istanbul",
+      "name": {
+        "tr": "İstanbul kent kontrolü",
+        "en": "Istanbul urban control"
+      },
+      "lat": 41.01,
+      "lon": 28.97,
+      "body": "earth",
+      "role": "negative_control",
+      "eligible": true
+    },
+    {
+      "id": "control-manaus",
+      "name": {
+        "tr": "Manaus kent kontrolü",
+        "en": "Manaus urban control"
+      },
+      "lat": -3.1,
+      "lon": -60.0,
+      "body": "earth",
+      "role": "negative_control",
+      "eligible": true,
+      "description": {
+        "tr": "İlk taslakta yanlışlıkla orman olarak adlandırılan kent merkezi; tanımlama düzeltilerek kontrol setinde korundu.",
+        "en": "Urban centre mislabeled as forest in the first draft; retained in the control set with its corrected description."
+      }
+    },
+    {
+      "id": "control-konya-city",
+      "name": {
+        "tr": "Konya kent kontrolü",
+        "en": "Konya urban control"
+      },
+      "lat": 37.87,
+      "lon": 32.55,
+      "body": "earth",
+      "role": "negative_control",
+      "eligible": true,
+      "description": {
+        "tr": "İlk taslakta yanlışlıkla tarım olarak adlandırılan kent alanı; tanımlama düzeltilerek kontrol setinde korundu.",
+        "en": "Urban area mislabeled as agriculture in the first draft; retained in the control set with its corrected description."
+      }
+    },
+    {
+      "id": "control-amazon-forest",
+      "name": {
+        "tr": "Amazon orman adayı kontrolü",
+        "en": "Amazon intended forest control"
+      },
+      "lat": -3.5,
+      "lon": -62.5,
+      "body": "earth",
+      "role": "negative_control",
+      "eligible": true,
+      "description": {
+        "tr": "Manaus kentinden uzakta analist tarafından seçilmiş orman kontrol penceresi. Güncel bitki sınıfı tarihli NDVI ile henüz doğrulanmadı.",
+        "en": "Analyst-selected intended forest control away from Manaus. Current vegetation class has not yet been verified with dated NDVI."
+      }
+    },
+    {
+      "id": "control-konya-fields",
+      "name": {
+        "tr": "Konya tarım adayı kontrolü",
+        "en": "Konya intended agricultural control"
+      },
+      "lat": 37.75,
+      "lon": 32.8,
+      "body": "earth",
+      "role": "negative_control",
+      "eligible": true,
+      "description": {
+        "tr": "Konya kent merkezinin doğusunda analist tarafından seçilmiş tarım kontrol penceresi. Güncel ürün/bitki sınıfı henüz doğrulanmadı.",
+        "en": "Analyst-selected intended agricultural control east of Konya city. Current crop/vegetation class remains unverified."
+      }
+    }
+  ],
+  "profiles": {
+    "base": {
+      "label": {
+        "tr": "Ay üssü profili",
+        "en": "Moon-base profile"
+      },
+      "criteria": [
+        {
+          "code": "K1",
+          "name": {
+            "tr": "Kutup aydınlanması",
+            "en": "Polar illumination"
+          },
+          "earth": {
+            "tr": "Enlem, yaz gün uzunluğu, ufka yakın güneş açısı",
+            "en": "Latitude, summer day length, low sun angle"
+          },
+          "data": {
+            "tr": "Enlemden hesaplanır",
+            "en": "Computed from latitude"
+          }
+        },
+        {
+          "code": "K2",
+          "name": {
+            "tr": "Kalıcı soğuk",
+            "en": "Persistent cold"
+          },
+          "earth": {
+            "tr": "Yıllık ortalama yüzey sıcaklığı, donma günleri",
+            "en": "Mean annual surface temperature, frost days"
+          },
+          "data": "MODIS LST · MERRA-2"
+        },
+        {
+          "code": "K3",
+          "name": {
+            "tr": "Buz varlığı",
+            "en": "Ice presence"
+          },
+          "earth": {
+            "tr": "Kalıcı kar/buz, donmuş zemine yakınlık",
+            "en": "Perennial snow/ice, proximity to frozen ground"
+          },
+          "data": {
+            "tr": "MODIS kar/buz · ICESat-2",
+            "en": "MODIS snow/ice · ICESat-2"
+          }
+        },
+        {
+          "code": "K4",
+          "name": {
+            "tr": "Sırt–krater topografyası",
+            "en": "Ridge–crater topography"
+          },
+          "earth": {
+            "tr": "Yerel kabartı, sırt ve çukur yakınlığı",
+            "en": "Local relief, ridge and depression adjacency"
+          },
+          "data": "NASADEM · ASTER GDEM"
+        },
+        {
+          "code": "K5",
+          "name": {
+            "tr": "Engebeli ama inilebilir arazi",
+            "en": "Rugged but landable terrain"
+          },
+          "earth": {
+            "tr": "Pürüzlülük, düşük eğimli alan oranı",
+            "en": "Roughness, share of low-slope ground"
+          },
+          "data": "NASADEM · ASTER GDEM"
+        },
+        {
+          "code": "K6",
+          "name": {
+            "tr": "Bitkisizlik",
+            "en": "Absence of vegetation"
+          },
+          "earth": "NDVI",
+          "data": "MODIS NDVI · Landsat / HLS"
+        },
+        {
+          "code": "K7",
+          "name": {
+            "tr": "Yalıtılmışlık",
+            "en": "Isolation"
+          },
+          "earth": {
+            "tr": "Gece ışığı yoğunluğu",
+            "en": "Night-light intensity"
+          },
+          "data": "Black Marble"
+        }
+      ],
+      "missions": [
+        {
+          "name": {
+            "tr": "Üs operasyonları",
+            "en": "Base operations"
+          },
+          "w": [
+            0.15,
+            0.15,
+            0.15,
+            0.15,
+            0.1,
+            0.1,
+            0.2
+          ]
+        },
+        {
+          "name": {
+            "tr": "Kaynak arama · ISRU",
+            "en": "Prospecting · ISRU"
+          },
+          "w": [
+            0.1,
+            0.2,
+            0.3,
+            0.1,
+            0.1,
+            0.1,
+            0.1
+          ]
+        },
+        {
+          "name": {
+            "tr": "Gezgin ve konvoy testi",
+            "en": "Rover & traverse test"
+          },
+          "w": [
+            0.1,
+            0.1,
+            0.1,
+            0.2,
+            0.25,
+            0.15,
+            0.1
+          ]
+        },
+        {
+          "name": {
+            "tr": "Enerji planlama",
+            "en": "Power planning"
+          },
+          "w": [
+            0.35,
+            0.1,
+            0.1,
+            0.2,
+            0.05,
+            0.1,
+            0.1
+          ]
+        },
+        {
+          "name": {
+            "tr": "Jeoloji eğitimi",
+            "en": "Geology training"
+          },
+          "w": [
+            0.05,
+            0.05,
+            0.05,
+            0.3,
+            0.2,
+            0.3,
+            0.05
+          ]
+        }
+      ]
+    },
+    "mars": {
+      "label": {
+        "tr": "Mars profili",
+        "en": "Mars profile"
+      },
+      "criteria": [
+        {
+          "code": "M1",
+          "name": {
+            "tr": "Kuraklık",
+            "en": "Aridity"
+          },
+          "earth": {
+            "tr": "Yıllık yağış, nem",
+            "en": "Annual precipitation, humidity"
+          },
+          "data": "GPM IMERG · MERRA-2"
+        },
+        {
+          "code": "M2",
+          "name": {
+            "tr": "Mineral benzerliği",
+            "en": "Mineral similarity"
+          },
+          "earth": {
+            "tr": "Kil, sülfat, karbonat, demir oksit sınıfları",
+            "en": "Clay, sulfate, carbonate, iron-oxide classes"
+          },
+          "data": "EMIT ↔ CRISM"
+        },
+        {
+          "code": "M3",
+          "name": {
+            "tr": "Topografya benzerliği",
+            "en": "Topographic similarity"
+          },
+          "earth": {
+            "tr": "Eğim, kabartı, pürüzlülük dağılımları",
+            "en": "Slope, relief, roughness distributions"
+          },
+          "data": "NASADEM ↔ MOLA"
+        },
+        {
+          "code": "M4",
+          "name": {
+            "tr": "Sıcaklık aralığı",
+            "en": "Temperature range"
+          },
+          "earth": {
+            "tr": "Gece–gündüz sıcaklık farkı",
+            "en": "Day–night temperature swing"
+          },
+          "data": "MODIS LST"
+        },
+        {
+          "code": "M5",
+          "name": {
+            "tr": "Bitkisizlik",
+            "en": "Absence of vegetation"
+          },
+          "earth": "NDVI",
+          "data": "MODIS NDVI · Landsat / HLS"
+        },
+        {
+          "code": "M6",
+          "name": {
+            "tr": "Soğukluk",
+            "en": "Cold"
+          },
+          "earth": {
+            "tr": "Yıllık ortalama sıcaklık",
+            "en": "Mean annual temperature"
+          },
+          "data": "MODIS LST · MERRA-2"
+        },
+        {
+          "code": "M7",
+          "name": {
+            "tr": "Yeraltı buzu",
+            "en": "Ground ice"
+          },
+          "earth": {
+            "tr": "Donmuş zemin, kar ve buz örtüsü",
+            "en": "Frozen ground, snow and ice cover"
+          },
+          "data": {
+            "tr": "MODIS kar/buz",
+            "en": "MODIS snow/ice"
+          }
+        }
+      ],
+      "missions": [
+        {
+          "name": {
+            "tr": "Yaşam algılama",
+            "en": "Life detection"
+          },
+          "w": [
+            0.3,
+            0.3,
+            0.1,
+            0.05,
+            0.15,
+            0.05,
+            0.05
+          ]
+        },
+        {
+          "name": {
+            "tr": "Gezgin testi",
+            "en": "Rover test"
+          },
+          "w": [
+            0.15,
+            0.05,
+            0.4,
+            0.05,
+            0.25,
+            0.05,
+            0.05
+          ]
+        },
+        {
+          "name": {
+            "tr": "İnsanlı üs · buz",
+            "en": "Crewed base · ice"
+          },
+          "w": [
+            0.1,
+            0.05,
+            0.15,
+            0.1,
+            0.15,
+            0.2,
+            0.25
+          ]
+        },
+        {
+          "name": {
+            "tr": "Jeoloji eğitimi",
+            "en": "Geology training"
+          },
+          "w": [
+            0.15,
+            0.3,
+            0.3,
+            0.05,
+            0.15,
+            0,
+            0.05
+          ]
+        }
+      ]
+    }
+  },
+  "scoring": {
+    "description": "Directional environmental proxies are experimental operational screening, not physical equivalence to Moon/Mars; terrain compares target distributions. Missing measurements are never zero.",
+    "sigma": {
+      "slope_p50_deg": 5,
+      "relief_m": 300,
+      "roughness_m": 100
+    },
+    "sensitivityFraction": 0.2,
+    "proxyScales": {
+      "ndviBareGroundCeiling": 0.6,
+      "nightLightsRadiance": 5.0,
+      "description": "Analyst-selected directional screening scales. NDVI is an index, not vegetation-area fraction; night radiance is not population or access. Dates/quality remain product-specific."
+    }
+  },
+  "providers": {
+    "power": "https://power.larc.nasa.gov/api/temporal/daily/point",
+    "moonDem": "https://trek.nasa.gov/moon/trekarcgis/rest/services/LRO_LOLA_DEM_Global_256ppd_v06/ImageServer",
+    "marsDem": "https://trek.nasa.gov/mars/trekarcgis/rest/services/mola128_mola64_merge_90Nto90S_SimpleC_clon0/ImageServer"
+  },
+  "surfaceScreening": {
+    "maximumBuiltUpSampleFraction": 0.5,
+    "maximumNdvi": 0.6,
+    "description": "Experimental screening thresholds; HBASE compares a conservative sample lower bound, not area fraction; NDVI threshold remains inactive until a dated quality-controlled observation is available."
+  }
+}

@@ -1,0 +1,464 @@
+{
+  "schemaVersion": 1,
+  "downloads": [
+    {
+      "id": "ASTGTM:ASTGTMV003_N37E029:dem",
+      "shortName": "ASTGTM",
+      "version": "003",
+      "granuleId": "G1726450968-LPCLOUD",
+      "granuleUr": "ASTGTMV003_N37E029",
+      "acquisitionPeriod": {
+        "start": "2000-03-01T00:00:00.000Z",
+        "end": "2013-11-30T23:59:59.000Z"
+      },
+      "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/ASTGTM.003/ASTGTMV003_N37E029_dem.tif",
+      "selection": {
+        "siteId": "salda",
+        "bbox": [
+          29.63,
+          37.5,
+          29.73,
+          37.6
+        ]
+      },
+      "rawPath": ".local/earthdata-data/ASTGTMV003_N37E029_dem.tif",
+      "assets": [
+        "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/ASTGTM.003/ASTGTMV003_N37E029_dem.tif",
+        "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/ASTGTM.003/ASTGTMV003_N37E029_num.tif"
+      ],
+      "discovery": {
+        "snapshot": "data/provenance/protected-aster-salda.json",
+        "sha256": "1fc476bd6a337336eb6f052703f901bf69d02e233607da641e50a62cda267250",
+        "url": "https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C1711961296-LPCLOUD&bounding_box=29.63%2C37.50%2C29.73%2C37.60&page_size=3&sort_key=-start_date"
+      },
+      "kind": "dem",
+      "bytes": 23260634,
+      "sha256": "c9b67748b92b165c7048f5dd58fac7160bb8571b4d5339d80b9cc181d55505e2",
+      "retrievedAt": "2026-11-14T12:05:41+00:00",
+      "status": "downloaded",
+      "distribution": "Official NASA origin; authenticated HTTPS redirects may use NASA CDN",
+      "etag": "\"b511fe76460755dea7473b3eb31638a0-1\"",
+      "subset": false,
+      "note": "Whole source granule downloaded. selection.bbox identifies intended analysis area, not a spatially subset file."
+    },
+    {
+      "id": "ASTGTM:ASTGTMV003_N37E029:quality_num",
+      "shortName": "ASTGTM",
+      "version": "003",
+      "granuleId": "G1726450968-LPCLOUD",
+      "granuleUr": "ASTGTMV003_N37E029",
+      "acquisitionPeriod": {
+        "start": "2000-03-01T00:00:00.000Z",
+        "end": "2013-11-30T23:59:59.000Z"
+      },
+      "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/ASTGTM.003/ASTGTMV003_N37E029_num.tif",
+      "selection": {
+        "siteId": "salda",
+        "bbox": [
+          29.63,
+          37.5,
+          29.73,
+          37.6
+        ]
+      },
+      "rawPath": ".local/earthdata-data/ASTGTMV003_N37E029_num.tif",
+      "assets": [
+        "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/ASTGTM.003/ASTGTMV003_N37E029_dem.tif",
+        "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/ASTGTM.003/ASTGTMV003_N37E029_num.tif"
+      ],
+      "discovery": {
+        "snapshot": "data/provenance/protected-aster-salda.json",
+        "sha256": "1fc476bd6a337336eb6f052703f901bf69d02e233607da641e50a62cda267250",
+        "url": "https://cmr.earthdata.nasa.gov/search/granules.json?collection_concept_id=C1711961296-LPCLOUD&bounding_box=29.63%2C37.50%2C29.73%2C37.60&page_size=3&sort_key=-start_date"
+      },
+      "kind": "quality_num",
+      "bytes": 2552965,
+      "sha256": "31bb77df769a00948eb86d9520a971affbdb29b26a99f24d704c2f78ba172ebe",
+      "retrievedAt": "2026-11-14T12:05:45+00:00",
+      "status": "downloaded",
+      "distribution": "Official NASA origin; authenticated HTTPS redirects may use NASA CDN",
+      "etag": "\"f94545242c38bc930fbba597031647b4-1\"",
+      "subset": false,
+      "note": "Whole source granule downloaded. selection.bbox identifies intended analysis area, not a spatially subset file."
+    },
+    {
+      "id": "EMITL2AMASK:EMIT_L2A_MASK_002_20240823T081439_2423605_014",
+      "shortName": "EMITL2AMASK",
+      "version": "002",
+      "granuleId": "G3942064173-LPCLOUD",
+      "granuleUr": "EMIT_L2A_MASK_002_20240823T081439_2423605_014",
+      "acquisitionPeriod": {
+        "start": "2024-08-23T08:14:39.000Z",
+        "end": "2024-08-23T08:14:51.000Z"
+      },
+      "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/EMITL2AMASK.002/EMIT_L2A_MASK_002_20240823T081439_2423605_014/EMIT_L2A_MASK_002_20240823T081439_2423605_014.nc",
+      "selection": {
+        "siteId": "salda",
+        "bbox": [
+          29.58,
+          37.45,
+          29.78,
+          37.65
+        ]
+      },
+      "rawPath": ".local/earthdata-data/EMIT_L2A_MASK_002_20240823T081439_2423605_014.nc",
+      "assets": [
+        "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/EMITL2AMASK.002/EMIT_L2A_MASK_002_20240823T081439_2423605_014/EMIT_L2A_MASK_002_20240823T081439_2423605_014.nc"
+      ],
+      "discovery": {
+        "url": "https://cmr.earthdata.nasa.gov/search/granules.json?bounding_box=29.58%2C37.45%2C29.78%2C37.65&temporal=2024-08-23T08%3A14%3A38Z%2C2024-08-23T08%3A14%3A52Z&page_size=3&sort_key=-start_date&collection_concept_id=C3882545269-LPCLOUD",
+        "snapshot": "data/provenance/protected-cmr-041725dcf101cc79.json",
+        "sha256": "fc3d1571c9c38923f2452cff5d02b740c3f85e1c8736bb8f2c71121343ddff98",
+        "periodRequested": {
+          "start": "2024-08-23T08:14:38Z",
+          "end": "2024-08-23T08:14:52Z"
+        }
+      },
+      "kind": "quality_mask",
+      "bytes": 57618745,
+      "sha256": "c4e7ac7aef0d165f21ec5072b38d495197ceec197149e124ebd9355318b7a0a4",
+      "retrievedAt": "2026-11-14T12:05:36+00:00",
+      "status": "downloaded",
+      "distribution": "Official NASA origin; authenticated HTTPS redirects may use NASA CDN",
+      "etag": "\"d4ec8080652c37183e385678d88b734f-1\"",
+      "subset": false,
+      "note": "Whole source granule downloaded. selection.bbox identifies intended analysis area, not a spatially subset file."
+    },
+    {
+      "id": "EMITL2BMIN:EMIT_L2B_MIN_002_20240823T081439",
+      "shortName": "EMITL2BMIN",
+      "version": "002",
+      "granuleId": "G4401105051-LPCLOUD",
+      "granuleUr": "EMIT_L2B_MIN_002_20240823T081439",
+      "acquisitionPeriod": {
+        "start": "2024-08-23T08:14:39.000Z",
+        "end": "2024-08-23T08:14:51.000Z"
+      },
+      "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/EMITL2BMIN.002/EMIT_L2B_MIN_002_20240823T081439/EMIT_L2B_MIN_002_20240823T081439.nc",
+      "selection": {
+        "siteId": "salda",
+        "bbox": [
+          29.58,
+          37.45,
+          29.78,
+          37.65
+        ]
+      },
+      "rawPath": ".local/earthdata-data/EMIT_L2B_MIN_002_20240823T081439.nc",
+      "bytes": 41963456,
+      "sha256": "00e98cb3f2bc818008b5df73fca812309a6a92005565855d9887e2b873428c67",
+      "retrievedAt": "2026-11-14T12:00:54+00:00",
+      "status": "downloaded",
+      "distribution": "Official NASA origin; authenticated HTTPS redirects may use NASA CDN",
+      "etag": "\"9d79360f226f85dbfcf51c21dfce38c7-1\"",
+      "subset": false,
+      "note": "Whole source granule downloaded. selection.bbox identifies intended analysis area, not a spatially subset file."
+    },
+    {
+      "id": "EMITL2BMIN:EMIT_L2B_MIN_002_20240823T081439:mineral_uncertainty",
+      "shortName": "EMITL2BMIN",
+      "version": "002",
+      "granuleId": "G4401105051-LPCLOUD",
+      "granuleUr": "EMIT_L2B_MIN_002_20240823T081439",
+      "acquisitionPeriod": {
+        "start": "2024-08-23T08:14:39.000Z",
+        "end": "2024-08-23T08:14:51.000Z"
+      },
+      "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/EMITL2BMIN.002/EMIT_L2B_MIN_002_20240823T081439/EMIT_L2B_MINUNCERT_002_20240823T081439.nc",
+      "selection": {
+        "siteId": "salda",
+        "bbox": [
+          29.58,
+          37.45,
+          29.78,
+          37.65
+        ]
+      },
+      "rawPath": ".local/earthdata-data/EMIT_L2B_MINUNCERT_002_20240823T081439.nc",
+      "assets": [
+        "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/EMITL2BMIN.002/EMIT_L2B_MIN_002_20240823T081439/EMIT_L2B_MIN_002_20240823T081439.nc",
+        "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/EMITL2BMIN.002/EMIT_L2B_MIN_002_20240823T081439/EMIT_L2B_MINUNCERT_002_20240823T081439.nc"
+      ],
+      "kind": "mineral_uncertainty",
+      "bytes": 44532431,
+      "sha256": "a1e44c295c519b95aeecd0d58250d709428ee54b9bdb61e0136994a84d6cfd20",
+      "retrievedAt": "2026-11-14T12:05:28+00:00",
+      "status": "downloaded",
+      "distribution": "Official NASA origin; authenticated HTTPS redirects may use NASA CDN",
+      "etag": "\"2e24e5d3e9566faaee5b7cf6b4251433-1\"",
+      "subset": false,
+      "note": "Whole source granule downloaded. selection.bbox identifies intended analysis area, not a spatially subset file."
+    },
+    {
+      "id": "MOD13Q1:MOD13Q1.A2026289.h20v05.061.2026307130820",
+      "shortName": "MOD13Q1",
+      "version": "061",
+      "granuleId": "G4399704710-LPCLOUD",
+      "granuleUr": "MOD13Q1.A2026289.h20v05.061.2026307130820",
+      "acquisitionPeriod": {
+        "start": "2026-10-16T00:00:00.000Z",
+        "end": "2026-10-31T23:59:59.000Z"
+      },
+      "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD13Q1.061/MOD13Q1.A2026289.h20v05.061.2026307130820/MOD13Q1.A2026289.h20v05.061.2026307130820.hdf",
+      "selection": {
+        "siteId": "salda",
+        "bbox": [
+          29.58,
+          37.45,
+          29.78,
+          37.65
+        ]
+      },
+      "rawPath": ".local/earthdata-data/MOD13Q1.A2026289.h20v05.061.2026307130820.hdf",
+      "bytes": 135446030,
+      "sha256": "57a65e4300b541dccbf44ef651cea40659dfb723f02ddb6e1b1fb0f5fe99342b",
+      "retrievedAt": "2026-11-14T12:00:46+00:00",
+      "status": "downloaded",
+      "distribution": "Official NASA origin; authenticated HTTPS redirects may use NASA CDN",
+      "etag": "\"63a25e56f8ad5b2e4a7551ad99793606-1\"",
+      "subset": false,
+      "note": "Whole source granule downloaded. selection.bbox identifies intended analysis area, not a spatially subset file."
+    },
+    {
+      "id": "VNP46A2:VNP46A2.A2026301.h20v05.002.2026308123318.h5",
+      "shortName": "VNP46A2",
+      "version": "2",
+      "granuleId": "G4401165659-LAADS",
+      "granuleUr": "VNP46A2.A2026301.h20v05.002.2026308123318.h5",
+      "acquisitionPeriod": {
+        "start": "2026-10-28T00:00:00.000Z",
+        "end": "2026-10-29T00:00:00.000Z"
+      },
+      "url": "https://data.laadsdaac.earthdatacloud.nasa.gov/prod-lads/VNP46A2/VNP46A2.A2026301.h20v05.002.2026308123318.h5",
+      "selection": {
+        "siteId": "salda",
+        "bbox": [
+          29.58,
+          37.45,
+          29.78,
+          37.65
+        ]
+      },
+      "rawPath": ".local/earthdata-data/VNP46A2.A2026301.h20v05.002.2026308123318.h5",
+      "assets": [
+        "https://data.laadsdaac.earthdatacloud.nasa.gov/prod-lads/VNP46A2/VNP46A2.A2026301.h20v05.002.2026308123318.h5"
+      ],
+      "discovery": {
+        "url": "https://cmr.earthdata.nasa.gov/search/granules.json?bounding_box=29.58%2C37.45%2C29.78%2C37.65&temporal=2026-10-25T00%3A00%3A00Z%2C2026-11-01T23%3A59%3A59Z&page_size=5&sort_key=-start_date&collection_concept_id=C3365931269-LAADS",
+        "snapshot": "data/provenance/protected-cmr-4ea89cd43b6ff395.json",
+        "sha256": "7645e076e9bc2e4186df168fa8300cff20a7e06dcfdc42874cfc644b6023254a",
+        "periodRequested": {
+          "start": "2026-10-25T00:00:00Z",
+          "end": "2026-11-01T23:59:59Z"
+        }
+      },
+      "bytes": 14208390,
+      "sha256": "0933dd9ed466f5b3fb723da915155764065da7d146551f74b997273813dced7c",
+      "retrievedAt": "2026-11-14T12:09:57+00:00",
+      "status": "downloaded",
+      "distribution": "Official NASA origin; authenticated HTTPS redirects may use NASA CDN",
+      "etag": "\"b963cb75e7a3fc53460499c321e87a30\"",
+      "subset": false,
+      "note": "Whole source granule downloaded. selection.bbox identifies intended analysis area, not a spatially subset file."
+    },
+    {
+      "id": "VNP46A2:VNP46A2.A2026302.h20v05.002.2026309142352.h5",
+      "shortName": "VNP46A2",
+      "version": "2",
+      "granuleId": "G4403434323-LAADS",
+      "granuleUr": "VNP46A2.A2026302.h20v05.002.2026309142352.h5",
+      "acquisitionPeriod": {
+        "start": "2026-10-29T00:00:00.000Z",
+        "end": "2026-10-30T00:00:00.000Z"
+      },
+      "url": "https://data.laadsdaac.earthdatacloud.nasa.gov/prod-lads/VNP46A2/VNP46A2.A2026302.h20v05.002.2026309142352.h5",
+      "selection": {
+        "siteId": "salda",
+        "bbox": [
+          29.58,
+          37.45,
+          29.78,
+          37.65
+        ]
+      },
+      "rawPath": ".local/earthdata-data/VNP46A2.A2026302.h20v05.002.2026309142352.h5",
+      "assets": [
+        "https://data.laadsdaac.earthdatacloud.nasa.gov/prod-lads/VNP46A2/VNP46A2.A2026302.h20v05.002.2026309142352.h5"
+      ],
+      "discovery": {
+        "url": "https://cmr.earthdata.nasa.gov/search/granules.json?bounding_box=29.58%2C37.45%2C29.78%2C37.65&temporal=2026-10-25T00%3A00%3A00Z%2C2026-11-01T23%3A59%3A59Z&page_size=5&sort_key=-start_date&collection_concept_id=C3365931269-LAADS",
+        "snapshot": "data/provenance/protected-cmr-4ea89cd43b6ff395.json",
+        "sha256": "7645e076e9bc2e4186df168fa8300cff20a7e06dcfdc42874cfc644b6023254a",
+        "periodRequested": {
+          "start": "2026-10-25T00:00:00Z",
+          "end": "2026-11-01T23:59:59Z"
+        }
+      },
+      "bytes": 13600573,
+      "sha256": "4f846344f86dcd3df758ce2e99fcf55a9f0ad4b87df4c3d692d1a43eed3c2507",
+      "retrievedAt": "2026-11-14T12:09:50+00:00",
+      "status": "downloaded",
+      "distribution": "Official NASA origin; authenticated HTTPS redirects may use NASA CDN",
+      "etag": "\"66d1c45b9a5da8a0bbe5a28122098cb4\"",
+      "subset": false,
+      "note": "Whole source granule downloaded. selection.bbox identifies intended analysis area, not a spatially subset file."
+    },
+    {
+      "id": "VNP46A2:VNP46A2.A2026303.h20v05.002.2026310171728.h5",
+      "shortName": "VNP46A2",
+      "version": "2",
+      "granuleId": "G4403662965-LAADS",
+      "granuleUr": "VNP46A2.A2026303.h20v05.002.2026310171728.h5",
+      "acquisitionPeriod": {
+        "start": "2026-10-30T00:00:00.000Z",
+        "end": "2026-10-31T00:00:00.000Z"
+      },
+      "url": "https://data.laadsdaac.earthdatacloud.nasa.gov/prod-lads/VNP46A2/VNP46A2.A2026303.h20v05.002.2026310171728.h5",
+      "selection": {
+        "siteId": "salda",
+        "bbox": [
+          29.58,
+          37.45,
+          29.78,
+          37.65
+        ]
+      },
+      "rawPath": ".local/earthdata-data/VNP46A2.A2026303.h20v05.002.2026310171728.h5",
+      "assets": [
+        "https://data.laadsdaac.earthdatacloud.nasa.gov/prod-lads/VNP46A2/VNP46A2.A2026303.h20v05.002.2026310171728.h5"
+      ],
+      "discovery": {
+        "url": "https://cmr.earthdata.nasa.gov/search/granules.json?bounding_box=29.58%2C37.45%2C29.78%2C37.65&temporal=2026-10-25T00%3A00%3A00Z%2C2026-11-01T23%3A59%3A59Z&page_size=5&sort_key=-start_date&collection_concept_id=C3365931269-LAADS",
+        "snapshot": "data/provenance/protected-cmr-4ea89cd43b6ff395.json",
+        "sha256": "7645e076e9bc2e4186df168fa8300cff20a7e06dcfdc42874cfc644b6023254a",
+        "periodRequested": {
+          "start": "2026-10-25T00:00:00Z",
+          "end": "2026-11-01T23:59:59Z"
+        }
+      },
+      "bytes": 16174155,
+      "sha256": "865a66abec13feaabea6ca889b3787de81499ff6e24bd86f38ffa9b494000fc9",
+      "retrievedAt": "2026-11-14T12:09:42+00:00",
+      "status": "downloaded",
+      "distribution": "Official NASA origin; authenticated HTTPS redirects may use NASA CDN",
+      "etag": "\"0fbee0e6cc1322573d5b8bcbc45019b3\"",
+      "subset": false,
+      "note": "Whole source granule downloaded. selection.bbox identifies intended analysis area, not a spatially subset file."
+    },
+    {
+      "id": "VNP46A2:VNP46A2.A2026304.h20v05.002.2026315132623.h5",
+      "shortName": "VNP46A2",
+      "version": "2",
+      "granuleId": "G4408542947-LAADS",
+      "granuleUr": "VNP46A2.A2026304.h20v05.002.2026315132623.h5",
+      "acquisitionPeriod": {
+        "start": "2026-10-31T00:00:00.000Z",
+        "end": "2026-11-01T00:00:00.000Z"
+      },
+      "url": "https://data.laadsdaac.earthdatacloud.nasa.gov/prod-lads/VNP46A2/VNP46A2.A2026304.h20v05.002.2026315132623.h5",
+      "selection": {
+        "siteId": "salda",
+        "bbox": [
+          29.58,
+          37.45,
+          29.78,
+          37.65
+        ]
+      },
+      "rawPath": ".local/earthdata-data/VNP46A2.A2026304.h20v05.002.2026315132623.h5",
+      "assets": [
+        "https://data.laadsdaac.earthdatacloud.nasa.gov/prod-lads/VNP46A2/VNP46A2.A2026304.h20v05.002.2026315132623.h5"
+      ],
+      "discovery": {
+        "url": "https://cmr.earthdata.nasa.gov/search/granules.json?bounding_box=29.58%2C37.45%2C29.78%2C37.65&temporal=2026-10-25T00%3A00%3A00Z%2C2026-11-01T23%3A59%3A59Z&page_size=5&sort_key=-start_date&collection_concept_id=C3365931269-LAADS",
+        "snapshot": "data/provenance/protected-cmr-4ea89cd43b6ff395.json",
+        "sha256": "7645e076e9bc2e4186df168fa8300cff20a7e06dcfdc42874cfc644b6023254a",
+        "periodRequested": {
+          "start": "2026-10-25T00:00:00Z",
+          "end": "2026-11-01T23:59:59Z"
+        }
+      },
+      "bytes": 20671363,
+      "sha256": "5427ba6f1c6b617971f6cce900e853ed01a909f446762af71778565a45bd027a",
+      "retrievedAt": "2026-11-14T12:09:31+00:00",
+      "status": "downloaded",
+      "distribution": "Official NASA origin; authenticated HTTPS redirects may use NASA CDN",
+      "etag": "\"1a593664d258b64016f9ec87b18e108e\"",
+      "subset": false,
+      "note": "Whole source granule downloaded. selection.bbox identifies intended analysis area, not a spatially subset file."
+    },
+    {
+      "id": "VNP46A2:VNP46A2.A2026305.h20v05.002.2026315135053.h5",
+      "shortName": "VNP46A2",
+      "version": "2",
+      "granuleId": "G4408559057-LAADS",
+      "granuleUr": "VNP46A2.A2026305.h20v05.002.2026315135053.h5",
+      "acquisitionPeriod": {
+        "start": "2026-11-01T00:00:00.000Z",
+        "end": "2026-11-02T00:00:00.000Z"
+      },
+      "url": "https://data.laadsdaac.earthdatacloud.nasa.gov/prod-lads/VNP46A2/VNP46A2.A2026305.h20v05.002.2026315135053.h5",
+      "selection": {
+        "siteId": "salda",
+        "bbox": [
+          29.58,
+          37.45,
+          29.78,
+          37.65
+        ]
+      },
+      "rawPath": ".local/earthdata-data/VNP46A2.A2026305.h20v05.002.2026315135053.h5",
+      "assets": [
+        "https://data.laadsdaac.earthdatacloud.nasa.gov/prod-lads/VNP46A2/VNP46A2.A2026305.h20v05.002.2026315135053.h5"
+      ],
+      "discovery": {
+        "url": "https://cmr.earthdata.nasa.gov/search/granules.json?bounding_box=29.58%2C37.45%2C29.78%2C37.65&temporal=2026-10-25T00%3A00%3A00Z%2C2026-11-01T23%3A59%3A59Z&page_size=5&sort_key=-start_date&collection_concept_id=C3365931269-LAADS",
+        "snapshot": "data/provenance/protected-cmr-4ea89cd43b6ff395.json",
+        "sha256": "7645e076e9bc2e4186df168fa8300cff20a7e06dcfdc42874cfc644b6023254a",
+        "periodRequested": {
+          "start": "2026-10-25T00:00:00Z",
+          "end": "2026-11-01T23:59:59Z"
+        }
+      },
+      "bytes": 19639306,
+      "sha256": "4f2866149a5492ead794318550d2d2f9b56b75a63ad3e0607f4a7f37349b7d1c",
+      "retrievedAt": "2026-11-14T12:09:22+00:00",
+      "status": "downloaded",
+      "distribution": "Official NASA origin; authenticated HTTPS redirects may use NASA CDN",
+      "etag": "\"cf45c6c9e94cba1aaf715c61a65f1328\"",
+      "subset": false,
+      "note": "Whole source granule downloaded. selection.bbox identifies intended analysis area, not a spatially subset file."
+    },
+    {
+      "id": "VNP46A2:VNP46A2.A2026306.h20v05.002.2026315142812.h5",
+      "shortName": "VNP46A2",
+      "version": "2",
+      "granuleId": "G4408579566-LAADS",
+      "granuleUr": "VNP46A2.A2026306.h20v05.002.2026315142812.h5",
+      "acquisitionPeriod": {
+        "start": "2026-11-02T00:00:00.000Z",
+        "end": "2026-11-03T00:00:00.000Z"
+      },
+      "url": "https://data.laadsdaac.earthdatacloud.nasa.gov/prod-lads/VNP46A2/VNP46A2.A2026306.h20v05.002.2026315142812.h5",
+      "selection": {
+        "siteId": "salda",
+        "bbox": [
+          29.58,
+          37.45,
+          29.78,
+          37.65
+        ]
+      },
+      "rawPath": ".local/earthdata-data/VNP46A2.A2026306.h20v05.002.2026315142812.h5",
+      "bytes": 23863182,
+      "sha256": "fdd50a4dea73ea3274875e7c5da77457072fc5e1938a723ff637fd489fc5ff76",
+      "retrievedAt": "2026-11-14T12:01:01+00:00",
+      "status": "downloaded",
+      "distribution": "Official NASA origin; authenticated HTTPS redirects may use NASA CDN",
+      "etag": "\"7aca10ef8cdccd8245a3290fb56c6bb3\"",
+      "subset": false,
+      "note": "Whole source granule downloaded. selection.bbox identifies intended analysis area, not a spatially subset file."
+    }
+  ],
+  "generatedAt": "2026-11-14T12:09:57+00:00"
+}

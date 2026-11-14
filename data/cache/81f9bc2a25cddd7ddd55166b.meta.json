@@ -1,0 +1,19 @@
+{
+  "id": "power-control-istanbul",
+  "url": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CPRECTOTCORR&community=AG&longitude=28.97&latitude=41.01&start=20250101&end=20251231&format=JSON&time-standard=UTC",
+  "method": "GET",
+  "requestBody": null,
+  "provider": "NASA",
+  "product": "NASA POWER daily meteorological data",
+  "version": null,
+  "measurementPeriod": {
+    "start": "2025-01-01",
+    "end": "2025-12-31"
+  },
+  "retrievedAt": "2026-11-14T11:09:33+00:00",
+  "sha256": "081bc65977d7aa6841e10e2b19920c5f8fbcf4f3c6dbadb8fb9565261ad17eb1",
+  "bytes": 24637,
+  "cachePath": "data/cache/81f9bc2a25cddd7ddd55166b.json",
+  "status": "available",
+  "contentType": "application/json"
+}

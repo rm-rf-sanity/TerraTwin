@@ -1,0 +1,124 @@
+{
+  "feed": {
+    "updated": "2026-11-14T12:05:13.053Z",
+    "id": "https://cmr.earthdata.nasa.gov:443/search/granules.json?bounding_box=29.58%2C37.45%2C29.78%2C37.65&temporal=2024-08-23T08%3A14%3A38Z%2C2024-08-23T08%3A14%3A52Z&page_size=3&sort_key=-start_date&collection_concept_id=C3882545269-LPCLOUD",
+    "title": "ECHO granule metadata",
+    "entry": [
+      {
+        "time_start": "2024-08-23T08:14:39.000Z",
+        "cloud_cover": "9",
+        "updated": "2026-01-01T06:45:21.000Z",
+        "dataset_id": "EMIT L2A Masks 60 m V002",
+        "data_center": "LPCLOUD",
+        "title": "EMIT_L2A_MASK_002_20240823T081439_2423605_014",
+        "coordinate_system": "GEODETIC",
+        "day_night_flag": "DAY",
+        "time_end": "2024-08-23T08:14:51.000Z",
+        "id": "G3942064173-LPCLOUD",
+        "original_format": "UMM_JSON",
+        "granule_size": "54.98924064636231",
+        "browse_flag": true,
+        "polygons": [
+          [
+            "38.1668129 29.4293385 37.5012856 28.9725628 36.9671669 29.7507763 37.6326942 30.207552 38.1668129 29.4293385"
+          ]
+        ],
+        "collection_concept_id": "C3882545269-LPCLOUD",
+        "online_access_flag": true,
+        "links": [
+          {
+            "rel": "http://esipfed.org/ns/fedsearch/1.1/service#",
+            "title": "OPeNDAP request URL",
+            "hreflang": "en-US",
+            "href": "https://opendap.earthdata.nasa.gov/collections/C3882545269-LPCLOUD/granules/EMIT_L2A_MASK_002_20240823T081439_2423605_014"
+          },
+          {
+            "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+            "title": "Download EMIT_L2A_MASK_002_20240823T081439_2423605_014.nc",
+            "hreflang": "en-US",
+            "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/EMITL2AMASK.002/EMIT_L2A_MASK_002_20240823T081439_2423605_014/EMIT_L2A_MASK_002_20240823T081439_2423605_014.nc"
+          },
+          {
+            "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+            "title": "Download EMIT_L2A_MASK_002_20240823T081439_2423605_014.png",
+            "hreflang": "en-US",
+            "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-public/EMITL2AMASK.002/EMIT_L2A_MASK_002_20240823T081439_2423605_014/EMIT_L2A_MASK_002_20240823T081439_2423605_014.png"
+          },
+          {
+            "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+            "title": "Download EMIT_L2A_MASK_002_20240823T081439_2423605_014.cmr.json",
+            "hreflang": "en-US",
+            "href": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/EMITL2AMASK.002/EMIT_L2A_MASK_002_20240823T081439_2423605_014/EMIT_L2A_MASK_002_20240823T081439_2423605_014.cmr.json"
+          },
+          {
+            "rel": "http://esipfed.org/ns/fedsearch/1.1/s3#",
+            "title": "This link provides direct download access via S3 to the granule",
+            "hreflang": "en-US",
+            "href": "s3://lp-prod-protected/EMITL2AMASK.002/EMIT_L2A_MASK_002_20240823T081439_2423605_014/EMIT_L2A_MASK_002_20240823T081439_2423605_014.nc"
+          },
+          {
+            "rel": "http://esipfed.org/ns/fedsearch/1.1/browse#",
+            "title": "This link provides direct download access via S3 to the granule",
+            "hreflang": "en-US",
+            "href": "s3://lp-prod-public/EMITL2AMASK.002/EMIT_L2A_MASK_002_20240823T081439_2423605_014/EMIT_L2A_MASK_002_20240823T081439_2423605_014.png"
+          },
+          {
+            "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+            "title": "This link provides direct download access via S3 to the granule",
+            "hreflang": "en-US",
+            "href": "s3://lp-prod-protected/EMITL2AMASK.002/EMIT_L2A_MASK_002_20240823T081439_2423605_014/EMIT_L2A_MASK_002_20240823T081439_2423605_014.cmr.json"
+          },
+          {
+            "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+            "title": "api endpoint to retrieve temporary credentials valid for same-region direct s3 access",
+            "hreflang": "en-US",
+            "href": "https://data.lpdaac.earthdatacloud.nasa.gov/s3credentials"
+          },
+          {
+            "inherited": true,
+            "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+            "hreflang": "en-US",
+            "href": "https://earth.jpl.nasa.gov/emit/"
+          },
+          {
+            "inherited": true,
+            "rel": "http://esipfed.org/ns/fedsearch/1.1/documentation#",
+            "hreflang": "en-US",
+            "href": "https://github.com/emit-sds/emit-sds-masks/blob/main/docs/EMIT_L2A_Mask_ATBD.md"
+          },
+          {
+            "inherited": true,
+            "rel": "http://esipfed.org/ns/fedsearch/1.1/documentation#",
+            "hreflang": "en-US",
+            "href": "https://github.com/emit-sds/emit-sds-masks/blob/main/docs/EMIT_L2A_Mask_User_Guide.md"
+          },
+          {
+            "inherited": true,
+            "rel": "http://esipfed.org/ns/fedsearch/1.1/documentation#",
+            "hreflang": "en-US",
+            "href": "https://github.com/emit-sds/emit-sds-masks"
+          },
+          {
+            "inherited": true,
+            "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+            "hreflang": "en-US",
+            "href": "https://www.earthdata.nasa.gov/centers/lp-daac"
+          },
+          {
+            "inherited": true,
+            "length": "36.2MB",
+            "rel": "http://esipfed.org/ns/fedsearch/1.1/data#",
+            "hreflang": "en-US",
+            "href": "https://search.earthdata.nasa.gov/search/granules?p=C3882545269-LPCLOUD"
+          },
+          {
+            "inherited": true,
+            "rel": "http://esipfed.org/ns/fedsearch/1.1/metadata#",
+            "hreflang": "en-US",
+            "href": "https://doi.org/10.5067/EMIT/EMITL2AMASK.002"
+          }
+        ]
+      }
+    ]
+  }
+}

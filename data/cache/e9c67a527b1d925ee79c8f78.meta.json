@@ -1,0 +1,19 @@
+{
+  "id": "power-pilot",
+  "url": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CPRECTOTCORR&community=AG&longitude=-113.9&latitude=41.1&start=20250101&end=20251231&format=JSON&time-standard=UTC",
+  "method": "GET",
+  "requestBody": null,
+  "provider": "NASA",
+  "product": "NASA POWER daily meteorological data",
+  "version": null,
+  "measurementPeriod": {
+    "start": "2025-01-01",
+    "end": "2025-12-31"
+  },
+  "retrievedAt": "2026-11-14T11:09:24+00:00",
+  "sha256": "3dd5ad9db64b927d4ed98bc2ca0516a947c799d76935e5bfea7ae5f29786d38a",
+  "bytes": 24538,
+  "cachePath": "data/cache/e9c67a527b1d925ee79c8f78.json",
+  "status": "available",
+  "contentType": "application/json"
+}

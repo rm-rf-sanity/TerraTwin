@@ -1,0 +1,16 @@
+{
+  "id": "dem-katmai",
+  "url": "https://worldwind26.arc.nasa.gov/elev?service=WMS&version=1.1.1&request=GetMap&layers=aster_v2&styles=&srs=EPSG%3A4326&bbox=-155.390106086%2C58.352785681%2C-155.209893914%2C58.447214319&width=21&height=21&format=application%2Fbil16",
+  "method": "GET",
+  "requestBody": null,
+  "provider": "NASA",
+  "product": "NASA WorldWind ASTER GDEM v2 elevation cache",
+  "version": "ASTER GDEM v2; WorldWind cache layer aster_v2",
+  "measurementPeriod": "Historical ASTER GDEM v2 observations; not 2025 terrain measurements",
+  "retrievedAt": "2026-11-14T11:09:25+00:00",
+  "sha256": "ab44f3bba7547a8c3b69a8daed3368052de530b3ddaa3491f4406f693010252c",
+  "bytes": 882,
+  "cachePath": "data/cache/2beb0ceca7314e642e0e1970.bin",
+  "status": "available",
+  "contentType": "application/bil16"
+}

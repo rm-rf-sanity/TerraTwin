@@ -1,0 +1,16 @@
+{
+  "id": "service-mars",
+  "url": "https://trek.nasa.gov/mars/trekarcgis/rest/services/mola128_mola64_merge_90Nto90S_SimpleC_clon0/ImageServer?f=json",
+  "method": "GET",
+  "requestBody": null,
+  "provider": "NASA",
+  "product": "NASA Trek elevation service metadata",
+  "version": "Live service metadata",
+  "measurementPeriod": null,
+  "retrievedAt": "2026-11-14T11:09:10+00:00",
+  "sha256": "158befcdc12d1965e75411c4e7bc90fc7f44ff2b141e76d8c97f04012ee6e233",
+  "bytes": 1989,
+  "cachePath": "data/cache/2f855216d3b8eba1b61e2a3e.json",
+  "status": "available",
+  "contentType": "application/json;charset=UTF-8"
+}

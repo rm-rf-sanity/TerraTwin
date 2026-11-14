@@ -1,0 +1,16 @@
+{
+  "id": "dem-deathvalley",
+  "url": "https://worldwind26.arc.nasa.gov/elev?service=WMS&version=1.1.1&request=GetMap&layers=aster_v2&styles=&srs=EPSG%3A4326&bbox=-117.058734734%2C36.452785681%2C-116.941265266%2C36.547214319&width=21&height=21&format=application%2Fbil16",
+  "method": "GET",
+  "requestBody": null,
+  "provider": "NASA",
+  "product": "NASA WorldWind ASTER GDEM v2 elevation cache",
+  "version": "ASTER GDEM v2; WorldWind cache layer aster_v2",
+  "measurementPeriod": "Historical ASTER GDEM v2 observations; not 2025 terrain measurements",
+  "retrievedAt": "2026-11-14T11:09:23+00:00",
+  "sha256": "ffe56fa2fbf32c465b83bf24d866bfbcfeff460c8dd9c3d777a85961a4b66eda",
+  "bytes": 882,
+  "cachePath": "data/cache/5e6179e0f591f5f591e8d3a9.bin",
+  "status": "available",
+  "contentType": "application/bil16"
+}

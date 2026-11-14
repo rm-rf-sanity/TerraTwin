@@ -1,0 +1,19 @@
+{
+  "id": "power-kilauea",
+  "url": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CPRECTOTCORR&community=AG&longitude=-155.28&latitude=19.41&start=20250101&end=20251231&format=JSON&time-standard=UTC",
+  "method": "GET",
+  "requestBody": null,
+  "provider": "NASA",
+  "product": "NASA POWER daily meteorological data",
+  "version": null,
+  "measurementPeriod": {
+    "start": "2025-01-01",
+    "end": "2025-12-31"
+  },
+  "retrievedAt": "2026-11-14T11:09:21+00:00",
+  "sha256": "dd5715ee4d789b734d082e1cc22b603f0b2b26274232915aa4112147d2f0879b",
+  "bytes": 25049,
+  "cachePath": "data/cache/002939df3beffb18afcadc9e.json",
+  "status": "available",
+  "contentType": "application/json"
+}

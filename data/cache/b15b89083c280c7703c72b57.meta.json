@@ -1,0 +1,19 @@
+{
+  "id": "power-control-konya",
+  "url": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CPRECTOTCORR&community=AG&longitude=32.55&latitude=37.87&start=20250101&end=20251231&format=JSON&time-standard=UTC",
+  "method": "GET",
+  "requestBody": null,
+  "provider": "NASA",
+  "product": "NASA POWER daily meteorological data",
+  "version": null,
+  "measurementPeriod": {
+    "start": "2025-01-01",
+    "end": "2025-12-31"
+  },
+  "retrievedAt": "2026-11-14T11:09:34+00:00",
+  "sha256": "8b5d1b0de8d647a19062ece971418faf8702fc6ca06c1b514c7654894fdc2b10",
+  "bytes": 24554,
+  "cachePath": "data/cache/b15b89083c280c7703c72b57.json",
+  "status": "available",
+  "contentType": "application/json"
+}

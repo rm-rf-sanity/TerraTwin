@@ -1,0 +1,16 @@
+{
+  "id": "dem-jezero-11",
+  "url": "https://trek.nasa.gov/mars/trekarcgis/rest/services/mola128_mola64_merge_90Nto90S_SimpleC_clon0/ImageServer/getSamples?f=json&geometry=%7B%22points%22%3A%5B%5B77.53887493738523%2C18.355626312277927%5D%5D%2C%22spatialReference%22%3A%7B%22wkid%22%3A104905%7D%7D&geometryType=esriGeometryMultipoint&returnFirstValueOnly=true&interpolation=RSP_BilinearInterpolation",
+  "method": "GET",
+  "requestBody": null,
+  "provider": "NASA",
+  "product": "NASA Trek MGS MOLA merged DEM",
+  "version": "mola128_mola64_merge_90Nto90S_SimpleC_clon0",
+  "measurementPeriod": "Historical mission-derived DEM; service retrieval date is not observation date",
+  "retrievedAt": "2026-11-14T11:10:59+00:00",
+  "sha256": "7057fce4fa9355661c730daacacdce5159a8eaa0ff6b84dd21685ea4e08a3abf",
+  "bytes": 208,
+  "cachePath": "data/cache/bb7a95ece55c71e7641158b1.json",
+  "status": "available",
+  "contentType": "application/json;charset=UTF-8"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "dem-shackleton-11",
+  "url": "https://trek.nasa.gov/moon/trekarcgis/rest/services/LRO_LOLA_DEM_Global_256ppd_v06/ImageServer/getSamples?f=json&geometry=%7B%22points%22%3A%5B%5B-113.57932068944194%2C-89.59317669652768%5D%5D%2C%22spatialReference%22%3A%7B%22wkt%22%3A%22GEOGCS%5B%5C%22GCS_MOON%5C%22%2CDATUM%5B%5C%22D_MOON%5C%22%2CSPHEROID%5B%5C%22MOON_2000%5C%22%2C1737400.0%2C0.0%5D%5D%2CPRIMEM%5B%5C%22Reference_Meridian%5C%22%2C0.0%5D%2CUNIT%5B%5C%22Degree%5C%22%2C0.0174532925199433%5D%5D%22%7D%7D&geometryType=esriGeometryMultipoint&returnFirstValueOnly=true&interpolation=RSP_BilinearInterpolation",
+  "method": "GET",
+  "requestBody": null,
+  "provider": "NASA",
+  "product": "NASA Trek LRO LOLA global DEM",
+  "version": "LRO_LOLA_DEM_Global_256ppd_v06",
+  "measurementPeriod": "Historical mission-derived DEM; service retrieval date is not observation date",
+  "retrievedAt": "2026-11-14T11:10:50+00:00",
+  "sha256": "906b8a1b0232ea725cb17944aabc902b21bb4b95429c04f2b277a3486f585749",
+  "bytes": 329,
+  "cachePath": "data/cache/1f5e2afe65ddfa194980fc20.json",
+  "status": "available",
+  "contentType": "application/json;charset=UTF-8"
+}

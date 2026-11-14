@@ -1,0 +1,19 @@
+{
+  "id": "power-maunakea",
+  "url": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CPRECTOTCORR&community=AG&longitude=-155.47&latitude=19.82&start=20250101&end=20251231&format=JSON&time-standard=UTC",
+  "method": "GET",
+  "requestBody": null,
+  "provider": "NASA",
+  "product": "NASA POWER daily meteorological data",
+  "version": null,
+  "measurementPeriod": {
+    "start": "2025-01-01",
+    "end": "2025-12-31"
+  },
+  "retrievedAt": "2026-11-14T11:09:20+00:00",
+  "sha256": "d57a6706ab545114cec7a089bfd83d9e67ce1c5553a1554b52be714a68fdeea1",
+  "bytes": 25067,
+  "cachePath": "data/cache/fc2f39996eea429f9b9a9900.json",
+  "status": "available",
+  "contentType": "application/json"
+}

@@ -1,0 +1,16 @@
+{
+  "id": "dem-kilauea",
+  "url": "https://worldwind26.arc.nasa.gov/elev?service=WMS&version=1.1.1&request=GetMap&layers=aster_v2&styles=&srs=EPSG%3A4326&bbox=-155.330059465%2C19.362785681%2C-155.229940535%2C19.457214319&width=21&height=21&format=application%2Fbil16",
+  "method": "GET",
+  "requestBody": null,
+  "provider": "NASA",
+  "product": "NASA WorldWind ASTER GDEM v2 elevation cache",
+  "version": "ASTER GDEM v2; WorldWind cache layer aster_v2",
+  "measurementPeriod": "Historical ASTER GDEM v2 observations; not 2025 terrain measurements",
+  "retrievedAt": "2026-11-14T11:09:23+00:00",
+  "sha256": "63ce954b5e42c4b7273bf6d210076091d3cf8bc752f08c97349bbaee11cd8599",
+  "bytes": 882,
+  "cachePath": "data/cache/71dcf8664476f567b2975418.bin",
+  "status": "available",
+  "contentType": "application/bil16"
+}

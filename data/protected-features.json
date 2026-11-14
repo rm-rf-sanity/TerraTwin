@@ -1,0 +1,1425 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-14T12:15:44+00:00",
+  "sites": [
+    {
+      "id": "haughton",
+      "features": {
+        "ndvi_mean": {
+          "value": null,
+          "unit": "NDVI",
+          "status": "missing",
+          "sourceId": null,
+          "reason": "outside_downloaded_footprints_or_not_processed"
+        },
+        "night_lights": {
+          "value": null,
+          "unit": "nW cm^-2 sr^-1",
+          "status": "missing",
+          "sourceId": null,
+          "reason": "outside_downloaded_footprints_or_not_processed"
+        }
+      },
+      "mineral_summary": {
+        "status": "missing",
+        "classes": [],
+        "reason": "outside_downloaded_footprints_or_not_processed"
+      }
+    },
+    {
+      "id": "salda",
+      "features": {
+        "ndvi_mean": {
+          "value": null,
+          "status": "missing",
+          "validPixels": 260,
+          "totalPixels": 1900,
+          "eligibleLandPixels": 288,
+          "coverageDenominator": "eligible_land_pixels",
+          "geometricValidFraction": 0.13684211,
+          "validFraction": 0.90277778,
+          "reason": "insufficient_quality_valid_land_pixels",
+          "minimumValidFraction": 0.95,
+          "qualityValidSubsetMean": 0.47663385,
+          "subsetInterpretation": "Diagnostic mean of accepted samples only; NEVER a score input when value is null.",
+          "unit": "NDVI",
+          "nativeResolution": "250 m nominal, MODIS sinusoidal; 16-day composite",
+          "quality": {
+            "policy": "Pixel reliability0; MODLAND00; usefulness<=2; non-high aerosol; no adjacent/mixed cloud/snow/shadow; land-only",
+            "landPixels": 288,
+            "fillPixels": 452
+          },
+          "interpretation": "Mean of quality-valid land NDVI pixels in this single16-day composite; not vegetation-area fraction or annual land-use classification.",
+          "sourceId": "protected-ndvi-salda-57a65e4300b5",
+          "measurementPeriod": {
+            "start": "2026-10-16T00:00:00.000Z",
+            "end": "2026-10-31T23:59:59.000Z"
+          },
+          "evidencePath": "data/protected-evidence/MOD13Q1-MOD13Q1.A2026289.h20v05.061.2026307130820-salda.json"
+        },
+        "night_lights": {
+          "value": null,
+          "status": "missing",
+          "validPixels": 91,
+          "totalPixels": 567,
+          "eligibleLandPixels": 210,
+          "coverageDenominator": "eligible_land_pixels",
+          "geometricValidFraction": 0.16049383,
+          "validFraction": 0.43333333,
+          "reason": "insufficient_quality_valid_land_pixels",
+          "minimumValidFraction": 0.95,
+          "qualityValidSubsetMean": 0.21425247,
+          "subsetInterpretation": "Diagnostic mean of accepted samples only; NEVER a score input when value is null.",
+          "unit": "nW cm^-2 sr^-1",
+          "nativeResolution": "15 arc-second geographic grid (~500 m nominal)",
+          "quality": {
+            "policy": "V2 float radiance unchanged; mandatory0; night; high cloud-mask quality; confidently clear; land-only; no shadow/cirrus/snow/aurora/eclipse",
+            "landPixels": 210,
+            "nonnegativePixels": 193
+          },
+          "interpretation": "Direct quality-valid, non-gap-filled daily VNP46A2v2 radiance; not an annual night-light average. Float V2 radiance is NOT multiplied by0.1.",
+          "sourceId": "protected-night_lights-salda-865a66abec13",
+          "measurementPeriod": {
+            "start": "2026-10-30T00:00:00.000Z",
+            "end": "2026-10-31T00:00:00.000Z"
+          },
+          "evidencePath": "data/protected-evidence/VNP46A2-VNP46A2.A2026303.h20v05.002.2026310171728.h5-salda.json"
+        }
+      },
+      "mineral_summary": {
+        "status": "context_only",
+        "classes": [
+          {
+            "group": 2,
+            "id": 216,
+            "name": "carbonate_calcite+dolomite.5",
+            "count": 741,
+            "meanBandDepth": 0.13586833,
+            "meanBandDepthUncertainty": 0.008415,
+            "meanFit": 0.47947395
+          },
+          {
+            "group": 2,
+            "id": 97,
+            "name": "organic_vegetation-dry-grass-golden",
+            "count": 466,
+            "meanBandDepth": 0.10217117,
+            "meanBandDepthUncertainty": 0.01090604,
+            "meanFit": 0.48894639
+          },
+          {
+            "group": 1,
+            "id": 20,
+            "name": "fe2+generic_nrw.cummingtonite",
+            "count": 79,
+            "meanBandDepth": 0.04363366,
+            "meanBandDepthUncertainty": 0.00305251,
+            "meanFit": 0.35455449
+          },
+          {
+            "group": 1,
+            "id": 8,
+            "name": "fe3+_goethite.thincoat",
+            "count": 67,
+            "meanBandDepth": 0.04029851,
+            "meanBandDepthUncertainty": 0.00396174,
+            "meanFit": 0.40351186
+          },
+          {
+            "group": 1,
+            "id": 45,
+            "name": "fe3+_hematite.nano.BR34b2",
+            "count": 51,
+            "meanBandDepth": 0.0580546,
+            "meanBandDepthUncertainty": 0.00665443,
+            "meanFit": 0.38127644
+          },
+          {
+            "group": 1,
+            "id": 64,
+            "name": "fe2+generic_carbonate_siderite1",
+            "count": 49,
+            "meanBandDepth": 0.15714286,
+            "meanBandDepthUncertainty": 0.01563065,
+            "meanFit": 0.45510204
+          },
+          {
+            "group": 2,
+            "id": 265,
+            "name": "serpentine_cronstedtite",
+            "count": 33,
+            "meanBandDepth": 0.09910874,
+            "meanBandDepthUncertainty": 0.02692273,
+            "meanFit": 0.43630422
+          },
+          {
+            "group": 2,
+            "id": 194,
+            "name": "carbonate_aragonite",
+            "count": 24,
+            "meanBandDepth": 0.09632353,
+            "meanBandDepthUncertainty": 0.01141906,
+            "meanFit": 0.4757353
+          },
+          {
+            "group": 1,
+            "id": 28,
+            "name": "fe3+bearing1",
+            "count": 23,
+            "meanBandDepth": 0.05575448,
+            "meanBandDepthUncertainty": 0.0048842,
+            "meanFit": 0.40878091
+          },
+          {
+            "group": 1,
+            "id": 47,
+            "name": "fe3+_hematite.nano.BR34b2b",
+            "count": 13,
+            "meanBandDepth": 0.0612368,
+            "meanBandDepthUncertainty": 0.00666613,
+            "meanFit": 0.36485672
+          },
+          {
+            "group": 1,
+            "id": 59,
+            "name": "copper_sulfate_bluefflor",
+            "count": 13,
+            "meanBandDepth": 0.0959276,
+            "meanBandDepthUncertainty": 0.00270732,
+            "meanFit": 0.36877829
+          },
+          {
+            "group": 2,
+            "id": 215,
+            "name": "carbonate_calcite",
+            "count": 12,
+            "meanBandDepth": 0.15147059,
+            "meanBandDepthUncertainty": 0.01687163,
+            "meanFit": 0.46454249
+          },
+          {
+            "group": 2,
+            "id": 193,
+            "name": "prehnite+.75chlorite",
+            "count": 11,
+            "meanBandDepth": 0.05989305,
+            "meanBandDepthUncertainty": 0.01963813,
+            "meanFit": 0.46078432
+          },
+          {
+            "group": 1,
+            "id": 23,
+            "name": "fe2+_pyroxene.hypersthene",
+            "count": 8,
+            "meanBandDepth": 0.07794118,
+            "meanBandDepthUncertainty": 0.00935285,
+            "meanFit": 0.27818629
+          },
+          {
+            "group": 1,
+            "id": 67,
+            "name": "fe3+fe2+_sulfate_copiapite",
+            "count": 7,
+            "meanBandDepth": 0.34481793,
+            "meanBandDepthUncertainty": 0.01195165,
+            "meanFit": 0.32549021
+          },
+          {
+            "group": 1,
+            "id": 46,
+            "name": "fe3+_hematite-nano+goethite-fg-amix",
+            "count": 5,
+            "meanBandDepth": 0.04470588,
+            "meanBandDepthUncertainty": 0.00337326,
+            "meanFit": 0.41254902
+          },
+          {
+            "group": 1,
+            "id": 60,
+            "name": "copper_precipitate_greenslime",
+            "count": 5,
+            "meanBandDepth": 0.06431373,
+            "meanBandDepthUncertainty": 0.00257382,
+            "meanFit": 0.3392157
+          },
+          {
+            "group": 2,
+            "id": 196,
+            "name": "chlorite_clinochlore.nmnh83369",
+            "count": 5,
+            "meanBandDepth": 0.05058824,
+            "meanBandDepthUncertainty": 0.01800634,
+            "meanFit": 0.46156863
+          },
+          {
+            "group": 1,
+            "id": 26,
+            "name": "fe2+_pyroxene_clino_pigeonite",
+            "count": 4,
+            "meanBandDepth": 0.36421569,
+            "meanBandDepthUncertainty": 0.00525278,
+            "meanFit": 0.30490197
+          },
+          {
+            "group": 1,
+            "id": 52,
+            "name": "fe2+fe3+_water_RTsludge",
+            "count": 4,
+            "meanBandDepth": 0.08431373,
+            "meanBandDepthUncertainty": 0.00249378,
+            "meanFit": 0.38725491
+          },
+          {
+            "group": 1,
+            "id": 40,
+            "name": "fe2+fe3+_hematite_weathering",
+            "count": 3,
+            "meanBandDepth": 0.0633987,
+            "meanBandDepthUncertainty": 0.0065474,
+            "meanFit": 0.35228759
+          },
+          {
+            "group": 1,
+            "id": 298,
+            "name": "fe3+_goethite.nano0.5+qtz",
+            "count": 2,
+            "meanBandDepth": 0.04411765,
+            "meanBandDepthUncertainty": 0.00340674,
+            "meanFit": 0.4382353
+          },
+          {
+            "group": 2,
+            "id": 189,
+            "name": "chlorite-skarn",
+            "count": 2,
+            "meanBandDepth": 0.04705882,
+            "meanBandDepthUncertainty": 0.0093319,
+            "meanFit": 0.37352942
+          },
+          {
+            "group": 2,
+            "id": 220,
+            "name": "carbonate_siderite",
+            "count": 2,
+            "meanBandDepth": 0.07647059,
+            "meanBandDepthUncertainty": 0.01540968,
+            "meanFit": 0.43137255
+          },
+          {
+            "group": 1,
+            "id": 4,
+            "name": "fe3+_goethite+qtz.medgr.gds240",
+            "count": 1,
+            "meanBandDepth": 0.05686275,
+            "meanBandDepthUncertainty": 0.0036079,
+            "meanFit": 0.47058824
+          },
+          {
+            "group": 1,
+            "id": 10,
+            "name": "sulfide_pyrite",
+            "count": 1,
+            "meanBandDepth": 0.07843138,
+            "meanBandDepthUncertainty": 0.01849633,
+            "meanFit": 0.33333334
+          },
+          {
+            "group": 1,
+            "id": 57,
+            "name": "fe3+copper-hydroxide_pitchlimonite",
+            "count": 1,
+            "meanBandDepth": 0.06862745,
+            "meanBandDepthUncertainty": 0.00472434,
+            "meanFit": 0.42156863
+          },
+          {
+            "group": 2,
+            "id": 184,
+            "name": "carbonate_dolomite",
+            "count": 1,
+            "meanBandDepth": 0.0627451,
+            "meanBandDepthUncertainty": 0.01425232,
+            "meanFit": 0.46470588
+          },
+          {
+            "group": 2,
+            "id": 197,
+            "name": "chlorite_clinochlore.fe.gds157",
+            "count": 1,
+            "meanBandDepth": 0.0254902,
+            "meanBandDepthUncertainty": 0.01624131,
+            "meanFit": 0.43333334
+          },
+          {
+            "group": 2,
+            "id": 250,
+            "name": "zeolite_analcime",
+            "count": 1,
+            "meanBandDepth": 0.01372549,
+            "meanBandDepthUncertainty": 0.0147901,
+            "meanFit": 0.32745099
+          }
+        ],
+        "validPixels": 1326,
+        "totalPixels": 23815,
+        "quality": {
+          "cloudMaskApplied": true,
+          "uncertaintyApplied": true,
+          "qualityEligiblePixels": 5394,
+          "policy": "Positive spectral-library ID/depth; matchedV002 cloud/cirrus/water/spacecraft/dilated/aggregate/SpecTfcloud flags0 when available; finite nonnegative uncertainty/fit when available. No arbitrary uncertainty detection threshold or cross-planet mineral match.",
+          "companionAlignment": [
+            {
+              "file": "EMIT_L2A_MASK_002_20240823T081439_2423605_014.nc",
+              "method": "Same acquisition detector indices; geolocation shift bounded below half a nominal60m pixel",
+              "maximumShiftM": 10.806764
+            },
+            {
+              "file": "EMIT_L2B_MINUNCERT_002_20240823T081439.nc",
+              "method": "Same acquisition detector indices; geolocation shift bounded below half a nominal60m pixel",
+              "maximumShiftM": 0.0
+            }
+          ]
+        },
+        "nativeResolution": "60 m nominal native EMIT swath with per-pixel location arrays",
+        "interpretation": "NASA spectral-library match IDs, not mineral abundance, confirmed field mineralogy, life evidence or a numerical Earth–Mars mineral match.",
+        "sourceId": "protected-minerals-salda-00e98cb3f2bc",
+        "measurementPeriod": {
+          "start": "2024-08-23T08:14:39.000Z",
+          "end": "2024-08-23T08:14:51.000Z"
+        },
+        "evidencePath": "data/protected-evidence/EMITL2BMIN-EMIT_L2B_MIN_002_20240823T081439-salda.json",
+        "sourceIds": [
+          "protected-minerals-salda-00e98cb3f2bc",
+          "protected-companion-salda-c4e7ac7aef0d",
+          "protected-companion-salda-a1e44c295c51"
+        ]
+      }
+    },
+    {
+      "id": "mcmurdo",
+      "features": {
+        "ndvi_mean": {
+          "value": null,
+          "unit": "NDVI",
+          "status": "missing",
+          "sourceId": null,
+          "reason": "outside_downloaded_footprints_or_not_processed"
+        },
+        "night_lights": {
+          "value": null,
+          "unit": "nW cm^-2 sr^-1",
+          "status": "missing",
+          "sourceId": null,
+          "reason": "outside_downloaded_footprints_or_not_processed"
+        }
+      },
+      "mineral_summary": {
+        "status": "missing",
+        "classes": [],
+        "reason": "outside_downloaded_footprints_or_not_processed"
+      }
+    },
+    {
+      "id": "atacama",
+      "features": {
+        "ndvi_mean": {
+          "value": null,
+          "unit": "NDVI",
+          "status": "missing",
+          "sourceId": null,
+          "reason": "outside_downloaded_footprints_or_not_processed"
+        },
+        "night_lights": {
+          "value": null,
+          "unit": "nW cm^-2 sr^-1",
+          "status": "missing",
+          "sourceId": null,
+          "reason": "outside_downloaded_footprints_or_not_processed"
+        }
+      },
+      "mineral_summary": {
+        "status": "missing",
+        "classes": [],
+        "reason": "outside_downloaded_footprints_or_not_processed"
+      }
+    },
+    {
+      "id": "askja",
+      "features": {
+        "ndvi_mean": {
+          "value": null,
+          "unit": "NDVI",
+          "status": "missing",
+          "sourceId": null,
+          "reason": "outside_downloaded_footprints_or_not_processed"
+        },
+        "night_lights": {
+          "value": null,
+          "unit": "nW cm^-2 sr^-1",
+          "status": "missing",
+          "sourceId": null,
+          "reason": "outside_downloaded_footprints_or_not_processed"
+        }
+      },
+      "mineral_summary": {
+        "status": "missing",
+        "classes": [],
+        "reason": "outside_downloaded_footprints_or_not_processed"
+      }
+    },
+    {
+      "id": "maunakea",
+      "features": {
+        "ndvi_mean": {
+          "value": null,
+          "unit": "NDVI",
+          "status": "missing",
+          "sourceId": null,
+          "reason": "outside_downloaded_footprints_or_not_processed"
+        },
+        "night_lights": {
+          "value": null,
+          "unit": "nW cm^-2 sr^-1",
+          "status": "missing",
+          "sourceId": null,
+          "reason": "outside_downloaded_footprints_or_not_processed"
+        }
+      },
+      "mineral_summary": {
+        "status": "missing",
+        "classes": [],
+        "reason": "outside_downloaded_footprints_or_not_processed"
+      }
+    },
+    {
+      "id": "deathvalley",
+      "features": {
+        "ndvi_mean": {
+          "value": null,
+          "unit": "NDVI",
+          "status": "missing",
+          "sourceId": null,
+          "reason": "outside_downloaded_footprints_or_not_processed"
+        },
+        "night_lights": {
+          "value": null,
+          "unit": "nW cm^-2 sr^-1",
+          "status": "missing",
+          "sourceId": null,
+          "reason": "outside_downloaded_footprints_or_not_processed"
+        }
+      },
+      "mineral_summary": {
+        "status": "missing",
+        "classes": [],
+        "reason": "outside_downloaded_footprints_or_not_processed"
+      }
+    },
+    {
+      "id": "kilauea",
+      "features": {
+        "ndvi_mean": {
+          "value": null,
+          "unit": "NDVI",
+          "status": "missing",
+          "sourceId": null,
+          "reason": "outside_downloaded_footprints_or_not_processed"
+        },
+        "night_lights": {
+          "value": null,
+          "unit": "nW cm^-2 sr^-1",
+          "status": "missing",
+          "sourceId": null,
+          "reason": "outside_downloaded_footprints_or_not_processed"
+        }
+      },
+      "mineral_summary": {
+        "status": "missing",
+        "classes": [],
+        "reason": "outside_downloaded_footprints_or_not_processed"
+      }
+    },
+    {
+      "id": "medicine",
+      "features": {
+        "ndvi_mean": {
+          "value": null,
+          "unit": "NDVI",
+          "status": "missing",
+          "sourceId": null,
+          "reason": "outside_downloaded_footprints_or_not_processed"
+        },
+        "night_lights": {
+          "value": null,
+          "unit": "nW cm^-2 sr^-1",
+          "status": "missing",
+          "sourceId": null,
+          "reason": "outside_downloaded_footprints_or_not_processed"
+        }
+      },
+      "mineral_summary": {
+        "status": "missing",
+        "classes": [],
+        "reason": "outside_downloaded_footprints_or_not_processed"
+      }
+    },
+    {
+      "id": "pilot",
+      "features": {
+        "ndvi_mean": {
+          "value": null,
+          "unit": "NDVI",
+          "status": "missing",
+          "sourceId": null,
+          "reason": "outside_downloaded_footprints_or_not_processed"
+        },
+        "night_lights": {
+          "value": null,
+          "unit": "nW cm^-2 sr^-1",
+          "status": "missing",
+          "sourceId": null,
+          "reason": "outside_downloaded_footprints_or_not_processed"
+        }
+      },
+      "mineral_summary": {
+        "status": "missing",
+        "classes": [],
+        "reason": "outside_downloaded_footprints_or_not_processed"
+      }
+    },
+    {
+      "id": "katmai",
+      "features": {
+        "ndvi_mean": {
+          "value": null,
+          "unit": "NDVI",
+          "status": "missing",
+          "sourceId": null,
+          "reason": "outside_downloaded_footprints_or_not_processed"
+        },
+        "night_lights": {
+          "value": null,
+          "unit": "nW cm^-2 sr^-1",
+          "status": "missing",
+          "sourceId": null,
+          "reason": "outside_downloaded_footprints_or_not_processed"
+        }
+      },
+      "mineral_summary": {
+        "status": "missing",
+        "classes": [],
+        "reason": "outside_downloaded_footprints_or_not_processed"
+      }
+    },
+    {
+      "id": "kapadokya",
+      "features": {
+        "ndvi_mean": {
+          "value": 0.28046101,
+          "status": "derived",
+          "validPixels": 1898,
+          "totalPixels": 1898,
+          "eligibleLandPixels": 1898,
+          "coverageDenominator": "eligible_land_pixels",
+          "geometricValidFraction": 1.0,
+          "validFraction": 1.0,
+          "reason": null,
+          "minimumValidFraction": 0.95,
+          "qualityValidSubsetMean": 0.28046101,
+          "subsetInterpretation": "Diagnostic mean of accepted samples only; NEVER a score input when value is null.",
+          "unit": "NDVI",
+          "nativeResolution": "250 m nominal, MODIS sinusoidal; 16-day composite",
+          "quality": {
+            "policy": "Pixel reliability0; MODLAND00; usefulness<=2; non-high aerosol; no adjacent/mixed cloud/snow/shadow; land-only",
+            "landPixels": 1898,
+            "fillPixels": 0
+          },
+          "interpretation": "Mean of quality-valid land NDVI pixels in this single16-day composite; not vegetation-area fraction or annual land-use classification.",
+          "sourceId": "protected-ndvi-kapadokya-57a65e4300b5",
+          "measurementPeriod": {
+            "start": "2026-10-16T00:00:00.000Z",
+            "end": "2026-10-31T23:59:59.000Z"
+          },
+          "evidencePath": "data/protected-evidence/MOD13Q1-MOD13Q1.A2026289.h20v05.061.2026307130820-kapadokya.json"
+        },
+        "night_lights": {
+          "value": null,
+          "unit": "nW cm^-2 sr^-1",
+          "status": "missing",
+          "sourceId": null,
+          "reason": "outside_downloaded_footprints_or_not_processed"
+        }
+      },
+      "mineral_summary": {
+        "status": "missing",
+        "classes": [],
+        "reason": "outside_downloaded_footprints_or_not_processed"
+      }
+    },
+    {
+      "id": "wadirum",
+      "features": {
+        "ndvi_mean": {
+          "value": null,
+          "unit": "NDVI",
+          "status": "missing",
+          "sourceId": null,
+          "reason": "outside_downloaded_footprints_or_not_processed"
+        },
+        "night_lights": {
+          "value": null,
+          "unit": "nW cm^-2 sr^-1",
+          "status": "missing",
+          "sourceId": null,
+          "reason": "outside_downloaded_footprints_or_not_processed"
+        }
+      },
+      "mineral_summary": {
+        "status": "missing",
+        "classes": [],
+        "reason": "outside_downloaded_footprints_or_not_processed"
+      }
+    },
+    {
+      "id": "bardenas",
+      "features": {
+        "ndvi_mean": {
+          "value": null,
+          "unit": "NDVI",
+          "status": "missing",
+          "sourceId": null,
+          "reason": "outside_downloaded_footprints_or_not_processed"
+        },
+        "night_lights": {
+          "value": null,
+          "unit": "nW cm^-2 sr^-1",
+          "status": "missing",
+          "sourceId": null,
+          "reason": "outside_downloaded_footprints_or_not_processed"
+        }
+      },
+      "mineral_summary": {
+        "status": "missing",
+        "classes": [],
+        "reason": "outside_downloaded_footprints_or_not_processed"
+      }
+    },
+    {
+      "id": "nemrut",
+      "features": {
+        "ndvi_mean": {
+          "value": null,
+          "unit": "NDVI",
+          "status": "missing",
+          "sourceId": null,
+          "reason": "outside_downloaded_footprints_or_not_processed"
+        },
+        "night_lights": {
+          "value": null,
+          "unit": "nW cm^-2 sr^-1",
+          "status": "missing",
+          "sourceId": null,
+          "reason": "outside_downloaded_footprints_or_not_processed"
+        }
+      },
+      "mineral_summary": {
+        "status": "missing",
+        "classes": [],
+        "reason": "outside_downloaded_footprints_or_not_processed"
+      }
+    },
+    {
+      "id": "tuz",
+      "features": {
+        "ndvi_mean": {
+          "value": null,
+          "status": "missing",
+          "validPixels": 0,
+          "totalPixels": 1900,
+          "eligibleLandPixels": 0,
+          "coverageDenominator": "eligible_land_pixels",
+          "geometricValidFraction": 0.0,
+          "validFraction": 0.0,
+          "reason": "insufficient_quality_valid_land_pixels",
+          "minimumValidFraction": 0.95,
+          "qualityValidSubsetMean": null,
+          "subsetInterpretation": "Diagnostic mean of accepted samples only; NEVER a score input when value is null.",
+          "unit": "NDVI",
+          "nativeResolution": "250 m nominal, MODIS sinusoidal; 16-day composite",
+          "quality": {
+            "policy": "Pixel reliability0; MODLAND00; usefulness<=2; non-high aerosol; no adjacent/mixed cloud/snow/shadow; land-only",
+            "landPixels": 0,
+            "fillPixels": 501
+          },
+          "interpretation": "Mean of quality-valid land NDVI pixels in this single16-day composite; not vegetation-area fraction or annual land-use classification.",
+          "sourceId": "protected-ndvi-tuz-57a65e4300b5",
+          "measurementPeriod": {
+            "start": "2026-10-16T00:00:00.000Z",
+            "end": "2026-10-31T23:59:59.000Z"
+          },
+          "evidencePath": "data/protected-evidence/MOD13Q1-MOD13Q1.A2026289.h20v05.061.2026307130820-tuz.json"
+        },
+        "night_lights": {
+          "value": null,
+          "unit": "nW cm^-2 sr^-1",
+          "status": "missing",
+          "sourceId": null,
+          "reason": "outside_downloaded_footprints_or_not_processed"
+        }
+      },
+      "mineral_summary": {
+        "status": "missing",
+        "classes": [],
+        "reason": "outside_downloaded_footprints_or_not_processed"
+      }
+    },
+    {
+      "id": "harrat",
+      "features": {
+        "ndvi_mean": {
+          "value": null,
+          "unit": "NDVI",
+          "status": "missing",
+          "sourceId": null,
+          "reason": "outside_downloaded_footprints_or_not_processed"
+        },
+        "night_lights": {
+          "value": null,
+          "unit": "nW cm^-2 sr^-1",
+          "status": "missing",
+          "sourceId": null,
+          "reason": "outside_downloaded_footprints_or_not_processed"
+        }
+      },
+      "mineral_summary": {
+        "status": "missing",
+        "classes": [],
+        "reason": "outside_downloaded_footprints_or_not_processed"
+      }
+    },
+    {
+      "id": "pinacate",
+      "features": {
+        "ndvi_mean": {
+          "value": null,
+          "unit": "NDVI",
+          "status": "missing",
+          "sourceId": null,
+          "reason": "outside_downloaded_footprints_or_not_processed"
+        },
+        "night_lights": {
+          "value": null,
+          "unit": "nW cm^-2 sr^-1",
+          "status": "missing",
+          "sourceId": null,
+          "reason": "outside_downloaded_footprints_or_not_processed"
+        }
+      },
+      "mineral_summary": {
+        "status": "missing",
+        "classes": [],
+        "reason": "outside_downloaded_footprints_or_not_processed"
+      }
+    },
+    {
+      "id": "makgadikgadi",
+      "features": {
+        "ndvi_mean": {
+          "value": null,
+          "unit": "NDVI",
+          "status": "missing",
+          "sourceId": null,
+          "reason": "outside_downloaded_footprints_or_not_processed"
+        },
+        "night_lights": {
+          "value": null,
+          "unit": "nW cm^-2 sr^-1",
+          "status": "missing",
+          "sourceId": null,
+          "reason": "outside_downloaded_footprints_or_not_processed"
+        }
+      },
+      "mineral_summary": {
+        "status": "missing",
+        "classes": [],
+        "reason": "outside_downloaded_footprints_or_not_processed"
+      }
+    },
+    {
+      "id": "hanksville",
+      "features": {
+        "ndvi_mean": {
+          "value": null,
+          "unit": "NDVI",
+          "status": "missing",
+          "sourceId": null,
+          "reason": "outside_downloaded_footprints_or_not_processed"
+        },
+        "night_lights": {
+          "value": null,
+          "unit": "nW cm^-2 sr^-1",
+          "status": "missing",
+          "sourceId": null,
+          "reason": "outside_downloaded_footprints_or_not_processed"
+        }
+      },
+      "mineral_summary": {
+        "status": "missing",
+        "classes": [],
+        "reason": "outside_downloaded_footprints_or_not_processed"
+      }
+    },
+    {
+      "id": "pilbara",
+      "features": {
+        "ndvi_mean": {
+          "value": null,
+          "unit": "NDVI",
+          "status": "missing",
+          "sourceId": null,
+          "reason": "outside_downloaded_footprints_or_not_processed"
+        },
+        "night_lights": {
+          "value": null,
+          "unit": "nW cm^-2 sr^-1",
+          "status": "missing",
+          "sourceId": null,
+          "reason": "outside_downloaded_footprints_or_not_processed"
+        }
+      },
+      "mineral_summary": {
+        "status": "missing",
+        "classes": [],
+        "reason": "outside_downloaded_footprints_or_not_processed"
+      }
+    },
+    {
+      "id": "control-istanbul",
+      "features": {
+        "ndvi_mean": {
+          "value": null,
+          "unit": "NDVI",
+          "status": "missing",
+          "sourceId": null,
+          "reason": "outside_downloaded_footprints_or_not_processed"
+        },
+        "night_lights": {
+          "value": null,
+          "unit": "nW cm^-2 sr^-1",
+          "status": "missing",
+          "sourceId": null,
+          "reason": "outside_downloaded_footprints_or_not_processed"
+        }
+      },
+      "mineral_summary": {
+        "status": "missing",
+        "classes": [],
+        "reason": "outside_downloaded_footprints_or_not_processed"
+      }
+    },
+    {
+      "id": "control-manaus",
+      "features": {
+        "ndvi_mean": {
+          "value": null,
+          "unit": "NDVI",
+          "status": "missing",
+          "sourceId": null,
+          "reason": "outside_downloaded_footprints_or_not_processed"
+        },
+        "night_lights": {
+          "value": null,
+          "unit": "nW cm^-2 sr^-1",
+          "status": "missing",
+          "sourceId": null,
+          "reason": "outside_downloaded_footprints_or_not_processed"
+        }
+      },
+      "mineral_summary": {
+        "status": "missing",
+        "classes": [],
+        "reason": "outside_downloaded_footprints_or_not_processed"
+      }
+    },
+    {
+      "id": "control-konya-city",
+      "features": {
+        "ndvi_mean": {
+          "value": null,
+          "status": "missing",
+          "validPixels": 774,
+          "totalPixels": 1856,
+          "eligibleLandPixels": 1856,
+          "coverageDenominator": "eligible_land_pixels",
+          "geometricValidFraction": 0.41702586,
+          "validFraction": 0.41702586,
+          "reason": "insufficient_quality_valid_land_pixels",
+          "minimumValidFraction": 0.95,
+          "qualityValidSubsetMean": 0.30924522,
+          "subsetInterpretation": "Diagnostic mean of accepted samples only; NEVER a score input when value is null.",
+          "unit": "NDVI",
+          "nativeResolution": "250 m nominal, MODIS sinusoidal; 16-day composite",
+          "quality": {
+            "policy": "Pixel reliability0; MODLAND00; usefulness<=2; non-high aerosol; no adjacent/mixed cloud/snow/shadow; land-only",
+            "landPixels": 1856,
+            "fillPixels": 0
+          },
+          "interpretation": "Mean of quality-valid land NDVI pixels in this single16-day composite; not vegetation-area fraction or annual land-use classification.",
+          "sourceId": "protected-ndvi-control-konya-city-57a65e4300b5",
+          "measurementPeriod": {
+            "start": "2026-10-16T00:00:00.000Z",
+            "end": "2026-10-31T23:59:59.000Z"
+          },
+          "evidencePath": "data/protected-evidence/MOD13Q1-MOD13Q1.A2026289.h20v05.061.2026307130820-control-konya-city.json"
+        },
+        "night_lights": {
+          "value": null,
+          "unit": "nW cm^-2 sr^-1",
+          "status": "missing",
+          "sourceId": null,
+          "reason": "outside_downloaded_footprints_or_not_processed"
+        }
+      },
+      "mineral_summary": {
+        "status": "missing",
+        "classes": [],
+        "reason": "outside_downloaded_footprints_or_not_processed"
+      }
+    },
+    {
+      "id": "control-amazon-forest",
+      "features": {
+        "ndvi_mean": {
+          "value": null,
+          "unit": "NDVI",
+          "status": "missing",
+          "sourceId": null,
+          "reason": "outside_downloaded_footprints_or_not_processed"
+        },
+        "night_lights": {
+          "value": null,
+          "unit": "nW cm^-2 sr^-1",
+          "status": "missing",
+          "sourceId": null,
+          "reason": "outside_downloaded_footprints_or_not_processed"
+        }
+      },
+      "mineral_summary": {
+        "status": "missing",
+        "classes": [],
+        "reason": "outside_downloaded_footprints_or_not_processed"
+      }
+    },
+    {
+      "id": "control-konya-fields",
+      "features": {
+        "ndvi_mean": {
+          "value": 0.36383131,
+          "status": "derived",
+          "validPixels": 1859,
+          "totalPixels": 1899,
+          "eligibleLandPixels": 1899,
+          "coverageDenominator": "eligible_land_pixels",
+          "geometricValidFraction": 0.97893628,
+          "validFraction": 0.97893628,
+          "reason": null,
+          "minimumValidFraction": 0.95,
+          "qualityValidSubsetMean": 0.36383131,
+          "subsetInterpretation": "Diagnostic mean of accepted samples only; NEVER a score input when value is null.",
+          "unit": "NDVI",
+          "nativeResolution": "250 m nominal, MODIS sinusoidal; 16-day composite",
+          "quality": {
+            "policy": "Pixel reliability0; MODLAND00; usefulness<=2; non-high aerosol; no adjacent/mixed cloud/snow/shadow; land-only",
+            "landPixels": 1899,
+            "fillPixels": 0
+          },
+          "interpretation": "Mean of quality-valid land NDVI pixels in this single16-day composite; not vegetation-area fraction or annual land-use classification.",
+          "sourceId": "protected-ndvi-control-konya-fields-57a65e4300b5",
+          "measurementPeriod": {
+            "start": "2026-10-16T00:00:00.000Z",
+            "end": "2026-10-31T23:59:59.000Z"
+          },
+          "evidencePath": "data/protected-evidence/MOD13Q1-MOD13Q1.A2026289.h20v05.061.2026307130820-control-konya-fields.json"
+        },
+        "night_lights": {
+          "value": null,
+          "unit": "nW cm^-2 sr^-1",
+          "status": "missing",
+          "sourceId": null,
+          "reason": "outside_downloaded_footprints_or_not_processed"
+        }
+      },
+      "mineral_summary": {
+        "status": "missing",
+        "classes": [],
+        "reason": "outside_downloaded_footprints_or_not_processed"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "id": "protected-minerals-salda-00e98cb3f2bc",
+      "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/EMITL2BMIN.002/EMIT_L2B_MIN_002_20240823T081439/EMIT_L2B_MIN_002_20240823T081439.nc",
+      "sha256": "00e98cb3f2bc818008b5df73fca812309a6a92005565855d9887e2b873428c67",
+      "bytes": 41963456,
+      "cachePath": ".local/earthdata-data/EMIT_L2B_MIN_002_20240823T081439.nc",
+      "kind": "protected-granule",
+      "evidencePath": "data/protected-evidence/EMITL2BMIN-EMIT_L2B_MIN_002_20240823T081439-salda.json",
+      "evidenceSha256": "b960229d659172bb311b2697400eac3af53a74e3f73aab6e4de5a078646c2f96",
+      "product": "EMITL2BMIN EMIT_L2B_MIN_002_20240823T081439",
+      "version": "002",
+      "measurementPeriod": {
+        "start": "2024-08-23T08:14:39.000Z",
+        "end": "2024-08-23T08:14:51.000Z"
+      },
+      "retrievedAt": "2026-11-14T12:00:54+00:00",
+      "provider": "NASA Earthdata / official DAAC",
+      "status": "available"
+    },
+    {
+      "id": "protected-companion-salda-c4e7ac7aef0d",
+      "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/EMITL2AMASK.002/EMIT_L2A_MASK_002_20240823T081439_2423605_014/EMIT_L2A_MASK_002_20240823T081439_2423605_014.nc",
+      "sha256": "c4e7ac7aef0d165f21ec5072b38d495197ceec197149e124ebd9355318b7a0a4",
+      "bytes": 57618745,
+      "cachePath": ".local/earthdata-data/EMIT_L2A_MASK_002_20240823T081439_2423605_014.nc",
+      "kind": "protected-granule",
+      "evidencePath": "data/protected-evidence/EMITL2BMIN-EMIT_L2B_MIN_002_20240823T081439-salda.json",
+      "evidenceSha256": "b960229d659172bb311b2697400eac3af53a74e3f73aab6e4de5a078646c2f96",
+      "product": "EMITL2AMASK EMIT_L2A_MASK_002_20240823T081439_2423605_014.nc",
+      "version": "002",
+      "measurementPeriod": {
+        "start": "2024-08-23T08:14:39.000Z",
+        "end": "2024-08-23T08:14:51.000Z"
+      },
+      "retrievedAt": "2026-11-14T12:05:36+00:00",
+      "provider": "NASA Earthdata / official DAAC",
+      "status": "available"
+    },
+    {
+      "id": "protected-companion-salda-a1e44c295c51",
+      "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/EMITL2BMIN.002/EMIT_L2B_MIN_002_20240823T081439/EMIT_L2B_MINUNCERT_002_20240823T081439.nc",
+      "sha256": "a1e44c295c519b95aeecd0d58250d709428ee54b9bdb61e0136994a84d6cfd20",
+      "bytes": 44532431,
+      "cachePath": ".local/earthdata-data/EMIT_L2B_MINUNCERT_002_20240823T081439.nc",
+      "kind": "protected-granule",
+      "evidencePath": "data/protected-evidence/EMITL2BMIN-EMIT_L2B_MIN_002_20240823T081439-salda.json",
+      "evidenceSha256": "b960229d659172bb311b2697400eac3af53a74e3f73aab6e4de5a078646c2f96",
+      "product": "EMITL2BMIN EMIT_L2B_MINUNCERT_002_20240823T081439.nc",
+      "version": "002",
+      "measurementPeriod": {
+        "start": "2024-08-23T08:14:39.000Z",
+        "end": "2024-08-23T08:14:51.000Z"
+      },
+      "retrievedAt": "2026-11-14T12:05:28+00:00",
+      "provider": "NASA Earthdata / official DAAC",
+      "status": "available"
+    },
+    {
+      "id": "protected-ndvi-salda-57a65e4300b5",
+      "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD13Q1.061/MOD13Q1.A2026289.h20v05.061.2026307130820/MOD13Q1.A2026289.h20v05.061.2026307130820.hdf",
+      "sha256": "57a65e4300b541dccbf44ef651cea40659dfb723f02ddb6e1b1fb0f5fe99342b",
+      "bytes": 135446030,
+      "cachePath": ".local/earthdata-data/MOD13Q1.A2026289.h20v05.061.2026307130820.hdf",
+      "kind": "protected-granule",
+      "evidencePath": "data/protected-evidence/MOD13Q1-MOD13Q1.A2026289.h20v05.061.2026307130820-salda.json",
+      "evidenceSha256": "6e003252ca0b7d7687a1667cff5709a0251ada975a29dc26e23e8b3fbf1ce01a",
+      "product": "MOD13Q1 MOD13Q1.A2026289.h20v05.061.2026307130820",
+      "version": "061",
+      "measurementPeriod": {
+        "start": "2026-10-16T00:00:00.000Z",
+        "end": "2026-10-31T23:59:59.000Z"
+      },
+      "retrievedAt": "2026-11-14T12:00:46+00:00",
+      "provider": "NASA Earthdata / official DAAC",
+      "status": "available"
+    },
+    {
+      "id": "protected-ndvi-kapadokya-57a65e4300b5",
+      "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD13Q1.061/MOD13Q1.A2026289.h20v05.061.2026307130820/MOD13Q1.A2026289.h20v05.061.2026307130820.hdf",
+      "sha256": "57a65e4300b541dccbf44ef651cea40659dfb723f02ddb6e1b1fb0f5fe99342b",
+      "bytes": 135446030,
+      "cachePath": ".local/earthdata-data/MOD13Q1.A2026289.h20v05.061.2026307130820.hdf",
+      "kind": "protected-granule",
+      "evidencePath": "data/protected-evidence/MOD13Q1-MOD13Q1.A2026289.h20v05.061.2026307130820-kapadokya.json",
+      "evidenceSha256": "a69063d284fe3dd20b3bd591385bb969ae4baf0365ce318a7543a078d7ab5e31",
+      "product": "MOD13Q1 MOD13Q1.A2026289.h20v05.061.2026307130820",
+      "version": "061",
+      "measurementPeriod": {
+        "start": "2026-10-16T00:00:00.000Z",
+        "end": "2026-10-31T23:59:59.000Z"
+      },
+      "retrievedAt": "2026-11-14T12:00:46+00:00",
+      "provider": "NASA Earthdata / official DAAC",
+      "status": "available"
+    },
+    {
+      "id": "protected-ndvi-tuz-57a65e4300b5",
+      "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD13Q1.061/MOD13Q1.A2026289.h20v05.061.2026307130820/MOD13Q1.A2026289.h20v05.061.2026307130820.hdf",
+      "sha256": "57a65e4300b541dccbf44ef651cea40659dfb723f02ddb6e1b1fb0f5fe99342b",
+      "bytes": 135446030,
+      "cachePath": ".local/earthdata-data/MOD13Q1.A2026289.h20v05.061.2026307130820.hdf",
+      "kind": "protected-granule",
+      "evidencePath": "data/protected-evidence/MOD13Q1-MOD13Q1.A2026289.h20v05.061.2026307130820-tuz.json",
+      "evidenceSha256": "2ea9f3b17698bb6cb69cf6da4aa2672c0ac52f3f4002879d9b5bae1e85c293e5",
+      "product": "MOD13Q1 MOD13Q1.A2026289.h20v05.061.2026307130820",
+      "version": "061",
+      "measurementPeriod": {
+        "start": "2026-10-16T00:00:00.000Z",
+        "end": "2026-10-31T23:59:59.000Z"
+      },
+      "retrievedAt": "2026-11-14T12:00:46+00:00",
+      "provider": "NASA Earthdata / official DAAC",
+      "status": "available"
+    },
+    {
+      "id": "protected-ndvi-control-konya-city-57a65e4300b5",
+      "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD13Q1.061/MOD13Q1.A2026289.h20v05.061.2026307130820/MOD13Q1.A2026289.h20v05.061.2026307130820.hdf",
+      "sha256": "57a65e4300b541dccbf44ef651cea40659dfb723f02ddb6e1b1fb0f5fe99342b",
+      "bytes": 135446030,
+      "cachePath": ".local/earthdata-data/MOD13Q1.A2026289.h20v05.061.2026307130820.hdf",
+      "kind": "protected-granule",
+      "evidencePath": "data/protected-evidence/MOD13Q1-MOD13Q1.A2026289.h20v05.061.2026307130820-control-konya-city.json",
+      "evidenceSha256": "560537d479ec05ae1eb68723e1d0aa95d6e0ce9043a3708e16745fcf78b7a9b8",
+      "product": "MOD13Q1 MOD13Q1.A2026289.h20v05.061.2026307130820",
+      "version": "061",
+      "measurementPeriod": {
+        "start": "2026-10-16T00:00:00.000Z",
+        "end": "2026-10-31T23:59:59.000Z"
+      },
+      "retrievedAt": "2026-11-14T12:00:46+00:00",
+      "provider": "NASA Earthdata / official DAAC",
+      "status": "available"
+    },
+    {
+      "id": "protected-ndvi-control-konya-fields-57a65e4300b5",
+      "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD13Q1.061/MOD13Q1.A2026289.h20v05.061.2026307130820/MOD13Q1.A2026289.h20v05.061.2026307130820.hdf",
+      "sha256": "57a65e4300b541dccbf44ef651cea40659dfb723f02ddb6e1b1fb0f5fe99342b",
+      "bytes": 135446030,
+      "cachePath": ".local/earthdata-data/MOD13Q1.A2026289.h20v05.061.2026307130820.hdf",
+      "kind": "protected-granule",
+      "evidencePath": "data/protected-evidence/MOD13Q1-MOD13Q1.A2026289.h20v05.061.2026307130820-control-konya-fields.json",
+      "evidenceSha256": "8e549a28f748793400f796632fefb7aaa764ce93b7538b9bb2f1bd62ce4a3749",
+      "product": "MOD13Q1 MOD13Q1.A2026289.h20v05.061.2026307130820",
+      "version": "061",
+      "measurementPeriod": {
+        "start": "2026-10-16T00:00:00.000Z",
+        "end": "2026-10-31T23:59:59.000Z"
+      },
+      "retrievedAt": "2026-11-14T12:00:46+00:00",
+      "provider": "NASA Earthdata / official DAAC",
+      "status": "available"
+    },
+    {
+      "id": "protected-night_lights-salda-0933dd9ed466",
+      "url": "https://data.laadsdaac.earthdatacloud.nasa.gov/prod-lads/VNP46A2/VNP46A2.A2026301.h20v05.002.2026308123318.h5",
+      "sha256": "0933dd9ed466f5b3fb723da915155764065da7d146551f74b997273813dced7c",
+      "bytes": 14208390,
+      "cachePath": ".local/earthdata-data/VNP46A2.A2026301.h20v05.002.2026308123318.h5",
+      "kind": "protected-granule",
+      "evidencePath": "data/protected-evidence/VNP46A2-VNP46A2.A2026301.h20v05.002.2026308123318.h5-salda.json",
+      "evidenceSha256": "1102a0a1eb5b2e0404e555096ce297a252573833f1c03d9e6a0808edd04db4a2",
+      "product": "VNP46A2 VNP46A2.A2026301.h20v05.002.2026308123318.h5",
+      "version": "2",
+      "measurementPeriod": {
+        "start": "2026-10-28T00:00:00.000Z",
+        "end": "2026-10-29T00:00:00.000Z"
+      },
+      "retrievedAt": "2026-11-14T12:09:57+00:00",
+      "provider": "NASA Earthdata / official DAAC",
+      "status": "available"
+    },
+    {
+      "id": "protected-night_lights-salda-4f846344f86d",
+      "url": "https://data.laadsdaac.earthdatacloud.nasa.gov/prod-lads/VNP46A2/VNP46A2.A2026302.h20v05.002.2026309142352.h5",
+      "sha256": "4f846344f86dcd3df758ce2e99fcf55a9f0ad4b87df4c3d692d1a43eed3c2507",
+      "bytes": 13600573,
+      "cachePath": ".local/earthdata-data/VNP46A2.A2026302.h20v05.002.2026309142352.h5",
+      "kind": "protected-granule",
+      "evidencePath": "data/protected-evidence/VNP46A2-VNP46A2.A2026302.h20v05.002.2026309142352.h5-salda.json",
+      "evidenceSha256": "39cfb270e3e82ec704b4474644db236d45b2a1937fb643196d06e34055c789ad",
+      "product": "VNP46A2 VNP46A2.A2026302.h20v05.002.2026309142352.h5",
+      "version": "2",
+      "measurementPeriod": {
+        "start": "2026-10-29T00:00:00.000Z",
+        "end": "2026-10-30T00:00:00.000Z"
+      },
+      "retrievedAt": "2026-11-14T12:09:50+00:00",
+      "provider": "NASA Earthdata / official DAAC",
+      "status": "available"
+    },
+    {
+      "id": "protected-night_lights-salda-865a66abec13",
+      "url": "https://data.laadsdaac.earthdatacloud.nasa.gov/prod-lads/VNP46A2/VNP46A2.A2026303.h20v05.002.2026310171728.h5",
+      "sha256": "865a66abec13feaabea6ca889b3787de81499ff6e24bd86f38ffa9b494000fc9",
+      "bytes": 16174155,
+      "cachePath": ".local/earthdata-data/VNP46A2.A2026303.h20v05.002.2026310171728.h5",
+      "kind": "protected-granule",
+      "evidencePath": "data/protected-evidence/VNP46A2-VNP46A2.A2026303.h20v05.002.2026310171728.h5-salda.json",
+      "evidenceSha256": "7b62e6d4e798c1529d91ce4ffacda39257a5e47a3b53266ea2ea8aabc304ae16",
+      "product": "VNP46A2 VNP46A2.A2026303.h20v05.002.2026310171728.h5",
+      "version": "2",
+      "measurementPeriod": {
+        "start": "2026-10-30T00:00:00.000Z",
+        "end": "2026-10-31T00:00:00.000Z"
+      },
+      "retrievedAt": "2026-11-14T12:09:42+00:00",
+      "provider": "NASA Earthdata / official DAAC",
+      "status": "available"
+    },
+    {
+      "id": "protected-night_lights-salda-5427ba6f1c6b",
+      "url": "https://data.laadsdaac.earthdatacloud.nasa.gov/prod-lads/VNP46A2/VNP46A2.A2026304.h20v05.002.2026315132623.h5",
+      "sha256": "5427ba6f1c6b617971f6cce900e853ed01a909f446762af71778565a45bd027a",
+      "bytes": 20671363,
+      "cachePath": ".local/earthdata-data/VNP46A2.A2026304.h20v05.002.2026315132623.h5",
+      "kind": "protected-granule",
+      "evidencePath": "data/protected-evidence/VNP46A2-VNP46A2.A2026304.h20v05.002.2026315132623.h5-salda.json",
+      "evidenceSha256": "ff5706574faf4905cb72fc4d8a69abfd4c7e3887bd7e3b1fdf438c7587f437a5",
+      "product": "VNP46A2 VNP46A2.A2026304.h20v05.002.2026315132623.h5",
+      "version": "2",
+      "measurementPeriod": {
+        "start": "2026-10-31T00:00:00.000Z",
+        "end": "2026-11-01T00:00:00.000Z"
+      },
+      "retrievedAt": "2026-11-14T12:09:31+00:00",
+      "provider": "NASA Earthdata / official DAAC",
+      "status": "available"
+    },
+    {
+      "id": "protected-night_lights-salda-4f2866149a54",
+      "url": "https://data.laadsdaac.earthdatacloud.nasa.gov/prod-lads/VNP46A2/VNP46A2.A2026305.h20v05.002.2026315135053.h5",
+      "sha256": "4f2866149a5492ead794318550d2d2f9b56b75a63ad3e0607f4a7f37349b7d1c",
+      "bytes": 19639306,
+      "cachePath": ".local/earthdata-data/VNP46A2.A2026305.h20v05.002.2026315135053.h5",
+      "kind": "protected-granule",
+      "evidencePath": "data/protected-evidence/VNP46A2-VNP46A2.A2026305.h20v05.002.2026315135053.h5-salda.json",
+      "evidenceSha256": "6e52b3dfe93632e7f70dfc68b539146f2d8e416f93ba5eb00db77c28b6d6d5a2",
+      "product": "VNP46A2 VNP46A2.A2026305.h20v05.002.2026315135053.h5",
+      "version": "2",
+      "measurementPeriod": {
+        "start": "2026-11-01T00:00:00.000Z",
+        "end": "2026-11-02T00:00:00.000Z"
+      },
+      "retrievedAt": "2026-11-14T12:09:22+00:00",
+      "provider": "NASA Earthdata / official DAAC",
+      "status": "available"
+    },
+    {
+      "id": "protected-night_lights-salda-fdd50a4dea73",
+      "url": "https://data.laadsdaac.earthdatacloud.nasa.gov/prod-lads/VNP46A2/VNP46A2.A2026306.h20v05.002.2026315142812.h5",
+      "sha256": "fdd50a4dea73ea3274875e7c5da77457072fc5e1938a723ff637fd489fc5ff76",
+      "bytes": 23863182,
+      "cachePath": ".local/earthdata-data/VNP46A2.A2026306.h20v05.002.2026315142812.h5",
+      "kind": "protected-granule",
+      "evidencePath": "data/protected-evidence/VNP46A2-VNP46A2.A2026306.h20v05.002.2026315142812.h5-salda.json",
+      "evidenceSha256": "735619ed9aa945afa3b2ca8b0fc2fc1bdf39fbcbb959c1e683a7080e5b67cf5f",
+      "product": "VNP46A2 VNP46A2.A2026306.h20v05.002.2026315142812.h5",
+      "version": "2",
+      "measurementPeriod": {
+        "start": "2026-11-02T00:00:00.000Z",
+        "end": "2026-11-03T00:00:00.000Z"
+      },
+      "retrievedAt": "2026-11-14T12:01:01+00:00",
+      "provider": "NASA Earthdata / official DAAC",
+      "status": "available"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "data/protected-evidence/EMITL2BMIN-EMIT_L2B_MIN_002_20240823T081439-salda.json",
+      "sha256": "b960229d659172bb311b2697400eac3af53a74e3f73aab6e4de5a078646c2f96",
+      "sourceId": "protected-minerals-salda-00e98cb3f2bc",
+      "siteId": "salda",
+      "kind": "minerals"
+    },
+    {
+      "path": "data/protected-evidence/MOD13Q1-MOD13Q1.A2026289.h20v05.061.2026307130820-salda.json",
+      "sha256": "6e003252ca0b7d7687a1667cff5709a0251ada975a29dc26e23e8b3fbf1ce01a",
+      "sourceId": "protected-ndvi-salda-57a65e4300b5",
+      "siteId": "salda",
+      "kind": "ndvi"
+    },
+    {
+      "path": "data/protected-evidence/MOD13Q1-MOD13Q1.A2026289.h20v05.061.2026307130820-kapadokya.json",
+      "sha256": "a69063d284fe3dd20b3bd591385bb969ae4baf0365ce318a7543a078d7ab5e31",
+      "sourceId": "protected-ndvi-kapadokya-57a65e4300b5",
+      "siteId": "kapadokya",
+      "kind": "ndvi"
+    },
+    {
+      "path": "data/protected-evidence/MOD13Q1-MOD13Q1.A2026289.h20v05.061.2026307130820-tuz.json",
+      "sha256": "2ea9f3b17698bb6cb69cf6da4aa2672c0ac52f3f4002879d9b5bae1e85c293e5",
+      "sourceId": "protected-ndvi-tuz-57a65e4300b5",
+      "siteId": "tuz",
+      "kind": "ndvi"
+    },
+    {
+      "path": "data/protected-evidence/MOD13Q1-MOD13Q1.A2026289.h20v05.061.2026307130820-control-konya-city.json",
+      "sha256": "560537d479ec05ae1eb68723e1d0aa95d6e0ce9043a3708e16745fcf78b7a9b8",
+      "sourceId": "protected-ndvi-control-konya-city-57a65e4300b5",
+      "siteId": "control-konya-city",
+      "kind": "ndvi"
+    },
+    {
+      "path": "data/protected-evidence/MOD13Q1-MOD13Q1.A2026289.h20v05.061.2026307130820-control-konya-fields.json",
+      "sha256": "8e549a28f748793400f796632fefb7aaa764ce93b7538b9bb2f1bd62ce4a3749",
+      "sourceId": "protected-ndvi-control-konya-fields-57a65e4300b5",
+      "siteId": "control-konya-fields",
+      "kind": "ndvi"
+    },
+    {
+      "path": "data/protected-evidence/VNP46A2-VNP46A2.A2026301.h20v05.002.2026308123318.h5-salda.json",
+      "sha256": "1102a0a1eb5b2e0404e555096ce297a252573833f1c03d9e6a0808edd04db4a2",
+      "sourceId": "protected-night_lights-salda-0933dd9ed466",
+      "siteId": "salda",
+      "kind": "night_lights"
+    },
+    {
+      "path": "data/protected-evidence/VNP46A2-VNP46A2.A2026302.h20v05.002.2026309142352.h5-salda.json",
+      "sha256": "39cfb270e3e82ec704b4474644db236d45b2a1937fb643196d06e34055c789ad",
+      "sourceId": "protected-night_lights-salda-4f846344f86d",
+      "siteId": "salda",
+      "kind": "night_lights"
+    },
+    {
+      "path": "data/protected-evidence/VNP46A2-VNP46A2.A2026303.h20v05.002.2026310171728.h5-salda.json",
+      "sha256": "7b62e6d4e798c1529d91ce4ffacda39257a5e47a3b53266ea2ea8aabc304ae16",
+      "sourceId": "protected-night_lights-salda-865a66abec13",
+      "siteId": "salda",
+      "kind": "night_lights"
+    },
+    {
+      "path": "data/protected-evidence/VNP46A2-VNP46A2.A2026304.h20v05.002.2026315132623.h5-salda.json",
+      "sha256": "ff5706574faf4905cb72fc4d8a69abfd4c7e3887bd7e3b1fdf438c7587f437a5",
+      "sourceId": "protected-night_lights-salda-5427ba6f1c6b",
+      "siteId": "salda",
+      "kind": "night_lights"
+    },
+    {
+      "path": "data/protected-evidence/VNP46A2-VNP46A2.A2026305.h20v05.002.2026315135053.h5-salda.json",
+      "sha256": "6e52b3dfe93632e7f70dfc68b539146f2d8e416f93ba5eb00db77c28b6d6d5a2",
+      "sourceId": "protected-night_lights-salda-4f2866149a54",
+      "siteId": "salda",
+      "kind": "night_lights"
+    },
+    {
+      "path": "data/protected-evidence/VNP46A2-VNP46A2.A2026306.h20v05.002.2026315142812.h5-salda.json",
+      "sha256": "735619ed9aa945afa3b2ca8b0fc2fc1bdf39fbcbb959c1e683a7080e5b67cf5f",
+      "sourceId": "protected-night_lights-salda-fdd50a4dea73",
+      "siteId": "salda",
+      "kind": "night_lights"
+    }
+  ],
+  "errors": [],
+  "processing": {
+    "parserSha256": "4f5bb2800488a7419e729bbb9d82157dd0e70198f781ba05a13af9f8a6634e62",
+    "configSha256": "5c2acd477f800b557ea0e8b81b4c1b96c3f186045691fd23c36cb0df5a9e29e4",
+    "minimumValidFraction": 0.95,
+    "evidenceOnly": false
+  },
+  "limitations": [
+    "Only downloaded footprints and actual acquisition periods are represented; not global product coverage or an annual composite.",
+    "NDVI is not a vegetation-area fraction. VIIRS V2 radiance uses its physical float scale, not the V1 0.1 multiplier.",
+    "EMIT mineral-library matches remain contextual even with matched masks/uncertainty; no validated field mineralogy or Earth–Mars matching score is computed."
+  ]
+}

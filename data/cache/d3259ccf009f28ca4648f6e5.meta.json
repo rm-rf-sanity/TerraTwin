@@ -1,0 +1,19 @@
+{
+  "id": "power-bardenas",
+  "url": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CPRECTOTCORR&community=AG&longitude=-1.5&latitude=42.2&start=20250101&end=20251231&format=JSON&time-standard=UTC",
+  "method": "GET",
+  "requestBody": null,
+  "provider": "NASA",
+  "product": "NASA POWER daily meteorological data",
+  "version": null,
+  "measurementPeriod": {
+    "start": "2025-01-01",
+    "end": "2025-12-31"
+  },
+  "retrievedAt": "2026-11-14T11:09:26+00:00",
+  "sha256": "453ab45a063091c84babbd282be1324a5bca83c54920d3cb0cd1176e98ae3812",
+  "bytes": 24630,
+  "cachePath": "data/cache/d3259ccf009f28ca4648f6e5.json",
+  "status": "available",
+  "contentType": "application/json"
+}

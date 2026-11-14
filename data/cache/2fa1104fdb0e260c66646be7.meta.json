@@ -1,0 +1,16 @@
+{
+  "id": "service-moon",
+  "url": "https://trek.nasa.gov/moon/trekarcgis/rest/services/LRO_LOLA_DEM_Global_256ppd_v06/ImageServer?f=json",
+  "method": "GET",
+  "requestBody": null,
+  "provider": "NASA",
+  "product": "NASA Trek elevation service metadata",
+  "version": "Live service metadata",
+  "measurementPeriod": null,
+  "retrievedAt": "2026-11-14T11:09:04+00:00",
+  "sha256": "a4072f6f71cfb0d01b8830100af3df4fee644d9300d6c8636950c9b5f5da8f6c",
+  "bytes": 2306,
+  "cachePath": "data/cache/2fa1104fdb0e260c66646be7.json",
+  "status": "available",
+  "contentType": "application/json;charset=UTF-8"
+}

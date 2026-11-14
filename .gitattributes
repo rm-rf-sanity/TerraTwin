@@ -1,0 +1,4 @@
+# Preserve exact bytes used by scientific data and code SHA-256 provenance.
+analysis/** -text whitespace=cr-at-eol
+data/** -text -whitespace
+site/analysis-results.json -text whitespace=cr-at-eol

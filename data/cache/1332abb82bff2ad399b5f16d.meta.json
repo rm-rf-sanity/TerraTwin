@@ -1,0 +1,19 @@
+{
+  "id": "power-pinacate",
+  "url": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CPRECTOTCORR&community=AG&longitude=-113.5&latitude=31.77&start=20250101&end=20251231&format=JSON&time-standard=UTC",
+  "method": "GET",
+  "requestBody": null,
+  "provider": "NASA",
+  "product": "NASA POWER daily meteorological data",
+  "version": null,
+  "measurementPeriod": {
+    "start": "2025-01-01",
+    "end": "2025-12-31"
+  },
+  "retrievedAt": "2026-11-14T11:09:30+00:00",
+  "sha256": "125e5baec417475859b717a7959f1e9fa1263694a739c51568ed55e85c819754",
+  "bytes": 24694,
+  "cachePath": "data/cache/1332abb82bff2ad399b5f16d.json",
+  "status": "available",
+  "contentType": "application/json"
+}

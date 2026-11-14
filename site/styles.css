@@ -359,3 +359,46 @@ h2 em { font-style: italic; color: var(--oxide); }
   .js .reveal { opacity: 1; transform: none; transition: none; }
   .w-bar, .btn, .docs a { transition: none; }
 }
+
+/* MEASURED ANALYSIS */
+.analysis-panel { margin-top: 52px; padding-top: 30px; border-top: 1px solid var(--text); }
+.analysis-panel > h3 { font: 400 clamp(2rem, 4vw, 3rem)/1.1 var(--serif); margin: 10px 0 14px; }
+.analysis-summary { max-width: 88ch; }
+.analysis-toolbar { display: flex; flex-wrap: wrap; align-items: end; gap: 16px; padding-block: 22px; }
+.analysis-toolbar[hidden], .analysis-grid[hidden], .analysis-audit[hidden] { display: none; }
+.analysis-toolbar label { display: grid; gap: 6px; font: 500 .7rem/1.5 var(--mono); text-transform: uppercase; letter-spacing: .05em; }
+.analysis-toolbar select { min-width: 190px; max-width: 100%; font: 400 .95rem/1.5 var(--sans); color: var(--text); background: var(--paper); padding: 9px 30px 9px 10px; border: 1px solid var(--muted); border-radius: 2px; }
+.analysis-exports { display: flex; gap: 6px; margin-left: auto; }
+.analysis-exports button { background: transparent; border: 1px solid var(--muted); padding: 10px 14px; font: 500 .75rem/1.5 var(--mono); }
+.analysis-exports button:hover { background: var(--ink); color: var(--paper); }
+.analysis-context { padding: 14px 16px; border-left: 3px solid var(--oxide); background: rgba(255,255,255,.35); font-size: .9rem; }
+.analysis-map-legend { font: 400 .75rem/1.6 var(--mono); color: var(--muted); padding-block: 14px 20px; }
+.analysis-grid { display: grid; grid-template-columns: minmax(240px, .8fr) minmax(0, 1.5fr); gap: 22px; }
+.analysis-grid h4, .analysis-audit h4 { font: 400 1.5rem/1.2 var(--serif); margin: 0 0 14px; }
+.analysis-ranking { max-height: 620px; overflow-y: auto; border-top: 1px solid var(--text); }
+.analysis-ranking button { width: 100%; display: grid; grid-template-columns: 24px minmax(0, 1fr) 86px; gap: 10px; text-align: left; background: transparent; border: 0; border-bottom: 1px solid var(--line); padding: 13px 10px; }
+.analysis-ranking button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.analysis-ranking strong { display: block; font-weight: 500; }
+.analysis-ranking small { display: block; font-size: .68rem; opacity: .8; margin-top: 5px; }
+.analysis-rank, .analysis-score { font: 500 .9rem/1.5 var(--mono); }
+.analysis-score { text-align: right; }
+.analysis-score small { font-family: var(--sans); font-size: .65rem; }
+.analysis-detail { min-width: 0; border: 1px solid var(--line); padding: clamp(16px, 2vw, 28px); background: rgba(255,255,255,.25); }
+.analysis-detail > h4 { font-size: 2rem; margin-top: 7px; }
+.analysis-result { font: 400 1.8rem/1.2 var(--serif); color: var(--oxide); margin-bottom: 12px; }
+.analysis-detail .fine { margin: 12px 0; }
+.analysis-detail details { border-top: 1px solid var(--line); margin-top: 18px; padding-top: 12px; }
+.analysis-detail summary, .analysis-audit > summary { cursor: pointer; font-weight: 500; margin-bottom: 12px; }
+.analysis-detail .tbl { font-size: .78rem; }
+.analysis-detail .tbl td, .analysis-detail .tbl th { padding: 10px 8px; }
+.analysis-feature-note { display: block; color: var(--muted); margin-top: 4px; font-size: .72rem; }
+.analysis-audit { margin-top: 24px; border-block: 1px solid var(--line); padding-block: 18px; }
+.analysis-audit ul { list-style: disc; padding-left: 22px; margin: 14px 0 22px; font-size: .9rem; }
+.analysis-audit li { margin-block: 6px; }
+.analysis-audit .tbl { font-size: .8rem; }
+.analysis-hash { display: block; max-width: 170px; overflow-wrap: anywhere; font-size: .65rem; }
+#map .analysis-aoi { stroke-width: 1.4; vector-effect: non-scaling-stroke; pointer-events: none; }
+#map .analysis-sample { cursor: pointer; stroke-width: 1.5; }
+#map .analysis-sample:focus-visible { stroke: var(--ink); stroke-width: 3; }
+@media (max-width: 1020px) { .analysis-grid { grid-template-columns: 1fr; } .analysis-ranking { max-height: 330px; } }
+@media (max-width: 620px) { .analysis-toolbar { align-items: stretch; } .analysis-toolbar label, .analysis-toolbar select { width: 100%; min-width: 0; } .analysis-exports { margin-left: 0; flex-wrap: wrap; } .analysis-detail { padding: 14px; } }

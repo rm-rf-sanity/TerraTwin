@@ -1,0 +1,16 @@
+{
+  "id": "dem-control-istanbul",
+  "url": "https://worldwind26.arc.nasa.gov/elev?service=WMS&version=1.1.1&request=GetMap&layers=aster_v2&styles=&srs=EPSG%3A4326&bbox=28.907430920%2C40.962785681%2C29.032569080%2C41.057214319&width=21&height=21&format=application%2Fbil16",
+  "method": "GET",
+  "requestBody": null,
+  "provider": "NASA",
+  "product": "NASA WorldWind ASTER GDEM v2 elevation cache",
+  "version": "ASTER GDEM v2; WorldWind cache layer aster_v2",
+  "measurementPeriod": "Historical ASTER GDEM v2 observations; not 2025 terrain measurements",
+  "retrievedAt": "2026-11-14T11:09:34+00:00",
+  "sha256": "381ceec4d9864db43ecdaf4d6662b63fedf29a9d2ed4b4e8afc02630c0440c4c",
+  "bytes": 882,
+  "cachePath": "data/cache/8a8a2ead9245307a5489856d.bin",
+  "status": "available",
+  "contentType": "application/bil16"
+}

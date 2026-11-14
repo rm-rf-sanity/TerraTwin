@@ -1,0 +1,19 @@
+{
+  "id": "power-katmai",
+  "url": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CPRECTOTCORR&community=AG&longitude=-155.3&latitude=58.4&start=20250101&end=20251231&format=JSON&time-standard=UTC",
+  "method": "GET",
+  "requestBody": null,
+  "provider": "NASA",
+  "product": "NASA POWER daily meteorological data",
+  "version": null,
+  "measurementPeriod": {
+    "start": "2025-01-01",
+    "end": "2025-12-31"
+  },
+  "retrievedAt": "2026-11-14T11:09:24+00:00",
+  "sha256": "bbf06d670bcf34103643449052a8ff660593acf81ba98202c33155bf211a6576",
+  "bytes": 24655,
+  "cachePath": "data/cache/1d25e6515ecded643acbc515.json",
+  "status": "available",
+  "contentType": "application/json"
+}

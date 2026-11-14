@@ -1,0 +1,19 @@
+{
+  "id": "power-kapadokya",
+  "url": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CPRECTOTCORR&community=AG&longitude=34.8&latitude=38.6&start=20250101&end=20251231&format=JSON&time-standard=UTC",
+  "method": "GET",
+  "requestBody": null,
+  "provider": "NASA",
+  "product": "NASA POWER daily meteorological data",
+  "version": null,
+  "measurementPeriod": {
+    "start": "2025-01-01",
+    "end": "2025-12-31"
+  },
+  "retrievedAt": "2026-11-14T11:09:25+00:00",
+  "sha256": "395a21fef24b2a3f3bd8d4f11e7cb2e1a1c18c903f8986fa4fd54eabe0936a19",
+  "bytes": 24499,
+  "cachePath": "data/cache/de78bc7991b999e2f5d03307.json",
+  "status": "available",
+  "contentType": "application/json"
+}

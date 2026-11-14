@@ -1,0 +1,16 @@
+{
+  "id": "dem-askja",
+  "url": "https://worldwind26.arc.nasa.gov/elev?service=WMS&version=1.1.1&request=GetMap&layers=aster_v2&styles=&srs=EPSG%3A4326&bbox=-16.861844197%2C64.982785681%2C-16.638155803%2C65.077214319&width=21&height=21&format=application%2Fbil16",
+  "method": "GET",
+  "requestBody": null,
+  "provider": "NASA",
+  "product": "NASA WorldWind ASTER GDEM v2 elevation cache",
+  "version": "ASTER GDEM v2; WorldWind cache layer aster_v2",
+  "measurementPeriod": "Historical ASTER GDEM v2 observations; not 2025 terrain measurements",
+  "retrievedAt": "2026-11-14T11:09:20+00:00",
+  "sha256": "e8db9ace8af1acad3d7ab6f3c1f5ee218d0e4fc533f56cd9f0a1a1a69a97df90",
+  "bytes": 882,
+  "cachePath": "data/cache/641a337dda295f44dc325443.bin",
+  "status": "available",
+  "contentType": "application/bil16"
+}

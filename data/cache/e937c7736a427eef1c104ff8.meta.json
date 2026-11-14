@@ -1,0 +1,16 @@
+{
+  "id": "dem-atacama",
+  "url": "https://worldwind26.arc.nasa.gov/elev?service=WMS&version=1.1.1&request=GetMap&layers=aster_v2&styles=&srs=EPSG%3A4326&bbox=-69.951710673%2C-24.117214319%2C-69.848289327%2C-24.022785681&width=21&height=21&format=application%2Fbil16",
+  "method": "GET",
+  "requestBody": null,
+  "provider": "NASA",
+  "product": "NASA WorldWind ASTER GDEM v2 elevation cache",
+  "version": "ASTER GDEM v2; WorldWind cache layer aster_v2",
+  "measurementPeriod": "Historical ASTER GDEM v2 observations; not 2025 terrain measurements",
+  "retrievedAt": "2026-11-14T11:09:21+00:00",
+  "sha256": "5187f02d4477cc865088bb0dbaf5c9271a3632b5d850ced4a4d335889170770a",
+  "bytes": 882,
+  "cachePath": "data/cache/e937c7736a427eef1c104ff8.bin",
+  "status": "available",
+  "contentType": "application/bil16"
+}

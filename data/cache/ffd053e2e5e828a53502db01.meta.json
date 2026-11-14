@@ -1,0 +1,16 @@
+{
+  "id": "dem-makgadikgadi",
+  "url": "https://worldwind26.arc.nasa.gov/elev?service=WMS&version=1.1.1&request=GetMap&layers=aster_v2&styles=&srs=EPSG%3A4326&bbox=25.449527371%2C-20.747214319%2C25.550472629%2C-20.652785681&width=21&height=21&format=application%2Fbil16",
+  "method": "GET",
+  "requestBody": null,
+  "provider": "NASA",
+  "product": "NASA WorldWind ASTER GDEM v2 elevation cache",
+  "version": "ASTER GDEM v2; WorldWind cache layer aster_v2",
+  "measurementPeriod": "Historical ASTER GDEM v2 observations; not 2025 terrain measurements",
+  "retrievedAt": "2026-11-14T11:09:32+00:00",
+  "sha256": "9749b5a17317dfa833d7cf40f72b4183b0f4c4779f7b58a45c7621fcc400c6b3",
+  "bytes": 882,
+  "cachePath": "data/cache/ffd053e2e5e828a53502db01.bin",
+  "status": "available",
+  "contentType": "application/bil16"
+}

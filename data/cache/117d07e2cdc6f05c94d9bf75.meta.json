@@ -1,0 +1,16 @@
+{
+  "id": "dem-harrat",
+  "url": "https://worldwind26.arc.nasa.gov/elev?service=WMS&version=1.1.1&request=GetMap&layers=aster_v2&styles=&srs=EPSG%3A4326&bbox=39.847602349%2C25.652785681%2C39.952397651%2C25.747214319&width=21&height=21&format=application%2Fbil16",
+  "method": "GET",
+  "requestBody": null,
+  "provider": "NASA",
+  "product": "NASA WorldWind ASTER GDEM v2 elevation cache",
+  "version": "ASTER GDEM v2; WorldWind cache layer aster_v2",
+  "measurementPeriod": "Historical ASTER GDEM v2 observations; not 2025 terrain measurements",
+  "retrievedAt": "2026-11-14T11:09:30+00:00",
+  "sha256": "eb4b8e7f6e8ed86a5ec45d0e9a14466b405e5b4ee8e663320a24092efd4427c2",
+  "bytes": 882,
+  "cachePath": "data/cache/117d07e2cdc6f05c94d9bf75.bin",
+  "status": "available",
+  "contentType": "application/bil16"
+}

@@ -1,0 +1,88 @@
+{
+ "currentVersion": 10.61,
+ "serviceDescription": "LRO_LOLA_DEM_Global_256ppd_v06",
+ "name": "LRO_LOLA_DEM_Global_256ppd_v06",
+ "description": "",
+ "extent": {
+  "xmin": -180,
+  "ymin": -90,
+  "xmax": 180,
+  "ymax": 90,
+  "spatialReference": {"wkt": "GEOGCS[\"GCS_MOON\",DATUM[\"D_MOON\",SPHEROID[\"MOON_2000\",1737400.0,0.0]],PRIMEM[\"Reference_Meridian\",0.0],UNIT[\"Degree\",0.0174532925199433]]"}
+ },
+ "initialExtent": {
+  "xmin": -180,
+  "ymin": -90,
+  "xmax": 180,
+  "ymax": 90,
+  "spatialReference": {"wkt": "GEOGCS[\"GCS_MOON\",DATUM[\"D_MOON\",SPHEROID[\"MOON_2000\",1737400.0,0.0]],PRIMEM[\"Reference_Meridian\",0.0],UNIT[\"Degree\",0.0174532925199433]]"}
+ },
+ "fullExtent": {
+  "xmin": -180,
+  "ymin": -90,
+  "xmax": 180,
+  "ymax": 90,
+  "spatialReference": {"wkt": "GEOGCS[\"GCS_MOON\",DATUM[\"D_MOON\",SPHEROID[\"MOON_2000\",1737400.0,0.0]],PRIMEM[\"Reference_Meridian\",0.0],UNIT[\"Degree\",0.0174532925199433]]"}
+ },
+ "pixelSizeX": 0.00390625,
+ "pixelSizeY": 0.00390625,
+ "bandCount": 1,
+ "pixelType": "F32",
+ "minPixelSize": 0,
+ "maxPixelSize": 0,
+ "copyrightText": "",
+ "serviceDataType": "esriImageServiceDataTypeGeneric",
+ "minValues": [],
+ "maxValues": [],
+ "meanValues": [],
+ "stdvValues": [],
+ "objectIdField": "",
+ "fields": [],
+ "capabilities": "Image,Metadata,Mensuration",
+ "defaultMosaicMethod": "Center",
+ "allowedMosaicMethods": "",
+ "sortField": "",
+ "sortValue": null,
+ "mosaicOperator": "First",
+ "defaultCompressionQuality": 75,
+ "defaultResamplingMethod": "Bilinear",
+ "maxImageHeight": 4100,
+ "maxImageWidth": 15000,
+ "allowRasterFunction": true,
+ "rasterFunctionInfos": [
+  {
+   "name": "None",
+   "description": "",
+   "help": ""
+  }
+ ],
+ "rasterTypeInfos": [
+  {
+   "name": "Raster Dataset",
+   "description": "Supports all ArcGIS Raster Datasets",
+   "help": ""
+  }
+ ],
+ "mensurationCapabilities": "Basic",
+ "hasHistograms": false,
+ "hasColormap": false,
+ "hasRasterAttributeTable": false,
+ "minScale": 0,
+ "maxScale": 0,
+ "exportTilesAllowed": false,
+ "hasMultidimensions": false,
+ "supportsStatistics": false,
+ "supportsAdvancedQueries": false,
+ "editFieldsInfo": null,
+ "ownershipBasedAccessControlForRasters": null,
+ "allowComputeTiePoints": false,
+ "useStandardizedQueries": true,
+ "advancedQueryCapabilities": {
+  "useStandardizedQueries": true,
+  "supportsStatistics": false,
+  "supportsOrderBy": false,
+  "supportsDistinct": false,
+  "supportsPagination": false
+ },
+ "spatialReference": {"wkt": "GEOGCS[\"GCS_MOON\",DATUM[\"D_MOON\",SPHEROID[\"MOON_2000\",1737400.0,0.0]],PRIMEM[\"Reference_Meridian\",0.0],UNIT[\"Degree\",0.0174532925199433]]"}
+}

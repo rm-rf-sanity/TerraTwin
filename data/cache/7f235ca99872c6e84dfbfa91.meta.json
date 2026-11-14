@@ -1,0 +1,16 @@
+{
+  "id": "dem-control-amazon-forest",
+  "url": "https://worldwind26.arc.nasa.gov/elev?service=WMS&version=1.1.1&request=GetMap&layers=aster_v2&styles=&srs=EPSG%3A4326&bbox=-62.547302548%2C-3.547214319%2C-62.452697452%2C-3.452785681&width=21&height=21&format=application%2Fbil16",
+  "method": "GET",
+  "requestBody": null,
+  "provider": "NASA",
+  "product": "NASA WorldWind ASTER GDEM v2 elevation cache",
+  "version": "ASTER GDEM v2; WorldWind cache layer aster_v2",
+  "measurementPeriod": "Historical ASTER GDEM v2 observations; not 2025 terrain measurements",
+  "retrievedAt": "2026-11-14T11:28:57+00:00",
+  "sha256": "19c60b2e688f3b0ec09017769c068f44852fe93fe0362f484d39cbb3bde9f7b4",
+  "bytes": 882,
+  "cachePath": "data/cache/7f235ca99872c6e84dfbfa91.bin",
+  "status": "available",
+  "contentType": "application/bil16"
+}

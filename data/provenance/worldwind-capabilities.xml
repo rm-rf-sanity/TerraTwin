@@ -1,0 +1,395 @@
+<?xml version='1.0' encoding="UTF-8" standalone="no" ?>
+<WMS_Capabilities version="1.3.0" updateSequence="2015-02-27T16:26:00Z"  xmlns="http://www.opengis.net/wms"   xmlns:sld="http://www.opengis.net/sld"   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"   xmlns:ms="http://mapserver.gis.umn.edu/mapserver"   xsi:schemaLocation="http://www.opengis.net/wms http://schemas.opengis.net/wms/1.3.0/capabilities_1_3_0.xsd  http://www.opengis.net/sld http://schemas.opengis.net/sld/1.1.0/sld_capabilities.xsd  http://mapserver.gis.umn.edu/mapserver https://worldwind26.arc.nasa.gov/elev?service=WMS&amp;version=1.3.0&amp;request=GetSchemaExtension">
+
+<!-- MapServer version 7.0.7 OUTPUT=PNG OUTPUT=JPEG OUTPUT=KML SUPPORTS=PROJ SUPPORTS=AGG SUPPORTS=FREETYPE SUPPORTS=CAIRO SUPPORTS=SVG_SYMBOLS SUPPORTS=RSVG SUPPORTS=ICONV SUPPORTS=FRIBIDI SUPPORTS=WMS_SERVER SUPPORTS=WMS_CLIENT SUPPORTS=WFS_SERVER SUPPORTS=WFS_CLIENT SUPPORTS=WCS_SERVER SUPPORTS=SOS_SERVER SUPPORTS=FASTCGI SUPPORTS=THREADS SUPPORTS=GEOS INPUT=JPEG INPUT=POSTGIS INPUT=OGR INPUT=GDAL INPUT=SHAPEFILE -->
+
+<Service>
+  <Name>WMS</Name>
+  <Title>World Wind Elevation Server</Title>
+  <Abstract>NASA WorldWind WMS Service</Abstract>
+  <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://worldwind26.arc.nasa.gov/elev?"/>
+  <ContactInformation>
+    <ContactPersonPrimary>
+      <ContactPerson>WorldWind Team</ContactPerson>
+      <ContactOrganization>NASA Ames Research Center</ContactOrganization>
+    </ContactPersonPrimary>
+      <ContactPosition> </ContactPosition>
+  <ContactElectronicMailAddress>arc-worldwind@mail.nasa.gov</ContactElectronicMailAddress>
+  </ContactInformation>
+  <MaxWidth>4096</MaxWidth>
+  <MaxHeight>4096</MaxHeight>
+</Service>
+
+<Capability>
+  <Request>
+    <GetCapabilities>
+      <Format>text/xml</Format>
+      <DCPType>
+        <HTTP>
+          <Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://worldwind26.arc.nasa.gov/elev?"/></Get>
+          <Post><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://worldwind26.arc.nasa.gov/elev?"/></Post>
+        </HTTP>
+      </DCPType>
+    </GetCapabilities>
+    <GetMap>
+      <Format>image/png</Format>
+      <Format>application/bil16</Format>
+      <Format>image/tiff</Format>
+      <Format>image/jpeg</Format>
+      <Format>image/png; mode=8bit</Format>
+      <Format>application/x-pdf</Format>
+      <Format>image/svg+xml</Format>
+      <Format>application/vnd.google-earth.kml+xml</Format>
+      <Format>application/vnd.google-earth.kmz</Format>
+      <DCPType>
+        <HTTP>
+          <Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://worldwind26.arc.nasa.gov/elev?"/></Get>
+          <Post><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://worldwind26.arc.nasa.gov/elev?"/></Post>
+        </HTTP>
+      </DCPType>
+    </GetMap>
+    <GetFeatureInfo>
+      <Format>text/plain</Format>
+      <Format>application/vnd.ogc.gml</Format>
+      <DCPType>
+        <HTTP>
+          <Get><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://worldwind26.arc.nasa.gov/elev?"/></Get>
+          <Post><OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://worldwind26.arc.nasa.gov/elev?"/></Post>
+        </HTTP>
+      </DCPType>
+    </GetFeatureInfo>
+  </Request>
+  <Exception>
+    <Format>XML</Format>
+    <Format>INIMAGE</Format>
+    <Format>BLANK</Format>
+  </Exception>
+  <Layer>
+    <Title>World Wind Elevation Server</Title>
+    <Abstract>NASA WorldWind WMS Service</Abstract>
+    <CRS>EPSG:4326</CRS>
+    <CRS>EPSG:4269</CRS>
+    <CRS>EPSG:3857</CRS>
+    <EX_GeographicBoundingBox>
+        <westBoundLongitude>-180</westBoundLongitude>
+        <eastBoundLongitude>180</eastBoundLongitude>
+        <southBoundLatitude>-90</southBoundLatitude>
+        <northBoundLatitude>90</northBoundLatitude>
+    </EX_GeographicBoundingBox>
+    <BoundingBox CRS="EPSG:4326"
+                minx="-90" miny="-180" maxx="90" maxy="180" />
+    <Layer>
+      <Name>aster_v2</Name>
+      <Title>aster_v2</Title>
+      <Abstract>aster_v2</Abstract>
+    <Style>
+       <Name>default</Name>
+       <Title>default</Title>
+       <LegendURL width="35" height="5">
+          <Format>image/png</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://worldwind26.arc.nasa.gov/elev?version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=aster_v2&amp;format=image/png&amp;STYLE=default"/>
+       </LegendURL>
+    </Style>
+      <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>aster_layer0</Name>
+        <Title>aster_layer0</Title>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>-180</westBoundLongitude>
+            <eastBoundLongitude>180</eastBoundLongitude>
+            <southBoundLatitude>-83.0001</southBoundLatitude>
+            <northBoundLatitude>83.0001</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:4326"
+                    minx="-83.0001" miny="-180" maxx="83.0001" maxy="180" />
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>131155</MaxScaleDenominator>
+      </Layer>
+      <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>aster_layer1</Name>
+        <Title>aster_layer1</Title>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>-180</westBoundLongitude>
+            <eastBoundLongitude>180</eastBoundLongitude>
+            <southBoundLatitude>-83.0001</southBoundLatitude>
+            <northBoundLatitude>83.0001</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:4326"
+                    minx="-83.0001" miny="-180" maxx="83.0001" maxy="180" />
+        <MinScaleDenominator>131156</MinScaleDenominator>
+        <MaxScaleDenominator>262310</MaxScaleDenominator>
+      </Layer>
+      <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>aster_layer2</Name>
+        <Title>aster_layer2</Title>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>-180</westBoundLongitude>
+            <eastBoundLongitude>180</eastBoundLongitude>
+            <southBoundLatitude>-83.0001</southBoundLatitude>
+            <northBoundLatitude>83.0001</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:4326"
+                    minx="-83.0001" miny="-180" maxx="83.0001" maxy="180" />
+        <MinScaleDenominator>262311</MinScaleDenominator>
+        <MaxScaleDenominator>524620</MaxScaleDenominator>
+      </Layer>
+      <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>aster_layer3</Name>
+        <Title>aster_layer3</Title>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>-180</westBoundLongitude>
+            <eastBoundLongitude>180</eastBoundLongitude>
+            <southBoundLatitude>-83.0001</southBoundLatitude>
+            <northBoundLatitude>83.0001</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:4326"
+                    minx="-83.0001" miny="-180" maxx="83.0001" maxy="180" />
+        <MinScaleDenominator>524621</MinScaleDenominator>
+        <MaxScaleDenominator>1.04924e+06</MaxScaleDenominator>
+      </Layer>
+      <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>aster_layer4</Name>
+        <Title>aster_layer4</Title>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>-180</westBoundLongitude>
+            <eastBoundLongitude>180</eastBoundLongitude>
+            <southBoundLatitude>-83.0001</southBoundLatitude>
+            <northBoundLatitude>83.0001</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:4326"
+                    minx="-83.0001" miny="-180" maxx="83.0001" maxy="180" />
+        <MinScaleDenominator>1.04924e+06</MinScaleDenominator>
+        <MaxScaleDenominator>2.09848e+06</MaxScaleDenominator>
+      </Layer>
+      <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>aster_layer5</Name>
+        <Title>aster_layer5</Title>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>-180</westBoundLongitude>
+            <eastBoundLongitude>180</eastBoundLongitude>
+            <southBoundLatitude>-83.0001</southBoundLatitude>
+            <northBoundLatitude>83.0001</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:4326"
+                    minx="-83.0001" miny="-180" maxx="83.0001" maxy="180" />
+        <MinScaleDenominator>2.09848e+06</MinScaleDenominator>
+        <MaxScaleDenominator>4.19697e+06</MaxScaleDenominator>
+      </Layer>
+      <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>aster_layer6</Name>
+        <Title>aster_layer6</Title>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>-180</westBoundLongitude>
+            <eastBoundLongitude>180</eastBoundLongitude>
+            <southBoundLatitude>-83.0001</southBoundLatitude>
+            <northBoundLatitude>83.0001</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:4326"
+                    minx="-83.0001" miny="-180" maxx="83.0001" maxy="180" />
+        <MinScaleDenominator>4.19697e+06</MinScaleDenominator>
+        <MaxScaleDenominator>8.39393e+06</MaxScaleDenominator>
+      </Layer>
+      <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>aster_layer7</Name>
+        <Title>aster_layer7</Title>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>-180</westBoundLongitude>
+            <eastBoundLongitude>180</eastBoundLongitude>
+            <southBoundLatitude>-83.0001</southBoundLatitude>
+            <northBoundLatitude>83.0001</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:4326"
+                    minx="-83.0001" miny="-180" maxx="83.0001" maxy="180" />
+        <MinScaleDenominator>8.39393e+06</MinScaleDenominator>
+        <MaxScaleDenominator>1.67879e+07</MaxScaleDenominator>
+      </Layer>
+      <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>aster_layer8</Name>
+        <Title>aster_layer8</Title>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>-180</westBoundLongitude>
+            <eastBoundLongitude>180</eastBoundLongitude>
+            <southBoundLatitude>-83.0001</southBoundLatitude>
+            <northBoundLatitude>83.0001</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:4326"
+                    minx="-83.0001" miny="-180" maxx="83.0001" maxy="180" />
+        <MinScaleDenominator>1.67879e+07</MinScaleDenominator>
+        <MaxScaleDenominator>3.35757e+07</MaxScaleDenominator>
+      </Layer>
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>USGS-NED</Name>
+        <Title>USGS NED</Title>
+        <Abstract>USGS NED 10m</Abstract>
+        <KeywordList>
+            <Keyword>LastUpdate= 2013-07-02T16:26:00Z</Keyword>
+        </KeywordList>
+        <CRS>EPSG:4326</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>-171.001</westBoundLongitude>
+            <eastBoundLongitude>164.001</eastBoundLongitude>
+            <southBoundLatitude>-15.0006</southBoundLatitude>
+            <northBoundLatitude>50.0006</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:4326"
+                    minx="-15.0006" miny="-171.001" maxx="50.0006" maxy="164.001" />
+    </Layer>
+    <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>NASA_SRTM30_900m_Tiled</Name>
+        <Title>NASA_SRTM30</Title>
+        <Abstract>NASA SRTM with bathy</Abstract>
+        <KeywordList>
+            <Keyword>LastUpdate= 2013-07-02T16:26:00Z</Keyword>
+        </KeywordList>
+        <CRS>EPSG:4326</CRS>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>-180</westBoundLongitude>
+            <eastBoundLongitude>180</eastBoundLongitude>
+            <southBoundLatitude>-90</southBoundLatitude>
+            <northBoundLatitude>90</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:4326"
+                    minx="-90" miny="-180" maxx="90" maxy="180" />
+    </Layer>
+    <Layer>
+      <Name>GEBCO</Name>
+      <Title>GEBCO</Title>
+      <Abstract>GEBCO</Abstract>
+    <Style>
+       <Name>default</Name>
+       <Title>default</Title>
+       <LegendURL width="35" height="5">
+          <Format>image/png</Format>
+          <OnlineResource xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="https://worldwind26.arc.nasa.gov/elev?version=1.3.0&amp;service=WMS&amp;request=GetLegendGraphic&amp;sld_version=1.1.0&amp;layer=GEBCO&amp;format=image/png&amp;STYLE=default"/>
+       </LegendURL>
+    </Style>
+      <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>GEBCO_layer0</Name>
+        <Title>GEBCO_layer0</Title>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>-180</westBoundLongitude>
+            <eastBoundLongitude>180</eastBoundLongitude>
+            <southBoundLatitude>-90</southBoundLatitude>
+            <northBoundLatitude>90</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:4326"
+                    minx="-90" miny="-180" maxx="90" maxy="180" />
+        <MinScaleDenominator>1</MinScaleDenominator>
+        <MaxScaleDenominator>3.93466e+06</MaxScaleDenominator>
+      </Layer>
+      <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>GEBCO_layer1</Name>
+        <Title>GEBCO_layer1</Title>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>-180</westBoundLongitude>
+            <eastBoundLongitude>180</eastBoundLongitude>
+            <southBoundLatitude>-90</southBoundLatitude>
+            <northBoundLatitude>90</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:4326"
+                    minx="-90" miny="-180" maxx="90" maxy="180" />
+        <MinScaleDenominator>3.93466e+06</MinScaleDenominator>
+        <MaxScaleDenominator>7.86931e+06</MaxScaleDenominator>
+      </Layer>
+      <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>GEBCO_layer2</Name>
+        <Title>GEBCO_layer2</Title>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>-180</westBoundLongitude>
+            <eastBoundLongitude>180</eastBoundLongitude>
+            <southBoundLatitude>-90</southBoundLatitude>
+            <northBoundLatitude>90</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:4326"
+                    minx="-90" miny="-180" maxx="90" maxy="180" />
+        <MinScaleDenominator>7.86931e+06</MinScaleDenominator>
+        <MaxScaleDenominator>1.57386e+07</MaxScaleDenominator>
+      </Layer>
+      <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>GEBCO_layer3</Name>
+        <Title>GEBCO_layer3</Title>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>-180</westBoundLongitude>
+            <eastBoundLongitude>180</eastBoundLongitude>
+            <southBoundLatitude>-90</southBoundLatitude>
+            <northBoundLatitude>90</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:4326"
+                    minx="-90" miny="-180" maxx="90" maxy="180" />
+        <MinScaleDenominator>1.57386e+07</MinScaleDenominator>
+        <MaxScaleDenominator>3.14772e+07</MaxScaleDenominator>
+      </Layer>
+      <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>GEBCO_layer4</Name>
+        <Title>GEBCO_layer4</Title>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>-180</westBoundLongitude>
+            <eastBoundLongitude>180</eastBoundLongitude>
+            <southBoundLatitude>-90</southBoundLatitude>
+            <northBoundLatitude>90</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:4326"
+                    minx="-90" miny="-180" maxx="90" maxy="180" />
+        <MinScaleDenominator>3.14772e+07</MinScaleDenominator>
+        <MaxScaleDenominator>6.29545e+07</MaxScaleDenominator>
+      </Layer>
+      <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>GEBCO_layer5</Name>
+        <Title>GEBCO_layer5</Title>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>-180</westBoundLongitude>
+            <eastBoundLongitude>180</eastBoundLongitude>
+            <southBoundLatitude>-90</southBoundLatitude>
+            <northBoundLatitude>90</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:4326"
+                    minx="-90" miny="-180" maxx="90" maxy="180" />
+        <MinScaleDenominator>6.29545e+07</MinScaleDenominator>
+        <MaxScaleDenominator>1.25909e+08</MaxScaleDenominator>
+      </Layer>
+      <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>GEBCO_layer6</Name>
+        <Title>GEBCO_layer6</Title>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>-180</westBoundLongitude>
+            <eastBoundLongitude>180</eastBoundLongitude>
+            <southBoundLatitude>-90</southBoundLatitude>
+            <northBoundLatitude>90</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:4326"
+                    minx="-90" miny="-180" maxx="90" maxy="180" />
+        <MinScaleDenominator>1.25909e+08</MinScaleDenominator>
+        <MaxScaleDenominator>2.51818e+08</MaxScaleDenominator>
+      </Layer>
+      <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>GEBCO_layer7</Name>
+        <Title>GEBCO_layer7</Title>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>-180</westBoundLongitude>
+            <eastBoundLongitude>180</eastBoundLongitude>
+            <southBoundLatitude>-90</southBoundLatitude>
+            <northBoundLatitude>90</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:4326"
+                    minx="-90" miny="-180" maxx="90" maxy="180" />
+        <MinScaleDenominator>2.51818e+08</MinScaleDenominator>
+        <MaxScaleDenominator>5.03636e+08</MaxScaleDenominator>
+      </Layer>
+      <Layer queryable="0" opaque="0" cascaded="0">
+        <Name>GEBCO_layer8</Name>
+        <Title>GEBCO_layer8</Title>
+        <EX_GeographicBoundingBox>
+            <westBoundLongitude>-180</westBoundLongitude>
+            <eastBoundLongitude>180</eastBoundLongitude>
+            <southBoundLatitude>-90</southBoundLatitude>
+            <northBoundLatitude>90</northBoundLatitude>
+        </EX_GeographicBoundingBox>
+        <BoundingBox CRS="EPSG:4326"
+                    minx="-90" miny="-180" maxx="90" maxy="180" />
+        <MinScaleDenominator>5.03636e+08</MinScaleDenominator>
+        <MaxScaleDenominator>1.00727e+09</MaxScaleDenominator>
+      </Layer>
+    </Layer>
+  </Layer>
+</Capability>
+</WMS_Capabilities>

@@ -1,0 +1,108 @@
+{
+ "currentVersion": 10.61,
+ "serviceDescription": "mola128_mola64_merge_90Nto90S_SimpleC_clon0",
+ "name": "mola128_mola64_merge_90Nto90S_SimpleC_clon0",
+ "description": "",
+ "extent": {
+  "xmin": -180,
+  "ymin": -90.0019530720196,
+  "xmax": 179.99609389834364,
+  "ymax": 90,
+  "spatialReference": {
+   "wkid": 104905,
+   "latestWkid": 104905
+  }
+ },
+ "initialExtent": {
+  "xmin": -180,
+  "ymin": -90.0019530720196,
+  "xmax": 179.99609389834364,
+  "ymax": 90,
+  "spatialReference": {
+   "wkid": 104905,
+   "latestWkid": 104905
+  }
+ },
+ "fullExtent": {
+  "xmin": -180,
+  "ymin": -90.0019530720196,
+  "xmax": 179.99609389834364,
+  "ymax": 90,
+  "spatialReference": {
+   "wkid": 104905,
+   "latestWkid": 104905
+  }
+ },
+ "pixelSizeX": 0.00781224569558698,
+ "pixelSizeY": 0.00781224569558698,
+ "bandCount": 1,
+ "pixelType": "S16",
+ "minPixelSize": 0,
+ "maxPixelSize": 0,
+ "copyrightText": "",
+ "serviceDataType": "esriImageServiceDataTypeGeneric",
+ "minValues": [
+  -8201
+ ],
+ "maxValues": [
+  21241
+ ],
+ "meanValues": [
+  -720.53935498387
+ ],
+ "stdvValues": [
+  2976.684206899
+ ],
+ "objectIdField": "",
+ "fields": [],
+ "capabilities": "Image,Metadata,Mensuration",
+ "defaultMosaicMethod": "Center",
+ "allowedMosaicMethods": "",
+ "sortField": "",
+ "sortValue": null,
+ "mosaicOperator": "First",
+ "defaultCompressionQuality": 75,
+ "defaultResamplingMethod": "Bilinear",
+ "maxImageHeight": 4100,
+ "maxImageWidth": 15000,
+ "allowRasterFunction": true,
+ "rasterFunctionInfos": [
+  {
+   "name": "None",
+   "description": "",
+   "help": ""
+  }
+ ],
+ "rasterTypeInfos": [
+  {
+   "name": "Raster Dataset",
+   "description": "Supports all ArcGIS Raster Datasets",
+   "help": ""
+  }
+ ],
+ "mensurationCapabilities": "Basic",
+ "hasHistograms": false,
+ "hasColormap": false,
+ "hasRasterAttributeTable": false,
+ "minScale": 0,
+ "maxScale": 0,
+ "exportTilesAllowed": false,
+ "hasMultidimensions": false,
+ "supportsStatistics": false,
+ "supportsAdvancedQueries": false,
+ "editFieldsInfo": null,
+ "ownershipBasedAccessControlForRasters": null,
+ "allowComputeTiePoints": false,
+ "useStandardizedQueries": true,
+ "advancedQueryCapabilities": {
+  "useStandardizedQueries": true,
+  "supportsStatistics": false,
+  "supportsOrderBy": false,
+  "supportsDistinct": false,
+  "supportsPagination": false
+ },
+ "spatialReference": {
+  "wkid": 104905,
+  "latestWkid": 104905
+ }
+}

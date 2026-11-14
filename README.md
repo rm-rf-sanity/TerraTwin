@@ -1,51 +1,119 @@
 # TerraTwin
 
-NASA Space Apps Challenge 2026 kapsamında, Ay ve Mars keşif çalışmaları için Dünya'daki analog arazileri araştıran proje.
+NASA Space Apps 2026 için Dünya’daki Ay ve Mars analoglarını araştıran iki dilli saha atlası ve tekrarlanabilir NASA veri analizi pilotu.
 
 **Görev:** [Identify Earth Locations that Analog the Permanent Moon Base Locations and Mars](https://www.spaceappschallenge.org/2026/challenges/permanent-moon-base-locations-and-mars/)
 
-## Mevcut içerik
+## Çalışan özellikler
 
-Bu depo şu aşamada projenin araştırma belgelerini, kaynak listesini ve veri kataloğunu içerir. Çalıştırılabilir uygulama kodu veya indirilmiş ham uydu veri setleri henüz eklenmemiştir.
+- 21 araştırma sahası ve5 tanılayıcı kontrol alanı; toplam26 Dünya penceresi ve2 gezegen hedefi.
+- NASA servislerinden indirilen gerçek yükseklik ve 2025 günlük iklim verileriyle pilot hesaplama.
+- Sınırları tanımlanmış Dünya çalışma alanları; adlandırılmış Ay ve Mars hedefleri; negatif kontrol alanları.
+- Aynı 500 m örnekleme aralığında eğim, rölyef ve pürüzlülük karşılaştırması;52 gerçek arazi karşılaştırması.
+- NASA HBASE2010 sınıflamasından25 düğümlü yerleşim/yol kontrolü; bilinmeyen noktaları sıfır saymadan alt/üst sınırlar.
+- Görev ağırlıkları, ölçüt bazında açıklamalar, eksik veri kapsamı ve ağırlık duyarlılığı.
+- Araştırma notlarından ayrı hesaplanmış sonuçlar; alan, eğim, iklim ve skor harita görünümleri.
+- JSON, CSV ve Dünya alanları için GeoJSON dışa aktarımı.
+- Türkçe/İngilizce, mobil görünüm, klavye ile kullanım.
 
-### Ana araştırmalar
+**Bilimsel kapsam:** Bu pilot sınırlı alanlarda arazi şekillerini karşılaştırır. 500 m örnekleme aralığı kaynakların etkin çözünürlüğünü eşitlemez. NDVI yalnızca kaliteyi geçen iki alanda kullanılır; Salda için EMIT mineral bağlamı ve ASTERv3 işlenmiştir. Altı gece ışığı gözlemi kalite eşiğini geçmediği için skor girdisi değildir. Mineral eşleşmesi, yeraltı buzu ve hedef termal analizi tamamlanmadığından tam analog uygunluğu doğrulanmış değildir. Görev skorları varsa kısmi operasyonel ön elemedir; NASA onayı, iniş güvenliği veya saha erişim izni değildir. Başarısız kontroller sonuçlardan çıkarılmaz.
 
-- [Birleşik araştırma raporu](arastirma/ay-mars-analog-birlesik-rapor.md)
-- [NASA veri ürünleri, yöntem ve proje önerileri](arastirma/NASA_Space_Apps_2026_Arastirma_TR.md)
-- [Ayrıntılı Ay–Mars analog yerler araştırması](arastirma/ay-mars-analog-yerler-detayli-arastirma.md)
-- [Raporun HTML sürümü](arastirma/NASA_Space_Apps_2026_Arastirma_TR.html) — indirip tarayıcıda açabilirsiniz.
+## Earthdata entegrasyonu
 
-### Bölgesel araştırmalar
+Earthdata erişimi doğrulandı. 12 gerçek NASA dosyası (413,531,230 bayt) indirildi. Kalite eşiğini geçen NDVI: 2/26; gece ışığı: 0/26; ASTER v3: 1/26. Salda için kalite/maske/belirsizlik bilgili EMIT spektral mineral bağlamı üretildi.
 
-- [Atacama Çölü](arastirma/atacama-colu-ozeti.md)
-- [Hanksville](arastirma/hanksville-ozeti.md)
-- [Pilbara Bölgesi](arastirma/pilbara_bolgesi.md)
-- [Salda Gölü](arastirma/salda-golu-ozeti.md)
-- [Wadi Rum](arastirma/wadi-rum-ozeti.md)
+Ham dosyalar ve erişim anahtarı Git dışında `.local/` altında tutulur. `data/protected-evidence/` içindeki küçük gerçek piksel/QA kesitleri, tekrar giriş veya büyük dosyalar olmadan aynı ölçümleri üretir. Ürünler farklı gözlem dönemlerine sahiptir; yıllık ortak bir kompozit sayılmaz.
 
-### Kaynak ve veri kataloğu
+## Yerelde çalıştırma
 
-- [Kaynak bağlantıları](arastirma/kaynaklar.json)
-- [Teknik veri kataloğu](arastirma/veri_katalogu.json)
+Python 3.10+ ve içerik/tarayıcı kontrolleri için Node.js 22+ yeterlidir. Analiz Python standart kütüphanesiyle çalışır; Earthdata hesabı veya API anahtarı gerektirmez.
 
-## Web sitesi
-
-Projenin tanıtım sitesi depo kökündeki [index.html](index.html) dosyasıdır; stil, veri ve etkileşim kodu [site/](site/) klasöründedir. Site Türkçe ve İngilizce olarak görüntülenebilir. İçerik bu depodaki araştırma belgelerinden derlenmiştir; atlastaki uygunluk notları niteliksel ön değerlendirmedir, hesaplanmış skor değildir.
-
-Yerelde açmak için depo kökünde bir statik sunucu çalıştırın ve `http://localhost:5173` adresine gidin:
-
-```bash
-python -m http.server 5173
+```powershell
+cd "$env:USERPROFILE\Downloads\TerraTwin"
+python -m http.server 5173 --bind 127.0.0.1
 ```
 
-Harita için D3, TopoJSON ve kıta çizgileri, yazı tipleri için Google Fonts ağ üzerinden yüklenir. Site derleme adımı gerektirmez; GitHub Pages gibi bir statik barındırmaya depo kökünden doğrudan yayımlanabilir.
+Tarayıcı: <http://127.0.0.1:5173/>. Sitede gösterilen sonuçlar `site/analysis-results.json` dosyasından okunur; sayfayı açmak her ziyaretçi için yeniden uydu verisi indirmez.
 
-## Araştırma yaklaşımı
+## Korunan dosyaları işleme ortamı
 
-TerraTwin, belirli bir Ay veya Mars hedefinin topografya, yüzey malzemesi, çevre veya operasyon koşullarını Dünya'daki seçilmiş alanlarla karşılaştırmayı amaçlar. Benzerlik, deney amacına ve incelenen ölçeğe göre değerlendirilir.
+```powershell
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r analysis/requirements-protected.txt
+.\.venv\Scripts\python.exe -m analysis.protected_download --offline --all-recorded
+.\.venv\Scripts\python.exe -m analysis.protected_features
+.\.venv\Scripts\python.exe -m analysis.dem_v3
+```
 
-NASA kaynaklarına dayanan ana araştırmada gözlem tarihleri, ürün sürümleri ve bilimsel sınırlamalar ayrı belirtilir. Klasördeki bölgesel ve birleşik çalışmalar kendi kaynak açıklamalarıyla korunmuştur. Aday sahalar ve önerilen puanlama yöntemleri, hesaplanmış veya NASA tarafından onaylanmış sonuçlar olarak yorumlanmamalıdır.
+Ham dosyalar başka bilgisayarda yoksa Earthdata oturumuyla `--offline` olmadan indirin. Paylaşılan küçük kanıtlardan tekrar üretmek için `python -m analysis.protected_features --evidence-only` kullanılır (bilimsel ortamda). Ana skor hesaplama modülü stdlib ile mevcut çıkarım JSON’larını okuyabilir. `node scripts/verify.mjs --browser` yerel `.venv` Python’unu otomatik seçer.
 
-## Durum ve sonraki adımlar
+## Analizi tekrar üretme
 
-Araştırma belgeleri 14 Kasım 2026 tarihinde depoya hazırlanmıştır. Uygulama geliştirmede ilk adımlar: hedef/deney seçimi, küçük analiz alanlarının belirlenmesi, NASA veri kapsamının doğrulanması ve tekrarlanabilir özellik hesaplarının oluşturulmasıdır.
+```powershell
+python -m analysis.run
+```
+
+İlk çalıştırma gerçek NASA yanıtlarını `data/cache/` altında saklar. Sonraki çalıştırma doğrulanmış önbelleği kullanır. Ağsız yeniden hesaplama ve bilinçli veri yenileme:
+
+```powershell
+python -m analysis.run --offline
+python -m analysis.run --refresh
+```
+
+İndirme başarısızlıkları ve eksik özellikler çıktıya açıkça yazılır. `--refresh` servislerin erişilebilirliğine bağlıdır; işlem tarihinin yeni olması gözlemin yeni olduğu anlamına gelmez.
+
+- Deney tanımı ve analiz alanları: `data/project.json`.
+- Hesaplanmış sonuç: `site/analysis-results.json`.
+- Ham yanıtlar ve SHA-256 bilgileri: `data/cache/`.
+- İşlem ve kaynak kaydı: `data/provenance.json`.
+- Gövde bilgisi taşıyan tüm çalışma alanları: `data/analysis-areas.geojson`. Ay/Mars koordinatları Dünya koordinatı olarak kullanılmamalıdır; siteden GeoJSON dışa aktarımı yalnızca Dünya alanlarını verir.
+- Kaynak/sürüm denetimi: `data/source-registry.json` ve `docs/source-audit.md`.
+- Hesaplama ayrıntıları: [analysis/README.md](analysis/README.md).
+- 16 gereksinimin dürüst durum tablosu: [docs/implementation-status.md](docs/implementation-status.md).
+- Hesap açıldıktan sonraki veri adımları: [docs/earthdata-next-steps.md](docs/earthdata-next-steps.md).
+
+## NASA kaynak politikası
+
+Sayısal veri indirmeleri yalnızca `nasa.gov` ve alt alanlarındaki resmî servislerden yapılır. Başka Space Apps takımlarının veri veya sonuçları kullanılmaz. NASA/METI ortak ASTER ürünü ortaklığıyla, tarihsel HBASE de NASA/SEDAC ürünü olarak belirtilir. Hanksville ve Pilbara kartları resmî NASA/NTRS kaynaklarıyla yeniden kaynaklandırılmıştır. D3, TopoJSON, world-atlas ve yazı tipleri sunum bağımlılıklarıdır; bilimsel skor girdisi değildir.
+
+Erişilebilen NASA WorldWind Dünya katmanı **ASTER GDEM v2** önbelleğidir; katalogda bulunan v3 ile aynı değildir. Ay LOLA ve Mars MOLA ürünleri tarihsel görevlerden türetilmiştir. Güncel servis erişimi, ürün sürümü ve gözlem dönemi ayrı kaydedilir. Bu nedenle tüm verilerin 2026 ölçümü veya her ürünün en yeni işleme sürümü olduğu iddia edilmez. Salda artık gerçek ASTERv3DEM+NUM ile, diğer sahalar henüz WorldWindv2 ile işlenir.
+
+## İçeriği güncelleme
+
+Site metinleri, saha kartları, kaynak bağlantıları ve katalog için tek düzenleme kaynağı `data/content.json` dosyasıdır. Tarayıcı paketi deterministik üretilir:
+
+```powershell
+node scripts/build_content.mjs
+node scripts/build_content.mjs --check
+```
+
+`site/data.js` üretilmiş dosyadır; doğrudan düzenlenmemelidir. `data/project.json` deney seçimlerini, toleransları ve görev ağırlıklarını tanımlar; içerik/model tutarlılık kontrolü değişikliklerin birbirinden kopmasını yakalar. `arastirma/` içindeki özgün raporlar tarihsel araştırma belgeleri olarak korunur; yeni hesaplanmış sonuçların yerine geçmez ve kendiliğinden güncellenmez.
+
+## Kontroller
+
+Önbellekten analizi yeniden üretip tüm yazılım/içerik/veri bütünlüğü kontrollerini tek komutla çalıştırmak için `node scripts/verify.mjs` kullanın. Yerel sunucu açıkken `--browser` eklemek tarayıcı kontrolünü de çalıştırır. Ayrı komutlar:
+
+```powershell
+python -m unittest discover -s tests -p "test_*.py"
+node --test tests/frontend.test.cjs
+node scripts/build_content.mjs --check
+node scripts/check_project.mjs
+```
+
+Yerel sunucu açıkken gerçek Chromium tarayıcısıyla etkileşim, dışa aktarım ve mobil kontrol:
+
+```powershell
+node scripts/verify_site.mjs
+```
+
+Kontrol aracı varsayılan olarak Windows Chrome yolunu kullanır. Başka kurulumda `CHROME_PATH`, başka portta `TERRATWIN_URL` ortam değişkenini ayarlayın. Tarayıcı geçici ayrı profille görünmez başlatılır; kişisel tarayıcı oturumu değiştirilmez. Ekran görüntüleri ve deneme dışa aktarımları geçici klasöre yazılır.
+
+## Araştırma belgeleri
+
+- [Birleşik rapor](arastirma/ay-mars-analog-birlesik-rapor.md)
+- [NASA veri ürünleri ve yöntem araştırması](arastirma/NASA_Space_Apps_2026_Arastirma_TR.md)
+- [Ayrıntılı analog araştırması](arastirma/ay-mars-analog-yerler-detayli-arastirma.md)
+- [Kaynak bağlantıları](arastirma/kaynaklar.json)
+- [Özgün veri kataloğu](arastirma/veri_katalogu.json)
+
+Lisans: [MIT](LICENSE). NASA veri ürünlerinin kendi kaynak, atıf ve kullanım koşulları ayrıca geçerlidir.

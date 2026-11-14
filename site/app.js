@@ -6,6 +6,7 @@
   const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
   document.documentElement.classList.add('js');
 
+  const announce = () => document.dispatchEvent(new CustomEvent('terratwin:state', { detail: { lang: state.lang, profile: state.mProfile, mission: state.mission, site: state.site } }));
   const state = { lang: 'tr', profile: 'all', cats: { nasa: true, test: true, hypo: true, note: true }, site: 'haughton', mProfile: 'base', mission: 0, body: 'all' };
   const t = (o) => (o && typeof o === 'object' && 'tr' in o ? o[state.lang] : o);
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -31,7 +32,7 @@
       : 'TerraTwin — Ay üssünün ve Mars\'ın Dünya\'daki ikizleri';
     $$('.lang button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.lang === state.lang)));
     const dn = $('#docs-note'); if (dn) dn.hidden = state.lang !== 'en';
-    renderLegend(); renderList(); renderCard(); renderWeights(true); renderCatalog(); updateMap(); mapLabels();
+    renderLegend(); renderList(); renderCard(); renderWeights(true); renderCatalog(); updateMap(); mapLabels(); announce();
   }
   $$('.lang button').forEach((b) => b.addEventListener('click', () => {
     state.lang = b.dataset.lang;
@@ -120,13 +121,14 @@
   };
 
   function selectSite(id, scroll) {
-    state.site = id; renderCard(); updateMap(); renderList();
+    if (!D.sites.some((s) => s.id === id)) return;
+    state.site = id; renderCard(); updateMap(); renderList(); announce();
     if (scroll && window.matchMedia('(max-width: 1020px)').matches) $('#site-card').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 
   function renderLegend() {
     const el = $('#cat-legend'); if (!el) return;
-    el.innerHTML = Object.keys(D.cats).map((k) => `<button type="button" data-cat="${k}" aria-pressed="${state.cats[k]}">${glyph(k)}<span>${esc(t(D.cats[k].label))}</span></button>`).join('');
+    el.innerHTML = Object.keys(D.cats).filter((k) => D.sites.some((s) => s.cat === k)).map((k) => `<button type="button" data-cat="${k}" aria-pressed="${state.cats[k]}">${glyph(k)}<span>${esc(t(D.cats[k].label))}</span></button>`).join('');
     $$('button', el).forEach((b) => b.addEventListener('click', () => {
       const k = b.dataset.cat; state.cats[k] = !state.cats[k];
       if (!Object.values(state.cats).some(Boolean)) state.cats[k] = true;
@@ -274,6 +276,7 @@
       });
     };
     if (rebuild) requestAnimationFrame(() => requestAnimationFrame(apply)); else apply();
+    announce();
   }
 
   /* ---------- veri kataloğu ---------- */
@@ -298,6 +301,13 @@
     const io = new IntersectionObserver((entries) => entries.forEach((en) => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } }), { rootMargin: '0px 0px -8% 0px', threshold: .08 });
     els.forEach((e) => io.observe(e));
   }
+
+  document.addEventListener('terratwin:select-site', (ev) => selectSite(ev.detail.id, false));
+  document.addEventListener('terratwin:select-profile', (ev) => {
+    if (!D.method[ev.detail.profile]) return;
+    state.mProfile = ev.detail.profile; state.mission = 0; renderWeights(true);
+  });
+  window.TerraTwinState = () => ({ lang: state.lang, profile: state.mProfile, mission: state.mission, site: state.site });
 
   /* ---------- başlat ---------- */
   $('#st-sites').textContent = D.sites.length;

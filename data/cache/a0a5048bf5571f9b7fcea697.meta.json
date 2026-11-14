@@ -1,0 +1,19 @@
+{
+  "id": "power-hanksville",
+  "url": "https://power.larc.nasa.gov/api/temporal/daily/point?parameters=T2M%2CT2M_MAX%2CT2M_MIN%2CPRECTOTCORR&community=AG&longitude=-110.71&latitude=38.37&start=20250101&end=20251231&format=JSON&time-standard=UTC",
+  "method": "GET",
+  "requestBody": null,
+  "provider": "NASA",
+  "product": "NASA POWER daily meteorological data",
+  "version": null,
+  "measurementPeriod": {
+    "start": "2025-01-01",
+    "end": "2025-12-31"
+  },
+  "retrievedAt": "2026-11-14T11:09:31+00:00",
+  "sha256": "78472352e3e6319b29f5208580bef4bfd02a7d690992fd97e9038907cb095b71",
+  "bytes": 24524,
+  "cachePath": "data/cache/a0a5048bf5571f9b7fcea697.json",
+  "status": "available",
+  "contentType": "application/json"
+}

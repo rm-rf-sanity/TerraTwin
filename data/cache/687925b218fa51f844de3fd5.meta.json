@@ -1,0 +1,16 @@
+{
+  "id": "dem-salda",
+  "url": "https://worldwind26.arc.nasa.gov/elev?service=WMS&version=1.1.1&request=GetMap&layers=aster_v2&styles=&srs=EPSG%3A4326&bbox=29.620447753%2C37.502785681%2C29.739552247%2C37.597214319&width=21&height=21&format=application%2Fbil16",
+  "method": "GET",
+  "requestBody": null,
+  "provider": "NASA",
+  "product": "NASA WorldWind ASTER GDEM v2 elevation cache",
+  "version": "ASTER GDEM v2; WorldWind cache layer aster_v2",
+  "measurementPeriod": "Historical ASTER GDEM v2 observations; not 2025 terrain measurements",
+  "retrievedAt": "2026-11-14T11:09:18+00:00",
+  "sha256": "6a432d520345e963f09a2e32cf975ac1af7fb46ffdf9fc0608f0971b33c25b42",
+  "bytes": 882,
+  "cachePath": "data/cache/687925b218fa51f844de3fd5.bin",
+  "status": "available",
+  "contentType": "application/bil16"
+}
