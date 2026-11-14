@@ -1,0 +1,613 @@
+{
+  "title": "TerraTwin NASA Space Apps 2026 araştırma kaynakları",
+  "research_cutoff_date": "2026-11-14",
+  "source_policy": "Resmî challenge, NASA yayınları ve NASA görev/arşiv kaynakları; başka takımlar kullanılmadı.",
+  "verification_note": "Bu liste bibliyografyadır; bilim dosyalarının indirildiği veya her bağlantının ağdan otomatik sınandığı anlamına gelmez. Erişim kısıtları raporun 19. bölümündedir.",
+  "count": 72,
+  "sources": [
+    {
+      "url": "https://www.spaceappschallenge.org/2026/challenges/permanent-moon-base-locations-and-mars/?tab=details",
+      "domain": "www.spaceappschallenge.org",
+      "labels": [
+        "Resmî görev — Details"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://search.earthdata.nasa.gov/",
+      "domain": "search.earthdata.nasa.gov",
+      "labels": [
+        "NASA Earthdata Search",
+        "Earthdata Search"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://worldview.earthdata.nasa.gov/",
+      "domain": "worldview.earthdata.nasa.gov",
+      "labels": [
+        "NASA Worldview",
+        "Worldview"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://pds.nasa.gov/",
+      "domain": "pds.nasa.gov",
+      "labels": [
+        "NASA Planetary Data System",
+        "PDS"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://pds-geosciences.wustl.edu/missions/lro/",
+      "domain": "pds-geosciences.wustl.edu",
+      "labels": [
+        "LRO resmî PDS arşivi",
+        "LRO yayın takvimi",
+        "LRO arşivi"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://pds-geosciences.wustl.edu/missions/lro/diviner.htm",
+      "domain": "pds-geosciences.wustl.edu",
+      "labels": [
+        "LRO Diviner",
+        "Diviner",
+        "Diviner veri kalitesi notu",
+        "NASA Diviner arşivi ve kalite notları"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://www.spaceappschallenge.org/2026/challenges/permanent-moon-base-locations-and-mars/?tab=resources",
+      "domain": "www.spaceappschallenge.org",
+      "labels": [
+        "Resmî görev — Resources"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://github.com/nasa/spaceapps/discussions/1849",
+      "domain": "github.com",
+      "labels": [
+        "NASA Space Apps organizasyon yanıtı"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://pds-geosciences.wustl.edu/missions/lro/lola.htm",
+      "domain": "pds-geosciences.wustl.edu",
+      "labels": [
+        "LOLA"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://pds.nasa.gov/datasearch/subscription-service/SS-20260901.shtml",
+      "domain": "pds.nasa.gov",
+      "labels": [
+        "MRO Release 78"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://pds-geosciences.wustl.edu/missions/mro/sharad.htm",
+      "domain": "pds-geosciences.wustl.edu",
+      "labels": [
+        "SHARAD",
+        "SHARAD arşivi"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://pds-geosciences.wustl.edu/missions/mgs/megdr.html",
+      "domain": "pds-geosciences.wustl.edu",
+      "labels": [
+        "MOLA PDS4 geçişi",
+        "MOLA MEGDR",
+        "MOLA ürün açıklaması"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://forum.earthdata.nasa.gov/viewtopic.php?sid=dae91c5ef96f336491803c0490ce9060&t=8322",
+      "domain": "forum.earthdata.nasa.gov",
+      "labels": [
+        "EMIT Ekim 2026 duyurusu",
+        "EMIT yeni sürüm duyurusu",
+        "EMIT Ekim 2026 yeni sürüm duyurusu"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://forum.earthdata.nasa.gov/viewtopic.php?p=26359&sid=c3064093e30bd71b2c255f9a1900719c&t=8068",
+      "domain": "forum.earthdata.nasa.gov",
+      "labels": [
+        "NISAR resmî DAAC duyurusu",
+        "NISAR yayın duyurusu"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://hls.gsfc.nasa.gov/data-access-and-tools/",
+      "domain": "hls.gsfc.nasa.gov",
+      "labels": [
+        "HLS erişim bilgisi",
+        "HLS erişim koşulu",
+        "HLS ürün ve erişim bilgisi"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://science.nasa.gov/planetary-science/programs/mars-exploration/mars-science-objectives/",
+      "domain": "science.nasa.gov",
+      "labels": [
+        "NASA Mars Science Objectives — taslak"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://ntrs.nasa.gov/api/citations/20210017110/downloads/8100_Janoiko_Using%20Earth-Based%20Operational%20Field%20Tests%20as%20High-Fidelity%20Analogs%20for%20Planetary%20Surface%20Exploration.pdf",
+      "domain": "ntrs.nasa.gov",
+      "labels": [
+        "NASA operasyonel saha testleri çalışması"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://www.nasa.gov/moon-base-frequently-asked-questions/",
+      "domain": "www.nasa.gov",
+      "labels": [
+        "NASA Moon Base — Sık sorulan sorular",
+        "NASA Moon Base FAQ"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://www.nasa.gov/missions/moon-base/nasa-provides-progress-update-on-moon-base-rovers/",
+      "domain": "www.nasa.gov",
+      "labels": [
+        "NASA Moon Base rover güncellemesi"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://www.nasa.gov/reference/moonbase-environment/",
+      "domain": "www.nasa.gov",
+      "labels": [
+        "NASA Lunar South Pole Environment"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://www.nasa.gov/news-release/nasa-provides-update-on-artemis-iii-moon-landing-regions/",
+      "domain": "www.nasa.gov",
+      "labels": [
+        "2024 NASA bölge duyurusu"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://science.nasa.gov/resource/wrinkle-ridge-in-mare-crisium/",
+      "domain": "science.nasa.gov",
+      "labels": [
+        "NASA Mare Crisium açıklaması"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://science.nasa.gov/solar-system/moon/new-evidence-adds-to-findings-hinting-at-network-of-caves-on-moon/",
+      "domain": "science.nasa.gov",
+      "labels": [
+        "NASA mağara kanıtı — 18 Temmuz 2024"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://science.nasa.gov/earth/earth-observatory/jez-like-mars-147041/",
+      "domain": "science.nasa.gov",
+      "labels": [
+        "NASA Salda–Jezero araştırma bağlamı"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://www.jpl.nasa.gov/images/pia26640-perseverances-pixl-finds-vivianite-greigite-in-cheyava-falls-sample/",
+      "domain": "www.jpl.nasa.gov",
+      "labels": [
+        "NASA/JPL PIXL ve mineral bulguları"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://science.nasa.gov/blogs/perseverance-mars-rover/2026/10/12/nasas-perseverance-sets-off-world-record-for-total-distance-driven/",
+      "domain": "science.nasa.gov",
+      "labels": [
+        "NASA Perseverance — Ekim 2026 bilim/rota bağlamı"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://science.nasa.gov/resource/swim-map-shows-subsurface-water-ice-on-mars/",
+      "domain": "science.nasa.gov",
+      "labels": [
+        "NASA SWIM haritası"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://assets.science.nasa.gov/content/dam/science/psd/solar-system/mars/campaigns/mars-future-plan/20241204_Mars_Future_Plan_Final_Print.pdf",
+      "domain": "assets.science.nasa.gov",
+      "labels": [
+        "NASA Mars Exploration Program planı"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://www.nasa.gov/solar-system/nasas-treasure-map-for-water-ice-on-mars/?site=msl",
+      "domain": "www.nasa.gov",
+      "labels": [
+        "NASA Arcadia bağlamı"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://www.nasa.gov/missions/analog-field-testing/what-is-basalt/",
+      "domain": "www.nasa.gov",
+      "labels": [
+        "NASA BASALT"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://data.nasa.gov/dataset/nasadem-merged-dem-global-1-arc-second-v001",
+      "domain": "data.nasa.gov",
+      "labels": [
+        "NASADEM ürün açıklaması"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://asterweb.jpl.nasa.gov/gdem.asp",
+      "domain": "asterweb.jpl.nasa.gov",
+      "labels": [
+        "ASTER GDEM V3"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://hls.gsfc.nasa.gov/data-products/",
+      "domain": "hls.gsfc.nasa.gov",
+      "labels": [
+        "HLS ürünleri"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://search.earthdata.nasa.gov/portal/idn/search?fi=MODIS",
+      "domain": "search.earthdata.nasa.gov",
+      "labels": [
+        "MODIS ürün açıklaması"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://search.earthdata.nasa.gov/search?q=ECOSTRESS+V002",
+      "domain": "search.earthdata.nasa.gov",
+      "labels": [
+        "ECOSTRESS V002 kataloğu",
+        "ECOSTRESS V002 ve veri uyarısı"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://power.larc.nasa.gov/docs/services/",
+      "domain": "power.larc.nasa.gov",
+      "labels": [
+        "POWER hizmetleri",
+        "POWER veri uyarıları"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://gpm.nasa.gov/data/directory",
+      "domain": "gpm.nasa.gov",
+      "labels": [
+        "GPM güncel veri dizini"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://cmr.earthdata.nasa.gov/search/site/collections/directory/GES_DISC/gov.nasa.eosdis",
+      "domain": "cmr.earthdata.nasa.gov",
+      "labels": [
+        "MERRA-2 katalog dizini"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://gpm.nasa.gov/resources/documents/imerg-v07-technical-documentation",
+      "domain": "gpm.nasa.gov",
+      "labels": [
+        "IMERG dokümantasyonu"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://search.earthdata.nasa.gov/search?fpj=GEMx%21EMIT",
+      "domain": "search.earthdata.nasa.gov",
+      "labels": [
+        "NASA EMIT kapsam açıklaması"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://data.nasa.gov/dataset/emit-l3-aggregated-mineral-spectral-abundance-and-uncertainty-0-5-deg-v002",
+      "domain": "data.nasa.gov",
+      "labels": [
+        "NASA EMIT L3 ürün açıklaması"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://asterweb.jpl.nasa.gov/",
+      "domain": "asterweb.jpl.nasa.gov",
+      "labels": [
+        "ASTER resmî durum sayfası"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://asterweb.jpl.nasa.gov/swir-alert.asp",
+      "domain": "asterweb.jpl.nasa.gov",
+      "labels": [
+        "NASA/JPL ASTER SWIR kullanıcı uyarısı"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://pgda.gsfc.nasa.gov/products/81",
+      "domain": "pgda.gsfc.nasa.gov",
+      "labels": [
+        "PGDA 5 m kutup mozaiği",
+        "LOLA PGDA referansı"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://pgda.gsfc.nasa.gov/products/90",
+      "domain": "pgda.gsfc.nasa.gov",
+      "labels": [
+        "PGDA geniş kutup ürünleri ve belirsizlik katmanları",
+        "PGDA ürün tanımları",
+        "NASA PGDA kutup topografyası"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://pgda.gsfc.nasa.gov/products/104",
+      "domain": "pgda.gsfc.nasa.gov",
+      "labels": [
+        "PGDA SDEM"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://pds.nasa.gov/ds-view/pds/viewProfile.jsp?dsid=LRO-L-LROC-5-RDR-V1.0",
+      "domain": "pds.nasa.gov",
+      "labels": [
+        "LROC RDR ürün tanımı"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://science.nasa.gov/resource/a-decade-of-compiling-the-sharpest-mars-map/",
+      "domain": "science.nasa.gov",
+      "labels": [
+        "CTX görev ölçeği"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://pds-imaging.jpl.nasa.gov/documentation/HiRISE_RDR_v12_DTM_11_25_2009.pdf",
+      "domain": "pds-imaging.jpl.nasa.gov",
+      "labels": [
+        "HiRISE arşiv spesifikasyonu"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://pds-geosciences.wustl.edu/mro/mro-m-crism-3-rdr-targeted-v1/mrocr_2110/document/crism_dpsis.htm",
+      "domain": "pds-geosciences.wustl.edu",
+      "labels": [
+        "CRISM modları"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://www.jpl.nasa.gov/news/nasa-retires-mineral-mapping-instrument-on-mars-orbiter/",
+      "domain": "www.jpl.nasa.gov",
+      "labels": [
+        "CRISM’in kapatılması",
+        "NASA/JPL CRISM duyurusu"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://trek.nasa.gov/tiles/apidoc/trekAPI.html?body=mars",
+      "domain": "trek.nasa.gov",
+      "labels": [
+        "Mars Trek katman kataloğu"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://www.nasa.gov/solar-system/planets/mars/nasa-is-locating-ice-on-mars-with-this-new-map/",
+      "domain": "www.nasa.gov",
+      "labels": [
+        "SWIM NASA açıklaması",
+        "NASA SWIM açıklaması"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://astrobiology.nasa.gov/research-locations/",
+      "domain": "astrobiology.nasa.gov",
+      "labels": [
+        "NASA Astrobiology saha listesi"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://ntrs.nasa.gov/api/citations/20060013129/downloads/20060013129.pdf",
+      "domain": "ntrs.nasa.gov",
+      "labels": [
+        "NASA Haughton raporu"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://science.nasa.gov/earth/earth-observatory/moonscapes-of-idaho-154207/",
+      "domain": "science.nasa.gov",
+      "labels": [
+        "NASA Moonscapes of Idaho"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://science.nasa.gov/solar-system/analog-explorer/",
+      "domain": "science.nasa.gov",
+      "labels": [
+        "NASA Analog Explorer"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://science.nasa.gov/blogs/earth-matters/2021/02/17/what-a-lake-in-turkey-can-tell-us-about-mars/",
+      "domain": "science.nasa.gov",
+      "labels": [
+        "NASA Salda saha anlatımı",
+        "NASA Salda saha çalışması"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://eol.jsc.nasa.gov/Collections/EarthObservatory/articles/MountNemrutTurkey.htm",
+      "domain": "eol.jsc.nasa.gov",
+      "labels": [
+        "NASA/JSC Nemrut"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://science.nasa.gov/earth/earth-observatory/disappearing-lake-tuz-149211/",
+      "domain": "science.nasa.gov",
+      "labels": [
+        "NASA Disappearing Lake Tuz"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://science.nasa.gov/photojournal/lake-salda-beach/",
+      "domain": "science.nasa.gov",
+      "labels": [
+        "NASA Salda kıyısı açıklaması"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://science.nasa.gov/earth/earth-observatory/goreme-national-park-turkey-38876/",
+      "domain": "science.nasa.gov",
+      "labels": [
+        "NASA Göreme"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://science.nasa.gov/earth/earth-observatory/white-and-black-volcanoes-of-saudi-arabia-152839/",
+      "domain": "science.nasa.gov",
+      "labels": [
+        "NASA Harrat Khaybar"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://science.nasa.gov/earth/earth-observatory/pinacate-biosphere-reserve-3923/",
+      "domain": "science.nasa.gov",
+      "labels": [
+        "NASA Pinacate"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://science.nasa.gov/earth/earth-observatory/makgadikgadi-salt-pans-92394/",
+      "domain": "science.nasa.gov",
+      "labels": [
+        "NASA Makgadikgadi"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://science.nasa.gov/earth/earth-observatory/salty-botswana-145216/",
+      "domain": "science.nasa.gov",
+      "labels": [
+        "NASA doğal ve yapay tuz yüzeyleri ayrımı"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://pds-geosciences.wustl.edu/missions/mgs/mola.html",
+      "domain": "pds-geosciences.wustl.edu",
+      "labels": [
+        "MOLA koordinat bilgisi"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://cmr.earthdata.nasa.gov/search/site/docs/search/api.html",
+      "domain": "cmr.earthdata.nasa.gov",
+      "labels": [
+        "CMR Search API",
+        "CMR API resmî dokümantasyon",
+        "NASA CMR API"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://trek.nasa.gov/moon/",
+      "domain": "trek.nasa.gov",
+      "labels": [
+        "Moon Trek",
+        "Moon Trek araçları"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://trek.nasa.gov/mars/",
+      "domain": "trek.nasa.gov",
+      "labels": [
+        "Mars Trek"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://power.larc.nasa.gov/docs/tutorials/service-data-request/api/",
+      "domain": "power.larc.nasa.gov",
+      "labels": [
+        "POWER API kılavuzu"
+      ],
+      "access_date": "2026-11-14"
+    },
+    {
+      "url": "https://trek.nasa.gov/tiles/apidoc/index.html",
+      "domain": "trek.nasa.gov",
+      "labels": [
+        "Trek katman API’si"
+      ],
+      "access_date": "2026-11-14"
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "research_cutoff_date": "2026-11-14",
+  "purpose": "NASA kaynaklarına dayalı ürün keşif kataloğu; indirilmiş bilim verisi veya analiz sonucu değildir.",
+  "latest_version_policy": "Erişim anında canlı katalog ve granül kapsamı kontrol edilmeli. Özellikle EMIT yeniden işleme döneminde sürüm, gözlem tarihi ve AOI kapsamı birlikte doğrulanmalı.",
+  "datasets": [
+    {
+      "body": "Earth", "name": "NASADEM Merged DEM", "short_name": "NASADEM_HGT", "version": "001",
+      "nominal_grid": "1 arc second, approximately 30 m at equator", "coverage": "60 N to 56 S",
+      "observation_period_note": "Primarily SRTM, February 2000; not a 2026 terrain survey",
+      "use": ["slope", "local relief", "terrain morphology"],
+      "source_url": "https://data.nasa.gov/dataset/nasadem-merged-dem-global-1-arc-second-v001",
+      "caveat": "Check NUM/source layers, vertical datum, vegetation/building effects and AOI changes."
+    },
+    {
+      "body": "Earth", "name": "ASTER GDEM", "short_name": "ASTGTM", "version": "003",
+      "nominal_grid": "1 arc second", "coverage": "83 N to 83 S",
+      "source_url": "https://asterweb.jpl.nasa.gov/gdem.asp",
+      "use": ["higher latitude topography"], "caveat": "NASA/METI joint product; inspect artifacts and quality counts."
+    },
+    {
+      "body": "Earth", "name": "Harmonized Landsat Sentinel-2", "short_names": ["HLSL30", "HLSS30"], "version": "002 / V2.0",
+      "nominal_grid_m": 30, "latency_note": "Typically 2-3 days, not a guarantee of clear observations",
+      "source_url": "https://hls.gsfc.nasa.gov/data-access-and-tools/",
+      "use": ["surface reflectance", "vegetation and water masks", "seasonal surface condition"],
+      "caveat": "NASA processed product with Landsat and ESA Sentinel-2 inputs; use Fmask and scene metadata."
+    },
+    {
+      "body": "Earth", "name": "MODIS Terra daily land surface temperature", "short_name": "MOD11A1", "version": "061",
+      "nominal_grid_m": 1000, "time_resolution": "daily day/night retrievals",
+      "source_url": "https://search.earthdata.nasa.gov/portal/idn/search?fi=MODIS",
+      "use": ["surface thermal time series"], "caveat": "Clear-sky surface temperature; not 2 m air temperature or full diurnal extrema."
+    },
+    {
+      "body": "Earth", "name": "ECOSTRESS tiled land surface temperature and emissivity", "short_name": "ECO_L2T_LSTE", "version": "002",
+      "nominal_grid_m": 70, "source_url": "https://search.earthdata.nasa.gov/search?q=ECOSTRESS+V002",
+      "use": ["local thermal surface observations"], "caveat": "ISS sampling; check cloud and water layers, observation time, uncertainty and geolocation."
+    },
+    {
+      "body": "Earth", "name": "EMIT estimated mineral identification and band depth and uncertainty", "short_name": "EMITL2BMIN",
+      "version": "V2 announced 2026-10-19; resolve available collection and granules at access time",
+      "nominal_grid_m": 60, "source_url": "https://forum.earthdata.nasa.gov/viewtopic.php?sid=dae91c5ef96f336491803c0490ce9060&t=8322",
+      "use": ["surface mineral indicators"], "caveat": "Targeted coverage, historical reprocessing ongoing in release notice; no verified AOI download in this research."
+    },
+    {
+      "body": "Earth", "name": "EMIT aggregated mineral spectral abundance", "short_name": "EMITL3ASA", "version": "002",
+      "nominal_grid": "0.5 degrees", "source_url": "https://data.nasa.gov/dataset/emit-l3-aggregated-mineral-spectral-abundance-and-uncertainty-0-5-deg-v002",
+      "use": ["regional mineral context"], "caveat": "Static aggregate of historical observations; does not replace 60 m L2B at a micro-site."
+    },
+    {
+      "body": "Earth", "name": "NASA POWER", "nominal_grid": "meteorology 0.5 x 0.625 degrees, solar 1 x 1 degree",
+      "source_url": "https://power.larc.nasa.gov/docs/services/",
+      "use": ["regional climate context"], "caveat": "Coarse model/derived fields; not crater-scale microclimate."
+    },
+    {
+      "body": "Earth", "name": "GPM IMERG", "version": "V07 family; inspect specific run and granule version",
+      "nominal_grid": "0.1 degrees", "time_resolution": "30 minute and aggregates",
+      "source_url": "https://gpm.nasa.gov/data/directory",
+      "use": ["precipitation regime"], "caveat": "Final run has about 3.5 month latency; label Early/Late/Final separately."
+    },
+    {
+      "body": "Earth", "name": "MERRA-2 aerosol diagnostics", "short_name": "M2T1NXAER", "version": "5.12.4",
+      "nominal_grid": "0.5 x 0.625 degrees", "time_resolution": "hourly",
+      "source_url": "https://cmr.earthdata.nasa.gov/search/site/collections/directory/GES_DISC/gov.nasa.eosdis",
+      "use": ["regional dust and aerosol context"], "caveat": "Not a direct measurement of surface grain size."
+    },
+    {
+      "body": "Earth", "name": "NISAR L-band science products", "version": "product dependent",
+      "release_note": "Initial public release 2026-07-20; initial observation coverage from 2026-06-17",
+      "source_url": "https://forum.earthdata.nasa.gov/viewtopic.php?p=26359&sid=c3064093e30bd71b2c255f9a1900719c&t=8068",
+      "use": ["optional radar surface change context"], "caveat": "NASA-ISRO joint mission; verify availability, calibration status and product type."
+    },
+    {
+      "body": "Moon", "name": "PGDA LOLA South Pole DEM Mosaic", "nominal_grid_m": 5, "coverage": "87 to 90 S",
+      "source_url": "https://pgda.gsfc.nasa.gov/products/81",
+      "use": ["topography", "slope", "measurement density"],
+      "caveat": "South polar stereographic, MOON_ME / DE421; pixel spacing is not uniform effective resolution."
+    },
+    {
+      "body": "Moon", "name": "PGDA adjusted LOLA large-area topography", "example_file": "LDEM_80S_20MPP_ADJ.TIF",
+      "nominal_grid_m": 20, "coverage": "example family 80 to 90 S",
+      "source_url": "https://pgda.gsfc.nasa.gov/products/90",
+      "use": ["elevation", "slope", "baseline-specific roughness", "uncertainty"],
+      "caveat": "Include ERR and EFFRES companion layers; several other grid spacings available."
+    },
+    {
+      "body": "Moon", "name": "PGDA shape-from-shading enhanced topography", "nominal_grid_m": 5,
+      "coverage": "13 original 2022 candidate regions", "source_url": "https://pgda.gsfc.nasa.gov/products/104",
+      "use": ["terrain detail in illuminated areas"], "caveat": "Photometric reconstruction constrained by LOLA; not new direct laser measurements."
+    },
+    {
+      "body": "Moon", "name": "LROC NAC and WAC", "version": "per product label",
+      "nominal_grid": "NAC 0.5 m scale, WAC 100 m scale in nominal primary mission geometry",
+      "source_url": "https://pds.nasa.gov/ds-view/pds/viewProfile.jsp?dsid=LRO-L-LROC-5-RDR-V1.0",
+      "use": ["local morphology", "imaging context"], "caveat": "Actual scale and geometry depend on observation; monthly releases differ from general LRO schedule."
+    },
+    {
+      "body": "Moon", "name": "Diviner", "products": ["EDR", "RDR", "PCP", "PRP", "GCP", "GHRM"],
+      "source_url": "https://pds-geosciences.wustl.edu/missions/lro/diviner.htm",
+      "release_note": "Release 67 RDR/EDR coverage 2026-03-16 to 2026-06-15",
+      "use": ["thermal environment", "polar derived products"],
+      "caveat": "Derived maps have separate observation periods; mask missing tb=-9999 and inspect channel warnings."
+    },
+    {
+      "body": "Moon", "name": "LEND and Mini-RF", "version": "per archive product",
+      "source_url": "https://pds-geosciences.wustl.edu/missions/lro/",
+      "use": ["hydrogen-related evidence", "radar context"], "caveat": "Not standalone proof of extractable water reserves or safe caves."
+    },
+    {
+      "body": "Mars", "name": "MOLA MEGDR", "version": "maintained PDS4 bundle from 2026-08-25",
+      "nominal_grid": "up to 128 pixels per degree globally, approximately 463 m equatorial spacing",
+      "source_url": "https://pds-geosciences.wustl.edu/missions/mgs/megdr.html",
+      "use": ["regional topography"], "caveat": "Historical altimetry, not new 2026 measurements; distinguish elevation, radius and areoid."
+    },
+    {
+      "body": "Mars", "name": "MRO CTX", "nominal_grid_m": 6,
+      "source_url": "https://science.nasa.gov/resource/a-decade-of-compiling-the-sharpest-mars-map/",
+      "use": ["morphological context"], "caveat": "Image resolution does not establish DEM resolution."
+    },
+    {
+      "body": "Mars", "name": "MRO HiRISE", "nominal_grid": "approximately 25-32 cm in full-resolution observations",
+      "source_url": "https://pds-imaging.jpl.nasa.gov/documentation/HiRISE_RDR_v12_DTM_11_25_2009.pdf",
+      "use": ["local morphology", "stereo DTM where available"], "caveat": "Limited spatial coverage; inspect observation binning and label."
+    },
+    {
+      "body": "Mars", "name": "MRO CRISM", "nominal_grid": "targeted modes approximately 18 or 36 m per pixel",
+      "source_url": "https://pds-geosciences.wustl.edu/mro/mro-m-crism-3-rdr-targeted-v1/mrocr_2110/document/crism_dpsis.htm",
+      "use": ["mineral spectral indicators"], "caveat": "Instrument off since 2023-04-03; use archived products with mode and quality metadata."
+    },
+    {
+      "body": "Mars", "name": "THEMIS and TES thermal products", "version": "per selected product",
+      "source_url": "https://trek.nasa.gov/tiles/apidoc/trekAPI.html?body=mars",
+      "use": ["thermal surface context"], "caveat": "Day/night IR mosaic, temperature retrieval and thermal inertia are distinct products."
+    },
+    {
+      "body": "Mars", "name": "MRO SHARAD", "version": "per radargram and clutter simulation product",
+      "source_url": "https://pds-geosciences.wustl.edu/missions/mro/sharad.htm",
+      "release_note": "Release 78 radargram observations 2025-11-16 through 2026-02-09",
+      "use": ["subsurface stratigraphy and ice evidence"], "caveat": "Check clutter simulations and detection limits."
+    },
+    {
+      "body": "Mars", "name": "SWIM synthesized ice mapping", "version": "depth interval and publication dependent",
+      "source_url": "https://science.nasa.gov/resource/swim-map-shows-subsurface-water-ice-on-mars/",
+      "use": ["ice evidence profile"], "caveat": "NASA-managed/JPL project synthesis led by PSI; consistency is not reserve volume or mine yield."
+    }
+  ]
+}

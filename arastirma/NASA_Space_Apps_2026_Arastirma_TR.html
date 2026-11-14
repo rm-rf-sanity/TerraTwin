@@ -1,0 +1,1091 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TerraTwin | NASA Space Apps 2026 Araştırması</title>
+<style>
+:root{color-scheme:light;--ink:#172334;--muted:#59697a;--accent:#126474;--line:#d8e2e8}
+*{box-sizing:border-box}body{margin:0;background:#f3f6f8;color:var(--ink);font:16px/1.75 system-ui,"Segoe UI",sans-serif}
+.layout{display:grid;grid-template-columns:285px minmax(0,1050px);gap:28px;max-width:1430px;margin:auto;padding:28px}
+nav{position:sticky;top:24px;align-self:start;max-height:93vh;overflow:auto;font-size:13px;padding:20px;background:white;border:1px solid var(--line);border-radius:12px}
+nav ul{padding-left:17px}nav a{color:var(--muted);text-decoration:none}nav li{margin:7px 0}nav>strong{color:var(--accent)}
+main{min-width:0;padding:42px 48px;background:white;border:1px solid var(--line);border-radius:12px}
+h1{font-size:2.2rem;line-height:1.2;margin:0 0 28px;letter-spacing:-.04em}h2{font-size:1.55rem;margin-top:52px;padding-top:12px;border-top:2px solid var(--line);line-height:1.35}h3{font-size:1.13rem;margin-top:32px;line-height:1.4}
+a{color:var(--accent);text-underline-offset:3px;overflow-wrap:anywhere}p,li{overflow-wrap:anywhere}blockquote{margin:24px 0;padding:15px 22px;background:#edf6f5;border-left:4px solid var(--accent)}blockquote p{margin:0}
+.table-wrap{width:100%;overflow-x:auto;margin:20px 0}table{border-collapse:collapse;width:100%;font-size:13px;line-height:1.6}th,td{border:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}th{background:#eaf0f4}tr:nth-child(even){background:#f8fafb}
+pre{overflow-x:auto;padding:20px;background:#172334;color:#e8f3f7;border-radius:8px;font-size:12px;line-height:1.6}code{font-family:Consolas,monospace;font-size:.9em}p code,td code{background:#eef2f5;padding:2px 4px;border-radius:3px}.stamp{font-size:12px;color:var(--muted);margin-bottom:24px}
+@media(max-width:1000px){.layout{display:block;padding:12px}nav{position:static;max-height:300px;margin-bottom:18px}main{padding:25px 20px}h1{font-size:1.8rem}}
+@media print{body{background:white;font-size:10pt}.layout{display:block;padding:0}nav{display:none}main{border:0;padding:0}h2,h3{break-after:avoid}table{font-size:8pt}tr{break-inside:avoid}a{color:inherit}pre{white-space:pre-wrap;background:#eee;color:#111}}
+</style></head><body><div class="layout"><nav><strong>ARAŞTIRMA İÇERİĞİ</strong><div class="toc">
+<ul>
+<li><a href="#1-ekibiniz-icin-en-onemli-sonuc">1. Ekibiniz için en önemli sonuç</a></li>
+<li><a href="#2-gorev-tam-olarak-ne-istiyor">2. Görev tam olarak ne istiyor?</a></li>
+<li><a href="#3-guncellik-denetimi-14-kasm-2026-itibaryla">3. Güncellik denetimi: 14 Kasım 2026 itibarıyla</a></li>
+<li><a href="#4-analog-kavramn-bilimsel-olarak-dogru-kurmak">4. Analog kavramını bilimsel olarak doğru kurmak</a></li>
+<li><a href="#5-ay-icin-hedef-profilleri">5. Ay için hedef profilleri</a><ul>
+<li><a href="#51-guney-kutbu-us-cevresi-ve-yuzey-hareketliligi">5.1. Güney kutbu: üs çevresi ve yüzey hareketliliği</a></li>
+<li><a href="#52-tarihsel-aday-bolgeler-nasl-kullanlmal">5.2. Tarihsel aday bölgeler nasıl kullanılmalı?</a></li>
+<li><a href="#53-bazaltik-duzlukler-ve-magaralar">5.3. Bazaltik düzlükler ve mağaralar</a></li>
+</ul>
+</li>
+<li><a href="#6-mars-icin-birbirinden-ayrlmas-gereken-hedefler">6. Mars için birbirinden ayrılması gereken hedefler</a><ul>
+<li><a href="#61-jezero-eski-gol-ve-karbonat-surecleri">6.1. Jezero: eski göl ve karbonat süreçleri</a></li>
+<li><a href="#62-orta-enlemler-gomulu-buz-ve-kaynak-kesfi">6.2. Orta enlemler: gömülü buz ve kaynak keşfi</a></li>
+<li><a href="#63-bazaltik-ve-ruzgarla-sekillenmis-yuzeyler">6.3. Bazaltik ve rüzgârla şekillenmiş yüzeyler</a></li>
+</ul>
+</li>
+<li><a href="#7-dunya-veri-katalogu-neyi-hangi-urunle-olcebilirsiniz">7. Dünya veri kataloğu: neyi, hangi ürünle ölçebilirsiniz?</a><ul>
+<li><a href="#71-cekirdek-veri-paketi">7.1. Çekirdek veri paketi</a></li>
+<li><a href="#72-tamamlayc-veri-paketi">7.2. Tamamlayıcı veri paketi</a></li>
+<li><a href="#73-emiti-dogru-kullanma">7.3. EMIT’i doğru kullanma</a></li>
+<li><a href="#74-ecostress-ve-scaklk-karslastrmas">7.4. ECOSTRESS ve sıcaklık karşılaştırması</a></li>
+<li><a href="#75-nasadem-ve-aster-icin-kritik-ayrmlar">7.5. NASADEM ve ASTER için kritik ayrımlar</a></li>
+</ul>
+</li>
+<li><a href="#8-ay-ve-mars-veri-katalogu">8. Ay ve Mars veri kataloğu</a><ul>
+<li><a href="#81-ay">8.1. Ay</a></li>
+<li><a href="#82-mars">8.2. Mars</a></li>
+</ul>
+</li>
+<li><a href="#9-bilinen-dunya-analoglar-karslastrma-icin-baslangc-kumesi">9. Bilinen Dünya analogları: karşılaştırma için başlangıç kümesi</a></li>
+<li><a href="#10-turkiye-adaylar-kant-hipotez-ve-gerekli-analiz">10. Türkiye adayları: kanıt, hipotez ve gerekli analiz</a><ul>
+<li><a href="#101-nemrut-kalderas-arazi-ve-rota-testi-aday">10.1. Nemrut kalderası — arazi ve rota testi adayı</a></li>
+<li><a href="#102-tuz-golu-kuruma-ve-tuzlu-yuzey-surecleri-aday">10.2. Tuz Gölü — kuruma ve tuzlu yüzey süreçleri adayı</a></li>
+<li><a href="#103-salda-yeni-kesif-degil-bilinen-karslastrma-sahas">10.3. Salda — yeni keşif değil, bilinen karşılaştırma sahası</a></li>
+<li><a href="#104-kapadokya-asnms-tuf-arazisi-ve-navigasyon-aday">10.4. Kapadokya — aşınmış tüf arazisi ve navigasyon adayı</a></li>
+<li><a href="#105-bu-asamada-neden-daha-cok-turkiye-ad-eklemiyorum">10.5. Bu aşamada neden daha çok Türkiye adı eklemiyorum?</a></li>
+</ul>
+</li>
+<li><a href="#11-kuresel-genisleme-icin-uc-aday-arastrma-hatt">11. Küresel genişleme için üç aday araştırma hattı</a><ul>
+<li><a href="#111-harrat-khaybar-suudi-arabistan">11.1. Harrat Khaybar, Suudi Arabistan</a></li>
+<li><a href="#112-el-pinacate-meksika">11.2. El Pinacate, Meksika</a></li>
+<li><a href="#113-makgadikgadi-botsvana">11.3. Makgadikgadi, Botsvana</a></li>
+</ul>
+</li>
+<li><a href="#12-onerilen-analiz-yontemi-nasa-standard-degildir">12. Önerilen analiz yöntemi — NASA standardı değildir</a><ul>
+<li><a href="#121-once-hedef-ve-deney-amacn-sabitleyin">12.1. Önce hedef ve deney amacını sabitleyin</a></li>
+<li><a href="#122-karslastrma-ozellikleri">12.2. Karşılaştırma özellikleri</a></li>
+<li><a href="#123-basit-ve-acklanabilir-puanlama">12.3. Basit ve açıklanabilir puanlama</a></li>
+<li><a href="#124-agrlklar-nasl-belirlenebilir">12.4. Ağırlıklar nasıl belirlenebilir?</a></li>
+<li><a href="#125-tek-bir-saha-yerine-tamamlayc-saha-paketi">12.5. Tek bir saha yerine tamamlayıcı saha paketi</a></li>
+</ul>
+</li>
+<li><a href="#13-karslastrmay-bozabilecek-teknik-hatalar">13. Karşılaştırmayı bozabilecek teknik hatalar</a><ul>
+<li><a href="#131-koordinat-sistemleri">13.1. Koordinat sistemleri</a></li>
+<li><a href="#132-cozunurluk-ve-yeniden-ornekleme">13.2. Çözünürlük ve yeniden örnekleme</a></li>
+<li><a href="#133-olcek-secimi">13.3. Ölçek seçimi</a></li>
+<li><a href="#134-bulutlar-golgeler-su-ve-eksik-veri">13.4. Bulutlar, gölgeler, su ve eksik veri</a></li>
+<li><a href="#135-birim-ve-buyukluk-karsklklar">13.5. Birim ve büyüklük karışıklıkları</a></li>
+<li><a href="#136-tarih-ve-mevsim">13.6. Tarih ve mevsim</a></li>
+<li><a href="#137-nedensellik-ve-fizik">13.7. Nedensellik ve fizik</a></li>
+</ul>
+</li>
+<li><a href="#14-veriye-erisim-ve-tekrarlanabilir-calsma-aks">14. Veriye erişim ve tekrarlanabilir çalışma akışı</a><ul>
+<li><a href="#141-en-hzl-resmi-araclar">14.1. En hızlı resmî araçlar</a></li>
+<li><a href="#142-koleksiyonu-surumune-gore-bulun">14.2. Koleksiyonu sürümüne göre bulun</a></li>
+<li><a href="#143-her-girdi-icin-kaynak-kayd">14.3. Her girdi için kaynak kaydı</a></li>
+<li><a href="#144-isleme-sras">14.4. İşleme sırası</a></li>
+</ul>
+</li>
+<li><a href="#15-dogrulama-bir-haritann-bilimsel-iddiasn-nasl-savunursunuz">15. Doğrulama: bir haritanın bilimsel iddiasını nasıl savunursunuz?</a><ul>
+<li><a href="#151-kant-duzeyi-etiketleri">15.1. Kanıt düzeyi etiketleri</a></li>
+<li><a href="#152-bilinen-ve-olumsuz-karslastrmalar">15.2. Bilinen ve olumsuz karşılaştırmalar</a></li>
+<li><a href="#153-belirsizlik-ve-saglamlk-denemeleri">15.3. Belirsizlik ve sağlamlık denemeleri</a></li>
+</ul>
+</li>
+<li><a href="#16-terratwin-icin-somut-urun-onerisi">16. TerraTwin için somut ürün önerisi</a></li>
+<li><a href="#17-48-saatlik-uygulanabilir-calsma-plan">17. 48 saatlik uygulanabilir çalışma planı</a></li>
+<li><a href="#18-sunumda-kullanlabilecek-ve-kacnlacak-ifadeler">18. Sunumda kullanılabilecek ve kaçınılacak ifadeler</a></li>
+<li><a href="#19-ack-kalan-sorular-ve-arastrmann-snrlar">19. Açık kalan sorular ve araştırmanın sınırları</a></li>
+<li><a href="#20-once-okunacak-kaynaklar">20. Önce okunacak kaynaklar</a></li>
+</ul>
+</div>
+</nav><main><div class="stamp">NASA Space Apps 2026 · Araştırma kesimi: 14 Kasım 2026 · Kaynaklar ve hipotezler ayrı belirtilmiştir</div><h1 id="terratwin-nasa-space-apps-2026-arastrma-dosyas">TerraTwin — NASA Space Apps 2026 araştırma dosyası</h1>
+<p><strong>Konu:</strong> Identify Earth Locations that Analog the Permanent Moon Base Locations and Mars<br />
+<strong>Araştırma kesim tarihi:</strong> 14 Kasım 2026, Türkiye tarihi<br />
+<strong>Kaynak politikası:</strong> Resmî görev metni, NASA yayınları, NASA veri servisleri ve NASA görevlerinin resmî arşivleri. Başka Space Apps takımlarının verileri, kodları, sonuçları ve proje fikirleri araştırmaya kaynak yapılmadı.<br />
+<strong>Çalışmanın niteliği:</strong> Kaynak ve veri ürünü araştırması; bilimsel yöntem ve proje tasarımı önerisi. Bu dosyada raster indirilip analiz edilmiş saha sonuçları veya hesaplanmış benzerlik sıralaması bulunmuyor.</p>
+<h2 id="1-ekibiniz-icin-en-onemli-sonuc">1. Ekibiniz için en önemli sonuç</h2>
+<p>TerraTwin’in savunulabilir amacı şu olabilir:</p>
+<blockquote>
+<p>Bir Ay veya Mars hedefinin belirli bir keşif ihtiyacı için, Dünya’da hangi küçük arazi parçalarının yararlı deney ortamı sağlayabileceğini NASA verileriyle araştırmak; eşleşmenin dayanaklarını, eksik verilerini ve geçerli olmadığı koşulları göstermek.</p>
+</blockquote>
+<p>Bu bir <strong>araştırma önerisidir</strong>, NASA’nın onayladığı bir yöntem veya saha seçimi değildir. Yararlı çıktı, yalnızca benzeyen fotoğraflardan oluşan bir galeri yerine, veriden türetilmiş özelliklerle gerekçelendirilen bir karşılaştırma olabilir. İlk sürümde iki hedef profili yeterlidir: Ay güney kutbunda arazi/rota testi ve Mars’ta eski göl/evaporit süreçlerinin incelenmesi. Buz araştırmasını eklemek isterseniz ayrı bir profil olarak ele alın.</p>
+<p>Türkiye odaklı başlangıç için <strong>Nemrut kalderası ve Tuz Gölü’nü aday</strong>, <strong>Salda’yı bilinen karşılaştırma sahası</strong> olarak öneriyorum. “Bu iki aday en iyi analogdur” sonucu çıkarılmadı. Bu tercih, aşağıda tanımlanan veri erişimi ve sınanabilir araştırma soruları üzerinden yapılmış bir çalışma önceliğidir.</p>
+<h2 id="2-gorev-tam-olarak-ne-istiyor">2. Görev tam olarak ne istiyor?</h2>
+<p>Resmî görev, açık Dünya, Ay ve Mars verilerini kullanarak Dünya’da yararlı analog ortamlar tanımlayıp karakterize etmeyi istiyor. Tek bir alanı derinlemesine incelemek de, birkaç alanı karşılaştırmak da, sistematik arama yöntemi geliştirmek de kapsam içinde. Ürünün harita, rapor, uygulama veya başka bir anlatım biçimi olması mümkün. Önemli olan, benzerliğin hangi özelliklerde bulunduğunu ve nerede bozulduğunu açıklamak. <a href="https://www.spaceappschallenge.org/2026/challenges/permanent-moon-base-locations-and-mars/?tab=details">Resmî görev — Details</a></p>
+<p>Görevin NASA kaynak listesi tarayıcıda doğrudan doğrulandı:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Kaynak</th>
+<th>Görevdeki rolü</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://search.earthdata.nasa.gov/">NASA Earthdata Search</a></td>
+<td>Dünya gözlemlerini bulmak ve erişmek</td>
+</tr>
+<tr>
+<td><a href="https://worldview.earthdata.nasa.gov/">NASA Worldview</a></td>
+<td>Uydu görüntüleri ve çevresel katmanları incelemek</td>
+</tr>
+<tr>
+<td><a href="https://pds.nasa.gov/">NASA Planetary Data System</a></td>
+<td>Ay ve Mars görev verilerinin uzun dönem arşivi</td>
+</tr>
+<tr>
+<td><a href="https://pds-geosciences.wustl.edu/missions/lro/">LRO resmî PDS arşivi</a></td>
+<td>Ay için çok araçlı gözlem koleksiyonu</td>
+</tr>
+<tr>
+<td><a href="https://pds-geosciences.wustl.edu/missions/lro/diviner.htm">LRO Diviner</a></td>
+<td>Sıcaklık, kutup ve kaynak ürünleri</td>
+</tr>
+</tbody>
+</table></div>
+<p>Görev başka ajansların verilerine de izin veriyor; sizin isteğiniz doğrultusunda bu araştırmanın veri önerileri NASA ürünleri ve NASA görevleri üzerinden kuruldu. NASA’nın ortak ürettiği ürünler ayrıca belirtildi. <a href="https://www.spaceappschallenge.org/2026/challenges/permanent-moon-base-locations-and-mars/?tab=resources">Resmî görev — Resources</a></p>
+<p>Global ödüller için, görevin Resources bölümünde yer alan NASA kaynaklarından en az birini kullanma koşulu organizasyonun resmî yanıtında açıklanıyor. “Kaynak linki koyduk” ile “veriyi analizde kullandık” ayrımını koruyun; sunumda kullanılan ürün, dosya ve işlemi gösterin. <a href="https://github.com/nasa/spaceapps/discussions/1849">NASA Space Apps organizasyon yanıtı</a></p>
+<h2 id="3-guncellik-denetimi-14-kasm-2026-itibaryla">3. Güncellik denetimi: 14 Kasım 2026 itibarıyla</h2>
+<p>Bir sayfanın son düzenleme tarihi, uydunun ölçüm tarihi değildir. Dört tarihi ayrı kaydedin: <strong>ölçüm zamanı, işleme/sürüm zamanı, yayımlanma zamanı, erişim zamanı</strong>. “Bugün erişildi” ifadesi verinin bugün ölçüldüğünü göstermez.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Konu</th>
+<th>Doğrulanan güncel durum</th>
+<th>Projeye etkisi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LRO genel arşivi</td>
+<td>Release 67, 15 Eylül 2026’da yayımlandı; geciken Mini-RF kısmı 21 Eylül’de eklendi</td>
+<td>Genel arşiv yayını ile her ürünün kapsadığı ölçüm dönemini ayrı kontrol edin</td>
+</tr>
+<tr>
+<td>Diviner</td>
+<td>Release 67 EDR/RDR ölçümleri 16 Mart–15 Haziran 2026</td>
+<td>Yeni ham/kalibre kayıtlar, eski birikimli haritaların da yenilendiği anlamına gelmez</td>
+</tr>
+<tr>
+<td>LOLA</td>
+<td>Release 67’de 24 Mart–13 Haziran 2026 ölçümleri bulunuyor</td>
+<td>Ekibin veri düğümü PDS’nin üç aylık kopyasından daha sık güncellenebilir</td>
+</tr>
+<tr>
+<td>MRO</td>
+<td>1 Eylül 2026 tarihli Release 78 duyurusu mevcut</td>
+<td>CTX/HiRISE ürün kimlikleri ve ölçüm tarihleriyle çalışın</td>
+</tr>
+<tr>
+<td>SHARAD</td>
+<td>Release 78 radargram kapsamı 16 Kasım 2025–9 Şubat 2026; geciken EDR/RDR 4 Eylül’de yayımlandı</td>
+<td>“2026’da yayımlandı” ile “2026’nın tamamını kapsıyor” farklıdır</td>
+</tr>
+<tr>
+<td>MOLA</td>
+<td>MEGDR/SHADR 25 Ağustos 2026’da sürdürülen PDS4 arşivine taşındı</td>
+<td>Arşiv biçimi güncel; yükseklik ölçümleri yeni değil</td>
+</tr>
+<tr>
+<td>EMIT</td>
+<td>19 Ekim 2026 resmî duyurusunda L2B mineral tanımlama V2 ve diğer yeni ürünler açıklandı</td>
+<td>V001’i otomatik olarak en güncel ürün saymayın; yeniden işlenen arşivde AOI kapsamını kontrol edin</td>
+</tr>
+<tr>
+<td>NISAR</td>
+<td>L-band ilk açık bilim verisi yayını 20 Temmuz 2026; başlangıçta 17 Haziran ve sonrasındaki gözlemler</td>
+<td>Yeni bir yardımcı veri seçeneği; tüm tarihlerin/sahaların hazır olduğunu varsaymayın</td>
+</tr>
+<tr>
+<td>HLS</td>
+<td>Resmî güncel açıklama V2.0’ı, 30 m ürünleri ve yaklaşık 2–3 günlük gecikmeyi tanımlıyor</td>
+<td>Güncel yüzey durumu için iyi başlangıç; bulutsuz ölçüm garantisi değildir</td>
+</tr>
+</tbody>
+</table></div>
+<p>Kaynaklar: <a href="https://pds-geosciences.wustl.edu/missions/lro/">LRO yayın takvimi</a>, <a href="https://pds-geosciences.wustl.edu/missions/lro/diviner.htm">Diviner</a>, <a href="https://pds-geosciences.wustl.edu/missions/lro/lola.htm">LOLA</a>, <a href="https://pds.nasa.gov/datasearch/subscription-service/SS-20260901.shtml">MRO Release 78</a>, <a href="https://pds-geosciences.wustl.edu/missions/mro/sharad.htm">SHARAD</a>, <a href="https://pds-geosciences.wustl.edu/missions/mgs/megdr.html">MOLA PDS4 geçişi</a>, <a href="https://forum.earthdata.nasa.gov/viewtopic.php?sid=dae91c5ef96f336491803c0490ce9060&amp;t=8322">EMIT Ekim 2026 duyurusu</a>, <a href="https://forum.earthdata.nasa.gov/viewtopic.php?p=26359&amp;sid=c3064093e30bd71b2c255f9a1900719c&amp;t=8068">NISAR resmî DAAC duyurusu</a>, <a href="https://hls.gsfc.nasa.gov/data-access-and-tools/">HLS erişim bilgisi</a>.</p>
+<p><strong>Dikkat:</strong> LROC, genel LRO teslimlerinden farklı olarak aylık yayımlanır. LRO sayfasında 68B için 13 Kasım 2026 tarihi takvimde yer alıyor; takvim satırını belirli bir ürünün gerçekten indirilebilir olduğunun kanıtı saymayın. Belirli NAC/WAC dosyasının kaydını doğrulayın.</p>
+<p><strong>EMIT için çelişen kataloglar:</strong> Bazı indekslenmiş Earthdata/CMR sayfaları V001’i göstermeye devam ediyor. Ekim duyurusu yeni sürümleri açıklıyor ve tarihsel yeniden işlemenin yaklaşık üç ay süreceğini belirtiyor. Güvenilir yaklaşım: canlı koleksiyon ve sahne sorgusunda hangi sürümün, hangi tarih ve alan için mevcut olduğunu kaydetmek; sürümleri sessizce birleştirmemek.</p>
+<p><strong>Mars bilimi güncel bağlamı:</strong> NASA’nın Mars Science Objectives sayfası 10 Kasım 2026’da güncellenmiş görünüyor; sayfa açıkça taslak olduğunu belirtiyor. Buzun insanlı keşif açısından önemi, hareketli yüzey süreçleri ve jeoteknik karakterizasyon için yararlı bağlam sağlar; bunu nihai mühendislik şartnamesi diye sunmayın. <a href="https://science.nasa.gov/planetary-science/programs/mars-exploration/mars-science-objectives/">NASA Mars Science Objectives — taslak</a></p>
+<h2 id="4-analog-kavramn-bilimsel-olarak-dogru-kurmak">4. Analog kavramını bilimsel olarak doğru kurmak</h2>
+<p>Bir Dünya sahası, bütün bir gezegenin ikizi değildir. Analogluk bir <strong>hedef + özellik + ölçek + deney amacı + zaman</strong> ilişkisi olarak tanımlanmalı.</p>
+<p>Örnek araştırma soruları:</p>
+<ul>
+<li>“Bu kaldera içindeki 2 km’lik koridorun eğim ve yerel rölyef dağılımı, seçtiğimiz Ay kutup koridoruna hangi ölçeklerde benziyor?”</li>
+<li>“Bu tuz düzlüğündeki mevsimsel su kaybı ve mineral yüzeyleri, Mars’ın eski evaporit ortamlarına ilişkin hangi gözlem yöntemlerini sınamaya elverişli?”</li>
+<li>“Bu arazide, gölgeye geçerken görüntü tabanlı navigasyonun hatası nasıl değişiyor?”</li>
+<li>“Bu örtülü buz sahası, bir radar ölçümünün yorumunu ve kazı planlama yöntemini sınamaya yarar mı?”</li>
+</ul>
+<p>Bu soruların cevapları farklı saha sıralamaları üretebilir. Aynı saha, mineral süreçleri açısından yararlı; sıcaklık veya operasyon açısından zayıf olabilir. Bu nedenle tek ve evrensel bir “Mars’a benzerlik yüzdesi” vermek yerine, göreve bağlı benzerlik profili gösterin.</p>
+<p>NASA analog araştırmalarının temel yaklaşımı da birden çok ortamın farklı güçlü yönlerini birlikte kullanmaktır. Bu dosyadaki sayısal yöntem önerileri ise aşağıda açıkça ekibinizin tasarım tercihleri olarak tanımlanmıştır. <a href="https://ntrs.nasa.gov/api/citations/20210017110/downloads/8100_Janoiko_Using%20Earth-Based%20Operational%20Field%20Tests%20as%20High-Fidelity%20Analogs%20for%20Planetary%20Surface%20Exploration.pdf">NASA operasyonel saha testleri çalışması</a></p>
+<h2 id="5-ay-icin-hedef-profilleri">5. Ay için hedef profilleri</h2>
+<h3 id="51-guney-kutbu-us-cevresi-ve-yuzey-hareketliligi">5.1. Güney kutbu: üs çevresi ve yüzey hareketliliği</h3>
+<p>NASA’nın güncel Moon Base açıklaması güney kutbu yakınında bir bölgeyi hedefliyor. Konum seçimi; tekrarlanan inişler, altyapı, kaynaklara erişim ve büyüyen operasyon alanı üzerinden ele alınıyor. Bu araştırmada incelenen güncel resmî açıklama, tek bir kesin üs koordinatı vermiyor. <a href="https://www.nasa.gov/moon-base-frequently-asked-questions/">NASA Moon Base — Sık sorulan sorular</a></p>
+<p>20 Ekim 2026 tarihli NASA rover güncellemesi; arazi haritalama, bilimsel araştırma, kaynak arama ve taşımayı erken üs operasyonlarının parçaları olarak ele alıyor. Bu, analog projenizi soyut görüntü benzerliğinden somut bir mobilite veya keşif deneyine bağlamak için güncel bir gerekçe sağlar. <a href="https://www.nasa.gov/missions/moon-base/nasa-provides-progress-update-on-moon-base-rovers/">NASA Moon Base rover güncellemesi</a></p>
+<p>Kutupsal ortamda düşük açılı ışık uzun gölgeler üretir; arazi, enerji ve hareketlilik kararları birbirine bağlıdır. Sürekli gölgeli bölgelerdeki uçucuların dağılımı aynı değildir. Keskin ve aşındırıcı regolit de uzun süreli operasyonların önemli bir parçasıdır. Dolayısıyla “en düz alan” tek başına yeterli hedef tanımı oluşturmaz. <a href="https://www.nasa.gov/reference/moonbase-environment/">NASA Lunar South Pole Environment</a></p>
+<p><strong>Önerilen ölçülebilir özellikler:</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Özellik</th>
+<th>Türetilme biçimi</th>
+<th>Dünya analogunda test edilebilecek konu</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Eğim dağılımı</td>
+<td>Aynı fiziksel ölçekte DEM türevleri; medyan, üst yüzdelikler</td>
+<td>Rota seçimi, görüş kaybı, eğimli yüzey hareketi</td>
+</tr>
+<tr>
+<td>Yerel rölyef</td>
+<td>Belirli yarıçapta yükseklik aralığı</td>
+<td>Koridor ve sırt geçişleri</td>
+</tr>
+<tr>
+<td>Pürüzlülük</td>
+<td>Düzleme göre yükseklik artıklarının dağılımı</td>
+<td>Büyük ölçekli arazi karmaşıklığı</td>
+</tr>
+<tr>
+<td>Ufuk engellenmesi</td>
+<td>DEM üzerinde yönlere göre ufuk açısı</td>
+<td>Düşük açılı aydınlatmada görüş</td>
+</tr>
+<tr>
+<td>Gölge geometrisi</td>
+<td>Hedefe uygun Güneş konumu ve arazi modeli</td>
+<td>Görüntü işleme ve navigasyon</td>
+</tr>
+<tr>
+<td>Kaynak-hedef erişimi</td>
+<td>Seçilen soğuk bölge ile operasyon noktası arasında maliyetli rota</td>
+<td>Keşif/örnekleme görev tasarımı</td>
+</tr>
+</tbody>
+</table></div>
+<p>Dünya’daki doğal bir krater gölgesini, Ay’daki sürekli gölgeli bölgenin termal eşdeğeri kabul etmeyin. Topografik gölge benzerliği ile vakum altındaki ısıl rejim farklı iddialardır. Dünya DEM’i ile yapılacak aydınlatma simülasyonu da gözlem değil, model çıktısıdır.</p>
+<h3 id="52-tarihsel-aday-bolgeler-nasl-kullanlmal">5.2. Tarihsel aday bölgeler nasıl kullanılmalı?</h3>
+<p>28 Ekim 2024 NASA açıklamasındaki dokuz bölge: Peak near Cabeus B, Haworth, Malapert Massif, Mons Mouton Plateau, Mons Mouton, Nobile Rim 1, Nobile Rim 2, de Gerlache Rim 2 ve Slater Plain. Bunları tarihli bir referans listesi olarak kullanabilirsiniz. Bu açıklamanın eski Artemis III görev tanımını, bugünün görev takvimi veya kesin kalıcı üs seçimi gibi aktarmayın. <a href="https://www.nasa.gov/news-release/nasa-provides-update-on-artemis-iii-moon-landing-regions/">2024 NASA bölge duyurusu</a></p>
+<p>Başlangıç için bu bölgelerden yalnızca birinde, veri kapsamı doğrulanan küçük bir analiz alanı seçin. Nokta adı ile analiz poligonunu karıştırmayın: isim aynı kalsa bile poligon büyüklüğü eğim ve rölyef istatistiklerini değiştirecektir.</p>
+<h3 id="53-bazaltik-duzlukler-ve-magaralar">5.3. Bazaltik düzlükler ve mağaralar</h3>
+<p>Ay’ın mare alanlarının bazaltik geçmişi, Dünya lav sahalarını belirli jeolojik ve operasyonel testler için anlamlı kılar. Ancak böyle bir saha güney kutbundaki eski çarpma arazilerinin tümünü temsil etmez. <a href="https://science.nasa.gov/resource/wrinkle-ridge-in-mare-crisium/">NASA Mare Crisium açıklaması</a></p>
+<p>Mare Tranquillitatis çukuruyla ilişkili mağara kanıtı, 2010 Mini-RF ölçümlerinin yeniden analizinden raporlandı. Bu, mağara/yeraltı keşif yöntemleri için ayrı bir araştırma hattını destekler. Oradaki kanıtı güney kutbunda uygun, erişilebilir bir mağara veya hazır barınak bulunduğu şeklinde genişletmeyin. <a href="https://science.nasa.gov/solar-system/moon/new-evidence-adds-to-findings-hinting-at-network-of-caves-on-moon/">NASA mağara kanıtı — 18 Temmuz 2024</a></p>
+<h2 id="6-mars-icin-birbirinden-ayrlmas-gereken-hedefler">6. Mars için birbirinden ayrılması gereken hedefler</h2>
+<h3 id="61-jezero-eski-gol-ve-karbonat-surecleri">6.1. Jezero: eski göl ve karbonat süreçleri</h3>
+<p>Jezero profili; eski göl, delta, sediment taşınımı, karbonatlar ve olası biyoişaretlerin korunması açısından kurulabilir. Türkiye’deki Salda, NASA’nın bu ilişkiyi zaten araştırdığı bilinen bir sahadır. Burada karşılaştırma <strong>günümüz Mars yüzeyinde açık bir göl</strong> varsayımına dayanmaz; Mars’ın eski çevresini anlamaya yöneliktir. <a href="https://science.nasa.gov/earth/earth-observatory/jez-like-mars-147041/">NASA Salda–Jezero araştırma bağlamı</a></p>
+<p>Ölçülebilir öneriler: kıyı/teras geometrisi, drenaj ve yelpaze düzeni, seçilmiş yüzey mineral sınıfları, çıplak yüzey oranı. Uydu görüntüsü biyoişareti doğrulamaz; sahadan örnek, mikroskopi ve mineralojik inceleme ayrı kanıt gerektirir.</p>
+<p><strong>Güncel bilimsel bağlam:</strong> NASA’nın 10 Eylül 2025 açıklamasında, Cheyava Falls kayasından alınan Sapphire Canyon örneği için potansiyel biyoişaretler bildirildi. Bu ifade yaşamın doğrulandığı anlamına gelmiyor. Görüntü veya genel mineral benzerliği üzerinden yaşam sonucu çıkarılmaması, analog çalışmanızda da korunmalı. <a href="https://www.jpl.nasa.gov/images/pia26640-perseverances-pixl-finds-vivianite-greigite-in-cheyava-falls-sample/">NASA/JPL PIXL ve mineral bulguları</a></p>
+<p>12 Ekim 2026 NASA görev güncellemesi, Perseverance’ın eski göl tabanından nehir sistemine ve krater kenarındaki farklı jeolojik ortamlara ilerlediğini vurguluyor. Bu nedenle “Jezero analoğu” etiketini kullanırken hangi alt ortamı hedeflediğinizi söyleyin: göl kıyısı, nehir çökelimi, karbonat birimi veya başka bir hedef aynı problem değildir. <a href="https://science.nasa.gov/blogs/perseverance-mars-rover/2026/10/12/nasas-perseverance-sets-off-world-record-for-total-distance-driven/">NASA Perseverance — Ekim 2026 bilim/rota bağlamı</a></p>
+<h3 id="62-orta-enlemler-gomulu-buz-ve-kaynak-kesfi">6.2. Orta enlemler: gömülü buz ve kaynak keşfi</h3>
+<p>SWIM, MRO, Mars Odyssey ve Mars Global Surveyor gözlemlerini bir araya getirerek yüzey altı buz kanıtlarını haritalıyor. NASA’nın 2023 kamuya açık haritaları, yüzeye yakın buzun olası dağılımını ve bazı doğrulayıcı çarpma gözlemlerini anlatıyor. Tarihsel bir kaynak olduğu için bunu “2026’da yeni çekilmiş küresel buz haritası” diye etiketlemeyin. <a href="https://science.nasa.gov/resource/swim-map-shows-subsurface-water-ice-on-mars/">NASA SWIM haritası</a></p>
+<p>SWIM’in farklı derinlik aralıklarına ait ürünlerini karıştırmayın. NASA’nın 2024–2044 Mars planındaki görselde 1–5 m aralığı ayrıca belirtiliyor. Harita rengi, tek başına buz saflığı, kazı verimi veya endüstriyel su rezervi anlamına gelmez. <a href="https://assets.science.nasa.gov/content/dam/science/psd/solar-system/mars/campaigns/mars-future-plan/20241204_Mars_Future_Plan_Final_Print.pdf">NASA Mars Exploration Program planı</a></p>
+<p>Arcadia Planitia, NASA’nın önceki kaynak çalışmalarında yüzeye yakın buz açısından ilgi çekici bir bölge olarak ele alınmıştır. Bunu ilk insanlı Mars iniş yerinin kesin seçildiği şeklinde sunmayın. Profilinizi “Arcadia’da seçilmiş bir çalışma alanında buz erişimi” olarak adlandırın. <a href="https://www.nasa.gov/solar-system/nasas-treasure-map-for-water-ice-on-mars/?site=msl">NASA Arcadia bağlamı</a></p>
+<p><strong>Dünya’da test edilebilecek işler:</strong> örtü altı buz arama, radar yorumlama, yüzey özelliği ile yeraltı hedefi arasındaki ilişkinin sınanması, örnekleme rotası tasarımı. Dünya’da su veya kar görmek, o noktada uygun derinlikte gömülü buz bulunduğunu kanıtlamaz.</p>
+<h3 id="63-bazaltik-ve-ruzgarla-sekillenmis-yuzeyler">6.3. Bazaltik ve rüzgârla şekillenmiş yüzeyler</h3>
+<p>Volkanik jeoloji, iri bloklu yüzey hareketi, kum dalgaları ve tozun aletler üzerindeki etkisi ayrı test amaçları olabilir. NASA BASALT çalışması, bazalt sahalarında bilimsel araştırma ile insanlı görev operasyonlarını birlikte sınamanın bir örneğidir. <a href="https://www.nasa.gov/missions/analog-field-testing/what-is-basalt/">NASA BASALT</a></p>
+<p>Mars’ın ince atmosferi ve farklı yerçekimi, Dünya’daki aynı rüzgâr hızının aynı tane hareketini üretmesini engeller. Arazinin benzer görünmesi, rüzgârla taşınma eşiğinin veya tozun elektrostatik davranışının eşit olduğu anlamına gelmez. Bu nedenle kumul geometrisini, atmosferik toz yoğunluğunu ve tekerlek-zemin etkileşimini tek değişkenmiş gibi puanlamayın.</p>
+<h2 id="7-dunya-veri-katalogu-neyi-hangi-urunle-olcebilirsiniz">7. Dünya veri kataloğu: neyi, hangi ürünle ölçebilirsiniz?</h2>
+<h3 id="71-cekirdek-veri-paketi">7.1. Çekirdek veri paketi</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Ürün</th>
+<th>Sürüm / ölçek</th>
+<th>Kullanım</th>
+<th>Sınırlama / erişim</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NASADEM_HGT</td>
+<td>V001; 1 yay-saniyesi, ekvatorda yaklaşık 30 m</td>
+<td>Eğim, rölyef, arazi şekli</td>
+<td>Temel SRTM ölçümleri Şubat 2000; yaklaşık 60°K–56°G; kutupları kapsamaz</td>
+</tr>
+<tr>
+<td>ASTER GDEM / ASTGTM</td>
+<td>V003; 1 yay-saniyesi</td>
+<td>Daha yüksek enlemlerde topografya</td>
+<td>Yaklaşık 83°K–83°G; boşluk/artifakt ve kalite bilgisi kontrol edilmeli</td>
+</tr>
+<tr>
+<td>HLSL30 / HLSS30</td>
+<td>V2.0 / 002; 30 m</td>
+<td>Güncel yüzey yansıtımı, bitki/su/çıplak yüzey taraması</td>
+<td>Bulut, gölge, kar ve su kalite bayrakları gerekli; NASA işlenmiş ortak kaynaklı ürün</td>
+</tr>
+<tr>
+<td>MOD11A1</td>
+<td>V061; günlük, yaklaşık 1 km</td>
+<td>Uzun dönem gündüz/gece yüzey sıcaklığı</td>
+<td>Açık gökyüzü örneklemesi; hava sıcaklığı değildir</td>
+</tr>
+<tr>
+<td>ECO_L2T_LSTE</td>
+<td>V002; nominal 70 m</td>
+<td>Daha yerel yüzey sıcaklığı ve emissivite</td>
+<td>ISS gözlem alanı ve geçiş saatleri; her alan/her gün gözlenmez</td>
+</tr>
+<tr>
+<td>EMIT L2B mineral tanımlama</td>
+<td>Ekim 2026 duyurusuyla V2; nominal 60 m</td>
+<td>Yüzey mineral göstergeleri, alterasyon/evaporit taraması</td>
+<td>Hedefli kapsam; bitki, su, bulut ve düşük güven sonuçlarını maskeleyin</td>
+</tr>
+</tbody>
+</table></div>
+<p>Kaynaklar: <a href="https://data.nasa.gov/dataset/nasadem-merged-dem-global-1-arc-second-v001">NASADEM ürün açıklaması</a>, <a href="https://asterweb.jpl.nasa.gov/gdem.asp">ASTER GDEM V3</a>, <a href="https://hls.gsfc.nasa.gov/data-products/">HLS ürünleri</a>, <a href="https://search.earthdata.nasa.gov/portal/idn/search?fi=MODIS">MODIS ürün açıklaması</a>, <a href="https://search.earthdata.nasa.gov/search?q=ECOSTRESS+V002">ECOSTRESS V002 kataloğu</a>, <a href="https://forum.earthdata.nasa.gov/viewtopic.php?sid=dae91c5ef96f336491803c0490ce9060&amp;t=8322">EMIT yeni sürüm duyurusu</a>.</p>
+<h3 id="72-tamamlayc-veri-paketi">7.2. Tamamlayıcı veri paketi</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Ürün / servis</th>
+<th>Ölçek</th>
+<th>Yararı</th>
+<th>Yapılmaması gereken çıkarım</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NASA POWER</td>
+<td>Meteoroloji 0,5° × 0,625°; güneş parametreleri 1° × 1°</td>
+<td>İklim ve bölgesel enerji bağlamı</td>
+<td>Bir krater yamacının yerel sıcaklığını veya gölgesini çözdüğü varsayımı</td>
+</tr>
+<tr>
+<td>GPM IMERG V07 ailesi</td>
+<td>0,1°; yarım saatlik ve türetilmiş zaman ölçekleri</td>
+<td>Yağış rejimi ve kuraklık bağlamı</td>
+<td>Küçük AOI’de yerel mikroiklim veya kesin sıfır yağış kanıtı</td>
+</tr>
+<tr>
+<td>MERRA-2 M2T1NXAER</td>
+<td>V5.12.4; saatlik, 0,5° × 0,625°</td>
+<td>Bölgesel aerosol/toz bağlamı</td>
+<td>Kolon aerosolünü zemindeki tane boyutu veya kaya yoğunluğu sanmak</td>
+</tr>
+<tr>
+<td>NISAR L-band</td>
+<td>Ürüne bağlı</td>
+<td>Yüzey değişimi, radar geri saçılımı ve uygun koşullarda deformasyon araştırması</td>
+<td>Tek radar görüntüsüyle mineral, mağara veya gömülü buzun kesin tespiti</td>
+</tr>
+<tr>
+<td>Worldview / GIBS</td>
+<td>Katmana bağlı görsel ölçek</td>
+<td>Keşif, tarih karşılaştırması ve arayüz</td>
+<td>Renklendirilmiş ekran pikselini kalibre fiziksel veri yerine kullanmak</td>
+</tr>
+</tbody>
+</table></div>
+<p>Kaynaklar: <a href="https://power.larc.nasa.gov/docs/services/">POWER hizmetleri</a>, <a href="https://gpm.nasa.gov/data/directory">GPM güncel veri dizini</a>, <a href="https://cmr.earthdata.nasa.gov/search/site/collections/directory/GES_DISC/gov.nasa.eosdis">MERRA-2 katalog dizini</a>, <a href="https://forum.earthdata.nasa.gov/viewtopic.php?p=26359&amp;sid=c3064093e30bd71b2c255f9a1900719c&amp;t=8068">NISAR yayın duyurusu</a>, <a href="https://worldview.earthdata.nasa.gov/">Worldview</a>.</p>
+<p>IMERG Final ürününün yaklaşık 3,5 aylık gecikmesi vardır; daha yeni veriye ihtiyaç duyulduğunda Early/Late ile Final’i etiketlemeden karıştırmayın. POWER meteoroloji verisinin yakın tarihli kısmı da daha sonra iklim kalitesindeki ürünlerle değişebilir. “En yeni” ve “karşılaştırmada en tutarlı” seçimleri her zaman aynı değildir. <a href="https://gpm.nasa.gov/resources/documents/imerg-v07-technical-documentation">IMERG dokümantasyonu</a>, <a href="https://power.larc.nasa.gov/docs/services/">POWER veri uyarıları</a></p>
+<h3 id="73-emiti-dogru-kullanma">7.3. EMIT’i doğru kullanma</h3>
+<p>EMIT, Dünya’nın özellikle kurak toz kaynaklarının yüzey mineralojisini araştırır. Kapsamı tüm Dünya’nın kesintisiz 60 m mineral haritası değildir. Aday poligon üzerinde sahne olup olmadığını, sahnenin geçerli piksellerini ve mineral tanımlama belirsizliğini kontrol edin. <a href="https://search.earthdata.nasa.gov/search?fpj=GEMx%21EMIT">NASA EMIT kapsam açıklaması</a></p>
+<p>L3 EMITL3ASA V002, L2B ile aynı ürün değildir: 0,5° düzeyinde toplulaştırılmış ve belirli tarihsel gözlemlere dayanan bir mineral spektral bolluk ürünüdür. Küçük bir kıyı şeridini veya kaldera yamacını karakterize etmek için 60 m L2B’nin yerine geçmez. <a href="https://data.nasa.gov/dataset/emit-l3-aggregated-mineral-spectral-abundance-and-uncertainty-0-5-deg-v002">NASA EMIT L3 ürün açıklaması</a></p>
+<p>EMIT ve CRISM mineral sınıfları arasında bir eşleme sözlüğü gerekir. Aynı genel “karbonat” etiketi; aynı mineral türü, tane boyutu, karışım oranı veya oluşum süreci demek değildir. Örneğin Salda’daki hidromanyezit ile Mars’taki karbonatların birebir aynı kimyasal bileşimde olduğu ileri sürülmemeli.</p>
+<h3 id="74-ecostress-ve-scaklk-karslastrmas">7.4. ECOSTRESS ve sıcaklık karşılaştırması</h3>
+<p>V002 ECOSTRESS ürünlerinde, V001’deki QC katmanından alışılmış bulut bilgisinin aynı biçimde bulunmadığına ilişkin katalog uyarısı var. Ürünün ilgili bulut/su katmanlarını ve kullanıcı kılavuzunu izleyin. Geçiş saati, görüş açısı ve açık gökyüzü seçilimi sıcaklık istatistiklerini etkiler. <a href="https://search.earthdata.nasa.gov/search?q=ECOSTRESS+V002">ECOSTRESS V002 ve veri uyarısı</a></p>
+<p>Bir sahnenin yüzey sıcaklığını başka sahnenin farklı saatteki sıcaklığıyla karşılaştırmak yerine, yerel saat ve mevsim açısından uyumlu gözlemleri seçin. MODIS gündüz/gece örneklerinin farkını, ölçülmüş tam günlük maksimum-minimum aralığı gibi adlandırmayın. Termal atalet türetmek ayrıca model, sınır koşulları ve doğrulama gerektirir.</p>
+<h3 id="75-nasadem-ve-aster-icin-kritik-ayrmlar">7.5. NASADEM ve ASTER için kritik ayrımlar</h3>
+<p>NASADEM’in adı küresel olsa da yüksek kutupları kapsamaz. Antarktika veya Devon Adası için aynı ürünü zorlamayın. ASTER’in daha geniş enlem kapsamı da kaliteli ve eksiksiz yerel topografyayı garanti etmez. Kapsamın son enlem sınırları ile etkin piksel kalitesini ayrı denetleyin.</p>
+<p>1 yay-saniyelik grid, her enlemde iki yönde de 30 m kare piksel değildir. Eğim hesabından önce uygun metre tabanlı yerel projeksiyon kullanın. Uydudan türetilmiş bir DEM’i bütün alanlarda ağaç ve yapılardan tamamen arındırılmış mühendislik arazi modeli olarak kabul etmeyin.</p>
+<p>ASTER’in SWIR alt sistemi tarihsel bir sınırlamaya sahiptir; yeni VNIR/TIR görüntüsü var diye güncel SWIR mineraloji ölçümü de var denemez. Sahne tarihi ve kullanılabilir bantları kontrol edin. NASA’nın 2025 işletim duyurusu VNIR/TIR’deki veri boşluklarını da açıklıyor. <a href="https://asterweb.jpl.nasa.gov/">ASTER resmî durum sayfası</a></p>
+<p>SWIR ölçümleri Nisan 2008’den itibaren kullanılamaz olarak işaretlenmiştir. Güncel mineral araştırması için eski SWIR bantlarını yeni çekilmiş gibi sunmayın. <a href="https://asterweb.jpl.nasa.gov/swir-alert.asp">NASA/JPL ASTER SWIR kullanıcı uyarısı</a></p>
+<h2 id="8-ay-ve-mars-veri-katalogu">8. Ay ve Mars veri kataloğu</h2>
+<h3 id="81-ay">8.1. Ay</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Veri</th>
+<th>Ne sağlar?</th>
+<th>Başlangıç tercihi</th>
+<th>Kritik sınır</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LOLA / PGDA 87–90°G mozaik</td>
+<td>Yükseklik, eğim, ölçüm sayısı</td>
+<td>5 m/piksel GeoTIFF; seçilmiş AOI</td>
+<td>Grid aralığı ile etkin çözünürlük aynı değildir</td>
+</tr>
+<tr>
+<td>LOLA / PGDA geniş kutup ürünleri</td>
+<td>DEM, eğim, hata, etkin çözünürlük, pürüzlülük</td>
+<td>Örneğin 80–90°G için 20 m ürün ailesi</td>
+<td>Büyük dosyalar; ara ürünler ve hata katmanları birlikte alınmalı</td>
+</tr>
+<tr>
+<td>PGDA Shape-from-Shading</td>
+<td>LOLA’ya bağlı, NAC görüntüleriyle geliştirilmiş topografya</td>
+<td>Uygun bölgelerde 5 m gridli SDEM</td>
+<td>Aydınlatılmış alanlardaki fotometrik model; doğrudan yeni lazer örneklemesi değildir</td>
+</tr>
+<tr>
+<td>LROC NAC / WAC</td>
+<td>Yüksek çözünürlüklü görüntü ve geniş alan bağlamı</td>
+<td>Ortorektifiye/haritalanmış uygun RDR</td>
+<td>Nominal görev ölçeği tüm sahnelerde geçerli değildir; gölge ve çekim geometrisi önemlidir</td>
+</tr>
+<tr>
+<td>Diviner RDR</td>
+<td>Kalibre radyometrik gözlemler</td>
+<td>Ürün etiketi ve kanala göre</td>
+<td>Eksik veri ve kanal sorunları maskeleme gerektirir</td>
+</tr>
+<tr>
+<td>Diviner PCP / PRP</td>
+<td>Kutup birikimli ve kaynakla ilişkili türetilmiş katmanlar</td>
+<td>Hazır harita için önce bunları inceleyin</td>
+<td>Gözlem dönemi ve model varsayımları RDR’den farklıdır</td>
+</tr>
+<tr>
+<td>LEND / Mini-RF</td>
+<td>Hidrojen göstergeleri / radar özellikleri</td>
+<td>Buz araştırmasında yardımcı kanıt</td>
+<td>Tek başına erişilebilir su rezervi veya mağara garantisi vermez</td>
+</tr>
+</tbody>
+</table></div>
+<p>Kaynaklar: <a href="https://pgda.gsfc.nasa.gov/products/81">PGDA 5 m kutup mozaiği</a>, <a href="https://pgda.gsfc.nasa.gov/products/90">PGDA geniş kutup ürünleri ve belirsizlik katmanları</a>, <a href="https://pgda.gsfc.nasa.gov/products/104">PGDA SDEM</a>, <a href="https://pds.nasa.gov/ds-view/pds/viewProfile.jsp?dsid=LRO-L-LROC-5-RDR-V1.0">LROC RDR ürün tanımı</a>, <a href="https://pds-geosciences.wustl.edu/missions/lro/diviner.htm">Diviner</a>, <a href="https://pds-geosciences.wustl.edu/missions/lro/">LRO arşivi</a>.</p>
+<p><strong>Doğrudan kullanılabilir dosya ailesi örnekleri:</strong> <code>LDEM_80S_20MPP_ADJ.TIF</code>, <code>LDEM_80S_20MPP_ADJ_EFFRES.TIF</code>, <code>LDEM_80S_20MPP_ADJ_ERR.TIF</code>, <code>LDSM_80S_20MPP_ADJ.TIF</code>. İsimler NASA PGDA sayfasında doğrulandı. Aynı dosya ailesinin çözünürlük, hata ve ölçüm yoğunluğu bilgilerini birlikte incelemek, yalnızca renkli hillshade göstermeye göre daha güçlü kanıt üretir.</p>
+<p>PGDA’daki pürüzlülük ürünleri belirli fiziksel taban uzunluklarına göre tanımlıdır. Örneğin 100 m ve 800 m tabanlar farklı arazi özelliklerini anlatır; bunları farklı Dünya pencereleriyle karşılaştırmayın. Kutup ürünleri metre tabanlı güney kutup stereografik koordinatlarla ve MOON_ME / DE421 referansıyla sunuluyor. <a href="https://pgda.gsfc.nasa.gov/products/90">PGDA ürün tanımları</a></p>
+<p>Diviner arşiv uyarısı, bazı RDR kanallarında eksik parlaklık sıcaklığı bulunduğunu ve eksik <code>tb</code> değerlerinin <code>-9999</code> ile gösterildiğini belirtiyor. Bu değerleri sıcaklık istatistiğine katmayın. Ayrıca kalibre kanal parlaklık sıcaklığı ile türetilmiş fiziksel yüzey sıcaklığı ürününü eşanlamlı kullanmayın. <a href="https://pds-geosciences.wustl.edu/missions/lro/diviner.htm">Diviner veri kalitesi notu</a></p>
+<h3 id="82-mars">8.2. Mars</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Veri</th>
+<th>Ölçek / özellik</th>
+<th>Kullanım</th>
+<th>Kritik sınır</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MGS MOLA MEGDR</td>
+<td>Küreselde 128 piksel/dereceye kadar; ekvatorda yaklaşık 463 m grid</td>
+<td>Bölgesel yükseklik, büyük ölçekli rölyef</td>
+<td>Rover tekerleği, küçük kaya veya 30 m eğim haritası için yeterli değildir</td>
+</tr>
+<tr>
+<td>MRO CTX</td>
+<td>Nominal yaklaşık 6 m/piksel görüntü</td>
+<td>Arazi şekli, krater/delta/lav bağlamı</td>
+<td>Görüntü tek başına DEM değildir; stereo ve işleme ayrı gerekir</td>
+</tr>
+<tr>
+<td>MRO HiRISE</td>
+<td>Uygun gözlemlerde yaklaşık 25–32 cm/piksel</td>
+<td>Yerel bloklar, küçük arazi şekilleri, stereo DTM</td>
+<td>Küresel kesintisiz kapsama sahip değildir</td>
+</tr>
+<tr>
+<td>MRO CRISM</td>
+<td>Hedefli modlarda yaklaşık 18 veya 36 m/piksel</td>
+<td>Mineral imzaları ve alterasyon</td>
+<td>Gözlem modu ve spektral kaliteye bağlı; 2023’te kapatıldı</td>
+</tr>
+<tr>
+<td>Mars Odyssey THEMIS</td>
+<td>TIR görüntüleri/haritaları; ürüne göre</td>
+<td>Isıl yüzey özellikleri ve yerel bağlam</td>
+<td>Bir IR mozaik otomatik olarak kalibre termal atalet haritası değildir</td>
+</tr>
+<tr>
+<td>MGS TES</td>
+<td>Küresel termal/mineral bağlam</td>
+<td>Geniş ölçekte karşılaştırma</td>
+<td>CTX/HiRISE kadar yerel ayrıntı içermez</td>
+</tr>
+<tr>
+<td>MRO SHARAD</td>
+<td>Yüzey altı radargramları</td>
+<td>Büyük ölçekli yeraltı katmanları/buz kanıtları</td>
+<td>Yüzeyden kaynaklanan yanıltıcı yankılar ve radar çözünürlüğü</td>
+</tr>
+<tr>
+<td>SWIM</td>
+<td>Birden çok gözlemin sentezi</td>
+<td>Buzla tutarlılık ve kaynak keşif profili</td>
+<td>Olasılık/tutarlılık ile konsantrasyon veya rezerv farklı büyüklüklerdir</td>
+</tr>
+<tr>
+<td>Mars 2020 / MSL yer ölçümleri</td>
+<td>Alete ve güzergâha bağlı</td>
+<td>Jezero/Gale’de gerçek yer gözlemleri</td>
+<td>Bir rover güzergâhını tüm Mars’ın yüzey koşulları saymayın</td>
+</tr>
+</tbody>
+</table></div>
+<p>Kaynaklar: <a href="https://pds-geosciences.wustl.edu/missions/mgs/megdr.html">MOLA MEGDR</a>, <a href="https://science.nasa.gov/resource/a-decade-of-compiling-the-sharpest-mars-map/">CTX görev ölçeği</a>, <a href="https://pds-imaging.jpl.nasa.gov/documentation/HiRISE_RDR_v12_DTM_11_25_2009.pdf">HiRISE arşiv spesifikasyonu</a>, <a href="https://pds-geosciences.wustl.edu/mro/mro-m-crism-3-rdr-targeted-v1/mrocr_2110/document/crism_dpsis.htm">CRISM modları</a>, <a href="https://www.jpl.nasa.gov/news/nasa-retires-mineral-mapping-instrument-on-mars-orbiter/">CRISM’in kapatılması</a>, <a href="https://trek.nasa.gov/tiles/apidoc/trekAPI.html?body=mars">Mars Trek katman kataloğu</a>, <a href="https://pds-geosciences.wustl.edu/missions/mro/sharad.htm">SHARAD arşivi</a>, <a href="https://www.nasa.gov/solar-system/planets/mars/nasa-is-locating-ice-on-mars-with-this-new-map/">SWIM NASA açıklaması</a>, <a href="https://pds.nasa.gov/">PDS</a>.</p>
+<p>MOLA’nın 128 piksel/derece ızgarası için yaklaşık 463 m değeri Mars’ın ekvator çevresinden hesaplanan grid aralığıdır; yerel gerçek çözünürlük veya doğruluk garantisi değildir. Yükseklik, gezegen yarıçapı ve areoid ürünleri farklıdır; aynı <code>megr</code>/<code>megt</code> ailesini yanlış yorumlamayın. <a href="https://pds-geosciences.wustl.edu/missions/mgs/megdr.html">MOLA ürün açıklaması</a></p>
+<p>CRISM’in 3 Nisan 2023’te kapatılmış olması, arşivdeki bilimsel verinin işe yaramadığı anlamına gelmez. “Yeni CRISM ölçümü” yerine, varsa güncel işlenmiş arşiv ürününden söz edin. <a href="https://www.jpl.nasa.gov/news/nasa-retires-mineral-mapping-instrument-on-mars-orbiter/">NASA/JPL CRISM duyurusu</a></p>
+<h2 id="9-bilinen-dunya-analoglar-karslastrma-icin-baslangc-kumesi">9. Bilinen Dünya analogları: karşılaştırma için başlangıç kümesi</h2>
+<p>Bu sahalar kendi çalışmanızın dış doğrulaması için yararlı olabilir; “ilk kez keşfettik” iddiasına dayanak değildir. Aşağıdaki açıklamalar NASA’daki resmî bilim bağlamına dayanır; saha erişim koşullarının güncel olarak uygun olduğu sonucunu içermez.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Saha</th>
+<th>Temel karşılaştırma boyutu</th>
+<th>Deney örneği</th>
+<th>Analojinin sınırı</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Atacama, Şili</td>
+<td>Kurak çevre ve biyoişaret araştırması</td>
+<td>Düşük organik sinyalde örnekleme/alet yaklaşımı</td>
+<td>Dünya atmosferi ve biyolojisi mevcut</td>
+</tr>
+<tr>
+<td>Haughton / Devon Adası, Kanada</td>
+<td>Çarpma arazisi, kutup çölü, uzak operasyon</td>
+<td>Jeoloji rotaları ve görev lojistiği</td>
+<td>Ay vakumu veya Mars atmosferi yok</td>
+</tr>
+<tr>
+<td>McMurdo Dry Valleys, Antarktika</td>
+<td>Soğuk çöl</td>
+<td>Çevresel örnekleme ve yaşam tespiti yaklaşımı</td>
+<td>Ay kutup sıcaklık rejimiyle eşdeğer değil</td>
+</tr>
+<tr>
+<td>University Valley, Antarktika</td>
+<td>Buzla çimentolanmış zemin</td>
+<td>Yeraltı örneklemesi</td>
+<td>Yerel mikrobiyoloji ve ısıl koşullar ayrı</td>
+</tr>
+<tr>
+<td>Kīlauea / Hawaii</td>
+<td>Bazalt ve saha operasyonları</td>
+<td>Örnek seçimi, ekip/robot iş bölümü</td>
+<td>Kutup krater jeolojisini temsil etmez</td>
+</tr>
+<tr>
+<td>Craters of the Moon, Idaho</td>
+<td>Lav yüzeyi ve volkanik jeoloji</td>
+<td>Arazi tanıma ve jeoloji eğitimi</td>
+<td>Regolitin uzayda değişimi farklı</td>
+</tr>
+<tr>
+<td>Askja çevresi, İzlanda</td>
+<td>Örtülü buz ve dalgalı yüzeyler</td>
+<td>Radar ve yüzey şekli izleme</td>
+<td>Dünya’nın su döngüsü ve atmosferi etkin</td>
+</tr>
+<tr>
+<td>Medicine Lake çevresi, Kaliforniya</td>
+<td>Lav mağaraları</td>
+<td>Yeraltı haritalama ve algılama</td>
+<td>Ay mağarasının mekanik dayanımı buradan doğrudan çıkmaz</td>
+</tr>
+<tr>
+<td>Death Valley, Kaliforniya</td>
+<td>Bloklu yüzey ve tehlike algılama</td>
+<td>Görsel navigasyon testi</td>
+<td>Mineral ve ısıl benzerlik ayrıca doğrulanmalı</td>
+</tr>
+<tr>
+<td>Salda, Türkiye</td>
+<td>Eski göl süreçleri ve karbonatlar</td>
+<td>Jezero yorumu, örnekleme stratejisi</td>
+<td>Güncel Mars iklimi veya üs inşası analoğu değil</td>
+</tr>
+</tbody>
+</table></div>
+<p>Kaynaklar: <a href="https://astrobiology.nasa.gov/research-locations/">NASA Astrobiology saha listesi</a>, <a href="https://ntrs.nasa.gov/api/citations/20060013129/downloads/20060013129.pdf">NASA Haughton raporu</a>, <a href="https://www.nasa.gov/missions/analog-field-testing/what-is-basalt/">NASA BASALT</a>, <a href="https://science.nasa.gov/earth/earth-observatory/moonscapes-of-idaho-154207/">NASA Moonscapes of Idaho</a>, <a href="https://science.nasa.gov/solar-system/analog-explorer/">NASA Analog Explorer</a>, <a href="https://science.nasa.gov/blogs/earth-matters/2021/02/17/what-a-lake-in-turkey-can-tell-us-about-mars/">NASA Salda saha anlatımı</a>.</p>
+<p>NASA Analog Explorer, Medicine Lake mağara çalışmalarını, İzlanda’daki buz radarını, Death Valley’deki tehlike algılama hazırlığını ve Salda–Jezero ilişkisini örnekliyor. Bu örnekleri bir değerlendirme ölçütü oluşturmak için kullanın; yalnızca aynı adları listelemek projenin yeni katkısını oluşturmaz.</p>
+<h2 id="10-turkiye-adaylar-kant-hipotez-ve-gerekli-analiz">10. Türkiye adayları: kanıt, hipotez ve gerekli analiz</h2>
+<h3 id="101-nemrut-kalderas-arazi-ve-rota-testi-aday">10.1. Nemrut kalderası — arazi ve rota testi adayı</h3>
+<p><strong>NASA’da doğrulanan temel:</strong> Bitlis/Tatvan yakınındaki, Van Gölü kıyısındaki volkanik Nemrut; kaldera, lav yüzeyleri, mevsimsel kar ve göl içerir. NASA açıklaması lav bileşiminde bazalttan obsidiyene çeşitlilik olduğunu belirtiyor. Adıyaman’daki heykelli Nemrut Dağı ile karıştırılmamalı. Kullanılan açıklama 2009 tarihli ve fotoğraf 3 Aralık 2008’e ait; bugünkü yüzey/kar durumu için yeni veri gerekir. <a href="https://eol.jsc.nasa.gov/Collections/EarthObservatory/articles/MountNemrutTurkey.htm">NASA/JSC Nemrut</a></p>
+<p><strong>Sınanacak hipotez:</strong> Kalderanın belirli sırt, yamaç ve taban koridorları; seçilmiş bir Ay güney kutbu koridoruyla, büyük ölçekli eğim/rölyef ve düşük açılı görüş koşulları bakımından karşılaştırılabilir.</p>
+<p><strong>Gerekli veri:</strong> NASADEM; güncel HLS yüzey maskeleri; uygun ECOSTRESS/MODIS sıcaklık gözlemleri; Ay tarafında LOLA ve LROC. Mineral iddiası eklenirse EMIT kapsamı ve mineral tanımlama kalitesi ayrıca kontrol edilmeli.</p>
+<p><strong>Analiz önerisi:</strong> Göl ve bitki örtüsünü maskeleyin; kaldera içini tek AOI saymak yerine birkaç ayrı arazi birimine bölün. Eğim histogramlarını, 100–1000 m ölçeklerinde rölyefi ve DEM tabanlı ufuk engellenmesini karşılaştırın. Yağış ve suyla şekillenme etkilerini farklar paneline yazın.</p>
+<p><strong>Test fikri:</strong> Aynı robotik navigasyon algoritmasını farklı gölge ve eğim koridorlarında sınamak. Bu çalışma Ay yerçekiminde çekişi veya vakumda donanım dayanımını doğrulamaz.</p>
+<p><strong>Mevcut kanıt düzeyi:</strong> NASA’da yer şekli/jeoloji açıklaması var; bu araştırmada sayısal analog eşleşmesi hesaplanmadı. Ay kutup buzunun veya kesin benzer litolojinin kanıtı yok.</p>
+<h3 id="102-tuz-golu-kuruma-ve-tuzlu-yuzey-surecleri-aday">10.2. Tuz Gölü — kuruma ve tuzlu yüzey süreçleri adayı</h3>
+<p><strong>NASA’da doğrulanan temel:</strong> İç Anadolu’daki tuzlu gölde su alanı zamana göre değişiyor; NASA Earth Observatory, Landsat temelli uzun dönem kuruma araştırmasını açıklıyor. 2021’deki durum, 2026’nın güncel su/zemin durumu gibi kullanılmamalı. <a href="https://science.nasa.gov/earth/earth-observatory/disappearing-lake-tuz-149211/">NASA Disappearing Lake Tuz</a></p>
+<p><strong>Sınanacak hipotez:</strong> Gölün belirli kuru kıyı veya taban kesimleri, Mars’taki eski tuzlu çökelme/kuruma ortamlarını incelemek ve spektral yüzey tarama yöntemlerini sınamak için yararlı olabilir.</p>
+<p><strong>Gerekli veri:</strong> Mevsimsel HLS; EMIT varsa mineral ürünleri; MODIS/ECOSTRESS; IMERG veya POWER ile bölgesel bağlam. Mars tarafında hedefi mineral kanıtıyla tanımlanmış küçük bir çökel alanı olarak seçin.</p>
+<p><strong>Analiz önerisi:</strong> Su, ıslak zemin, tuz kabuğu ve bitkili kıyı alanlarını farklı sınıflar olarak ele alın. Birden fazla ay ve yılda kararlılığı inceleyin. “Beyaz piksel” doğrudan aynı mineral anlamına gelmez; yüzey yansıtımı ve mineral kanıtı birlikte gerekçelendirilmeli.</p>
+<p><strong>Test fikri:</strong> Tuzlu yüzey örnekleme planı, spektral tarama ve yanlış pozitifleri ayırt etme. Kabuk üstünde araç hareketinin uygunluğu uydu verisiyle onaylanamaz; taşıma gücü ve koruma izinleri saha konusu olarak açık bırakılmalı.</p>
+<p><strong>Mevcut kanıt düzeyi:</strong> NASA’da çevresel/su değişimi temeli var; Mars mineralojisiyle sayısal eşleşme bu araştırmada doğrulanmadı. Gölün bütününü steril, sürekli kuru veya erişime açık saymayın.</p>
+<h3 id="103-salda-yeni-kesif-degil-bilinen-karslastrma-sahas">10.3. Salda — yeni keşif değil, bilinen karşılaştırma sahası</h3>
+<p><strong>NASA’da doğrulanan temel:</strong> NASA’nın Salda saha anlatımı karbonat sedimentleri, mikrobiyalitler, teraslar ve delta/yelpaze süreçlerini Jezero araştırmasıyla ilişkilendiriyor. Bu ilişki, örnekleme ve eski çevre yorumu için güçlü bir bilimsel dayanak sağlar. <a href="https://science.nasa.gov/blogs/earth-matters/2021/02/17/what-a-lake-in-turkey-can-tell-us-about-mars/">NASA Salda saha çalışması</a></p>
+<p><strong>TerraTwin’de rolü:</strong> Bilinen bir analog için sisteminizin hangi boyutlarda eşleşme üretebildiğini ve hangi boyutlarda düşük benzerlik göstermesi gerektiğini sınamak. Salda’yı yalnızca sıcaklığı veya rengi üzerinden eşleştiren bir sistem, önemli jeolojik ilişkiyi kaçırabilir.</p>
+<p><strong>Özgün katkı ihtimali:</strong> Bütün gölü işaretlemek yerine, kıyıdaki belirli küçük alanları bilimsel amaçlarına göre ayırmak; yansıtım, su durumu ve varsa mineral göstergeleriyle gerekçelendirmek. Bu mikroalanların daha önce çalışılmadığı ayrıca kanıtlanmadan “keşfedilmemiş analog” denemez.</p>
+<p><strong>Sınır:</strong> Uydudan karbonat göstergesi görmek yaşam kanıtı değildir. Korunması gereken yüzeyler üzerinde fiziksel test önerisi, bilimsel benzerlikten otomatik olarak çıkmaz. <a href="https://science.nasa.gov/photojournal/lake-salda-beach/">NASA Salda kıyısı açıklaması</a></p>
+<h3 id="104-kapadokya-asnms-tuf-arazisi-ve-navigasyon-aday">10.4. Kapadokya — aşınmış tüf arazisi ve navigasyon adayı</h3>
+<p><strong>NASA’da doğrulanan temel:</strong> NASA Earth Observatory; volkanik külün tüfe dönüşmesini, rüzgâr ve suyla aşınmış şekilleri, insan yapımı oyulmuş mekânları açıklıyor. Kullanılan Landsat görüntüsü tarihsel; güncel koşullar için HLS gerekir. <a href="https://science.nasa.gov/earth/earth-observatory/goreme-national-park-turkey-38876/">NASA Göreme</a></p>
+<p><strong>Sınanacak hipotez:</strong> Belirli vadiler, aşınmış yüzey geometrisini yorumlama veya karmaşık arazide görsel navigasyon için yararlı olabilir. Hedef Mars süreci, malzemesi ve ölçeği ayrıca seçilmeli.</p>
+<p><strong>Sınır:</strong> Tüf, bazalt değildir. İnsan eliyle oyulmuş yeraltı mekânı, doğal lav tüpü değildir. Kapadokya’yı doğrudan “Ay lav tüpü üssü analoğu” diye etiketlemeyin.</p>
+<h3 id="105-bu-asamada-neden-daha-cok-turkiye-ad-eklemiyorum">10.5. Bu aşamada neden daha çok Türkiye adı eklemiyorum?</h3>
+<p>Kula, Karapınar/Meke veya başka volkanik alanlar ileride incelenebilir. Ancak bu araştırmada onlar için NASA kaynaklarından yeterli doğrudan dayanak doğrulanmadığından, doğrulanmış katalog satırı üretmedim. Bir yerin az bilinir olması, bilimsel eşleşmenin kanıtı değildir. Önce NASA gözlem kapsamı ve özellik çıkarımıyla adaylığını sınayın.</p>
+<h2 id="11-kuresel-genisleme-icin-uc-aday-arastrma-hatt">11. Küresel genişleme için üç aday araştırma hattı</h2>
+<p>Bu bölümdeki <strong>coğrafya/jeoloji açıklamaları NASA kaynaklıdır</strong>; belirli hedeflerle eşleştirme önerileri benim hipotezlerimdir. Alanların dünyada ilk kez analog olarak önerildiği iddia edilmiyor.</p>
+<h3 id="111-harrat-khaybar-suudi-arabistan">11.1. Harrat Khaybar, Suudi Arabistan</h3>
+<p>NASA’nın 2024 Landsat 9 açıklaması, lav ve kül yüzeylerinin belirgin renk/jeoloji farklarını gösteriyor. <a href="https://science.nasa.gov/earth/earth-observatory/white-and-black-volcanoes-of-saudi-arabia-152839/">NASA Harrat Khaybar</a></p>
+<p><strong>Soru:</strong> Seçilmiş lav akış birimleri, Ay mare veya Mars bazalt sahaları için yüzey şekli/mineral ayrımı ve rota planlama testine uygun mu? NASADEM + HLS + varsa EMIT ile farklı malzemeleri ayırın. Açık renkli ve koyu renkli volkanik birimleri aynı bazalt etiketi altında toplamayın. Aktif jeolojik risk ve saha erişimi ayrıca araştırılmalı.</p>
+<h3 id="112-el-pinacate-meksika">11.2. El Pinacate, Meksika</h3>
+<p>NASA, alandaki maar kraterlerinin magma–yeraltı suyu etkileşimiyle oluştuğunu açıklıyor. <a href="https://science.nasa.gov/earth/earth-observatory/pinacate-biosphere-reserve-3923/">NASA Pinacate</a></p>
+<p><strong>Soru:</strong> Belirli bir maarın morfometrisi, seçilmiş Ay krateriyle yalnızca geometri ve navigasyon açısından karşılaştırılabilir mi? Çap/derinlik oranı, duvar eğimi ve yaklaşım koridorları ölçülebilir. Oluşum mekanizması çarpma olmadığı için “aynı krater jeolojisi” iddiası kurulamaz. Korunan alan statüsündeki araziye ilişkin deney erişimi ayrıca doğrulanmalı.</p>
+<h3 id="113-makgadikgadi-botsvana">11.3. Makgadikgadi, Botsvana</h3>
+<p>NASA açıklaması, eski gölün kalıntısı tuz düzlüklerini ve mevsimsel ekolojik önemini ortaya koyuyor. <a href="https://science.nasa.gov/earth/earth-observatory/makgadikgadi-salt-pans-92394/">NASA Makgadikgadi</a></p>
+<p><strong>Soru:</strong> Farklı kuruma durumları ve yüzey mineral göstergeleri, eski Mars göl tabanlarının yorumuna yararlı bir süreç analoğu oluşturabilir mi? Büyük alanı tek etiketlemek yerine doğal düzlükleri, su/bitki alanlarını ve insan yapımı tuz üretim yüzeylerini ayırın. Mevsimsel su varlığı, buranın bütünüyle cansız olduğu anlamına gelmez. <a href="https://science.nasa.gov/earth/earth-observatory/salty-botswana-145216/">NASA doğal ve yapay tuz yüzeyleri ayrımı</a></p>
+<h2 id="12-onerilen-analiz-yontemi-nasa-standard-degildir">12. Önerilen analiz yöntemi — NASA standardı değildir</h2>
+<p>Bu bölümdeki ağırlıklar, eşikler ve formüller bir <strong>uygulama tasarımı önerisi</strong>dir. NASA tarafından onaylanmış analog puanlama standardı olarak sunulmamalı. Puanlama ancak gerçek ürünler indirildikten, kalite denetiminden geçirildikten ve özellikler hesaplandıktan sonra sonuç üretir.</p>
+<h3 id="121-once-hedef-ve-deney-amacn-sabitleyin">12.1. Önce hedef ve deney amacını sabitleyin</h3>
+<p>Her analiz kaydında şunlar yazılı olmalı:</p>
+<ul>
+<li>Hedef cisim ve adlandırılmış analiz poligonu.</li>
+<li>Deney: örneğin rota planlama, mineral örnekleme veya buz radar yorumu.</li>
+<li>Ölçülen değişkenler, birimleri ve karşılaştırma ölçekleri.</li>
+<li>Hedefin veri tarihi, sürümü ve kalite maskeleri.</li>
+<li>Analizden beklenmeyen fiziksel doğrulamalar: örneğin Dünya saha testi düşük yerçekimini temsil etmiyor.</li>
+</ul>
+<p>Bir “Ay profili” ve “Mars profili” yeterli ayrıntı sağlamaz. “Ay güney kutbu / 500 m tabanda arazi hareketliliği” gibi açık profil daha denetlenebilir.</p>
+<h3 id="122-karslastrma-ozellikleri">12.2. Karşılaştırma özellikleri</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Boyut</th>
+<th>Önerilen özellikler</th>
+<th>Uygun veri</th>
+<th>Yorum</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Topografya</td>
+<td>Eğim dağılımı, rölyef, düzleme göre artıklar</td>
+<td>DEM</td>
+<td>Aynı fiziksel pencere ve etkin çözünürlük gerekir</td>
+</tr>
+<tr>
+<td>Yüzey malzemesi</td>
+<td>Güvenilir mineral sınıfları, bant derinliği, çıplak yüzey oranı</td>
+<td>EMIT / CRISM / HLS</td>
+<td>Sınıf sözlüğü ve algılama sınırları gerekli</td>
+</tr>
+<tr>
+<td>Isıl durum</td>
+<td>Uyumlu saatte LST dağılımı, mevsimsel değişim</td>
+<td>MODIS / ECOSTRESS / Diviner / Mars termal ürünleri</td>
+<td>Aynı fiziksel büyüklük ve ölçüm koşulu karşılaştırılmalı</td>
+</tr>
+<tr>
+<td>Su/buz bağlamı</td>
+<td>Açık su süresi, kar varlığı, yeraltı buzuna ilişkin kanıt türü</td>
+<td>HLS ve uygun kar ürünleri / SWIM / radar</td>
+<td>Kar, açık su ve gömülü buz ayrı değişkenler</td>
+</tr>
+<tr>
+<td>Arazi şekli</td>
+<td>Krater oranları, drenaj/yelpaze düzeni, sırt dizileri</td>
+<td>DEM ve görüntü</td>
+<td>Benzer şekil, aynı oluşum mekanizması demek değildir</td>
+</tr>
+<tr>
+<td>Operasyon</td>
+<td>Rota uzunluğu, çıkış, görüş, veri kapsamı</td>
+<td>Türetilmiş GIS</td>
+<td>Donanım sınırları ve saha izinleri ayrı ele alınır</td>
+</tr>
+</tbody>
+</table></div>
+<p>Mutlak yüksekliği doğrudan eşleştirmeyin: Dünya’da 2000 m rakım ile Mars areoidine göre 2000 m yüksekliğin atmosfer/enerji anlamı aynı değildir. Benzer biçimde çıplak yüzey oranı, yaşam yokluğu ölçümü değildir.</p>
+<h3 id="123-basit-ve-acklanabilir-puanlama">12.3. Basit ve açıklanabilir puanlama</h3>
+<p>Sayısal bir özellik için isteğe bağlı benzerlik fonksiyonu:</p>
+<pre><code class="language-text">s_j = exp(-0.5 * ((x_earth,j - x_target,j) / tau_j)^2)
+</code></pre>
+<p>Burada <code>tau_j</code>, deney açısından anlamlı fark ölçeğidir. Bunu aday kümesinin en küçük/en büyük değerlerinden rastgele üretmek yerine görev amacına göre belirleyin ve duyarlılık analizi yapın. “Normal dağılım kanıtlandı” varsayımı bu formülün kullanılmasından otomatik olarak çıkmaz.</p>
+<p>Dağılımlar için yalnızca ortalama farkı yerine yüzdelikler veya histogram uzaklıkları kullanılabilir. Kategorik mineraller için güvenilir ortak sınıfların uyumu değerlendirilebilir. Spektral karşılaştırmada aynı dalga boyu aralığı, maskeleme ve spektral tepki uyumu gerekir; iki RGB görüntüsünün renk uzaklığı mineral benzerliğinin yerine geçmez.</p>
+<p>Boyut puanı:</p>
+<pre><code class="language-text">S = sum(w_j * q_j * a_j * s_j) / sum(w_j * q_j * a_j)
+C = sum(w_j * a_j) / sum(w_j)
+Q = sum(w_j * a_j * q_j) / sum(w_j * a_j)
+</code></pre>
+<p><code>a_j</code> veri geçerli/mevcut göstergesi, <code>q_j</code> belgelenmiş kalite katsayısı, <code>w_j</code> göreve özgü önemdir. <code>S</code> benzerlik, <code>C</code> kapsam, <code>Q</code> kalite özeti olarak ayrı gösterilir. Sıfır payda durumunda puan üretmeyin. Kalite katsayısını kanıtsız bir uzman hissine dönüştürmeyin; kuralları yazılı tutun.</p>
+<p>Eksik boyutları paydadan çıkarmak, az verili adayı gereğinden iyi gösterebilir. Bu nedenle zorunlu boyut, asgari kapsam ve yeterli gözlem sayısı koşullarını önceden tanımlayın. Yetersiz veri durumunda sıralamayı kapatıp “araştırma gerekli” gösterin. Bir duyarlılık görünümü, eksik özellikler için iyimser/kötümser varsayımlarda sıralamanın nasıl değiştiğini açıklayabilir; bunlar ölçüm değil senaryodur.</p>
+<h3 id="124-agrlklar-nasl-belirlenebilir">12.4. Ağırlıklar nasıl belirlenebilir?</h3>
+<p>İlk prototipte yüzdeler vermek zorunlu değil. Kullanıcıya deney amacını seçtirip sadece ilgili boyutları karşılaştırmak daha savunulabilir. Ağırlık istenirse başlangıç tasarımı şöyle olabilir:</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Deney amacı</th>
+<th>Yüksek önem</th>
+<th>Orta önem</th>
+<th>Sonuç dışı veya ayrı gösterilecek</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ay kutbu rota/navigasyon</td>
+<td>Eğim, rölyef, gölge/ufuk</td>
+<td>Bloklu yüzey ve erişim</td>
+<td>Dünya atmosferiyle termal dayanım doğrulaması</td>
+</tr>
+<tr>
+<td>Eski Mars göl süreçleri</td>
+<td>Jeoloji/mineral, çökel şekilleri</td>
+<td>Kuruma rejimi ve yüzey açıklığı</td>
+<td>Güncel Mars yaşamı veya üs inşaat güvenliği</td>
+</tr>
+<tr>
+<td>Gömülü buz araştırması</td>
+<td>Buz kanıt türü, örtü, radar kalitesi</td>
+<td>Arazi ve örnekleme erişimi</td>
+<td>Uydu haritasından doğrudan su üretim miktarı</td>
+</tr>
+</tbody>
+</table></div>
+<p>Kullanıcının ağırlığı değiştirmesine izin verirseniz, sıralamanın ne kadar değiştiğini gösterin. Değişkenlerin birbirini tekrar etmesini azaltın: eğim, rölyef ve pürüzlülük yüksek korelasyonlu olduğunda üç bağımsız güçlü kanıtmış gibi ödüllendirmeyin.</p>
+<h3 id="125-tek-bir-saha-yerine-tamamlayc-saha-paketi">12.5. Tek bir saha yerine tamamlayıcı saha paketi</h3>
+<p>Bir deney programı üç farklı sahada farklı özellikleri sınayabilir: lav yüzeyinde navigasyon, tuz düzlüğünde örnekleme, soğuk ortamda ekip operasyonu. Bu yaklaşım, bir araziyi bütün koşullarda “en iyi” ilan etme zorunluluğunu azaltır.</p>
+<p>Ürün fikri olarak, seçilen deneylerin gerektirdiği özellikleri en az sayıda sahayla kapsayan bir saha paketi önerilebilir. Bu ekibinizin geliştirebileceği optimizasyon yaklaşımıdır; bu araştırmada çözülmüş bir sonuç değildir.</p>
+<h2 id="13-karslastrmay-bozabilecek-teknik-hatalar">13. Karşılaştırmayı bozabilecek teknik hatalar</h2>
+<h3 id="131-koordinat-sistemleri">13.1. Koordinat sistemleri</h3>
+<p>Ay ve Mars koordinatlarını WGS84 Dünya koordinatı gibi işlemeyin. Cisim, referans çerçevesi, projeksiyon, gezegen yarıçapı, doğu/batı boylam yönü, boylam aralığı ve yükseklik referansını dosya etiketinden okuyun. Mars’ta planetosentrik/planetografik enlem farkını da kontrol edin. Hata, haritada küçük görünüp eşleştirmeyi yanlış araziye kaydırabilir. <a href="https://pds-geosciences.wustl.edu/missions/mgs/mola.html">MOLA koordinat bilgisi</a>, <a href="https://pgda.gsfc.nasa.gov/products/81">LOLA PGDA referansı</a></p>
+<h3 id="132-cozunurluk-ve-yeniden-ornekleme">13.2. Çözünürlük ve yeniden örnekleme</h3>
+<p>Bir MOLA gridini 30 m’ye büyütmek, 30 m arazi bilgisi üretmez. CTX görüntüsü küçük şekilleri gösterebilir ama tek görüntüden aynı ölçekte güvenilir eğim çıktığı varsayılamaz. DEM türevlerini, veri çözünürlüğünün desteklediği pencerelerde hesaplayın.</p>
+<p>Sayısal katmanlarda uygun filtreleme ve yeniden örnekleme seçin; kategorik mineral/maske sınıflarını bilinear yöntemle karıştırmayın. Her özellik ailesinin kendi karşılaştırma ölçeği olabilir. Tüm katmanları tek ızgaraya büyütüp eşit bilgi taşıdıklarını varsaymak zorunda değilsiniz.</p>
+<h3 id="133-olcek-secimi">13.3. Ölçek seçimi</h3>
+<p>“3 × 3 piksel pürüzlülük” 5 m LOLA’da 15 m, 30 m Dünya DEM’inde 90 m, 463 m MOLA’da yaklaşık 1,4 km alanı ifade eder. Böyle üç ölçümü aynı değişkenmiş gibi karşılaştırmayın. Pencereleri metreyle tanımlayın; çözünürlük değişimine duyarlılığı kaydedin.</p>
+<h3 id="134-bulutlar-golgeler-su-ve-eksik-veri">13.4. Bulutlar, gölgeler, su ve eksik veri</h3>
+<p>Bulut ve gölge, koyu renkli mineral veya soğuk zemin gibi görünerek yanlış eşleşme üretebilir. Tüm kalite kontrollerini skordan önce uygulayın. <code>NoData</code>, <code>-9999</code> ve su/kar maskelerini bilimsel değer gibi işlemeyin. Dünya’daki geçici karı Ay gömülü buzu diye eşlemeyin.</p>
+<h3 id="135-birim-ve-buyukluk-karsklklar">13.5. Birim ve büyüklük karışıklıkları</h3>
+<p>LST ile 2 m hava sıcaklığı; radyans ile yansıtım; parlaklık sıcaklığı ile yüzey sıcaklığı; termal atalet ile gün-gece sıcaklık farkı; aerosol optik derinliği ile yüzey toz tane boyutu farklıdır. Etiketlerde birim, ölçek çarpanı ve ofset açık tutulmalı. Her ürün için kendi metadata/kılavuzunu kullanın; bütün NASA rasterlerine tek bir çarpan uygulamayın.</p>
+<h3 id="136-tarih-ve-mevsim">13.6. Tarih ve mevsim</h3>
+<p>Mars güneş boylamı/mevsimi ile Dünya takvim ayı aynı şey değildir. Yerel saat, mevsim, gün uzunluğu ve gözlem açısını eşleştirme gerekçenize ekleyin. Değişmeyen arazi topografyasında eski ölçüm yararlı olabilir; 2021 su görüntüsüyle 2026 kıyı durumuna karar vermek aynı güvene sahip değildir.</p>
+<h3 id="137-nedensellik-ve-fizik">13.7. Nedensellik ve fizik</h3>
+<p>Maar, kaldera ve çarpma krateri benzer geometriler taşıyabilir; oluşum süreçleri farklıdır. Dünya’daki mağara testi navigasyonu sınayabilir; Ay mağarasının stabilitesini doğrulamaz. Dünya sahası tam vakum, düşük yerçekimi veya uzay radyasyonu sağlamaz. Bu sınırlamaları bir dipnota gizlemek yerine aday kartının parçası yapın.</p>
+<h2 id="14-veriye-erisim-ve-tekrarlanabilir-calsma-aks">14. Veriye erişim ve tekrarlanabilir çalışma akışı</h2>
+<h3 id="141-en-hzl-resmi-araclar">14.1. En hızlı resmî araçlar</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>İhtiyaç</th>
+<th>Araç</th>
+<th>Çıktı</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dünya koleksiyonu/sahnesi bulma</td>
+<td><a href="https://search.earthdata.nasa.gov/">Earthdata Search</a></td>
+<td>Ürün, sürüm, alan ve tarih kapsamı</td>
+</tr>
+<tr>
+<td>Ön görsel inceleme</td>
+<td><a href="https://worldview.earthdata.nasa.gov/">Worldview</a></td>
+<td>Katman ve tarih bağlamı</td>
+</tr>
+<tr>
+<td>Programatik metadata arama</td>
+<td><a href="https://cmr.earthdata.nasa.gov/search/site/docs/search/api.html">CMR Search API</a></td>
+<td>Koleksiyon ve granül kayıtları</td>
+</tr>
+<tr>
+<td>Ay katmanları ve ölçümleri</td>
+<td><a href="https://trek.nasa.gov/moon/">Moon Trek</a></td>
+<td>Yükseklik profili, eğim/aydınlatma araçları</td>
+</tr>
+<tr>
+<td>Mars katmanları</td>
+<td><a href="https://trek.nasa.gov/mars/">Mars Trek</a></td>
+<td>Katman keşfi ve bölgesel karşılaştırma</td>
+</tr>
+<tr>
+<td>Görev arşivi</td>
+<td><a href="https://pds.nasa.gov/">PDS</a></td>
+<td>Bilim ürünü, etiket ve dokümantasyon</td>
+</tr>
+<tr>
+<td>NASA meteoroloji bağlamı</td>
+<td><a href="https://power.larc.nasa.gov/docs/tutorials/service-data-request/api/">POWER API kılavuzu</a></td>
+<td>Nokta/bölge zaman serileri</td>
+</tr>
+</tbody>
+</table></div>
+<p>Moon Trek; yükseklik profili, eğim, Güneş açısı ve görüş doğrultusu gibi araçlar sunuyor. Haritadaki her katman NASA kökenli değildir; kaynağı metadata üzerinden seçin. Trek arayüzü kullanmak, bütün girdilerin NASA verisi olduğu anlamına gelmez. <a href="https://trek.nasa.gov/moon/">Moon Trek araçları</a>, <a href="https://trek.nasa.gov/tiles/apidoc/index.html">Trek katman API’si</a></p>
+<h3 id="142-koleksiyonu-surumune-gore-bulun">14.2. Koleksiyonu sürümüne göre bulun</h3>
+<p>Aşağıdaki URL örnekleri bir erişim tarifidir; bu araştırmada çalıştırılmış veri sorgusu veya indirilen ölçüm değildir:</p>
+<pre><code class="language-text">https://cmr.earthdata.nasa.gov/search/collections.json?short_name=NASADEM_HGT&amp;version=001&amp;page_size=10
+https://cmr.earthdata.nasa.gov/search/collections.json?short_name=HLSL30&amp;version=002&amp;page_size=10
+https://cmr.earthdata.nasa.gov/search/collections.json?short_name=EMITL2BMIN&amp;page_size=20
+</code></pre>
+<p>Önce dönüşteki koleksiyon kimliğini ve sürümünü doğrulayın. Sonra ilgili koleksiyon için <code>granules</code> sorgusunda alan, tarih ve kalite/kapsam bilgilerini inceleyin. Bir katalog kaydının mevcut olması, seçtiğiniz küçük poligonda geçerli veri olduğu anlamına gelmez. Kamuya açık metadata araması ile bilim dosyası indirmek farklı adımlardır; birçok Earthdata indirmesi hesap gerektirir. <a href="https://cmr.earthdata.nasa.gov/search/site/docs/search/api.html">CMR API resmî dokümantasyon</a>, <a href="https://hls.gsfc.nasa.gov/data-access-and-tools/">HLS erişim koşulu</a></p>
+<h3 id="143-her-girdi-icin-kaynak-kayd">14.3. Her girdi için kaynak kaydı</h3>
+<p>Önerilen asgari kayıt şeması:</p>
+<pre><code class="language-json">{
+  &quot;source_agency&quot;: &quot;NASA or NASA joint product&quot;,
+  &quot;mission&quot;: null,
+  &quot;instrument&quot;: null,
+  &quot;product_short_name&quot;: null,
+  &quot;product_version&quot;: null,
+  &quot;collection_concept_id_or_pds_lidvid&quot;: null,
+  &quot;granule_or_product_id&quot;: null,
+  &quot;observation_start_utc&quot;: null,
+  &quot;observation_end_utc&quot;: null,
+  &quot;release_date&quot;: null,
+  &quot;accessed_at_utc&quot;: null,
+  &quot;doi_or_source_url&quot;: null,
+  &quot;body&quot;: null,
+  &quot;crs_and_reference_frame&quot;: null,
+  &quot;nominal_pixel_spacing_m&quot;: null,
+  &quot;effective_resolution_note&quot;: null,
+  &quot;unit_scale_offset&quot;: null,
+  &quot;quality_mask_rule&quot;: null,
+  &quot;valid_fraction_in_aoi&quot;: null,
+  &quot;processing_steps&quot;: [],
+  &quot;file_sha256&quot;: null
+}
+</code></pre>
+<p>Bu boş alanlar ölçüm değeri değildir. İndirme ve işleme tamamlandığında doldurulmalı. Özellikle <code>product_version</code> ve gözlem tarihini yalnızca ürün sayfasının son güncelleme tarihinden türetmeyin.</p>
+<h3 id="144-isleme-sras">14.4. İşleme sırası</h3>
+<ol>
+<li>Araştırma sorusunu ve karşılaştırılan iki poligonu tanımlayın.</li>
+<li>Kaynak, sürüm, kapsam ve kullanım kılavuzlarını sabitleyin.</li>
+<li>Bilim dosyalarını ve kalite/metadata dosyalarını birlikte alın.</li>
+<li>Maskeleri uygulayın; uygun karşılaştırma ölçeğini seçin.</li>
+<li>Özellikleri her cisim için doğru projeksiyonda hesaplayın.</li>
+<li>Özellikleri ve veri kapsamını karşılaştırın.</li>
+<li>Benzerlik, belirsizlik, kapsam ve operasyonel uygunluğu ayrı sunun.</li>
+<li>Bilinen analog ve olumsuz karşılaştırmayla yöntemi sınayın.</li>
+<li>İşlem adımlarını, parametreleri ve dosya özetlerini arşivleyin.</li>
+</ol>
+<h2 id="15-dogrulama-bir-haritann-bilimsel-iddiasn-nasl-savunursunuz">15. Doğrulama: bir haritanın bilimsel iddiasını nasıl savunursunuz?</h2>
+<h3 id="151-kant-duzeyi-etiketleri">15.1. Kanıt düzeyi etiketleri</h3>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Etiket</th>
+<th>Anlamı</th>
+<th>Örnek</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Görev gözlemi</td>
+<td>NASA görevinin kalibre verisi</td>
+<td>Seçilmiş bir sahnedeki ölçüm</td>
+</tr>
+<tr>
+<td>NASA türetilmiş ürün</td>
+<td>Belirli algoritmadan geçmiş bilim katmanı</td>
+<td>DEM veya işlenmiş mineral ürünü</td>
+</tr>
+<tr>
+<td>NASA bilim açıklaması</td>
+<td>Resmî yazıda aktarılan ilişki</td>
+<td>Salda–Jezero bağlamı</td>
+</tr>
+<tr>
+<td>Bizim türettiğimiz özellik</td>
+<td>Ekibin koduyla hesaplanan değer</td>
+<td>Seçilmiş AOI’de eğim yüzdelikleri</td>
+</tr>
+<tr>
+<td>Hipotez</td>
+<td>Henüz sınanmamış eşleştirme</td>
+<td>Nemrut koridorunun kutup rotasına yararı</td>
+</tr>
+<tr>
+<td>Eksik / doğrulanmadı</td>
+<td>Gerekli veri yok veya kontrol edilmedi</td>
+<td>Saha taşıma gücü, izin, mineral eşleşmesi</td>
+</tr>
+</tbody>
+</table></div>
+<p>Bu etiketler tek bir doğruluk sırası değildir; farklı kanıt türlerini gösterir. NASA’nın veri sağlaması, ekibin hipotezini onayladığı anlamına gelmez.</p>
+<h3 id="152-bilinen-ve-olumsuz-karslastrmalar">15.2. Bilinen ve olumsuz karşılaştırmalar</h3>
+<p>Salda–Jezero karşılaştırmasında yöntemin jeoloji/çökel boyutunda anlamlı ilişki bulabilmesi beklenebilir; ancak hangi özellikleri kullandığınıza bağlıdır. Yalnızca DEM kullanan sistemin biyoişaret potansiyelini keşfettiğini söylemeyin.</p>
+<p>Olumsuz karşılaştırma olarak, benzer renkli ama farklı jeolojik süreçli bir yüzey seçilebilir. Bir başka kontrol: yalnızca eğim bakımından benzeyen fakat yoğun bitki örtüsü taşıyan Dünya sahasının, çıplak zemin robot testi için nasıl elendiğini göstermek. Kontrol seçiminde hedef sonucu garantileyecek etiketleme yapmayın.</p>
+<h3 id="153-belirsizlik-ve-saglamlk-denemeleri">15.3. Belirsizlik ve sağlamlık denemeleri</h3>
+<ul>
+<li>AOI sınırını makul ölçüde değiştirince sonuç değişiyor mu?</li>
+<li>Aynı yeri başka mevsimde incelerken benzerlik korunuyor mu?</li>
+<li>DEM’i desteklenen daha kaba ölçekte işleyince sıralama değişiyor mu?</li>
+<li>Ağırlıkları değiştirince ilk adaylar yer değiştiriyor mu?</li>
+<li>Düşük kaliteli bir mineral gözlemi çıkarılınca sonuç sürüyor mu?</li>
+<li>Aynı bilgiyi tekrarlayan özellikler azaltılınca sonuç kararlı mı?</li>
+</ul>
+<p>Bir pikseli bağımsız deney gibi saymayın: komşu pikseller mekânsal olarak ilişkilidir. Belirsizlik hesabında mekânsal bloklama veya ayrı bölgeler kullanmak daha uygundur. Makine öğrenmesi eklenirse, aynı sahanın komşu piksellerini hem eğitim hem teste koymak genelleme başarısını abartabilir. Önce açıklanabilir temel yöntemle ilerlemek, küçük hackathon veri kümesinde daha kolay denetlenebilir.</p>
+<h2 id="16-terratwin-icin-somut-urun-onerisi">16. TerraTwin için somut ürün önerisi</h2>
+<p>Bu, resmî görev gereksinimlerinden türetilmiş bağımsız bir tasarım önerisidir; başka bir takımın uygulaması temel alınmadı.</p>
+<p><strong>Ana akış:</strong> Kullanıcı hedef alanı ve deney amacını seçer → Dünya adayları görünür → bir adayda neden eşleştiği, hangi verilerle değerlendirildiği ve nerede benzemediği açılır.</p>
+<p><strong>Aday kartında bulunması gerekenler:</strong></p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Alan</th>
+<th>Gösterilecek içerik</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hedef ve amaç</td>
+<td>Örneğin Ay güney kutbu / rota planlama</td>
+</tr>
+<tr>
+<td>İncelenen mikroalan</td>
+<td>İsim, poligon, karşılaştırma ölçeği</td>
+</tr>
+<tr>
+<td>Boyut bazında sonuç</td>
+<td>Arazi, malzeme, termal, su/buz; yalnızca hesaplananlar</td>
+</tr>
+<tr>
+<td>Kanıt</td>
+<td>Kullanılan sahne ve ürün kimliği, tarih, kaynak</td>
+</tr>
+<tr>
+<td>Kapsam</td>
+<td>Geçerli piksel/gözlem oranı ve eksik boyutlar</td>
+</tr>
+<tr>
+<td>Benzerliğin sınırı</td>
+<td>Farklı süreç, atmosfer, yerçekimi veya malzeme</td>
+</tr>
+<tr>
+<td>Deney önerisi</td>
+<td>Bu sahada hangi yöntemin sınanabileceği</td>
+</tr>
+<tr>
+<td>Saha hazırlığı</td>
+<td>Erişim/koruma/zemin güvenliği bilgisi doğrulanmadıysa açık etiket</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Önerilen görsel:</strong> Solda seçilmiş Ay/Mars hedefi, sağda Dünya mikroalanı; altta aynı fiziksel ölçekle eğim dağılımları ve kaynak kartları. Araziyi 3B gösterebilirsiniz, fakat düşey abartıyı açıkça yazın. Radar grafiği kullanılacaksa eksik boyutu sıfır benzerlik gibi çizmekten kaçının; boş/eksik gösterin.</p>
+<p>“Yeni analog keşfi” iddiası için tüm literatürde bulunmadığını bu araştırma kanıtlamıyor. Daha doğru proje ifadesi: <strong>NASA verileriyle aday mikroalanlar buluyor, belirli deneyler açısından karşılaştırıyor ve doğrulama gerektirenleri gösteriyoruz.</strong></p>
+<h2 id="17-48-saatlik-uygulanabilir-calsma-plan">17. 48 saatlik uygulanabilir çalışma planı</h2>
+<p>Bu plan görev koşulu değil, kapsamı yönetmek için öneridir. Tam otomatik küresel arama ve bütün veri ailelerini aynı anda tamamlamaya çalışmak yerine, iki iyi belgelenmiş örnek üzerinden uçtan uca doğrulama hedeflenebilir.</p>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Süre</th>
+<th>Yapılacak iş</th>
+<th>Somut çıktı</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0–3 saat</td>
+<td>İki hedef/deney tanımı; NASA veri kapsamı sorgusu</td>
+<td>AOI’ler, kaynak listesi ve erişilebilir ürünler</td>
+</tr>
+<tr>
+<td>3–9 saat</td>
+<td>Küçük kesitleri indirme ve kalite denetimi</td>
+<td>Ham dosya + metadata + maske</td>
+</tr>
+<tr>
+<td>9–17 saat</td>
+<td>Eğim/rölyef ve yüzey durumu özellikleri</td>
+<td>Yeniden üretilebilir hesaplar</td>
+</tr>
+<tr>
+<td>17–25 saat</td>
+<td>Aday/karşılaştırma ve duyarlılık</td>
+<td>Kanıtlı sonuç tabloları; eksik veri işaretleri</td>
+</tr>
+<tr>
+<td>25–35 saat</td>
+<td>Harita ve aday açıklamaları</td>
+<td>Çalışan etkileşimli gösterim</td>
+</tr>
+<tr>
+<td>35–43 saat</td>
+<td>Bilinen analog, olumsuz kontrol, kaynak denetimi</td>
+<td>Sınırlamalar ve hata düzeltmeleri</td>
+</tr>
+<tr>
+<td>43–48 saat</td>
+<td>Demo ve kısa sunum</td>
+<td>Veri → yöntem → bulgu → kullanım zinciri</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Asgari bitirilebilir kapsam:</strong> Bir Ay arazi hedefi, Nemrut’ta birkaç küçük koridor, gerçek DEM özellikleri ve kaynak kartı. Mars tarafında Salda’yı resmî bilim bağlamıyla gösterip, ek nicel iddia ancak veri işlenmişse ekleyin. Tuz Gölü’nü ikinci aday olarak HLS mevsimselliğiyle incelemek mümkün olabilir. EMIT sahnesi yoksa mineral puanı uydurmak yerine o boyutu eksik bırakın.</p>
+<p><strong>Zaman kalırsa:</strong> Küresel aday taraması, EMIT–CRISM sınıf eşlemesi, kutupsal aydınlatma modeli, saha paketi optimizasyonu. Bunlar çalışır temel gösterimin önüne geçmemeli.</p>
+<h2 id="18-sunumda-kullanlabilecek-ve-kacnlacak-ifadeler">18. Sunumda kullanılabilecek ve kaçınılacak ifadeler</h2>
+<div class="table-wrap"><table>
+<thead>
+<tr>
+<th>Kaçının</th>
+<th>Kanıta uygun ifade</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>“NASA üs için bu koordinatı seçti.”</td>
+<td>“Güncel NASA açıklaması güney kutbu bölgesini hedefliyor; biz bu AOI’yi analiz için seçtik.”</td>
+</tr>
+<tr>
+<td>“Nemrut Ay’ın yüzde 94 aynısı.”</td>
+<td>“Bu AOI, bu çözünürlükte, seçilen arazi özellikleri açısından şu sonuçları veriyor.”</td>
+</tr>
+<tr>
+<td>“Salda’yı Mars analoğu olarak keşfettik.”</td>
+<td>“NASA’nın bilinen Salda–Jezero ilişkisini karşılaştırma örneği olarak kullandık.”</td>
+</tr>
+<tr>
+<td>“Tuz Gölü’nde Mars’taki aynı mineraller var.”</td>
+<td>“Bu mineral sınıflarına ilişkin uzaktan algılama göstergelerini araştırıyoruz; eşleşme doğrulama gerektiriyor.”</td>
+</tr>
+<tr>
+<td>“MOLA ile kaya tehlikelerini bulduk.”</td>
+<td>“MOLA’yı bölgesel topografya için kullandık; yerel tehlikeler daha yüksek çözünürlüklü veri gerektiriyor.”</td>
+</tr>
+<tr>
+<td>“SWIM mavi alanı çıkarılabilir su rezervidir.”</td>
+<td>“Bu katman, tanımlı derinlik aralığında buzla tutarlılık kanıtını gösteriyor.”</td>
+</tr>
+<tr>
+<td>“Bu mağarada güvenle üs kurulabilir.”</td>
+<td>“Yeraltı araştırma yöntemleri için aday; stabilite ve erişim doğrulanmadı.”</td>
+</tr>
+<tr>
+<td>“Tüm NASA verileri 2026’da çekildi.”</td>
+<td>“Erişim/sürüm durumu 14 Kasım 2026’da kontrol edildi; ölçüm tarihleri ürün bazında belirtiliyor.”</td>
+</tr>
+</tbody>
+</table></div>
+<p>Önerilen kısa anlatım:</p>
+<blockquote>
+<p>TerraTwin, Ay ve Mars keşif deneyleri için Dünya’daki aday arazileri NASA gözlemleriyle araştırır. Her öneri, hangi özelliklerde benzerlik bulunduğunu, hangi verilerin kullanıldığını ve analojinin nerede geçersiz olduğunu gösterir. Amaç, araştırmacılara saha testini tasarlarken izlenebilir bir başlangıç sunmaktır.</p>
+</blockquote>
+<h2 id="19-ack-kalan-sorular-ve-arastrmann-snrlar">19. Açık kalan sorular ve araştırmanın sınırları</h2>
+<ol>
+<li>Nemrut/Tuz Gölü için belirli AOI’lerde EMIT V2’nin geçerli sahne kapsamı henüz bu çalışmada sorgulanıp indirilmedi.</li>
+<li>Gerçek DEM, spektral veya sıcaklık dosyaları indirilip sayısal özellik/benzerlik hesaplanmadı; adaylar sonuç değil hipotezdir.</li>
+<li>Dünya mikroalanlarının bugün sahaya giriş, koruma, jeoteknik güvenlik veya araç testi bakımından uygun olduğu doğrulanmadı.</li>
+<li>“Literatürde ilk kez” veya “daha önce hiçbir ekip önermedi” iddiası kurulmadı. Başka takımların materyalleri kaynak olarak kullanılmadı.</li>
+<li>Görev sayfasının ayrıntıları ve Resources sekmesi araştırma aracıyla açılmadığından resmî sayfa tarayıcıdan okunarak doğrulandı. Bazı Earthdata ürün sayfaları erişim kısıtı verdi; bu durumlarda resmî NASA katalog kayıtları ve DAAC personel duyuruları kullanıldı.</li>
+<li>Büyük Moon Base PDF’si araştırma aracının boyut sınırını aştı; raporda o PDF’den doğrulanmamış ayrıntı kullanılmadı. Üs bağlamı NASA’nın erişilebilen güncel sayfalarına dayanıyor.</li>
+<li>NASA arşivindeki üniversite/DAAC sunucuları, başka yarışma takımları değildir. PDS Geosciences gibi resmî NASA arşiv düğümleri bu araştırmanın kaynak kapsamına dâhildir.</li>
+<li>NASA ortak ürünlerinde diğer ajans girdileri olabilir: HLS, NASA’nın Landsat ve Sentinel-2’den işlediği üründür; ASTER ve NISAR da ortak görev/ürün bağlamı taşır. Bunlar bağımsız takım verisi değildir; kökenleri arayüzde açık yazılmalı.</li>
+</ol>
+<h2 id="20-once-okunacak-kaynaklar">20. Önce okunacak kaynaklar</h2>
+<p>Okuma önceliği, bu rapordaki kaynakların tamamının önüne geçmez; hızlı ekip paylaşımı içindir.</p>
+<ol>
+<li><a href="https://www.spaceappschallenge.org/2026/challenges/permanent-moon-base-locations-and-mars/?tab=details">Resmî görev — Details</a></li>
+<li><a href="https://www.spaceappschallenge.org/2026/challenges/permanent-moon-base-locations-and-mars/?tab=resources">Resmî görev — Resources</a></li>
+<li><a href="https://www.nasa.gov/moon-base-frequently-asked-questions/">NASA Moon Base FAQ</a></li>
+<li><a href="https://www.nasa.gov/reference/moonbase-environment/">NASA Lunar South Pole Environment</a></li>
+<li><a href="https://pgda.gsfc.nasa.gov/products/90">NASA PGDA kutup topografyası</a></li>
+<li><a href="https://pds-geosciences.wustl.edu/missions/lro/diviner.htm">NASA Diviner arşivi ve kalite notları</a></li>
+<li><a href="https://hls.gsfc.nasa.gov/data-access-and-tools/">HLS ürün ve erişim bilgisi</a></li>
+<li><a href="https://forum.earthdata.nasa.gov/viewtopic.php?sid=dae91c5ef96f336491803c0490ce9060&amp;t=8322">EMIT Ekim 2026 yeni sürüm duyurusu</a></li>
+<li><a href="https://science.nasa.gov/solar-system/analog-explorer/">NASA Analog Explorer</a></li>
+<li><a href="https://science.nasa.gov/blogs/earth-matters/2021/02/17/what-a-lake-in-turkey-can-tell-us-about-mars/">NASA Salda saha anlatımı</a></li>
+<li><a href="https://www.nasa.gov/solar-system/planets/mars/nasa-is-locating-ice-on-mars-with-this-new-map/">NASA SWIM açıklaması</a></li>
+<li><a href="https://cmr.earthdata.nasa.gov/search/site/docs/search/api.html">NASA CMR API</a></li>
+</ol>
+<p>Bu dosyadaki bütün bağlantıların tekilleştirilmiş listesi aynı klasördeki <code>kaynaklar.json</code> dosyasındadır. Teknik ürün özeti <code>veri_katalogu.json</code> içinde bulunur. Hiçbiri indirilen bilim verisinin yerine geçmez.</p></main></div></body></html>
