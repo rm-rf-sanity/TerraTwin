@@ -18,6 +18,5 @@ desktop.ini
 # Private local authentication state (Windows-protected; never publish)
 .local/
 
-# Locally built bundles (regenerate instead of committing)
-TerraTwin.html
+# Locally built zip bundle (regenerate instead of committing)
 TerraTwin-site.zip
