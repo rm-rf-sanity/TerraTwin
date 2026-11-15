@@ -275,15 +275,22 @@
 
   /* ---------- arayüz ---------- */
   const MARK = '<svg viewBox="0 0 34 20" aria-hidden="true"><circle cx="11" cy="10" r="8"/><circle cx="23" cy="10" r="8"/></svg>';
-  const root = el('div', 'ttc');
+  /* Sayfada #guide-mount varsa rehber o bölümün içinde hep açık durur; yoksa sağ altta açılır pencere olur. */
+  const MOUNT = document.getElementById('guide-mount'), INLINE = Boolean(MOUNT);
+  const root = el('div', INLINE ? 'ttc ttc--inline' : 'ttc');
   root.id = 'tt-chat';
-  root.innerHTML = `
+  const head = INLINE ? `
+    <div class="ttc-panel ui ui-app" id="ttc-panel" role="region" aria-labelledby="ttc-title">
+      <div class="ttc-head">
+        <div><p class="ttc-mode${REMOTE ? ' is-ai' : ''}"><i></i><span></span></p><p class="ttc-title" id="ttc-title"></p></div>
+      </div>` : `
     <button type="button" class="ttc-launch" aria-expanded="false" aria-controls="ttc-panel">${MARK}<span></span></button>
     <section class="ttc-panel" id="ttc-panel" role="dialog" aria-labelledby="ttc-title" hidden>
       <header class="ttc-head">
         <div><p class="ttc-mode${REMOTE ? ' is-ai' : ''}"><i></i><span></span></p><h2 class="ttc-title" id="ttc-title"></h2></div>
         <button type="button" class="ttc-close">×</button>
-      </header>
+      </header>`;
+  root.innerHTML = head + `
       <div class="ttc-log" role="log" aria-live="polite" tabindex="0"></div>
       <div class="ttc-suggest"></div>
       <form class="ttc-form">
@@ -292,8 +299,8 @@
         <button type="submit">↑</button>
       </form>
       <p class="ttc-note"></p>
-    </section>`;
-  document.body.appendChild(root);
+    ${INLINE ? '</div>' : '</section>'}`;
+  (MOUNT || document.body).appendChild(root);
   const ui = {
     launch: $('.ttc-launch', root), panel: $('.ttc-panel', root), log: $('.ttc-log', root), suggest: $('.ttc-suggest', root),
     form: $('.ttc-form', root), input: $('#ttc-input', root), send: $('.ttc-form button', root), close: $('.ttc-close', root)
@@ -310,14 +317,14 @@
 
   function relabel() {
     const L = S();
-    $('span', ui.launch).textContent = L.launch;
+    if (ui.launch) $('span', ui.launch).textContent = L.launch;
     $('.ttc-title', root).textContent = L.title;
     $('.ttc-mode span', root).textContent = REMOTE ? L.modeAi : L.modeLocal;
     $('.ttc-note', root).textContent = REMOTE ? L.noteAi : L.noteLocal;
     $('.ttc-sr', root).textContent = L.inputLabel;
     ui.input.placeholder = L.placeholder;
     ui.send.setAttribute('aria-label', L.send);
-    ui.close.setAttribute('aria-label', L.close);
+    if (ui.close) ui.close.setAttribute('aria-label', L.close);
     if (!ui.suggest.hidden) renderSuggestions();
     const hello = $('.ttc-hello', ui.log);
     if (hello) hello.textContent = L.hello;
@@ -510,20 +517,26 @@
   }
 
   function toggle(open) {
+    if (INLINE) { if (open) { greet(); loadAnalysis(); } return; }
     state.open = open;
     root.classList.toggle('is-open', open);
     ui.panel.hidden = !open;
     ui.launch.setAttribute('aria-expanded', String(open));
     if (open) {
-      if (!state.greeted) { state.greeted = true; addMsg('bot').append(el('p', 'ttc-hello', S().hello)); renderSuggestions(); }
+      greet();
       loadAnalysis();
       ui.input.focus();
     } else ui.launch.focus();
   }
 
-  ui.launch.addEventListener('click', () => toggle(true));
-  ui.close.addEventListener('click', () => toggle(false));
-  root.addEventListener('keydown', (ev) => { if (ev.key === 'Escape' && state.open) { ev.stopPropagation(); toggle(false); } });
+  function greet() {
+    if (state.greeted) return;
+    state.greeted = true; addMsg('bot').append(el('p', 'ttc-hello', S().hello)); renderSuggestions();
+  }
+
+  if (ui.launch) ui.launch.addEventListener('click', () => toggle(true));
+  if (ui.close) ui.close.addEventListener('click', () => toggle(false));
+  if (!INLINE) root.addEventListener('keydown', (ev) => { if (ev.key === 'Escape' && state.open) { ev.stopPropagation(); toggle(false); } });
   ui.form.addEventListener('submit', (ev) => { ev.preventDefault(); submit(ui.input.value); });
   ui.input.addEventListener('keydown', (ev) => { if (ev.key === 'Enter' && !ev.shiftKey && !ev.isComposing) { ev.preventDefault(); submit(ui.input.value); } });
   ui.input.addEventListener('input', () => { ui.input.style.height = ''; ui.input.style.height = Math.min(ui.input.scrollHeight, 120) + 'px'; });
@@ -532,6 +545,8 @@
     if (lang !== state.lang) { state.lang = lang; relabel(); }
   });
   relabel();
+  /* Yerel modda bölüm boş kalmasın: ilk açılışta örnek bir soru-cevap gösterilir (uzak modda API çağrısı yapılmaz). */
+  if (INLINE) { state.open = true; greet(); loadAnalysis(); if (!REMOTE) { addMsg('user').textContent = S().suggestions[1]; state.history.push({ role: 'user', content: S().suggestions[1] }); answerLocal(S().suggestions[1]); ui.log.scrollTop = 0; } }
 
   /* Ara sunucudaki bilgi metnini yenilemek için: konsolda copy(TTChat.knowledge('en')) */
   window.TTChat = {

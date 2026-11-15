@@ -42,14 +42,18 @@ Python kurulu olmayan Windows makinelerde aynı işi PowerShell yapar (adres: <h
 powershell -ExecutionPolicy Bypass -File .claude\serve.ps1
 ```
 
+## Tasarım
+
+Site, `.claude/skills/taste-skill` tasarım kitiyle kuruldu: `assets/` kitin sayfanın kullandığı parçaları (sistem CSS/JS, hareket katmanı, hero, iki kaydırma anı ve hero penceresindeki `silk-folds` efekti), `site/page.css` sitenin kendi bileşenlerinin (atlas penceresi, ağırlık gezgini, analiz paneli, katalog, rehber) stilidir. `assets/` altındaki kit dosyaları elle düzenlenmez. Fotoğraf kaynakları `credits.html` sayfasındadır.
+
 ## Site rehberi (sohbet botu)
 
-Sayfanın sağ altındaki **Soru sor** düğmesi TerraTwin Rehberi’ni açar. Rehber yalnızca bu projeyle ilgili soruları yanıtlar; konu dışı soruları geri çevirir. İki modu vardır:
+TerraTwin Rehberi sayfanın **Rehber** bölümünde (#rehber) hep açık durur. Rehber yalnızca bu projeyle ilgili soruları yanıtlar; konu dışı soruları geri çevirir. İki modu vardır:
 
 - **Site içi arama (varsayılan):** Hesap, anahtar veya sunucu gerektirmez. Soruyu sitedeki metinlerle (bölümler, 21 saha, veri kataloğu, yöntem, pilot analiz özeti) eşleştirir ve ilgili içeriği gösterir. Yapay zeka değildir; pencere başlığında bu açıkça yazar.
 - **Yapay zeka (Claude):** `site/chat-config.js` içindeki `endpoint` doluysa sorular bir ara sunucu üzerinden Claude’a gider. Ara sunucu API anahtarını tarayıcıdan gizler, modele yalnızca TerraTwin hakkında ve yalnızca sitedeki içeriğe dayanarak yanıt verme kuralını uygular. Yapay zeka yanıt veremezse rehber kendiliğinden site içi aramaya döner.
 
-Dosyalar: `site/chat.js`, `site/chat.css`, `site/chat-config.js` ve `worker/terratwin-chat-worker.js`. Rehber `site/data.js` dosyasına dokunmaz; kendi arayüz metinlerini `site/chat.js` içinde taşır.
+Dosyalar: `site/chat.js`, `site/chat.css`, `site/chat-config.js` ve `worker/terratwin-chat-worker.js`. Sayfada `#guide-mount` yoksa rehber sağ altta açılan pencereye döner. Rehber `site/data.js` dosyasına dokunmaz; kendi arayüz metinlerini `site/chat.js` içinde taşır.
 
 ### Yapay zeka modunu açma
 

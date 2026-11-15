@@ -7,14 +7,17 @@
   document.documentElement.classList.add('js');
 
   const announce = () => document.dispatchEvent(new CustomEvent('terratwin:state', { detail: { lang: state.lang, profile: state.mProfile, mission: state.mission, site: state.site } }));
-  const state = { lang: 'tr', profile: 'all', cats: { nasa: true, test: true, hypo: true, note: true }, site: 'haughton', mProfile: 'base', mission: 0, body: 'all' };
+  const state = { lang: 'tr', profile: 'all', cats: { nasa: true, test: true, hypo: true, note: true }, site: 'haughton', mProfile: 'base', mission: 0, body: 'earth' };
   const t = (o) => (o && typeof o === 'object' && 'tr' in o ? o[state.lang] : o);
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const num = (n, d) => n.toFixed(d).replace('.', state.lang === 'tr' ? ',' : '.');
 
   /* ---------- dil ---------- */
   const i18nNodes = $$('[data-i18n]');
-  i18nNodes.forEach((n) => { n._tr = n.innerHTML; });
+  i18nNodes.forEach((n) => { n._tr = n.innerHTML; n._lang = 'tr'; });
+  /* aria-label çevirisi: data-i18n-aria="anahtar" */
+  const ariaNodes = $$('[data-i18n-aria]');
+  ariaNodes.forEach((n) => { n._trAria = n.getAttribute('aria-label') || ''; });
   try {
     const saved = localStorage.getItem('tt-lang');
     if (saved === 'tr' || saved === 'en') state.lang = saved;
@@ -23,14 +26,18 @@
 
   function applyLang() {
     i18nNodes.forEach((n) => {
+      /* Dil değişmediyse dokunma: kaydırma anlarının kelimelere eklediği işaretler korunur. */
+      if (n._lang === state.lang) return;
       const en = D.en[n.dataset.i18n];
       n.innerHTML = state.lang === 'en' && en != null ? en : n._tr;
+      n._lang = state.lang;
     });
     document.documentElement.lang = state.lang;
     document.title = state.lang === 'en'
-      ? 'TerraTwin — Earth’s twins of the Moon base and of Mars'
-      : 'TerraTwin — Ay üssünün ve Mars\'ın Dünya\'daki ikizleri';
+      ? 'TerraTwin: Earth analog atlas for Moon and Mars'
+      : 'TerraTwin: Ay ve Mars için Dünya analog atlası';
     $$('.lang button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.lang === state.lang)));
+    ariaNodes.forEach((n) => { const en = D.en[n.dataset.i18nAria]; n.setAttribute('aria-label', state.lang === 'en' && en != null ? en : n._trAria); });
     const dn = $('#docs-note'); if (dn) dn.hidden = state.lang !== 'en';
     renderLegend(); renderList(); renderCard(); renderWeights(true); renderCatalog(); updateMap(); mapLabels(); announce();
   }
@@ -142,6 +149,11 @@
     const el = $('#site-list'); if (!el) return;
     el.innerHTML = D.sites.map((s) => `<button type="button" data-id="${s.id}" class="${visible(s) ? '' : 'off'}" aria-pressed="${s.id === state.site}">${glyph(s.cat)}<span>${esc(t(s.name))}</span></button>`).join('');
     $$('button', el).forEach((b) => b.addEventListener('click', () => selectSite(b.dataset.id, true)));
+    const pick = $('#site-select');
+    if (pick) {
+      pick.innerHTML = D.sites.filter(visible).map((s) => `<option value="${s.id}"${s.id === state.site ? ' selected' : ''}>${esc(t(s.name))}</option>`).join('');
+      if (!pick._wired) { pick._wired = true; pick.addEventListener('change', () => selectSite(pick.value, false)); }
+    }
   }
 
   function dots(v) {
@@ -160,7 +172,6 @@
     const photo = ph ? `
       <figure class="sc-photo">
         <img src="${esc(ph.src)}" width="${ph.w}" height="${ph.h}" alt="${esc(t(ph.cap))}"${ph.pos ? ` style="object-position:${esc(ph.pos)}"` : ''} loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.parentNode.hidden=true">
-        <figcaption>${esc(t(ph.cap))} · <a href="${esc(ph.page)}" target="_blank" rel="noopener">${esc(ph.artist)}, ${esc(lic)} ↗</a></figcaption>
       </figure>` : '';
     el.innerHTML = `${photo}
       <p class="sc-cat mono">${glyph(s.cat)}<span>${esc(t(D.cats[s.cat].label))}</span></p>
@@ -267,8 +278,8 @@
       rowsEl.innerHTML = P.criteria.map((c) => `
         <div class="w-row">
           <span class="w-code">${c.code}</span>
-          <span class="w-name">${esc(t(c.name))}</span>
-          <span class="w-meta"><b>${esc(t(c.data))}</b>${esc(t(c.earth))}</span>
+          <span class="w-name">${esc(t(c.name))}<b>${esc(t(c.data))}</b></span>
+          <span class="w-meta">${esc(t(c.earth))}</span>
           <span class="w-track"><span class="w-bar"></span></span>
           <span class="w-val"></span>
         </div>`).join('');
@@ -290,7 +301,7 @@
   function renderCatalog() {
     const seg = $('#body-seg'), tbl = $('#catalog'); if (!seg || !tbl) return;
     const U = D.ui, count = (b) => (b === 'all' ? D.datasets.length : D.datasets.filter((d) => d.b === b).length);
-    seg.innerHTML = ['all', 'earth', 'moon', 'mars'].map((b) => `<button type="button" data-b="${b}" aria-pressed="${b === state.body}">${esc(t(U.bodies[b]))} · ${count(b)}</button>`).join('');
+    seg.innerHTML = ['earth', 'moon', 'mars'].map((b) => `<button type="button" data-b="${b}" aria-pressed="${b === state.body}">${esc(t(U.bodies[b]))} · ${count(b)}</button>`).join('');
     $$('button', seg).forEach((b) => b.addEventListener('click', () => { state.body = b.dataset.b; renderCatalog(); }));
     const rows = D.datasets.filter((d) => state.body === 'all' || d.b === state.body);
     const loc = (s) => (state.lang === 'en' ? String(s).replace(/(\d),(\d)/g, '$1.$2') : s);
@@ -317,8 +328,9 @@
   window.TerraTwinState = () => ({ lang: state.lang, profile: state.mProfile, mission: state.mission, site: state.site });
 
   /* ---------- başlat ---------- */
-  $('#st-sites').textContent = D.sites.length;
-  $('#st-datasets').textContent = D.datasets.length;
+  const stS = $('#st-sites'), stD = $('#st-datasets');
+  if (stS) stS.textContent = D.sites.length;
+  if (stD) stD.textContent = D.datasets.length;
   lastW = window.innerWidth;
   initMap();
   applyLang();
