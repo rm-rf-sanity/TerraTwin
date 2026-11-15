@@ -15,6 +15,7 @@ NASA Space Apps 2026 için Dünya’daki Ay ve Mars analoglarını araştıran i
 - Araştırma notlarından ayrı hesaplanmış sonuçlar; alan, eğim, iklim ve skor harita görünümleri.
 - JSON, CSV ve Dünya alanları için GeoJSON dışa aktarımı.
 - Türkçe/İngilizce, mobil görünüm, klavye ile kullanım.
+- Yalnızca TerraTwin içeriğiyle ilgili soruları yanıtlayan site rehberi (sohbet penceresi); anahtarsız site içi arama ve isteğe bağlı Claude modu.
 
 **Bilimsel kapsam:** Bu pilot sınırlı alanlarda arazi şekillerini karşılaştırır. 500 m örnekleme aralığı kaynakların etkin çözünürlüğünü eşitlemez. NDVI yalnızca kaliteyi geçen iki alanda kullanılır; Salda için EMIT mineral bağlamı ve ASTERv3 işlenmiştir. Altı gece ışığı gözlemi kalite eşiğini geçmediği için skor girdisi değildir. Mineral eşleşmesi, yeraltı buzu ve hedef termal analizi tamamlanmadığından tam analog uygunluğu doğrulanmış değildir. Görev skorları varsa kısmi operasyonel ön elemedir; NASA onayı, iniş güvenliği veya saha erişim izni değildir. Başarısız kontroller sonuçlardan çıkarılmaz.
 
@@ -34,6 +35,35 @@ python -m http.server 5173 --bind 127.0.0.1
 ```
 
 Tarayıcı: <http://127.0.0.1:5173/>. Sitede gösterilen sonuçlar `site/analysis-results.json` dosyasından okunur; sayfayı açmak her ziyaretçi için yeniden uydu verisi indirmez.
+
+Python kurulu olmayan Windows makinelerde aynı işi PowerShell yapar (adres: <http://localhost:5173/>):
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .claude\serve.ps1
+```
+
+## Site rehberi (sohbet botu)
+
+Sayfanın sağ altındaki **Soru sor** düğmesi TerraTwin Rehberi’ni açar. Rehber yalnızca bu projeyle ilgili soruları yanıtlar; konu dışı soruları geri çevirir. İki modu vardır:
+
+- **Site içi arama (varsayılan):** Hesap, anahtar veya sunucu gerektirmez. Soruyu sitedeki metinlerle (bölümler, 21 saha, veri kataloğu, yöntem, pilot analiz özeti) eşleştirir ve ilgili içeriği gösterir. Yapay zeka değildir; pencere başlığında bu açıkça yazar.
+- **Yapay zeka (Claude):** `site/chat-config.js` içindeki `endpoint` doluysa sorular bir ara sunucu üzerinden Claude’a gider. Ara sunucu API anahtarını tarayıcıdan gizler, modele yalnızca TerraTwin hakkında ve yalnızca sitedeki içeriğe dayanarak yanıt verme kuralını uygular. Yapay zeka yanıt veremezse rehber kendiliğinden site içi aramaya döner.
+
+Dosyalar: `site/chat.js`, `site/chat.css`, `site/chat-config.js` ve `worker/terratwin-chat-worker.js`. Rehber `site/data.js` dosyasına dokunmaz; kendi arayüz metinlerini `site/chat.js` içinde taşır.
+
+### Yapay zeka modunu açma
+
+1. [Anthropic Console](https://platform.claude.com/) üzerinde bir API anahtarı oluşturun ve hesabınıza aylık harcama sınırı koyun.
+2. Cloudflare panelinde **Workers & Pages → Create → Worker** ile boş bir Worker oluşturun, **Edit code** ekranında örnek kodu silip `worker/terratwin-chat-worker.js` dosyasının tamamını yapıştırın ve **Deploy** edin.
+3. Worker’ın **Settings → Variables and Secrets** bölümünde `ANTHROPIC_API_KEY` adıyla bir **Secret** ekleyin. İsteğe bağlı: `ALLOWED_ORIGINS` (sitenin adresi; boşsa her adresten istek kabul edilir) ve `MODEL`.
+4. Worker adresini (`https://…workers.dev`) `site/chat-config.js` içindeki `endpoint` alanına yazın.
+5. Kontrol: Worker adresini tarayıcıda açınca `{"service":"terratwin-chat","configured":true}` görünmelidir.
+
+Varsayılan model `claude-opus-5-5`’tir; `MODEL=claude-haiku-5-5` çok daha ucuzdur. Ara sunucu her adres için 10 dakikada 20 soru sınırı uygular; bu sınır en iyi çabayla çalışır, asıl güvence Anthropic hesabındaki harcama sınırıdır. API anahtarını hiçbir zaman `site/` altındaki dosyalara yazmayın.
+
+### İçerik değişince
+
+Ara sunucu sitedeki içeriğin bir kopyasını taşır. `data/content.json` veya analiz sonuçları değiştiğinde siteyi yerelde açın, rehber penceresini bir kez açın, tarayıcı konsolunda `copy(TTChat.workerKnowledge())` çalıştırın, kopyalanan metni `worker/terratwin-chat-worker.js` içindeki `KNOWLEDGE_START` ve `KNOWLEDGE_END` satırları arasına yapıştırın ve Worker’ı yeniden yayınlayın. Site içi arama modu için bir şey yapmak gerekmez; içeriği sayfadan okur.
 
 ## Korunan dosyaları işleme ortamı
 

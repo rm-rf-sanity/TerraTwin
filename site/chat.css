@@ -1,0 +1,91 @@
+/* TerraTwin Rehberi — sohbet penceresi. Renk ve yazı değişkenleri styles.css içindeki :root'tan gelir. */
+.ttc { position: fixed; right: 20px; bottom: 20px; z-index: 60; font-family: var(--sans); }
+.ttc [hidden] { display: none !important; }
+
+.ttc-launch {
+  display: inline-flex; align-items: center; gap: 10px; height: 48px; padding: 0 20px 0 16px;
+  background: var(--ink); color: var(--d-text); border: 1px solid rgba(236, 230, 214, .28); border-radius: 999px;
+  font: 500 .92rem/1 var(--sans); box-shadow: 0 10px 28px rgba(18, 21, 23, .28);
+  transition: transform .2s, border-color .2s;
+}
+.ttc-launch:hover { transform: translateY(-1px); border-color: var(--oxide-soft); }
+.ttc-launch svg { width: 30px; height: 18px; fill: none; stroke-width: 1.6; }
+.ttc-launch svg circle:first-child { stroke: var(--lunar-soft); }
+.ttc-launch svg circle:last-child { stroke: var(--oxide-soft); }
+.ttc.is-open .ttc-launch { display: none; }
+
+.ttc-panel {
+  position: fixed; right: 20px; bottom: 20px; display: flex; flex-direction: column;
+  width: min(410px, calc(100vw - 32px)); height: min(640px, calc(100svh - var(--nav-h) - 40px));
+  background: var(--paper); color: var(--text); border: 1px solid var(--ink); border-radius: 6px; overflow: hidden;
+  box-shadow: 0 24px 60px rgba(18, 21, 23, .34);
+}
+
+.ttc-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; padding: 14px 14px 13px 18px; background: var(--ink); color: var(--d-text); }
+.ttc-mode { display: flex; align-items: center; gap: 7px; margin: 0 0 3px; font: 500 .6rem/1.5 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--d-muted); }
+.ttc-mode i { flex: none; width: 6px; height: 6px; border-radius: 50%; background: var(--d-muted); }
+.ttc-mode.is-ai i { background: var(--oxide-soft); }
+.ttc-title { margin: 0; font: 400 1.55rem/1.1 var(--serif); letter-spacing: .01em; }
+.ttc-close { flex: none; width: 34px; height: 34px; display: grid; place-items: center; background: none; border: 1px solid var(--d-line); border-radius: 50%; color: var(--d-text); font-size: 1.15rem; line-height: 1; }
+.ttc-close:hover { border-color: var(--d-text); }
+
+.ttc-log { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 16px 16px 6px; display: flex; flex-direction: column; gap: 12px; }
+.ttc-msg { max-width: 92%; font-size: .9rem; line-height: 1.55; overflow-wrap: anywhere; }
+.ttc-msg p, .ttc-msg ul, .ttc-msg ol { margin: 0; }
+.ttc-msg > * + * { margin-top: 8px; }
+.ttc-msg ul, .ttc-msg ol { padding-left: 18px; }
+.ttc-msg ul { list-style: disc; }
+.ttc-msg ol { list-style: decimal; }
+.ttc-msg li + li { margin-top: 4px; }
+.ttc-msg a { color: var(--oxide); text-underline-offset: 2px; }
+.ttc-msg code { font: .82em var(--mono); background: var(--paper-2); padding: 1px 4px; border-radius: 2px; }
+
+.ttc-user { align-self: flex-end; background: var(--ink); color: var(--d-text); padding: 9px 13px; border-radius: 14px 14px 3px 14px; white-space: pre-wrap; }
+.ttc-bot { align-self: flex-start; background: rgba(255, 255, 255, .42); border: 1px solid var(--line); border-left: 2px solid var(--oxide); border-radius: 3px; padding: 11px 13px 12px; }
+.ttc-bot.is-pending { color: var(--muted); border-left-color: var(--paper-3); }
+.ttc-bot.is-pending::after { content: "…"; animation: ttc-blink 1.1s steps(3, end) infinite; }
+@keyframes ttc-blink { 0% { opacity: .2; } 50% { opacity: 1; } 100% { opacity: .2; } }
+
+.ttc-notice { font: 500 .62rem/1.5 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.ttc-a-kicker { font: 500 .6rem/1.5 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.ttc-a-title { font: 400 1.3rem/1.15 var(--serif); margin-top: 2px !important; }
+.ttc-a-sub { color: var(--muted); font-size: .84rem; margin-top: 2px !important; }
+.ttc-a-block h4 { margin: 0 0 2px; font: 500 .6rem/1.5 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.ttc-chips { display: flex; flex-wrap: wrap; gap: 5px; }
+.ttc-chips span { font: 500 .64rem/1 var(--mono); letter-spacing: .04em; padding: 5px 7px; border: 1px solid var(--line); border-radius: 3px; }
+.ttc-actions { display: flex; flex-wrap: wrap; gap: 6px 14px; }
+.ttc-actions a, .ttc-actions button { background: none; border: 0; padding: 0; font: 500 .82rem/1.4 var(--sans); color: var(--oxide); text-decoration: underline; text-underline-offset: 2px; }
+
+.ttc-suggest { flex: none; display: flex; gap: 6px; padding: 6px 16px 10px; overflow-x: auto; scrollbar-width: thin; }
+.ttc-suggest button { flex: none; white-space: nowrap; }
+.ttc-suggest button, .ttc-related button {
+  background: none; border: 1px solid var(--line); border-radius: 999px; padding: 6px 12px;
+  font: 400 .8rem/1.3 var(--sans); color: var(--text); text-align: left; transition: border-color .15s, background .15s;
+}
+.ttc-suggest button:hover, .ttc-related button:hover { border-color: var(--text); background: rgba(255, 255, 255, .5); }
+.ttc-related { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.ttc-related span { font: 500 .6rem/1.5 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+
+.ttc-form { display: flex; align-items: flex-end; gap: 8px; padding: 10px 12px 10px 16px; border-top: 1px solid var(--line); background: var(--paper-2); }
+.ttc-form textarea {
+  flex: 1; min-width: 0; max-height: 120px; resize: none; background: none; border: 0; padding: 8px 0;
+  font: 400 .92rem/1.45 var(--sans); color: var(--text);
+}
+.ttc-form textarea::placeholder { color: var(--muted); }
+.ttc-form textarea:focus { outline: none; }
+.ttc-form:focus-within { box-shadow: inset 0 2px 0 var(--oxide-soft); }
+.ttc-form button { flex: none; width: 38px; height: 38px; display: grid; place-items: center; background: var(--ink); color: var(--d-text); border: 0; border-radius: 50%; font-size: 1.05rem; line-height: 1; }
+.ttc-form button:disabled { opacity: .4; cursor: default; }
+.ttc-note { margin: 0; padding: 7px 16px 10px; background: var(--paper-2); color: var(--muted); font-size: .68rem; line-height: 1.45; }
+.ttc-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+@media (max-width: 620px) {
+  .ttc { right: 12px; bottom: 12px; }
+  .ttc-panel { right: 8px; left: 8px; bottom: 8px; width: auto; height: min(82svh, 640px); }
+  .ttc-form textarea { font-size: 1rem; } /* iOS, 16px altındaki alanlara odaklanınca sayfayı yakınlaştırır */
+}
+@media (prefers-reduced-motion: reduce) {
+  .ttc-launch { transition: none; }
+  .ttc-bot.is-pending::after { animation: none; }
+}
+@media print { .ttc { display: none; } }

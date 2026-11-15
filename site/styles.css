@@ -402,3 +402,10 @@ h2 em { font-style: italic; color: var(--oxide); }
 #map .analysis-sample:focus-visible { stroke: var(--ink); stroke-width: 3; }
 @media (max-width: 1020px) { .analysis-grid { grid-template-columns: 1fr; } .analysis-ranking { max-height: 330px; } }
 @media (max-width: 620px) { .analysis-toolbar { align-items: stretch; } .analysis-toolbar label, .analysis-toolbar select { width: 100%; min-width: 0; } .analysis-exports { margin-left: 0; flex-wrap: wrap; } .analysis-detail { padding: 14px; } }
+
+/* Atlas saha fotoğrafı */
+.sc-photo { margin: -24px -24px 18px; background: var(--ink-2); }
+.sc-photo img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; }
+.sc-photo figcaption { padding: 7px 24px 0; font-size: .7rem; line-height: 1.45; color: var(--d-muted); }
+.sc-photo figcaption a { color: var(--d-muted); text-underline-offset: 2px; }
+.sc-photo figcaption a:hover { color: var(--d-text); }

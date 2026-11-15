@@ -155,7 +155,14 @@
     const src = s.src
       ? `<a class="sc-src" href="${esc(s.src[1])}" target="_blank" rel="noopener">${esc(t(U.source))}: ${esc(s.src[0])} ↗</a>`
       : (s.doc ? `<a class="sc-src" href="${esc(s.doc)}">${esc(t(U.doc))} ↗</a>` : '');
-    el.innerHTML = `
+    const ph = window.TT_PHOTOS && window.TT_PHOTOS[s.id];
+    const lic = ph && (state.lang === 'en' ? ({ 'Kamu malı': 'Public domain', 'Atıf': 'Attribution' }[ph.license] || ph.license) : ph.license);
+    const photo = ph ? `
+      <figure class="sc-photo">
+        <img src="${esc(ph.src)}" width="${ph.w}" height="${ph.h}" alt="${esc(t(ph.cap))}" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.parentNode.hidden=true">
+        <figcaption>${esc(t(ph.cap))} · <a href="${esc(ph.page)}" target="_blank" rel="noopener">${esc(ph.artist)}, ${esc(lic)} ↗</a></figcaption>
+      </figure>` : '';
+    el.innerHTML = `${photo}
       <p class="sc-cat mono">${glyph(s.cat)}<span>${esc(t(D.cats[s.cat].label))}</span></p>
       <h3>${esc(t(s.name))}</h3>
       <p class="sc-loc">${esc(t(s.loc))}</p>
