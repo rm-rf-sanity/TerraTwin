@@ -46,6 +46,10 @@
 .ttc-bot.is-pending::after { content: "…"; animation: ttc-blink 1.1s steps(3, end) infinite; }
 @keyframes ttc-blink { 0% { opacity: .2; } 50% { opacity: 1; } 100% { opacity: .2; } }
 
+.ttc-photo { margin: -11px -13px 10px; }
+.ttc-photo img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; background: var(--paper-2); }
+.ttc-photo figcaption { padding: 6px 13px 0; font-size: .7rem; line-height: 1.45; color: var(--muted); }
+.ttc-photo figcaption a { color: var(--muted); text-underline-offset: 2px; }
 .ttc-notice { font: 500 .62rem/1.5 var(--mono); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
 .ttc-a-kicker { font: 500 .6rem/1.5 var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
 .ttc-a-title { font: 400 1.3rem/1.15 var(--serif); margin-top: 2px !important; }

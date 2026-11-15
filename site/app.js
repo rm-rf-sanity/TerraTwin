@@ -159,7 +159,7 @@
     const lic = ph && (state.lang === 'en' ? ({ 'Kamu malı': 'Public domain', 'Atıf': 'Attribution' }[ph.license] || ph.license) : ph.license);
     const photo = ph ? `
       <figure class="sc-photo">
-        <img src="${esc(ph.src)}" width="${ph.w}" height="${ph.h}" alt="${esc(t(ph.cap))}" loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.parentNode.hidden=true">
+        <img src="${esc(ph.src)}" width="${ph.w}" height="${ph.h}" alt="${esc(t(ph.cap))}"${ph.pos ? ` style="object-position:${esc(ph.pos)}"` : ''} loading="lazy" decoding="async" referrerpolicy="no-referrer" onerror="this.parentNode.hidden=true">
         <figcaption>${esc(t(ph.cap))} · <a href="${esc(ph.page)}" target="_blank" rel="noopener">${esc(ph.artist)}, ${esc(lic)} ↗</a></figcaption>
       </figure>` : '';
     el.innerHTML = `${photo}

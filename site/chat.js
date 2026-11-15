@@ -300,6 +300,12 @@
   };
 
   const scrollEnd = () => { ui.log.scrollTop = ui.log.scrollHeight; };
+  /* Uzun bir yanıtta okuma yanıtın başından başlasın; kısa yanıtlar yine en alta oturur. */
+  const showTop = (node) => {
+    if (!node || !node.isConnected) return;
+    const prev = node.previousElementSibling, anchor = prev && prev.classList.contains('ttc-user') ? prev : node;
+    ui.log.scrollTop = anchor.offsetTop - ui.log.offsetTop - 8;
+  };
   const narrow = () => window.matchMedia('(max-width: 620px)').matches;
 
   function relabel() {
@@ -363,8 +369,25 @@
     return frag;
   }
 
+  function renderPhoto(node, id) {
+    const ph = window.TT_PHOTOS && window.TT_PHOTOS[id];
+    if (!ph) return;
+    const fig = el('figure', 'ttc-photo'), img = el('img'), cap = el('figcaption'), a = el('a');
+    img.src = ph.src; img.width = ph.w; img.height = ph.h; img.alt = pick(ph.cap, state.lang);
+    img.decoding = 'async'; img.referrerPolicy = 'no-referrer';
+    if (ph.pos) img.style.objectPosition = ph.pos;
+    img.addEventListener('load', () => showTop(node));
+    img.addEventListener('error', () => fig.remove());
+    const lic = state.lang === 'en' ? ({ 'Kamu malı': 'Public domain', 'Atıf': 'Attribution' }[ph.license] || ph.license) : ph.license;
+    a.href = ph.page; a.target = '_blank'; a.rel = 'noopener noreferrer'; a.textContent = `${ph.artist}, ${lic} ↗`;
+    cap.append(`${pick(ph.cap, state.lang)} · `, a);
+    fig.append(img, cap);
+    node.append(fig);
+  }
+
   function renderPassage(node, p, related) {
     const L = S();
+    if (p.siteId) renderPhoto(node, p.siteId);
     if (p.section) node.append(el('p', 'ttc-a-kicker', p.section));
     node.append(el('p', 'ttc-a-title', p.title));
     if (p.sub) node.append(el('p', 'ttc-a-sub', p.sub));
@@ -393,7 +416,7 @@
     if (actions.childNodes.length) node.append(actions);
     if (related && related.length) {
       const r = el('div', 'ttc-related'); r.append(el('span', '', L.related));
-      related.forEach((h) => { const b = el('button', '', h.p.title); b.type = 'button'; b.addEventListener('click', () => { const n = addMsg('bot'); renderPassage(n, h.p); scrollEnd(); }); r.append(b); });
+      related.forEach((h) => { const b = el('button', '', h.p.title); b.type = 'button'; b.addEventListener('click', () => { const n = addMsg('bot'); renderPassage(n, h.p); showTop(n); }); r.append(b); });
       node.append(r);
     }
   }
@@ -415,12 +438,12 @@
       } else if (top && top.n >= 2 && top.cov >= .35) {
         text = L.unsure; node.append(el('p', '', text));
         const r = el('div', 'ttc-related');
-        hits.slice(0, 3).forEach((h) => { const b = el('button', '', h.p.title); b.type = 'button'; b.addEventListener('click', () => { const n = addMsg('bot'); renderPassage(n, h.p); scrollEnd(); }); r.append(b); });
+        hits.slice(0, 3).forEach((h) => { const b = el('button', '', h.p.title); b.type = 'button'; b.addEventListener('click', () => { const n = addMsg('bot'); renderPassage(n, h.p); showTop(n); }); r.append(b); });
         node.append(r);
       } else { text = L.offTopic; node.append(el('p', '', text)); renderSuggestions(); }
     }
     state.history.push({ role: 'assistant', content: text.slice(0, 1400) });
-    scrollEnd();
+    showTop(node);
   }
 
   async function askRemote(q) {
